@@ -1,7 +1,18 @@
-import type { NextConfig } from "next";
+// next.config.js
+const createNextIntlPlugin = require("next-intl/plugin");
 
-const nextConfig: NextConfig = {
-  /* config options here */
+// If request.ts is at /i18n/request.ts:
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  webpack(config: any) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+    return config;
+  },
 };
 
-export default nextConfig;
+module.exports = withNextIntl(nextConfig);
