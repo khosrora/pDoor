@@ -50,7 +50,7 @@ export default async function ProductDetailPage({ params }: Props) {
   // Filter tags
   const tags = specifications.filter((s: any) => s.display_section === "tag");
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 mt-40">
       <div className="flex flex-col lg:flex-row justify-between items-start gap-x-4 max-w-5xl m-auto">
         <div className="w-full lg:w-1/2">
           <GalleryImage images={images} />

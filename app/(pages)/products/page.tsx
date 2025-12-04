@@ -45,7 +45,7 @@ export default async function ProductsListingPage() {
   }
 
   return (
-    <div className="mb-12">
+    <div className="my-20">
       <div className="p-4 max-w-7xl m-auto">
         <Breadcrumbs />
       </div>
@@ -92,7 +92,7 @@ export default async function ProductsListingPage() {
                 <Link
                   key={product.slug}
                   href={`/products/${product.slug}`}
-                  className="card relative bg-base-100 border rounded-md border-zinc-300"
+                  className="card lg:w-[288px] lg:h-[304px] relative bg-base-100 border rounded-md border-zinc-300"
                 >
                   <figure>
                     <Image
@@ -100,7 +100,7 @@ export default async function ProductsListingPage() {
                       alt={product.name}
                       width={500}
                       height={500}
-                      className="w-full h-40 object-cover rounded-t-md"
+                      className="w-full h-[207px] object-cover rounded-t-md"
                     />
                   </figure>
 
