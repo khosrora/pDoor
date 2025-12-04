@@ -1,0 +1,96 @@
+"use client";
+
+import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
+
+type FormValues = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+export default function FormNews() {
+  const t = useTranslations("FormNews");
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<FormValues>();
+
+  const onSubmit = async (data: FormValues) => {
+    console.log(t("logMessage"), data);
+    // TODO: send to API
+    reset();
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full  p-4">
+      <p className="text-[25px] font-bold">دیدگاهتان را بنویسید</p>
+      {/* Message */}
+      <div className="flex flex-col gap-1">
+        {/* <label className="font-medium">{t("fields.messageLabel")}</label> */}
+        <textarea
+          placeholder={t("fields.messagePlaceholder")}
+          {...register("message", {
+            required: t("errors.messageRequired"),
+            minLength: {
+              value: 10,
+              message: t("errors.messageTooShort"),
+            },
+          })}
+          className="textarea border-0 bg-zinc-100 w-full h-[300px]"
+        />
+        {errors.message && (
+          <p className="text-red-500 text-sm">{errors.message.message}</p>
+        )}
+      </div>
+      <div className="flex gap-x-3 ">
+        {/* Name */}
+        <div className="flex flex-col gap-1 w-1/2">
+          {/* <label className="font-medium">{t("fields.nameLabel")}</label> */}
+          <input
+            type="text"
+            placeholder={t("fields.namePlaceholder")}
+            {...register("name", {
+              required: t("errors.nameRequired"),
+            })}
+            className="input border-0 bg-zinc-100 rounded w-full"
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm">{errors.name.message}</p>
+          )}
+        </div>
+
+        {/* Email */}
+        <div className="flex flex-col gap-1 w-1/2">
+          {/* <label className="font-medium">{t("fields.emailLabel")}</label> */}
+          <input
+            type="email"
+            placeholder={t("fields.emailPlaceholder")}
+            {...register("email", {
+              required: t("errors.emailRequired"),
+              pattern: {
+                value: /\S+@\S+\.\S+/,
+                message: t("errors.emailInvalid"),
+              },
+            })}
+            className="input border-0 bg-zinc-100 rounded w-full"
+          />
+          {errors.email && (
+            <p className="text-red-500 text-sm">{errors.email.message}</p>
+          )}
+        </div>
+      </div>{" "}
+      {/* Submit */}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="btn bg-[#003F5D] w-[200px] text-white"
+      >
+        {isSubmitting ? t("submit.submitting") : t("submit.idle")}
+      </button>
+    </form>
+  );
+}
