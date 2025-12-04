@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import {useTranslations} from "next-intl";
 
+
 type HospitalId = "hospital1" | "hospital2" | "hospital3" | "hospital4";
 
 const slides: {id: HospitalId; image: string}[] = [
@@ -69,33 +70,33 @@ export default function HospitalSliders() {
             spaceBetween: 20,
           },
           1024: {
-            slidesPerView: 4.2,
+            slidesPerView: 3,
             spaceBetween: 24,
           },
           1280: {
-            slidesPerView: 5,
+            slidesPerView: 3,
             spaceBetween: 28,
           },
         }}
-        className="w-full px-4"
+        className="max-w-7xl px-4"
       >
         {slides.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="card bg-white border-2 rounded-md border-zinc-200 overflow-hidden">
+            <div className="card lg:w-[392px] lg:h-[326px] bg-white  rounded-sm  overflow-hidden">
               <figure>
                 <img
                   src={item.image}
                   alt={t(`items.${item.id}.imageAlt`)}
-                  className="w-full h-36 object-cover"
+                  className="w-full h-[392px] object-cover"
                 />
               </figure>
               <div className="p-4">
                 <p className="text-[#005E8B] font-semibold mb-1">
                   {t(`items.${item.id}.title`)}
                 </p>
-                <p className="text-xs text-gray-600">
+                {/* <p className="text-xs text-gray-600">
                   {t(`items.${item.id}.description`)}
-                </p>
+                </p> */}
               </div>
             </div>
           </SwiperSlide>

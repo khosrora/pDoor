@@ -67,21 +67,21 @@ export default async function HospitalPage() {
           <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
             <Image
               src="/images/hospital/Frame 1261158009.png"
-              width={124}
-              height={124}
+              width={200}
+              height={200}
               className="w-24 h-24 lg:w-32 lg:h-32"
               alt="hospital-hygiene"
             />
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] flex items-center">
-              <p className="text-[#003F5D] font-bold">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
+              <p className="text-[#003F5D] font-bold text-[20px]">
                 {t("benefits.hygiene.title")}
               </p>
-              <p className="mt-4">{t("benefits.hygiene.text")}</p>
+              <p className="mt-4 text-[16px]">{t("benefits.hygiene.text")}</p>
             </div>
           </div>
 
           {/* Card 2: Easy access */}
-          <div className="bg-zinc-200 p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
             <Image
               src="/images/hospital/Frame1.png"
               width={100}
@@ -89,16 +89,16 @@ export default async function HospitalPage() {
               className="w-24 h-24 lg:w-32 lg:h-32"
               alt="hospital-easy-access"
             />
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full">
-              <p className="text-[#003F5D] font-bold">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
+              <p className="text-[#003F5D] font-bold text-[20px]">
                 {t("benefits.easyAccess.title")}
               </p>
-              <p className="mt-4">{t("benefits.easyAccess.text")}</p>
+              <p className="mt-4 text-[16px]">{t("benefits.easyAccess.text")}</p>
             </div>
           </div>
 
           {/* Card 3: Access control */}
-          <div className="bg-zinc-200 p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
             <Image
               src="/images/hospital/frame4.png"
               width={100}
@@ -106,16 +106,16 @@ export default async function HospitalPage() {
               className="w-24 h-24 lg:w-32 lg:h-32"
               alt="hospital-access-control"
             />
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full">
-              <p className="text-[#003F5D] font-bold">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
+              <p className="text-[#003F5D] font-bold text-[20px]">
                 {t("benefits.accessControl.title")}
               </p>
-              <p className="mt-4">{t("benefits.accessControl.text")}</p>
+              <p className="mt-4 text-[16px]">{t("benefits.accessControl.text")}</p>
             </div>
           </div>
 
           {/* Card 4: Fire safety */}
-          <div className="bg-zinc-200 p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
             <Image
               src="/images/hospital/frame2.png"
               width={100}
@@ -123,11 +123,11 @@ export default async function HospitalPage() {
               className="w-24 h-24 lg:w-32 lg:h-32"
               alt="hospital-fire-safety"
             />
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full">
-              <p className="text-[#003F5D] font-bold">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
+              <p className="text-[#003F5D] font-bold text-[20px]">
                 {t("benefits.fireSafety.title")}
               </p>
-              <p className="mt-4">{t("benefits.fireSafety.text")}</p>
+              <p className="mt-4 text-[16px]">{t("benefits.fireSafety.text")}</p>
             </div>
           </div>
         </div>
