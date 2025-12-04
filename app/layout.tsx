@@ -6,6 +6,7 @@ import Footer from "./components/layout/Footer";
 import { yekan } from "./fonts";
 import "./globals.css";
 import { Toaster } from "sonner";
+import { CompareProvider } from "./context/CompareContext";
 
 export default async function RootLayout({
   children,
@@ -22,14 +23,16 @@ export default async function RootLayout({
           position="bottom-center"
           toastOptions={{
             style: {
-              fontFamily: 'var(--font-yekan)',
+              fontFamily: "var(--font-yekan)",
             },
           }}
         />
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <ClientHeader />
-          {children}
-          <Footer />
+          <CompareProvider>
+            <ClientHeader />
+            {children}
+            <Footer />
+          </CompareProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -5,9 +5,38 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import api from "@/app/lib/axios";
+
+interface TeamMember {
+  id: number;
+  name: string;
+  job_description: string;
+  photo_url: string;
+}
 
 export default function TeamSliders() {
   const t = useTranslations("TeamSliders");
+  const [team, setTeam] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      try {
+        const { data } = await api.get("/v1/team/");
+        setTeam(data);
+      } catch (error) {
+        console.error("Failed to fetch team:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchTeam();
+  }, []);
+
+  if (loading) return <p className="text-center py-8">Loading...</p>;
+  if (!team.length)
+    return <p className="text-center py-8">No team members found.</p>;
 
   return (
     <div className="my-8 bg-zinc-200 py-8">
@@ -25,41 +54,29 @@ export default function TeamSliders() {
         spaceBetween={16}
         slidesPerView={1.1}
         breakpoints={{
-          640: {
-            slidesPerView: 1.3,
-            spaceBetween: 16,
-          },
-          768: {
-            slidesPerView: 2.8,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4.2,
-            spaceBetween: 24,
-          },
-          1280: {
-            slidesPerView: 5,
-            spaceBetween: 28,
-          },
+          640: { slidesPerView: 1.3, spaceBetween: 16 },
+          768: { slidesPerView: 2.8, spaceBetween: 20 },
+          1024: { slidesPerView: 4.2, spaceBetween: 24 },
+          1280: { slidesPerView: 5, spaceBetween: 28 },
         }}
         className="w-full px-4"
       >
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-          <SwiperSlide key={i}>
+        {team.map((member) => (
+          <SwiperSlide key={member.id}>
             <div className="card bg-white border-2 rounded-md border-zinc-200 overflow-hidden">
               <figure>
                 <img
-                  src="https://persiadoorco.com/wp-content/uploads/2025/04/selling.jpg"
-                  alt={t("items.sales.imageAlt")}
+                  src={member.photo_url}
+                  alt={member.name}
                   className="w-full h-36 object-cover"
                 />
               </figure>
               <div className="p-4">
                 <p className="text-[#005E8B] font-semibold mb-1">
-                  {t("items.sales.title")}
+                  {member.name}
                 </p>
                 <p className="text-xs text-gray-600">
-                  {t("items.sales.description")}
+                  {member.job_description}
                 </p>
               </div>
             </div>
@@ -72,7 +89,10 @@ export default function TeamSliders() {
         <div className="flex justify-start items-center w-1/2 gap-x-2">
           <p className="text-[#FAB21F]">{t("cta.joinText")}</p>
         </div>
-        <Link href={'/job_position'} className="btn btn-sm bg-[#005E8B] text-white">
+        <Link
+          href={"/job_position"}
+          className="btn btn-sm bg-[#005E8B] text-white"
+        >
           {t("cta.jobsButton")}
         </Link>
       </div>

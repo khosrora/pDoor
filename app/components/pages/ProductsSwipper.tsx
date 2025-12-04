@@ -1,27 +1,42 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import api from "@/app/lib/axios";
 import {
   IconArrowLeft,
   IconChevronsRight,
-  IconDoor,
-  IconDoorExit,
+  IconDoorExit
 } from "@tabler/icons-react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { useTranslations } from "next-intl";
-import api from "@/app/lib/axios";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 interface Product {
   name: string;
   slug: string;
   main_image: string | null;
-  highlight_specs: {
-    field_name: string | null;
+
+  category: {
+    name: string;
+    logo: string;
+    slug: string;
+    product_count: number;
+  };
+
+  brand: {
+    name: string;
+    logo: string;
+    slug: string;
+    product_count: number;
+  };
+
+  specifications: {
+    field_name?: string | null;
     value: string | null;
-    unit: string | null;
+    unit?: string | null;
+    display_section: "highlight" | "detail" | "tag";
   }[];
 }
 
@@ -47,7 +62,9 @@ export default function ProductsSwipper() {
   return (
     <div className="my-8 max-w-7xl m-auto">
       <div className="mb-4">
-        <p className="text-[33px] font-bold text-center">{t("latestProducts")}</p>
+        <p className="text-[33px] font-bold text-center">
+          {t("latestProducts")}
+        </p>
       </div>
 
       <Swiper
@@ -72,7 +89,7 @@ export default function ProductsSwipper() {
                   }
                   alt={product.name}
                   className="w-full h-[268px] object-cover rounded-t-md"
-                /> 
+                />
               </figure>
 
               <div className="card-body p-2">
@@ -89,14 +106,7 @@ export default function ProductsSwipper() {
                   <p className="card-title text-xs font-medium">
                     {product.name}
                   </p>
-                  {product.highlight_specs.slice(0, 3).map((spec, idx) => (
-                    <div key={idx} className="flex flex-col items-center">
-                      <IconDoor className="text-zinc-400" size={16} />
-                      <p className="text-[8px] text-zinc-400">
-                        {spec.field_name || t("card.featureLabel")}
-                      </p>
-                    </div>
-                  ))}
+                 
                 </div>
 
                 <div className="card-actions justify-between items-center mt-2 text-zinc-500">
