@@ -491,7 +491,7 @@
         "title": "پروژه هتلینگ زاهدان"
       }
     },
-    "relativeProducts":"محصولات مرتبط"
+    "relativeProducts": "محصولات مرتبط"
   },
   "ProductDetailPage": {
     "name": "ECdrive T2",
@@ -601,6 +601,9 @@
     "fetchError": "بارگذاری پروژه‌ها با خطا مواجه شد"
   },
   "ProductsListingPage": {
+    "filters": "فیلترها",
+    "clearFilters": "حذف همه",
+    "noProductsFound": "محصولی یافت نشد.",
     "slug": "product",
     "filters": "فیلترها",
     "clearFilters": "پاک کردن همه",
@@ -618,5 +621,18 @@
     "header": "محصولات پرشیادُر",
     "productsCount": "{count} محصول",
     "fetchError": "خطا در بارگذاری دسته‌بندی‌ها"
+  },
+  "ProductsBrands": {
+    "sections": {
+      "brands": "برندها",
+      "doorType": "نوع درب"
+    },
+    "options": {
+      "manual": "دستی",
+      "automatic": "اتوماتیک"
+    },
+    "loading": "در حال بارگذاری...",
+    "noBrands": "برندی یافت نشد",
+    "noDoorTypes": "نوع دری یافت نشد"
   }
 }

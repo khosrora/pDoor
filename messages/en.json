@@ -491,7 +491,7 @@
         "title": "Zahedan hotel project"
       }
     },
-    "relativeProducts":"Relative Products"
+    "relativeProducts": "Relative Products"
   },
   "ProductDetailPage": {
     "name": "ECdrive T2",
@@ -601,6 +601,9 @@
     "fetchError": "Failed to load projects"
   },
   "ProductsListingPage": {
+    "filters": "Filters",
+    "clearFilters": "Clear All",
+    "noProductsFound": "No products found.",
     "slug": "product",
     "filters": "Filters",
     "clearFilters": "Clear All",
@@ -618,5 +621,18 @@
     "header": "Persiadoor Products",
     "productsCount": "{count} products",
     "fetchError": "Failed to load categories"
+  },
+  "ProductsBrands": {
+    "sections": {
+      "brands": "Brands",
+      "doorType": "Door Type"
+    },
+    "options": {
+      "manual": "Manual",
+      "automatic": "Automatic"
+    },
+    "loading": "Loading...",
+    "noBrands": "No brands found",
+    "noDoorTypes": "No door types found"
   }
 }

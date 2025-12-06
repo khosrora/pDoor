@@ -4,6 +4,7 @@ import Brands from "@/app/(pages)/products/Brands";
 import Sort from "@/app/(pages)/products/Sort";
 import { IconFilter, IconSortAscending } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
+import DeleteIcon from "./DeleteIcon";
 
 function FilersProducts() {
   const t = useTranslations("ProductsFilters");
@@ -59,7 +60,7 @@ function FilersProducts() {
           </div>
         </div>
 
-        <p className="text-red-600">{t("clear")}</p>
+        <DeleteIcon label={t('clear')} />
       </div>
     </div>
   );

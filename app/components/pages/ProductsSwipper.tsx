@@ -49,7 +49,7 @@ export default function ProductsSwipper() {
     const fetchProducts = async () => {
       try {
         const res = await api.get("/v1/products/");
-        const list = res.data.slice(0, 8); // ⬅ limit to 8 products
+        const list = res.data.results.slice(0, 8); // ⬅ limit to 8 products
         setProducts(list);
       } catch (err) {
         console.error("Error loading products", err);

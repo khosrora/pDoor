@@ -9,8 +9,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCompare } from "@/app/context/CompareContext";
 import { toast } from "sonner";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 function Products({ products }: { products: Product[] }) {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
+
   const t = useTranslations("ProductsListingPage");
   const { items, addItem, removeItem } = useCompare();
 
@@ -35,6 +40,12 @@ function Products({ products }: { products: Product[] }) {
     }
   };
 
+  function updateSort(value: string) {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("sort", value);
+    router.push(`${pathname}?${params.toString()}`);
+  }
+
   return (
     <>
       <div className="lg:col-span-3 lg:mt-0">
@@ -43,11 +54,11 @@ function Products({ products }: { products: Product[] }) {
             {products.length} {t("productsFound")}
           </p>
           <div className="flex justify-end items-center space-x-4 text-[14px]">
-            <p>{t("sortNewest")}</p>
+            <p onClick={() => updateSort("")}>{t("sortNewest")}</p>
             <div className="divider divider-horizontal"></div>
-            <p>{t("sortBestSelling")}</p>
-            <div className="divider divider-horizontal"></div>
-            <p>{t("sortMostViewed")}</p>
+            <p onClick={() => updateSort("popular")}>{t("sortBestSelling")}</p>
+            {/* <div className="divider divider-horizontal"></div> */}
+            {/* <p onClick={() => updateSort("popular")}>{t("sortMostViewed")}</p> */}
           </div>
         </div>
 

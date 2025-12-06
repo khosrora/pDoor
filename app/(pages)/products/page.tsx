@@ -1,38 +1,34 @@
-import { IconFilter, IconSquareRoundedCheckFilled } from "@tabler/icons-react";
-import { Metadata } from "next";
-import { getTranslations, getLocale } from "next-intl/server";
+"use client";
+
+import { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { IconFilter } from "@tabler/icons-react";
 import CategorySliders from "../../components/pages/CategorySliders";
 import FilersProducts from "../../components/pages/FilersProducts";
 import Brands from "./Brands";
 import Breadcrumbs from "./Breadcrumbs";
 import Products from "@/app/components/pages/Products";
 import CompareAlert from "@/app/components/pages/CompareAlert";
-
-export const metadata: Metadata = {
-  title: "پرشیادُر | محصولات",
-  description:
-    "در زمینه تولید و توسعه سیستم‌های اتوماسیون صنعتی فعالیت می‌کند، با هدف ارتقای کارایی، دقت و سرعت در فرآیندهای تولید و صنعتی",
-};
+import DeleteIcon from "@/app/components/pages/DeleteIcon";
+import { useTranslations } from "next-intl";
+import api from "@/app/lib/axios";
 
 export interface Product {
   name: string;
   slug: string;
   main_image: string | null;
-
   category: {
     name: string;
     logo: string;
     slug: string;
     product_count: number;
   };
-
   brand: {
     name: string;
     logo: string;
     slug: string;
     product_count: number;
   };
-
   specifications: {
     field_name?: string | null;
     value: string | null;
@@ -41,22 +37,51 @@ export interface Product {
   }[];
 }
 
-export default async function ProductsListingPage() {
-  const locale = await getLocale();
-  const t = await getTranslations("ProductsListingPage");
+export default function ProductsListingPage() {
+  const t = useTranslations("ProductsListingPage");
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
-  // ------------------- Fetch Products -------------------
-  let products: Product[] = [];
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/v1/products/?lang=${locale}`
-    );
-    if (res.ok) {
-      products = await res.json();
-    }
-  } catch (err) {
-    console.error("Failed to fetch products:", err);
-  }
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(false);
+
+  const category = searchParams.get("category") || "";
+  const brand = searchParams.get("brand") || "";
+  const sort = searchParams.get("sort") || "";
+  const search = searchParams.get("search") || "";
+  const doorType = searchParams.get("door_type") || "";
+
+  // Fetch products whenever searchParams change
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const params = new URLSearchParams();
+        if (category) params.append("category", category);
+        if (brand) params.append("brand", brand);
+        if (sort) params.append("sort", sort);
+        if (search) params.append("search", search);
+        if (doorType) params.append("door_type", doorType); // fixed
+
+        const locale = navigator.language.startsWith("fa") ? "fa" : "en";
+        params.append("lang", locale);
+
+        const url = `/v1/products/?${params.toString()}`;
+        
+        const res = await api.get(url);
+        setProducts(res.data.results);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [category, brand, sort, search, doorType]); // added doorType
+
+  
 
   return (
     <div className="my-20">
@@ -77,12 +102,27 @@ export default async function ProductsListingPage() {
               <IconFilter />
               <p>{t("filters")}</p>
             </div>
-            <p className="text-red-600">{t("clearFilters")}</p>
+            {(category || brand || sort || search || doorType) && ( // include doorType
+              <DeleteIcon label={t("clearFilters")} />
+            )}
           </div>
           <Brands />
         </div>
 
-        <Products products={products} />
+        {/* Products */}
+        <div className="lg:col-span-3">
+          {loading ? (
+            <p>Loading...</p>
+          ) : products.length > 0 ? (
+            <Products products={products} />
+          ) : (
+            <div className="alert alert-warning shadow-lg">
+              <div>
+                <span>{t("noProductsFound")}</span>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
