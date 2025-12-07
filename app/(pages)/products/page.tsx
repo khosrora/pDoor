@@ -1,9 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { IconFilter } from "@tabler/icons-react";
-
 import CategorySliders from "../../components/pages/CategorySliders";
 import FilersProducts from "../../components/pages/FilersProducts";
 import Brands from "./Brands";
@@ -11,7 +10,6 @@ import Breadcrumbs from "./Breadcrumbs";
 import Products from "@/app/components/pages/Products";
 import CompareAlert from "@/app/components/pages/CompareAlert";
 import DeleteIcon from "@/app/components/pages/DeleteIcon";
-
 import { useTranslations } from "next-intl";
 import api from "@/app/lib/axios";
 
@@ -41,20 +39,26 @@ export interface Product {
 
 export default function ProductsListingPage() {
   const t = useTranslations("ProductsListingPage");
+
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
 
+  // Pagination states
+  const [count, setCount] = useState(0);
+  const [next, setNext] = useState<string | null>(null);
+  const [prev, setPrev] = useState<string | null>(null);
+
+  const page = Number(searchParams.get("page") || "1");
   const category = searchParams.get("category") || "";
   const brand = searchParams.get("brand") || "";
   const sort = searchParams.get("sort") || "";
   const search = searchParams.get("search") || "";
   const doorType = searchParams.get("door_type") || "";
 
-  // -------------------------------
-  // Fetch products
-  // -------------------------------
+  // Fetch products whenever searchParams change
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
@@ -69,10 +73,16 @@ export default function ProductsListingPage() {
         const locale = navigator.language.startsWith("fa") ? "fa" : "en";
         params.append("lang", locale);
 
+        params.append("page", page.toString());
+
         const res = await api.get(`/v1/products/?${params.toString()}`);
+
         setProducts(res.data.results || []);
-      } catch (error) {
-        console.error("Fetch error:", error);
+        setCount(res.data.count || 0);
+        setNext(res.data.next || null);
+        setPrev(res.data.previous || null);
+      } catch (err) {
+        console.error("Failed to fetch products:", err);
         setProducts([]);
       } finally {
         setLoading(false);
@@ -80,18 +90,27 @@ export default function ProductsListingPage() {
     };
 
     fetchProducts();
-  }, [category, brand, sort, search, doorType]);
+  }, [category, brand, sort, search, doorType, page]);
 
-  // --------------------------------
-  // Skeleton Loader (DaisyUI)
-  // --------------------------------
-  const SkeletonGrid = () => (
-    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-6">
-      {Array.from({ length: 8 }).map((_, i) => (
-        <div key={i} className="p-4 rounded-xl border shadow-sm">
-          <div className="skeleton h-40 w-full mb-4"></div>
-          <div className="skeleton h-4 w-3/4 mb-2"></div>
-          <div className="skeleton h-4 w-1/2"></div>
+  const goToPage = (newPage: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", String(newPage));
+    router.push(`?${params.toString()}`);
+  };
+
+  const lastPage = Math.ceil(count / 20);
+
+  // ⭐ Skeleton Loader Component
+  const ProductSkeleton = () => (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      {Array.from({ length: 12 }).map((_, i) => (
+        <div className="card bg-base-100 shadow-md" key={i}>
+          <div className="w-full h-40 skeleton"></div>
+          <div className="card-body space-y-2">
+            <div className="h-4 w-3/4 skeleton"></div>
+            <div className="h-4 w-1/2 skeleton"></div>
+            <div className="h-4 w-full skeleton"></div>
+          </div>
         </div>
       ))}
     </div>
@@ -101,7 +120,6 @@ export default function ProductsListingPage() {
     <div className="my-20">
       <CompareAlert />
 
-      {/* Breadcrumb */}
       <div className="p-4 max-w-7xl m-auto">
         <Breadcrumbs />
       </div>
@@ -110,31 +128,67 @@ export default function ProductsListingPage() {
       <FilersProducts />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 max-w-7xl m-auto">
-        {/* Sidebar */}
-        <div className="hidden lg:flex flex-col space-y-4">
+        {/* LEFT SIDEBAR */}
+        <div className="hidden lg:flex lg:flex-col lg:space-y-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-x-2">
               <IconFilter />
               <p>{t("filters")}</p>
             </div>
-
             {(category || brand || sort || search || doorType) && (
               <DeleteIcon label={t("clearFilters")} />
             )}
           </div>
 
-          <Brands />
+          {loading ? (
+            <div className="space-y-4">
+              <div className="h-4 w-24 skeleton"></div>
+              <div className="h-4 w-32 skeleton"></div>
+              <div className="h-4 w-20 skeleton"></div>
+            </div>
+          ) : (
+            <Brands />
+          )}
         </div>
 
-        {/* Products */}
+        {/* PRODUCTS */}
         <div className="lg:col-span-3">
           {loading ? (
-            <SkeletonGrid />
+            <ProductSkeleton />
           ) : products.length > 0 ? (
-            <Products products={products} />
+            <>
+              <Products products={products} />
+
+              {/* PAGINATION */}
+              <div className="flex justify-center my-10">
+                <div className="join">
+                  <button
+                    className="join-item btn"
+                    disabled={!prev}
+                    onClick={() => goToPage(page - 1)}
+                  >
+                    «
+                  </button>
+
+                  <button className="join-item btn">
+                    {page} / {lastPage}
+                  </button>
+
+                  <button
+                    className="join-item btn"
+                    disabled={!next}
+                    onClick={() => goToPage(page + 1)}
+                  >
+                    »
+                  </button>
+                </div>
+              </div>
+            </>
           ) : (
             <div className="alert alert-warning shadow-lg">
-              <span>{t("noProductsFound")}</span>
+              <div>
+                <span>{t("noProductsFound")}</span>
+              </div>
             </div>
           )}
         </div>

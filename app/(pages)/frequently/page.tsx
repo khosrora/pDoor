@@ -10,8 +10,10 @@ export const metadata: Metadata = {
 
 function page() {
   return (
-    <div className="max-w-5xl m-auto">
-      <Breadcrumbs />
+    <div className="mt-32">
+      <div className="max-w-7xl m-auto">
+        <Breadcrumbs />
+      </div>
       <AccordionCustions isquestion />
     </div>
   );

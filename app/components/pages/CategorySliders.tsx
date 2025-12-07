@@ -59,17 +59,29 @@ export default function CategorySliders() {
         >
           {categories.map((category) => (
             <SwiperSlide key={category.slug}>
-              <div className="flex flex-col items-center justify-center border border-zinc-400 rounded p-4 space-y-4 bg-white">
+              <div
+                className="
+                  group
+                  flex flex-col items-center justify-center 
+                  border border-zinc-300 rounded p-4 space-y-4 bg-white 
+                  transition-all duration-300 
+                  hover:shadow-lg hover:border-[#007EBA] 
+                  cursor-pointer
+                "
+              >
                 <Image
-                  src={!!category.logo ? category.logo : "/images/noimage.jpg"}
+                  src={category.logo || "/images/noimage.jpg"}
                   width={40}
                   height={40}
                   alt={category.name}
+                  className="transition-transform duration-300 group-hover:scale-110"
                 />
-                <p className="text-[10px] lg:text-[14px] font-medium">
+
+                <p className="text-[10px] lg:text-[14px] font-medium transition-colors duration-300 group-hover:text-[#003f5d]">
                   {category.name}
                 </p>
-                <p className="text-[8px] lg:text-[12px] text-zinc-400">
+
+                <p className="text-[8px] lg:text-[12px] text-zinc-400 transition-colors duration-300 group-hover:text-[#007EBA]">
                   {t("productsCount", { count: category.product_count })}
                 </p>
               </div>
