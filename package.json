@@ -12,6 +12,7 @@
     "@svgr/webpack": "^8.1.0",
     "@tabler/icons-react": "^3.35.0",
     "axios": "^1.13.2",
+    "context": "^3.0.33",
     "next": "16.0.3",
     "next-intl": "^4.5.5",
     "react": "19.2.0",

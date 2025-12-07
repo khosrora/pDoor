@@ -15,20 +15,20 @@ export default async function CareersPage() {
   const t = await getTranslations("CareersPage");
 
   const perks = [
-    { key: "training", icon: "/images/job/book-open.png", alt: "training" },
-    { key: "bonus", icon: "/images/job/diamond.png", alt: "bonus" },
-    {
-      key: "insurance",
-      icon: "/images/job/file-addition.png",
-      alt: "insurance",
-    },
     { key: "events", icon: "/images/job/fireworks.png", alt: "events" },
+    { key: "bonus", icon: "/images/job/diamond.png", alt: "bonus" },
+    { key: "gifts", icon: "/images/job/gift.png", alt: "gifts" },
     {
       key: "promotion",
       icon: "/images/job/five-star-badge.png",
       alt: "promotion",
     },
-    { key: "gifts", icon: "/images/job/gift.png", alt: "gifts" },
+    {
+      key: "insurance",
+      icon: "/images/job/file-addition.png",
+      alt: "insurance",
+    },
+    { key: "training", icon: "/images/job/book-open.png", alt: "training" },
   ] as const;
 
   const jobs = [1, 2, 3, 4];
@@ -39,22 +39,27 @@ export default async function CareersPage() {
         <Breadcrumbs />
       </div>
       {/* Hero */}
-      <div className="bg-[#003F5D] p-4 text-white space-y-8 lg:flex lg:flex-col lg:items-center">
-        <p className="text-[#FAB21F]">{t("hero.title")}</p>
-        <p>{t("hero.text")}</p>
-        <div className="flex justify-start items-center gap-x-4">
-          <button className="btn">{t("hero.consultButton")}</button>
-          <button className="btn bg-[#FAB21F] border-0">
-            {t("hero.serviceButton")}
-          </button>
+      <div className="bg-[#003F5D] text-white lg:flex lg:items-center lg:justify-between ">
+        <div className="lg:flex lg:flex-col lg:justify-center py-10 px-40 w-full ">
+          <p className="text-[#FAB21F] text-[25px] font-bold">
+          {t("hero.career_title")}
+          </p>
+          <p className="text-[18px] mt-4 lg:w-[541px] leading-10">
+          {t("hero.career_description")}
+          </p>
+        </div>
+
+        {/* banner image */}
+        <div className="lg:w-full">
+          <img src="\images\عکس پرسنل.png" alt="" className="w-full h-full" />
         </div>
       </div>
 
       <div className="max-w-5xl m-auto">
         <div className="mt-8 p-4 space-y-8">
           {/* Culture text */}
-          <p className="text-xs text-center">
-            {t("culture.text")} <span className="text-[#FAB21F]">پرشیادُر</span>
+          <p className="text-[20px] font-bold text-center">
+            {t("culture.text")}
           </p>
 
           {/* Perks grid */}
@@ -64,16 +69,16 @@ export default async function CareersPage() {
                 key={perk.key}
                 className="flex flex-col items-center justify-center"
               >
-                <Image src={perk.icon} width={40} height={40} alt={perk.alt} />
-                <p className="text-xs">{t(`perks.${perk.key}`)}</p>
+                <Image src={perk.icon} width={60} height={60} alt={perk.alt} />
+                <p className="text-[16px] mt-8 ">{t(`perks.${perk.key}`)}</p>
               </div>
             ))}
           </div>
 
           {/* Jobs section intro */}
-          <div className="text-center">
-            <p className="text-[#FAB21F]">{t("jobsSection.title")}</p>
-            <p>{t("jobsSection.text")}</p>
+          <div className="text-center mt-20">
+            <p className="text-[#FAB21F] text-[20px] font-semibold  mb-10">{t("jobsSection.title")}</p>
+            <p className="lg:w-[673px] mx-auto">{t("jobsSection.text")}</p>
           </div>
 
           {/* Job cards */}

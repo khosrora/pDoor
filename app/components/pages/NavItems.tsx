@@ -4,7 +4,7 @@ import Link from "next/link";
 function NavItems() {
   const t = useTranslations("Header");
   return (
-    <ul className="hidden lg:flex flex-row menu menu-horizontal px-1">
+    <ul className="hidden lg:flex flex-row menu menu-horizontal px-1 gap-x-7">
       <li>
         <Link href={"/"}>{t("brandName")}</Link>
       </li>

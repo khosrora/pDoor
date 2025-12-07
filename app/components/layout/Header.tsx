@@ -8,7 +8,6 @@ import NavItems from "../pages/NavItems";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
-import api from "@/app/lib/axios";
 
 function Header() {
   const t = useTranslations("Header");
@@ -101,7 +100,7 @@ function Header() {
         </div>
 
         {/* Logo + Nav Items */}
-        <div className="flex justify-start items-center">
+        <div className="flex justify-start items-center gap-4">
           <Link href="/">
             <Image
               src="/images/logo.png"
@@ -123,7 +122,7 @@ function Header() {
                 className="h-10 w-10 flex items-center justify-center text-slate-500 hover:text-slate-700 transition"
                 onClick={() => setSearchOpen(true)}
               >
-                <IconSearch />
+                <img src="\SVGs\searchIcon.svg" alt="" />
               </button>
             ) : (
               <div
@@ -132,7 +131,7 @@ function Header() {
                 style={{ width: `${searchWidth}px` }}
               >
                 <div className="flex items-center gap-2 w-full px-2">
-                  <IconSearch size={20} />
+                  <img src="\SVGs\searchIcon.svg" alt="" />
                   <input
                     type="text"
                     value={search}

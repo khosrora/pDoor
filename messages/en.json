@@ -411,9 +411,14 @@
       }
     }
   },
+  "Breadcrumbs": {
+    "home": "Home",
+    "career_position": "Career Position"
+  },
   "CareersPage": {
     "hero": {
-      "title": "Hospitals",
+      "career_title": "Careers at Persiadoor",
+      "career_description": "Joining Persiadoor can be a great opportunity for individuals seeking career growth and new experiences. With a strong focus on delivering innovative services and manufacturing high-quality products, the company is always looking to recruit creative and talented professionals.",
       "text": "With a deep understanding of hospital environments and their specific needs, PersiaDoor designs and supplies hospital doors that meet the highest hygiene standards and modern technologies. These doors provide easy, unobstructed access while minimizing touch points and enabling quick cleaning to support infection control. They also open wide enough for hospital beds and, when closed, help reduce unwanted air flow between zones.",
       "consultButton": "Free consultation",
       "serviceButton": "Contact service"
@@ -569,6 +574,34 @@
       "hospital": "Hospital",
       "airport": "Airport"
     }
+  },
+
+  "TimelineSlider": {
+    "vision_title": "Our Vision",
+    "vision_text": "Persia Automatic Door Company, while maintaining consistent quality in its services and products, is always curious and dynamic toward emerging markets and industry changes.",
+    "brand_value": "Brand Value",
+    "vision_paragraph": "Persia Automatic Door Company, while maintaining stability in the quality of its services and products, remains curious and dynamic toward new markets and industry developments.",
+    "mission_title": "Our Mission",
+    "mission_text": "At Persia Automatic Door Company, we place special importance on how we interact with our customers. From the early stages of each project, we stay connected with them and play an active role throughout the entire lifecycle of the building.",
+    "team": "Team",
+    "persia": "Persia Door",
+    "join_us_title": "Join PersiaDoor",
+    "job_positions_button": "Job Positions",
+
+    "ourServises": "Our Services",
+    "ourServises_text": "Persiador has launched the Persia Service unit to provide specialized services and ensure that service tasks are carried out in the best possible way.",
+    "representation": "International Brand Representation",
+    "representation_text": "Since 2007, Persiador has been the sole official representative of the German company GEZE in Iran, providing the highest quality and services to its customers.",
+    "honors_title": "Our Achievements",
+    "honors_desc": "Winning multiple awards in international competitions, constructing and executing special structures, and localizing and producing automatic door and window components are among our achievements.",
+    "solutions_title": "Our Solutions for Industries",
+    "solutions_desc": "Persiador provides the best solutions in the field of automatic door and window sales and services to its customers across various industries.",
+    "customers_title": "Our Customers",
+    "customers_subtitle": "Are Our Most Valuable Asset",
+    "iran_cities": "Cities of Iran",
+    "our_experience": "Our Experience",
+    "different_industries": "Various Industries",
+    "agency_page": "Agency Page"
   },
   "moreBox": {
     "text": "Didn’t find your question?",

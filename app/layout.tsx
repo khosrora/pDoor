@@ -8,6 +8,7 @@ import "./globals.css";
 import { Toaster } from "sonner";
 import { CompareProvider } from "./context/CompareContext";
 
+
 export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {

@@ -21,7 +21,7 @@ export default async function HospitalPage() {
       </div>
 
       {/* Hero */}
-      <div className="bg-[#003F5D] text-white space-y-8 lg:flex lg:items-center lg:justify-between ">
+      <div className="bg-[#003F5D] text-white lg:flex lg:items-center lg:justify-between ">
 
         
         <div className="lg:flex lg:flex-col lg:justify-center py-10 px-40 w-full ">

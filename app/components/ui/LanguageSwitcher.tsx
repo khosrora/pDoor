@@ -13,15 +13,15 @@ export default function LanguageSwitcher() {
 
   // Hide on routes: /media/[id]
   const isMediaPage = /^\/media\/\d+$/.test(pathname || "");
+  if (isMediaPage) return null;
 
-  if (isMediaPage) return null; // ❗ hide the entire component
+ const changeLocale = (newLocale: SupportedLocale) => {
+  if (newLocale === locale) return;
 
-  const changeLocale = (newLocale: SupportedLocale) => {
-    if (newLocale === locale) return;
+  document.cookie = `locale=${newLocale}; path=/; max-age=31536000; sameSite=Lax`;
 
-    document.cookie = `locale=${newLocale}; path=/; max-age=31536000; sameSite=Lax`;
-    router.refresh();
-  };
+  router.refresh();
+};
 
   return (
     <div className="flex items-center gap-2 rounded-full px-3 py-1 bg-white w-fit">
