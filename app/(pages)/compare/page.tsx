@@ -34,21 +34,21 @@ export default function ComparePage() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto my-10 p-4">
-      <div className="flex justify-between mb-6">
-        <h1 className="text-2xl font-bold">مقایسه محصولات</h1>
-        <div className="flex gap-2">
+    <div className="max-w-7xl mx-auto my-20 p-4">
+      {/* <div className="flex justify-between mb-6"> */}
+        {/* <h1 className="text-2xl font-bold">مقایسه محصولات</h1> */}
+        {/* <div className="flex gap-2">
           <button className="btn btn-error btn-sm" onClick={clear}>
             حذف همه
           </button>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
-      <div className="overflow-auto border rounded-lg bg-white">
-        <table className="table table-zebra w-full">
+      <div className="overflow-auto border border-zinc-200 rounded-lg">
+        <table className="table bg-zinc-100 space-x-2 w-full">
           <thead>
             <tr>
-              <th className="bg-gray-100">مشخصات</th>
+              <th className="bg-white"></th>
               {items.map((p) => (
                 <th key={p.slug} className="text-center">
                   <div className="flex flex-col items-center">
@@ -59,8 +59,8 @@ export default function ComparePage() {
                       height={100}
                       className="rounded-md object-cover"
                     />
-                    <p className="font-bold mt-2">{p.name}</p>
-                    <p className="text-sm text-gray-500">{p.brand}</p>
+                    {/* <p className="font-bold mt-2">{p.name}</p>
+                    <p className="text-sm text-gray-500">{p.brand}</p> */}
                     <button
                       className="btn btn-xs btn-outline mt-2"
                       onClick={() => removeItem(p.slug)}
@@ -85,7 +85,7 @@ export default function ComparePage() {
                   <tr>
                     <td
                       colSpan={items.length + 1}
-                      className="bg-blue-50 font-bold text-black text-center py-3"
+                      className="bg-[#fccd5e] font-bold text-black text-center py-3"
                     >
                       {section.label}
                     </td>

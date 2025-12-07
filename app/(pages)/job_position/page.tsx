@@ -34,7 +34,7 @@ export default async function CareersPage() {
   const jobs = [1, 2, 3, 4];
 
   return (
-    <div className="mb-12">
+    <div className="my-20">
       <div className="p-4">
         <Breadcrumbs />
       </div>
