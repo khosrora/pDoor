@@ -61,7 +61,7 @@ export default function CategorySliders() {
             <SwiperSlide key={category.slug}>
               <div className="flex flex-col items-center justify-center border border-zinc-400 rounded p-4 space-y-4 bg-white">
                 <Image
-                  src={category.logo}
+                  src={!!category.logo ? category.logo : "/images/noimage.jpg"}
                   width={40}
                   height={40}
                   alt={category.name}

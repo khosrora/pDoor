@@ -4,7 +4,7 @@ import api from "@/app/lib/axios";
 import {
   IconArrowLeft,
   IconChevronsRight,
-  IconDoorExit
+  IconDoorExit,
 } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
@@ -40,7 +40,7 @@ interface Product {
   }[];
 }
 
-export default function ProductsSwipper() {
+export default function ProductsSwiper() {
   const t = useTranslations("ProductsSwiper");
 
   const [products, setProducts] = useState<Product[]>([]);
@@ -49,7 +49,7 @@ export default function ProductsSwipper() {
     const fetchProducts = async () => {
       try {
         const res = await api.get("/v1/products/");
-        const list = res.data.results.slice(0, 8); // ⬅ limit to 8 products
+        const list = res.data.results.slice(0, 8);
         setProducts(list);
       } catch (err) {
         console.error("Error loading products", err);
@@ -77,42 +77,49 @@ export default function ProductsSwipper() {
           1024: { slidesPerView: 4 },
         }}
       >
-        {products.map((product, i) => (
-          <SwiperSlide key={i}>
-            <div className="card w-[305px] h-[488px] bg-base-100 border rounded-md border-none">
+        {products.map((product) => (
+          <SwiperSlide key={product.slug}>
+            <div className="card w-[305px] h-[488px] bg-base-100 rounded-md">
+              {/* IMAGE */}
               <figure>
                 <img
-                  src={
-                    product.main_image
-                      ? product.main_image
-                      : "/images/noimage.jpg"
-                  }
+                  src={product.main_image || "/images/noimage.jpg"}
                   alt={product.name}
                   className="w-full h-[268px] object-cover rounded-t-md"
                 />
               </figure>
 
-              <div className="card-body p-2">
-                <div className="flex justify-between items-center">
-                  <div className="flex items-center gap-1">
-                    <IconDoorExit className="text-zinc-400" size={16} />
-                    <IconChevronsRight className="text-yellow-600" size={16} />
-                  </div>
+              <div className="card-body p-3">
+                {/* CATEGORY + BRAND */}
+                <div className="flex items-center gap-2 text-xs text-zinc-600">
+                  <IconDoorExit size={16} className="text-zinc-400" />
+                  <p>{!!product.category !== null && product.category.name}</p>
+                  <IconChevronsRight size={16} className="text-yellow-600" />
+                  <p>{product.brand !== null && product.brand.name}</p>
                 </div>
 
                 <div className="divider my-2"></div>
 
-                <div className="flex justify-end items-center gap-x-2">
-                  <p className="card-title text-xs font-medium">
-                    {product.name}
-                  </p>
-                 
+                {/* PRODUCT NAME */}
+                <p className="font-medium text-sm text-right">{product.name}</p>
+
+                {/* HIGHLIGHT SPECS */}
+                <div className="mt-2 space-y-1 text-xs text-zinc-500">
+                  {product.specifications
+                    .filter((s) => s.display_section === "highlight")
+                    .map((spec, index) => (
+                      <p key={index}>
+                        {spec.field_name} : {spec.value}
+                        {spec.unit ? ` ${spec.unit}` : ""}
+                      </p>
+                    ))}
                 </div>
 
-                <div className="card-actions justify-between items-center mt-2 text-zinc-500">
+                {/* BUTTON */}
+                <div className="card-actions justify-between items-center mt-4">
                   <Link
                     href={`/products/${product.slug}`}
-                    className="flex items-center gap-1"
+                    className="flex items-center gap-1 text-sm text-blue-600"
                   >
                     {t("card.moreLink")}
                     <IconArrowLeft size={16} />

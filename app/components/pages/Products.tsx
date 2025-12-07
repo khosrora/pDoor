@@ -34,7 +34,7 @@ function Products({ products }: { products: Product[] }) {
         slug: product.slug,
         name: product.name,
         image: imageUrl,
-        brand: product.brand.name,
+        brand: !!product.brand ? product.brand.name : "/images/noimage.jpg",
         specs: highlightSpecs || [],
       });
     }
@@ -137,10 +137,10 @@ function Products({ products }: { products: Product[] }) {
                 {/* Brand logo */}
                 <div className="absolute left-3 top-3">
                   <Image
-                    src={product.brand.logo}
+                    src={product.brand?.logo || "/images/noimage.jpg"}
                     width={50}
                     height={50}
-                    alt={product.brand.name}
+                    alt={product.brand?.name || "product"}
                   />
                 </div>
               </Link>
