@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import { useLocale } from "next-intl";
-
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import api from "@/app/lib/axios";
 import Link from "next/link";
@@ -25,10 +26,16 @@ interface BlogPost {
 }
 
 export default function NewsSwipper() {
-  const locale = useLocale(); // “fa” | “en”
+  const locale = useLocale();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+
+  const [swiperRef, setSwiperRef] = useState<any>(null);
+
+  // Fetch posts
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -44,8 +51,23 @@ export default function NewsSwipper() {
     fetchPosts();
   }, [locale]);
 
+  // Fix Swiper button bind after mount
+  useEffect(() => {
+    if (
+      swiperRef &&
+      swiperRef.params &&
+      prevRef.current &&
+      nextRef.current
+    ) {
+      swiperRef.params.navigation.prevEl = prevRef.current;
+      swiperRef.params.navigation.nextEl = nextRef.current;
+      swiperRef.navigation.init();
+      swiperRef.navigation.update();
+    }
+  }, [swiperRef]);
+
   if (loading) return <p className="text-center py-10">Loading...</p>;
-  console.log(posts);
+
   return (
     <div className="relative my-8 bg-zinc-200 py-8">
       <div className="absolute lg:w-[1220px] lg:h-[332px] bg-[#0C5273] bottom-0 left-0 right-0 mx-auto"></div>
@@ -64,16 +86,18 @@ export default function NewsSwipper() {
 
       <div className="max-w-6xl mx-auto mb-4">
         <Swiper
+          modules={[Navigation]}
+          onSwiper={setSwiperRef}
           pagination={{ clickable: true }}
           spaceBetween={0}
           slidesPerView={3}
-          breakpoints={{
-            640: { slidesPerView: 1.3, spaceBetween: 0 },
-            768: { slidesPerView: 2.3, spaceBetween: 0 },
-            1024: { slidesPerView: 2.8, spaceBetween: 0 },
-            1280: { slidesPerView: 2.9, spaceBetween: 0 },
-          }}
           className="w-full px-4"
+          breakpoints={{
+            640: { slidesPerView: 1.3 },
+            768: { slidesPerView: 2.3 },
+            1024: { slidesPerView: 2.8 },
+            1280: { slidesPerView: 2.9 },
+          }}
         >
           {posts.map((post) => (
             <SwiperSlide key={post.id}>
@@ -90,12 +114,9 @@ export default function NewsSwipper() {
                     {post.title}
                   </p>
 
-                  {/* Optional author */}
-                  {post.author && (
-                    <p className="text-[13px] text-gray-500 mb-1">
-                      {post.short_summary}
-                    </p>
-                  )}
+                  <p className="text-[13px] text-gray-500 mb-1">
+                    {post.short_summary}
+                  </p>
 
                   <Link
                     href={`/media/${post.id}`}
@@ -111,12 +132,19 @@ export default function NewsSwipper() {
           ))}
         </Swiper>
 
-        {/* Arrows */}
+        {/* Navigation Buttons */}
         <div className="flex justify-center gap-4 mt-8">
-          <button className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50">
+          <button
+            ref={nextRef}
+            className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50"
+          >
             <IconArrowRight color="white" />
           </button>
-          <button className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50">
+
+          <button
+            ref={prevRef}
+            className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50"
+          >
             <IconArrowLeft color="white" />
           </button>
         </div>

@@ -3,15 +3,17 @@
 import api from "@/app/lib/axios";
 import {
   IconArrowLeft,
+  IconArrowRight,
   IconChevronsRight,
   IconDoorExit,
 } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
 
 interface Product {
   name: string;
@@ -45,6 +47,11 @@ export default function ProductsSwiper() {
 
   const [products, setProducts] = useState<Product[]>([]);
 
+  // Navigation refs
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
+  const [swiperRef, setSwiperRef] = useState<any>(null);
+
   useEffect(() => {
     const fetchProducts = async () => {
       try {
@@ -59,8 +66,24 @@ export default function ProductsSwiper() {
     fetchProducts();
   }, []);
 
+  // Bind navigation buttons
+  useEffect(() => {
+    if (
+      swiperRef &&
+      swiperRef.params &&
+      prevRef.current &&
+      nextRef.current
+    ) {
+      swiperRef.params.navigation.prevEl = prevRef.current;
+      swiperRef.params.navigation.nextEl = nextRef.current;
+
+      swiperRef.navigation.init();
+      swiperRef.navigation.update();
+    }
+  }, [swiperRef]);
+
   return (
-    <div className="my-8 max-w-7xl m-auto">
+    <div className="my-8 max-w-7xl m-auto relative">
       <div className="mb-4">
         <p className="text-[33px] font-bold text-center">
           {t("latestProducts")}
@@ -68,6 +91,8 @@ export default function ProductsSwiper() {
       </div>
 
       <Swiper
+        modules={[Navigation]}
+        onSwiper={setSwiperRef}
         pagination={{ clickable: true }}
         spaceBetween={16}
         slidesPerView={1.2}
@@ -93,9 +118,9 @@ export default function ProductsSwiper() {
                 {/* CATEGORY + BRAND */}
                 <div className="flex items-center gap-2 text-xs text-zinc-600">
                   <IconDoorExit size={16} className="text-zinc-400" />
-                  <p>{!!product.category !== null && product.category.name}</p>
+                  <p>{product.category?.name}</p>
                   <IconChevronsRight size={16} className="text-yellow-600" />
-                  <p>{product.brand !== null && product.brand.name}</p>
+                  <p>{product.brand?.name}</p>
                 </div>
 
                 <div className="divider my-2"></div>
@@ -130,6 +155,23 @@ export default function ProductsSwiper() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* NAVIGATION BUTTONS */}
+      <div className="flex justify-center gap-4 mt-6">
+        <button
+          ref={nextRef}
+          className="p-3 bg-[#0C5273] rounded-full shadow-lg"
+        >
+          <IconArrowRight color="white" size={20} />
+        </button>
+
+        <button
+          ref={prevRef}
+          className="p-3 bg-[#0C5273] rounded-full shadow-lg"
+        >
+          <IconArrowLeft color="white" size={20} />
+        </button>
+      </div>
     </div>
   );
 }
