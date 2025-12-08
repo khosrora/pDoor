@@ -3,6 +3,7 @@ import FormNews from "@/app/components/pages/FormNews";
 import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import api from "@/app/lib/axios";
+import Image from "next/image";
 
 export default async function Page({ params }: { params: any }) {
   const locale = await getLocale(); // fa | en
@@ -71,21 +72,25 @@ export default async function Page({ params }: { params: any }) {
             <Link
               key={post.id}
               href={`/media/${post.id}`}
-              className="card flex flex-row bg-[#fbfbfb] justify-center items-center hover:shadow transition"
+              className="card flex flex-row bg-[#fbfbfb] justify-start items-start hover:shadow transition gap-2"
             >
-              <figure>
-                <img
+              {/* Image container with aspect ratio */}
+              <figure className="w-[100px] flex-shrink-0 relative aspect-video">
+                <Image
                   src={post.cover_image}
                   alt={post.title}
-                  className="lg:w-[152px] lg:h-[144px] object-cover"
+                  fill
+                  className="object-cover rounded-r-md"
+                  sizes="100px"
                 />
               </figure>
 
-              <div className="card-body p-0 text-[10px] mx-2 w-[232px]">
-                <h2 className="card-title text-[8px] font-bold">
+              {/* Text content */}
+              <div className="card-body p-0 text-[10px] w-[232px]">
+                <h2 className="card-title text-[10px] font-bold line-clamp-2">
                   {post.title}
                 </h2>
-                <p className="line-clamp-3">{post.summary || ""}</p>
+                <p className="text-[8px] line-clamp-3">{post.summary || ""}</p>
               </div>
             </Link>
           ))}
