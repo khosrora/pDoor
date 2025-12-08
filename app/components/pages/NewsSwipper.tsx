@@ -16,6 +16,7 @@ interface BlogPost {
   slug: string;
   title: string;
   cover_image: string;
+  short_summary: string;
   author?: {
     first_name: string;
     last_name: string;
@@ -44,7 +45,7 @@ export default function NewsSwipper() {
   }, [locale]);
 
   if (loading) return <p className="text-center py-10">Loading...</p>;
-
+  console.log(posts);
   return (
     <div className="relative my-8 bg-zinc-200 py-8">
       <div className="absolute lg:w-[1220px] lg:h-[332px] bg-[#0C5273] bottom-0 left-0 right-0 mx-auto"></div>
@@ -92,7 +93,7 @@ export default function NewsSwipper() {
                   {/* Optional author */}
                   {post.author && (
                     <p className="text-[13px] text-gray-500 mb-1">
-                      {post.author.first_name} {post.author.last_name}
+                      {post.short_summary}
                     </p>
                   )}
 
