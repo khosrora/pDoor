@@ -77,21 +77,23 @@ export default function NewsSwipper() {
         <p className="text-[33px] font-semibold mb-1">
           {locale === "fa" ? "اخبار و مقالات" : "News & Articles"}
         </p>
-        <p className="text-center text-[20px] max-w-md">
+        <p className="text-center text-[20px] ">
           {locale === "fa"
             ? "آخرین مقالات مرتبط و اخبار پرشیا در را اینجا می‌توانید مشاهده کنید"
             : "See the latest related articles and Persiadoor news here."}
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto mb-4">
+      <div className="max-w-6xl mx-auto my-10">
         <Swiper
+
           modules={[Navigation]}
           onSwiper={setSwiperRef}
           pagination={{ clickable: true }}
+            
           spaceBetween={0}
           slidesPerView={3}
-          className="w-full px-4"
+          className="w-full px-4 "
           breakpoints={{
             640: { slidesPerView: 1.3 },
             768: { slidesPerView: 2.3 },
@@ -101,16 +103,17 @@ export default function NewsSwipper() {
         >
           {posts.map((post) => (
             <SwiperSlide key={post.id}>
+              <Link  href={`/media/${post.id}`}>
               <div className="card lg:w-[360px] lg:h-[421px] bg-white border-2 rounded-md border-zinc-200 overflow-hidden">
                 <figure>
                   <img
                     src={post.cover_image}
                     alt={post.title}
-                    className="w-full h-[240px] object-fill"
+                    className="w-full h-[293px] object-fill"
                   />
                 </figure>
                 <div className="p-4">
-                  <p className="text-[#005E8B] text-[18px] font-medium mb-2">
+                  <p className="text-[#003F5D] text-[18px] font-medium mb-2">
                     {post.title}
                   </p>
 
@@ -118,16 +121,10 @@ export default function NewsSwipper() {
                     {post.short_summary}
                   </p>
 
-                  <Link
-                    href={`/media/${post.id}`}
-                    className="text-[13px] text-gray-600"
-                  >
-                    {locale === "fa"
-                      ? "مشاهده بیشتر"
-                      : "Click to see more details..."}
-                  </Link>
+                 
                 </div>
               </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

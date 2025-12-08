@@ -17,19 +17,19 @@ type ServiceId =
 const items: { id: ServiceId; icon: any }[] = [
   {
     id: "persiaService",
-    icon: <IconHeadphones size={34} className="text-white" />,
+    icon: <IconHeadphones size={50} className="text-white" />,
   },
   {
     id: "freeConsultation",
-    icon: <IconUserQuestion size={34} className="text-white" />,
+    icon: <IconUserQuestion size={50} className="text-white" />,
   },
   {
     id: "installationWarranty",
-    icon: <IconDeviceFloppy size={34} className="text-white" />,
+    icon: <IconDeviceFloppy size={50} className="text-white" />,
   },
   {
     id: "serviceMaintenance",
-    icon: <IconTools size={34} className="text-white" />,
+    icon: <IconTools size={50} className="text-white" />,
   },
 ];
 
@@ -47,18 +47,18 @@ export default function ServicesSection() {
         return (
           <div
             key={item.id}
-            className="relative p-4 bg-white shadow-md overflow-hidden flex items-center gap-4"
+            className="relative lg:h-[250px] p-4 bg-white rounded-md overflow-hidden flex items-center gap-4"
           >
             {/* BLUE POLYGON (ALTERNATES LEFT / RIGHT) */}
             <div
-              className={`absolute top-0 h-full w-24 bg-[#0C5273]
+              className={`absolute top-0 h-full w-30 bg-[#0C5273]
               ${isRight ? "right-0 my-clip-card-rt" : "left-0 my-clip-card-lt"}
             `}
             ></div>
 
             {/* Icon Bubble */}
             <div
-              className={`absolute z-10 w-14 h-14 rounded-full bg-[#0C5273] flex items-center justify-center
+              className={`absolute z-1 w-[48px] h-[48px] rounded-full bg-[#0C5273] flex items-center justify-center
               ${isRight ? "right-4" : "left-4"}
             `}
             >
@@ -67,14 +67,14 @@ export default function ServicesSection() {
 
             {/* Text Content */}
             <div
-              className={`relative z-10 ${
+              className={`relative z-1 ${
                 isRight
                   ? "flex justify-end items-end text-right"
                   : "flex-row-reverse"
               } gap-x-2`}
             >
-              <div className="w-1/4"></div>
-              <div className="w-3/4">
+              <div className=""></div>
+              <div className="w-4/5">
                 <h2 className="text-[#0C5273] font-bold text-xl mb-2">
                   {t(`items.${item.id}.title`)}
                 </h2>

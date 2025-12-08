@@ -84,3 +84,4 @@ body {
 
 /* جلوگیری از انتخاب تصویر حین درگ */
 img { -webkit-user-drag: none; user-select: none; }
+

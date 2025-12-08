@@ -55,12 +55,7 @@ export default function CategoriesSwiper() {
 
   // Bind navigation buttons properly
   useEffect(() => {
-    if (
-      swiperRef &&
-      swiperRef.params &&
-      prevRef.current &&
-      nextRef.current
-    ) {
+    if (swiperRef && swiperRef.params && prevRef.current && nextRef.current) {
       swiperRef.params.navigation.prevEl = prevRef.current;
       swiperRef.params.navigation.nextEl = nextRef.current;
       swiperRef.navigation.init();
@@ -72,11 +67,12 @@ export default function CategoriesSwiper() {
   const isRTL = locale === "fa";
 
   return (
-    <div className="my-8 max-w-7xl m-auto relative">
-      <div className="mb-4">
+    <div className="my-20 max-w-7xl m-auto relative">
+      <div className="mb-16 flex justify-center gap-2">
         <p className="text-[33px] font-bold text-center">
-          {t("latestProducts")}
+          {t("latestProducts1")}
         </p>
+        <p className="text-[33px] font-bold text-center text-[#FAB21F]">{t("latestProducts2")}</p>
       </div>
 
       {/* Swiper */}
@@ -89,12 +85,12 @@ export default function CategoriesSwiper() {
         dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
           640: { slidesPerView: 1.5 },
-          768: { slidesPerView: 3 },
+          768: { slidesPerView: 2.7 },
         }}
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[305px] h-[488px] bg-base-100 rounded-md">
+            <div className="card w-[305px] h-[468px] bg-base-100 rounded-md">
               {/* IMAGE */}
               <figure>
                 <img
@@ -107,33 +103,34 @@ export default function CategoriesSwiper() {
               <div className="card-body p-3">
                 {/* CATEGORY TITLE */}
                 <div className="flex items-center justify-between gap-2 text-xs text-zinc-600">
-                  <div className="flex items-center justify-start">
-                    <IconChevronsLeft size={16} className="text-yellow-600" />
+                  <div className="flex items-center justify-start gap-2">
+                    <img src="\SVGs\Polygon 33.svg" alt="polygon" />
                     <img
                       src={cat.logo}
                       alt={cat.name}
-                      className="w-5 h-5 object-center"
+                      className="w-[32px] h-10 object-center"
                     />
                   </div>
-
-                  <p>{cat.name}</p>
                 </div>
 
                 <div className="divider my-2"></div>
-
-                {/* BUTTON */}
-                <div className="card-actions justify-between items-center">
-                  <Link
-                    href={`/products?lang=${locale}&&category=${cat.slug}`}
-                    className="flex items-center gap-1 text-sm text-blue-600"
-                  >
-                    {t("card.moreLink")}
-                    {isRTL ? (
-                      <IconArrowLeft size={16} />
-                    ) : (
-                      <IconArrowRight size={16} />
-                    )}
-                  </Link>
+                {/* card title */}
+                <div>
+                  <p className="text-[16px]">{cat.name}</p>
+                  {/* BUTTON */}
+                  <div className="card-actions justify-between items-center leading-15">
+                    <Link
+                      href={`/products?lang=${locale}&&category=${cat.slug}`}
+                      className="flex items-center gap-1 text-[13px]"
+                    >
+                      {t("card.moreLink")}
+                      {isRTL ? (
+                        <IconArrowLeft size={16} />
+                      ) : (
+                        <IconArrowRight size={16} />
+                      )}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
@@ -142,20 +139,27 @@ export default function CategoriesSwiper() {
       </Swiper>
 
       {/* NAVIGATION BUTTONS */}
-      <div className="flex justify-center gap-4 mt-6">
+      <div className="flex justify-center gap-8 mt-8">
         <button
           ref={nextRef}
-          className="p-3 bg-[#0C5273] rounded-full shadow-lg"
+          className="p-3 rounded-sm border border-[#DEDEDE]
+             text-[#DEDEDE]
+             active:text-[#636363] active:border-[#636363]
+             transition-all"
         >
-          <IconArrowRight color="white" size={20} />
+          <IconArrowRight size={20} />
         </button>
 
         <button
           ref={prevRef}
-          className="p-3 bg-[#0C5273] rounded-full shadow-lg"
+          className="p-3 rounded-sm border border-[#DEDEDE]
+             text-[#DEDEDE]
+             active:text-[#636363] active:border-[#636363]
+             transition-all"
         >
-          <IconArrowLeft color="white" size={20} />
+          <IconArrowLeft size={20} />
         </button>
+
       </div>
     </div>
   );

@@ -167,7 +167,8 @@
   "ProductsSwiper": {
     "sectionTitlePrefix": "Products",
     "sectionTitleBrand": "PersiaDoor",
-    "latestProducts": "Latest Products",
+    "latestProducts1": "Products ",
+    "latestProducts2": "PersiaDoor",
     "card": {
       "title": "Product Name",
       "featureLabel": "Feature",
@@ -537,9 +538,26 @@
       "button": "View more products"
     },
     "expertise": {
-      "title": "Expertise",
-      "description": "With solid experience and deep technical knowledge, our company delivers reliable, high-quality industrial automation solutions."
+  "items": {
+    "1": {
+      "title": "Support",
+      "description": "We stand by your side from start to finish, ensuring optimal performance of products, equipment, and services with complete peace of mind."
     },
+    "2": {
+      "title": "Expertise",
+      "description": "Our experienced specialists strive to deliver a unique customer experience by understanding and meeting their needs."
+    },
+    "3": {
+      "title": "Authenticity",
+      "description": "After years of experience, collaboration with leading global brands, and reliance on genuine technical knowledge, we have proven the quality of our products."
+    },
+    "4": {
+      "title": "Quality",
+      "description": "Through years of experience, partnerships with top international brands, and reliance on authentic technical expertise, we have demonstrated the quality of our products."
+    }
+  }
+}
+,
     "about": {
       "brand": "PersiaDoor",
       "text": "Operates in the field of designing and developing industrial automation systems with the goal of improving efficiency, accuracy, and speed in production and industrial processes.",

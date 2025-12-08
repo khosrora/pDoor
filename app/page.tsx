@@ -54,7 +54,28 @@ export const metadata: Metadata = {
 export default async function Home() {
   const t = await getTranslations("HomePage");
 
-  const expertiseCards = [1, 2, 3, 4];
+  const expertiseCards = [
+    {
+      title: t("expertise.items.1.title"),
+      description: t("expertise.items.1.description"),
+      icon:"/SVGs/headset.svg"
+    },
+    {
+      title: t("expertise.items.2.title"),
+      description: t("expertise.items.2.description"),
+       icon:"/SVGs/certificate1.svg"
+    },
+    {
+      title: t("expertise.items.3.title"),
+      description: t("expertise.items.3.description"),
+       icon:"/SVGs/protect.svg"
+    },
+    {
+      title: t("expertise.items.4.title"),
+      description: t("expertise.items.4.description"),
+       icon:"/SVGs/bookmark.svg"
+    },
+  ];
 
   return (
     <main className="mt-20">
@@ -74,7 +95,7 @@ export default async function Home() {
             <p className="hidden lg:flex">{t("banner.secondary2")}</p>
           </div>
         </div>
-        <button className="btn btn-outline">{t("banner.button")}</button>
+        <button className="btn btn-outline px-8">{t("banner.button")}</button>
       </div>
 
       <CategoriesSwiper />
@@ -82,9 +103,9 @@ export default async function Home() {
       {/* Expertise + about clip section */}
       <div className="relative">
         {/* Right big clip cards (desktop) */}
-        <div className="my-clip bg-zinc-200 h-40 lg:h-[558px] w-full lg:w-full absolute left-0 -top-2 lg:flex lg:justify-end lg:items-center">
-          <div className="hidden lg:grid grid-cols-2 gap-32 gap-y-6 p-4 max-w-md lg:ml-52">
-            {expertiseCards.map((_, index) => {
+        <div className="my-clip bg-zinc-200 h-40 lg:h-[558px] w-full absolute left-0 -top-2 lg:flex lg:justify-end lg:items-center">
+          <div className="hidden lg:grid grid-cols-2 gap-45 gap-y-8 p-4 max-w-md lg:ml-80">
+            {expertiseCards.map((item, index) => {
               const bgClass =
                 index % 3 === 0
                   ? "bg-transparent border border-[#007EBA]"
@@ -95,18 +116,14 @@ export default async function Home() {
               return (
                 <div
                   key={index}
-                  className={`lg:w-[264px] lg:h-[166px] relative p-4 rounded-md ${bgClass} ${textClass}`}
+                  className={`lg:w-[264px] lg:h-[166px] relative px-4 py-7 rounded-md ${bgClass} ${textClass}`}
                 >
-                  <p className="font-medium text-[20px]">
-                    {t("expertise.title")}
-                  </p>
+                  <p className="font-medium text-[20px]">{item.title}</p>
 
-                  <p className="text-[13px] font-regular">
-                    {t("expertise.description")}
-                  </p>
+                  <p className="text-[13px] font-regular">{item.description}</p>
 
                   <div className="absolute -top-5 left-5 bg-zinc-200 rounded-xl p-2">
-                    <IconChecklist className="text-[#007EBA]" />
+                    <img src={item.icon} alt={item.title} />
                   </div>
                 </div>
               );
@@ -115,13 +132,15 @@ export default async function Home() {
         </div>
 
         {/* Left blue clip */}
-        <div className="relative top-22 my-clip-rt bg-[#003F5D] h-[320px] lg:h-[370px] w-[90%] lg:w-[50%] space-y-1 lg:flex  lg:justify-center lg:items-center lg:mt-10">
-          <div className="flex flex-col space-y-2 lg:mr-0 lg:w-[376px]">
-            <p className="text-[#FAB21F] text-[33px]">{t("about.brand")}</p>
+        <div className="relative top-22  my-clip-rt bg-[#003F5D] h-[320px] lg:h-[370px] w-[90%] lg:w-[50%] space-y-1 lg:flex  lg:justify-start lg:pr-30 lg:items-center lg:mt-10">
+          <div className="flex flex-col space-y-2 lg:w-[376px] ">
+            <p className="text-[#FAB21F] text-[33px] font-semibold">
+              {t("about.brand")}
+            </p>
             <p className="text-white text-xs w-52 lg:text-base w-full">
               {t("about.text")}
             </p>
-            <div className="flex justify-start items-center gap-x-2 text-white">
+            <div className="flex justify-start items-center gap-x-2 text-white mt-8">
               <button className="btn btn-xs btn-outline p-4">
                 {t("about.buttons.learnMore")}
               </button>
@@ -212,9 +231,10 @@ export default async function Home() {
             return (
               <div
                 key={item.key}
-                className="bg-white shadow rounded-md flex flex-col items-center p-2 w-[124px] h-[132px] flex items-center justify-center"
+                className="relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center  w-[124px] h-[132px] flex items-center justify-center"
               >
                 <Icon />
+                <img src="/SVGs/Polygon 33.svg" alt="" sizes="20" className=" absolute rotate-180 w-[20px] left-0" />
                 <p className="mt-2 text-sm">{t(`industries.${item.key}`)}</p>
               </div>
             );
