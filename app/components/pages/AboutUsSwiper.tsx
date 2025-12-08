@@ -1,25 +1,19 @@
 "use client";
 
-import { useState, useRef } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Thumbs, EffectFade } from "swiper/modules";
+import { useRef, useState } from "react";
 import "swiper/css";
+import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import "swiper/css/effect-fade";
-import TeamSection from "@/app/components/pages/TeamSection";
-import Image from "next/image";
-import { IconDownload, IconPlus } from "@tabler/icons-react";
+import { EffectFade, Navigation, Thumbs } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-
-
-    type Slide = {
+type Slide = {
   year: string;
   title: string;
   desc: string;
   image: string; // قرار بده: /images/.. یا url کامل
 };
-
 
 const slides: Slide[] = [
   {
@@ -121,146 +115,140 @@ const slides: Slide[] = [
 ];
 
 const AboutUsSwiper = () => {
-    const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const mainSwiperRef = useRef<any>(null);
-
-
-
-
-
-
 
   return (
     <div>
       {/* Layout: سه ستون: تصویر | خط و سال | متن */}
-            <div className="lg:max-w-7xl mx-auto">
-              <div className="grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto">
-                {/* ستون سمت راست: عنوان و توضیحات */}
-                <div className="col-span-12 lg:col-span-5">
-                  <div className="px-2 md:px-6">
-                    <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
-                      {slides[activeIndex]?.title}
-                    </h3>
-                    <p className="text-slate-600 leading-relaxed">
-                      {slides[activeIndex]?.desc}
-                    </p>
-                  </div>
-                </div>
-                {/* ستون مرکزی - خط عمودی و سال */}
-                <div className="col-span-12 lg:col-span-2 flex flex-col items-center">
-                  {/* سال بالای خط */}
-                  <div className="relative mb-4">
-                    <span className="absolute top-0 -left-3 text-3xl md:text-4xl font-extrabold text-[#f6a623]">
-                      {slides[activeIndex]?.year}
-                    </span>
-                  </div>
-      
-                  {/* خط عمودی */}
-                  <div className="relative -bottom-15 left-7 w-0">
-                    <div className=" w-1 bg-[#0C5273] h-[340px] md:h-[400px]"></div>
-                  </div>
-                </div>
-                {/* عکس بزرگ (سمت چپ در تصویر: در RTL این ستون اول قرار می‌گیرد) */}
-                <div className="col-span-12 lg:col-span-5">
-                  <Swiper
-                    modules={[Navigation, Thumbs, EffectFade]}
-                    onSwiper={(s) => (mainSwiperRef.current = s)}
-                    effect="fade"
-                    // navigation
-                    thumbs={{ swiper: thumbsSwiper }}
-                    speed={800}
-                    onSlideChange={(s) => setActiveIndex(s.realIndex)}
-                    className="rounded-xl overflow-hidden"
-                  >
-                    {slides.map((s, i) => (
-                      <SwiperSlide key={i}>
-                        <div className="relative w-full h-[320px] md:h-[420px]">
-                          <img
-                            src={s.image}
-                            alt={s.title}
-                            className="w-full h-full object-cover transition-transform duration-1000 scale-105"
-                            draggable={false}
-                          />
-                          {/* overlay gradient */}
-                          <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/20 to-black/60 pointer-events-none"></div>
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                </div>
-              </div>
-      
-              {/* تایم‌لاین کوچک */}
-              <div className="mt-14 relative">
-                {/* خط افقی وسط */}
-                <div className="pointer-events-none absolute left-0 right-0 top-10 -translate-y-1/2 z-0">
-                  <div className="h-px bg-slate-300 w-full"></div>
-                </div>
-      
-                <Swiper
-                  onSwiper={(s) => {
-                    setThumbsSwiper(s);
-                    // وقتی اسلایدر ساخته شد، فوراً اسلاید اول را وسط کن
-                    setTimeout(() => s.slideToLoop(0, 0, false), 50);
-                  }}
-                  onSlideChange={(s) => {
-                    setActiveIndex(s.realIndex);
-                  }}
-                  loop={true}
-                  centeredSlides={true}
-                  slidesPerView={5}
-                  spaceBetween={40}
-                  speed={500}
-                  watchSlidesProgress={true}
-                  className="py-10 z-10"
-                  breakpoints={{
-                    0: { slidesPerView: 3, spaceBetween: 15 },
-                    640: { slidesPerView: 5, spaceBetween: 25 },
-                    1024: { slidesPerView: 7.5, spaceBetween: 0 },
-                  }}
-                >
-                  {slides.map((s, i) => {
-                    const active = i === activeIndex;
-                    return (
-                      <SwiperSlide key={i} className="flex justify-center">
-                        <button
-                          onClick={() => {
-                            mainSwiperRef.current?.slideToLoop(i, 600, false);
-                            thumbsSwiper?.slideToLoop(i, 600, false);
-                            setActiveIndex(i);
-                          }}
-                          className="relative flex flex-col items-center bg-transparent"
-                        >
-                          {/* دایره عکس */}
-                          <div
-                            className={`relative rounded-full overflow-hidden transition-all duration-300 
-                    ${active ? "w-28 h-28" : "w-20 h-20"}`}
-                          >
-                            <img
-                              src={s.image}
-                              className={`w-full h-full object-cover transition-all 
-                      ${active ? "" : "grayscale"}`}
-                            />
-      
-                            {active ? (
-                              <span className="absolute inset-0 rounded-full border-4 border-[#0C5273]"></span>
-                            ) : (
-                              <span className="absolute inset-0 rounded-full ring-1 ring-slate-300 grayscale"></span>
-                            )}
-                          </div>
-      
-                          {/* سال */}
-                          <div className="mt-3 text-sm text-slate-700">{s.year}</div>
-                        </button>
-                      </SwiperSlide>
-                    );
-                  })}
-                </Swiper>
-              </div>
+      <div className="lg:max-w-7xl mx-auto">
+        <div className="grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto">
+          {/* ستون سمت راست: عنوان و توضیحات */}
+          <div className="col-span-12 lg:col-span-5">
+            <div className="px-2 md:px-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
+                {slides[activeIndex]?.title}
+              </h3>
+              <p className="text-slate-600 leading-relaxed">
+                {slides[activeIndex]?.desc}
+              </p>
             </div>
-    </div>
-  )
-}
+          </div>
+          {/* ستون مرکزی - خط عمودی و سال */}
+          <div className="col-span-12 lg:col-span-2 flex flex-col items-center">
+            {/* سال بالای خط */}
+            <div className="relative mb-4">
+              <span className="absolute top-0 -left-3 text-3xl md:text-4xl font-extrabold text-[#f6a623]">
+                {slides[activeIndex]?.year}
+              </span>
+            </div>
 
-export default AboutUsSwiper
+            {/* خط عمودی */}
+            <div className="relative -bottom-15 left-7 w-0">
+              <div className=" w-1 bg-[#0C5273] h-[340px] md:h-[400px]"></div>
+            </div>
+          </div>
+          {/* عکس بزرگ (سمت چپ در تصویر: در RTL این ستون اول قرار می‌گیرد) */}
+          <div className="col-span-12 lg:col-span-5">
+            <Swiper
+              modules={[Navigation, Thumbs, EffectFade]}
+              onSwiper={(s) => (mainSwiperRef.current = s)}
+              effect="fade"
+              // navigation
+              thumbs={{ swiper: thumbsSwiper }}
+              speed={800}
+              onSlideChange={(s) => setActiveIndex(s.realIndex)}
+              className="rounded-xl overflow-hidden"
+            >
+              {slides.map((s, i) => (
+                <SwiperSlide key={i}>
+                  <div className="relative w-full h-[320px] md:h-[420px]">
+                    <img
+                      src={s.image}
+                      alt={s.title}
+                      className="w-full h-full object-cover transition-transform duration-1000 scale-105"
+                      draggable={false}
+                    />
+                    {/* overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/20 to-black/60 pointer-events-none"></div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
+
+        {/* تایم‌لاین کوچک */}
+        <div className="mt-14 relative">
+          {/* خط افقی وسط */}
+          <div className="pointer-events-none absolute left-0 right-0 top-10 -translate-y-1/2 z-0">
+            <div className="h-px bg-slate-300 w-full"></div>
+          </div>
+
+          <Swiper
+            onSwiper={(s) => {
+              setThumbsSwiper(s);
+              // وقتی اسلایدر ساخته شد، فوراً اسلاید اول را وسط کن
+              setTimeout(() => s.slideToLoop(0, 0, false), 50);
+            }}
+            onSlideChange={(s) => {
+              setActiveIndex(s.realIndex);
+            }}
+            loop={true}
+            centeredSlides={true}
+            slidesPerView={5}
+            spaceBetween={40}
+            speed={500}
+            watchSlidesProgress={true}
+            className="py-10 z-10"
+            breakpoints={{
+              0: { slidesPerView: 3, spaceBetween: 15 },
+              640: { slidesPerView: 5, spaceBetween: 25 },
+              1024: { slidesPerView: 7.5, spaceBetween: 0 },
+            }}
+          >
+            {slides.map((s, i) => {
+              const active = i === activeIndex;
+              return (
+                <SwiperSlide key={i} className="flex justify-center">
+                  <button
+                    onClick={() => {
+                      mainSwiperRef.current?.slideToLoop(i, 600, false);
+                      thumbsSwiper?.slideToLoop(i, 600, false);
+                      setActiveIndex(i);
+                    }}
+                    className="relative flex flex-col items-center bg-transparent"
+                  >
+                    {/* دایره عکس */}
+                    <div
+                      className={`relative rounded-full overflow-hidden transition-all duration-300 
+                    ${active ? "w-28 h-28" : "w-20 h-20"}`}
+                    >
+                      <img
+                        src={s.image}
+                        className={`w-full h-full object-cover transition-all 
+                      ${active ? "" : "grayscale"}`}
+                      />
+
+                      {active ? (
+                        <span className="absolute inset-0 rounded-full border-4 border-[#0C5273]"></span>
+                      ) : (
+                        <span className="absolute inset-0 rounded-full ring-1 ring-slate-300 grayscale"></span>
+                      )}
+                    </div>
+
+                    {/* سال */}
+                    <div className="mt-3 text-sm text-slate-700">{s.year}</div>
+                  </button>
+                </SwiperSlide>
+              );
+            })}
+          </Swiper>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AboutUsSwiper;

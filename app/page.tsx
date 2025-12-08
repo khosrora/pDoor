@@ -1,6 +1,5 @@
 import { IconChecklist } from "@tabler/icons-react";
 import Image from "next/image";
-import ProductsSwipper from "@/app/components/pages/ProductsSwipper";
 import ServicesSection from "@/app/components/pages/ServicesSection";
 import NewsSwipper from "@/app/components/pages/NewsSwipper";
 import AccordionCustions from "@/app/components/pages/AccordionCustions";
@@ -19,6 +18,7 @@ import Terminal_Icon from "@/public/icons/Terminal_Icon.svg";
 import hospital_Icon from "@/public/icons/hospital_Icon.svg";
 import airport_Icon from "@/public/icons/airport_Icon.svg";
 import { Metadata } from "next";
+import CategoriesSwiper from "./components/pages/CategoriesSwiper";
 
 type IndustryKey =
   | "bank"
@@ -77,7 +77,7 @@ export default async function Home() {
         <button className="btn btn-outline">{t("banner.button")}</button>
       </div>
 
-      <ProductsSwipper />
+      <CategoriesSwiper />
 
       {/* Expertise + about clip section */}
       <div className="relative">

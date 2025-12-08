@@ -1,7 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useTranslations, useLocale } from "next-intl";
+import api from "@/app/lib/axios";
+import Link from "next/link";
 
+/* ------------------------------------
+      Types
+------------------------------------ */
 type TeamMember = {
   id: number;
   name: string;
@@ -10,65 +16,94 @@ type TeamMember = {
 };
 
 export default function TeamSection() {
+  const t = useTranslations("TeamSliders");
+  const locale = useLocale();
+  const dir = locale === "fa" ? "rtl" : "ltr";
+
   const [team, setTeam] = useState<TeamMember[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [lang, setLang] = useState(
-    document.documentElement.lang || navigator.language || "fa"
-  );
+  const [loadingTeam, setLoadingTeam] = useState(true);
 
+  /* ------------------------------------
+      Fetch Team
+  ------------------------------------ */
   useEffect(() => {
-    const fetchTeam = async () => {
-      setLoading(true);
-      try {
-        const apiUrl =
-          lang.startsWith("en")
-            ? "https://api.persiadoorco.com/api/v1/team?lang=en"
-            : "https://api.persiadoorco.com/api/v1/team/";
+    setLoadingTeam(true);
 
-        const res = await fetch(apiUrl);
-        const data = await res.json();
-        setTeam(data);
-      } catch (err) {
-        console.error("خطا در دریافت اطلاعات تیم:", err);
-        setTeam([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTeam();
-  }, [lang]); // توجه: وقتی lang تغییر کند، useEffect دوباره اجرا می‌شود
-
-  // گوش دادن به تغییر lang در html (مثلا وقتی زبان سایت تغییر کند)
-  useEffect(() => {
-    const observer = new MutationObserver(() => {
-      const newLang = document.documentElement.lang || "fa";
-      setLang(newLang);
-    });
-
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
-
-    return () => observer.disconnect();
-  }, []);
-
-  if (loading) return <p className="text-center py-10">در حال بارگذاری...</p>;
+    api
+      .get(`/v1/team/?lang=${locale}`)
+      .then((res) => setTeam(res.data))
+      .catch((err) => console.error("Team Fetch Error:", err))
+      .finally(() => setLoadingTeam(false));
+  }, [locale]);
 
   return (
-    <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 justify-center max-w-7xl mx-auto">
-      {team.map((member) => (
-        <div
-          key={member.id}
-          className="bg-white w-[288px] p-4 flex flex-col items-start"
-        >
-          <img
-            src={member.photo_url}
-            alt={member.name}
-            className="w-full h-[169px] object-cover mb-4 rounded-sm"
-          />
-          <h3 className="text-lg font-semibold mb-1 text-center mb-4">{member.name}</h3>
-          <p className="text-gray-600 r mb-2 leading-8">{member.job_description}</p>
+    <div className="p-4 max-w-7xl mx-auto" dir={dir}>
+      {/* ------------------------------
+          Header
+      ------------------------------ */}
+      <div className="bg-zinc-100 flex justify-center items-center py-8 mb-6">
+        <p className="text-lg">
+          <span className="text-[#FAB21F]">{t("sectionTitlePrefix")} </span>
+          {t("sectionTitleBrand")}
+        </p>
+      </div>
+
+      {/* ------------------------------
+          TEAM LIST
+      ------------------------------ */}
+      {loadingTeam ? (
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="animate-pulse bg-white p-4 rounded">
+              <div className="w-full h-40 bg-gray-300 rounded mb-4"></div>
+              <div className="h-4 w-3/4 bg-gray-300 rounded mb-2"></div>
+              <div className="h-3 w-full bg-gray-200 rounded"></div>
+            </div>
+          ))}
         </div>
-      ))}
+      ) : team.length === 0 ? (
+        <p className="text-center text-sm text-zinc-500">{t("noTeamFound")}</p>
+      ) : (
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6">
+          {team.map((member) => (
+            <div
+              key={member.id}
+              className="bg-white border border-zinc-200 rounded overflow-hidden"
+            >
+              <img
+                src={member.photo_url}
+                alt={member.name}
+                className="w-full h-40 object-cover"
+              />
+
+              <div className="p-4">
+                <p className="text-[#005E8B] font-semibold mb-1">
+                  {member.name}
+                </p>
+                <p className="text-xs text-gray-600 leading-6">
+                  {member.job_description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* ------------------------------
+          CTA BOX (like FAQ)
+      ------------------------------ */}
+      <div className="bg-zinc-100 flex justify-between items-center p-4 mt-6 rounded">
+        <div className="flex justify-start items-center w-1/2 gap-x-2">
+          <p className="text-xs">{t("cta.joinText")}</p>
+        </div>
+
+        <Link
+          href="/job_position"
+          className="btn btn-sm bg-[#005E8B] text-white"
+        >
+          {t("cta.jobsButton")}
+        </Link>
+      </div>
     </div>
   );
 }

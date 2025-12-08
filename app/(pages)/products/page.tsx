@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { IconFilter } from "@tabler/icons-react";
+import { useTranslations, useLocale } from "next-intl";
+
+import api from "@/app/lib/axios";
+
 import CategorySliders from "../../components/pages/CategorySliders";
 import FilersProducts from "../../components/pages/FilersProducts";
 import Brands from "./Brands";
@@ -10,8 +14,6 @@ import Breadcrumbs from "./Breadcrumbs";
 import Products from "@/app/components/pages/Products";
 import CompareAlert from "@/app/components/pages/CompareAlert";
 import DeleteIcon from "@/app/components/pages/DeleteIcon";
-import { useTranslations } from "next-intl";
-import api from "@/app/lib/axios";
 
 export interface Product {
   name: string;
@@ -39,6 +41,7 @@ export interface Product {
 
 export default function ProductsListingPage() {
   const t = useTranslations("ProductsListingPage");
+  const locale = useLocale();
 
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -46,34 +49,32 @@ export default function ProductsListingPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
 
-  // Pagination states
   const [count, setCount] = useState(0);
   const [next, setNext] = useState<string | null>(null);
   const [prev, setPrev] = useState<string | null>(null);
 
-  const page = Number(searchParams.get("page") || "1");
+  const page = Number(searchParams.get("page") || 1);
   const category = searchParams.get("category") || "";
   const brand = searchParams.get("brand") || "";
   const sort = searchParams.get("sort") || "";
   const search = searchParams.get("search") || "";
   const doorType = searchParams.get("door_type") || "";
 
-  // Fetch products whenever searchParams change
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
+
       try {
         const params = new URLSearchParams();
-        if (category) params.append("category", category);
-        if (brand) params.append("brand", brand);
-        if (sort) params.append("sort", sort);
-        if (search) params.append("search", search);
-        if (doorType) params.append("door_type", doorType);
 
-        const locale = navigator.language.startsWith("fa") ? "fa" : "en";
-        params.append("lang", locale);
+        if (category) params.set("category", category);
+        if (brand) params.set("brand", brand);
+        if (sort) params.set("sort", sort);
+        if (search) params.set("search", search);
+        if (doorType) params.set("door_type", doorType);
 
-        params.append("page", page.toString());
+        params.set("lang", locale);
+        params.set("page", String(page));
 
         const res = await api.get(`/v1/products/?${params.toString()}`);
 
@@ -82,7 +83,7 @@ export default function ProductsListingPage() {
         setNext(res.data.next || null);
         setPrev(res.data.previous || null);
       } catch (err) {
-        console.error("Failed to fetch products:", err);
+        console.error("Error loading products:", err);
         setProducts([]);
       } finally {
         setLoading(false);
@@ -90,7 +91,7 @@ export default function ProductsListingPage() {
     };
 
     fetchProducts();
-  }, [category, brand, sort, search, doorType, page]);
+  }, [page, category, brand, sort, search, doorType, locale]);
 
   const goToPage = (newPage: number) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -100,7 +101,6 @@ export default function ProductsListingPage() {
 
   const lastPage = Math.ceil(count / 20);
 
-  // ⭐ Skeleton Loader Component
   const ProductSkeleton = () => (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {Array.from({ length: 12 }).map((_, i) => (
@@ -128,13 +128,14 @@ export default function ProductsListingPage() {
       <FilersProducts />
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 max-w-7xl m-auto">
-        {/* LEFT SIDEBAR */}
+        {/* LEFT FILTER SIDEBAR */}
         <div className="hidden lg:flex lg:flex-col lg:space-y-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-x-2">
+            <div className="flex items-center gap-2">
               <IconFilter />
               <p>{t("filters")}</p>
             </div>
+
             {(category || brand || sort || search || doorType) && (
               <DeleteIcon label={t("clearFilters")} />
             )}
@@ -159,7 +160,6 @@ export default function ProductsListingPage() {
             <>
               <Products products={products} />
 
-              {/* PAGINATION */}
               <div className="flex justify-center my-10">
                 <div className="join">
                   <button
@@ -185,10 +185,8 @@ export default function ProductsListingPage() {
               </div>
             </>
           ) : (
-            <div className="alert alert-warning shadow-lg">
-              <div>
-                <span>{t("noProductsFound")}</span>
-              </div>
+            <div className="alert alert-warning">
+              <span>{t("noProductsFound")}</span>
             </div>
           )}
         </div>

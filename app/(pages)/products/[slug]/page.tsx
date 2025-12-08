@@ -1,5 +1,4 @@
 import AccordionCustions from "@/app/components/pages/AccordionCustions";
-import ProductsSwipper from "@/app/components/pages/ProductsSwipper";
 import api from "@/app/lib/axios";
 import {
   IconCircleChevronLeft,
@@ -11,6 +10,7 @@ import GalleryImage from "./GalleryImage";
 import TabsDetails from "./TabsDetails";
 import Link from "next/link";
 import ProjectsSlider from "@/app/components/pages/ProjectsSlider";
+import CategoriesSwiper from "@/app/components/pages/CategoriesSwiper";
 
 interface Props {
   params: any;
@@ -124,7 +124,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
       {product.projects?.length > 0 && <ProjectsSlider />}
 
-      <ProductsSwipper />
+      <CategoriesSwiper />
       <AccordionCustions />
     </div>
   );
