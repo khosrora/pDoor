@@ -58,7 +58,7 @@ export default function CategoriesSwiper() {
         breakpoints={{
           640: { slidesPerView: 1.5 },
           768: { slidesPerView: 3 },
-          1024: { slidesPerView: 4 },
+          // 1024: { slidesPerView: 4 },
         }}
       >
         {categories.map((cat) => (
@@ -81,7 +81,7 @@ export default function CategoriesSwiper() {
                     <img
                       src={cat.logo}
                       alt={cat.name}
-                      className="w-5 h-5 object-contain"
+                      className="w-5 h-5 object-center"
                     />
                   </div>
 

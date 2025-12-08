@@ -11,6 +11,7 @@ import TabsDetails from "./TabsDetails";
 import Link from "next/link";
 import ProjectsSlider from "@/app/components/pages/ProjectsSlider";
 import CategoriesSwiper from "@/app/components/pages/CategoriesSwiper";
+import ProductsSwiper from "@/app/components/pages/ProductsSwiper";
 
 interface Props {
   params: any;
@@ -124,7 +125,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
       {product.projects?.length > 0 && <ProjectsSlider />}
 
-      <CategoriesSwiper />
+      <ProductsSwiper />
       <AccordionCustions />
     </div>
   );
