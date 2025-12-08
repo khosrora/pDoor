@@ -160,27 +160,24 @@ export default function ProductsListingPage() {
             <>
               <Products products={products} />
 
+              {/* PAGINATION */}
               <div className="flex justify-center my-10">
                 <div className="join">
-                  <button
-                    className="join-item btn"
-                    disabled={!prev}
-                    onClick={() => goToPage(page - 1)}
-                  >
-                    «
-                  </button>
+                  {Array.from({ length: lastPage }).map((_, i) => {
+                    const pageNumber = i + 1;
 
-                  <button className="join-item btn">
-                    {page} / {lastPage}
-                  </button>
-
-                  <button
-                    className="join-item btn"
-                    disabled={!next}
-                    onClick={() => goToPage(page + 1)}
-                  >
-                    »
-                  </button>
+                    return (
+                      <button
+                        key={pageNumber}
+                        className={`join-item btn ${
+                          pageNumber === page ? "btn-active" : ""
+                        }`}
+                        onClick={() => goToPage(pageNumber)}
+                      >
+                        {pageNumber}
+                      </button>
+                    );
+                  })}
                 </div>
               </div>
             </>

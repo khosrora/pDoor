@@ -10,6 +10,7 @@ interface BlogPost {
   id: number;
   slug: string;
   title: string;
+  short_summary: string;
   cover_image: string;
   author: {
     first_name: string;
@@ -40,11 +41,14 @@ export default function News() {
 
     fetchBlogPosts();
   }, [locale]);
-
+  console.log(posts);
   return (
-    <div className="grid grid-cols-2 gap-4 p-4 lg:grid-cols-4 max-w-7xl mx-auto ">
+    <div className="grid grid-cols-2 gap-4 p-4 lg:grid-cols-3 max-w-7xl mx-auto ">
       {posts.map((item) => (
-        <div key={item.id} className="card active:text-[#007EBA] w-[392px] h-[413px] bg-base-100 border border-zinc-200">
+        <div
+          key={item.id}
+          className="card active:text-[#007EBA] w-[392px] h-[413px] bg-base-100 border border-zinc-200"
+        >
           {/* Image */}
           <figure>
             <img
@@ -59,9 +63,7 @@ export default function News() {
             <h2 className="card-title text-black text-[18px]">{item.title}</h2>
 
             {/* Author */}
-            <p className="text-[13px] text-zinc-500">
-              {item.author?.first_name} {item.author?.last_name}
-            </p>
+            <p className="text-[13px] text-zinc-500">{item.short_summary}</p>
 
             {/* Row: Read More + Date */}
             <div className="card-actions flex justify-between items-center mt-2 text-zinc-500 text-[16px]">

@@ -76,10 +76,6 @@ export default function Gallery() {
 
         {/* relative products */}
       </div>
-      <div className="w-full lg:h-[485px] bg-[#003148] my-12">
-        <h2 className="text-white lg:text-[25px] lg:font-bold text-center pt-8">{t("GalleryImage.relativeProducts")}</h2>
-        {/* slider */}
-      </div>
     </div>
   );
 }
