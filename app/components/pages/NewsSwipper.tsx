@@ -81,7 +81,7 @@ export default function NewsSwipper() {
                   <img
                     src={post.cover_image}
                     alt={post.title}
-                    className="w-full h-[240px] object-cover"
+                    className="w-full h-[240px] object-fill"
                   />
                 </figure>
                 <div className="p-4">
