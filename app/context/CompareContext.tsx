@@ -1,68 +1,66 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 
-// ⭐ Updated based on new API structure
-export interface CompareProduct {
+export type CompareProduct = {
   slug: string;
   name: string;
   image: string;
   brand: string;
-  specs: {
-    field_name?: string | null;
-    value: string | null;
-    unit?: string | null;
-    display_section: "highlight" | "detail" | "tag";
-  }[];
-}
+  specs: { field_name: string; value: string }[];
+};
 
-interface CompareContextType {
+type CompareContextType = {
   items: CompareProduct[];
   addItem: (product: CompareProduct) => void;
   removeItem: (slug: string) => void;
-  clear: () => void;
-}
+  clearAll: () => void;
+};
 
-const CompareContext = createContext<CompareContextType | null>(null);
+const CompareContext = createContext<CompareContextType | undefined>(undefined);
 
-export function CompareProvider({ children }: { children: React.ReactNode }) {
+export const CompareProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CompareProduct[]>([]);
 
-  // Load from localStorage
+  // Load from localStorage on mount
   useEffect(() => {
-    const saved = localStorage.getItem("compare_items");
-    if (saved) setItems(JSON.parse(saved));
+    const stored = localStorage.getItem("compare_items");
+    if (stored) {
+      setItems(JSON.parse(stored));
+    }
   }, []);
 
-  // Save to localStorage
+  // Save to localStorage on change
   useEffect(() => {
     localStorage.setItem("compare_items", JSON.stringify(items));
   }, [items]);
 
   const addItem = (product: CompareProduct) => {
-    setItems((prev) => {
-      if (prev.find((p) => p.slug === product.slug)) {
-        return prev; // Already exists, do nothing
-      }
-      return [...prev, product];
-    });
+    setItems((prev) => [...prev, product]);
   };
 
   const removeItem = (slug: string) => {
     setItems((prev) => prev.filter((p) => p.slug !== slug));
   };
 
-  const clear = () => setItems([]);
+  const clearAll = () => setItems([]);
 
   return (
-    <CompareContext.Provider value={{ items, addItem, removeItem, clear }}>
+    <CompareContext.Provider value={{ items, addItem, removeItem, clearAll }}>
       {children}
     </CompareContext.Provider>
   );
-}
+};
 
-export function useCompare() {
-  const ctx = useContext(CompareContext);
-  if (!ctx) throw new Error("useCompare must be inside CompareProvider");
-  return ctx;
-}
+export const useCompare = () => {
+  const context = useContext(CompareContext);
+  if (!context)
+    throw new Error("useCompare must be used within CompareProvider");
+  return context;
+};

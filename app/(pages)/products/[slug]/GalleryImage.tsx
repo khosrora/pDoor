@@ -29,11 +29,6 @@ function GalleryImage({ images }: Props) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | null>(null);
   const t = useTranslations("GalleryImage");
 
-  const mainSwiperStyle: CSSProperties = {
-    "--swiper-navigation-color": "#fff",
-    "--swiper-pagination-color": "#fff",
-  } as CSSProperties;
-
   // Sort images by "is_main" first, then by order
   const sorted = [...images].sort((a, b) => {
     if (a.is_main) return -1;
@@ -45,9 +40,7 @@ function GalleryImage({ images }: Props) {
     <div className="min-w-0 allprojects">
       {/* Main slider */}
       <Swiper
-        style={mainSwiperStyle}
         spaceBetween={10}
-        navigation
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
         className="mySwiper2"

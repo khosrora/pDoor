@@ -35,7 +35,7 @@ export interface Product {
     field_name?: string | null;
     value: string | null;
     unit?: string | null;
-    display_section: "highlight" | "detail" | "tag";
+    display_section: string;
   }[];
 }
 
@@ -115,7 +115,7 @@ export default function ProductsListingPage() {
       ))}
     </div>
   );
-
+  
   return (
     <div className="my-20">
       <CompareAlert />

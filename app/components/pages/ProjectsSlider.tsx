@@ -1,28 +1,42 @@
 "use client";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import Image from "next/image";
+import Link from "next/link";
 
-export default function ProjectsSlider() {
+interface Project {
+  title: string;
+  slug: string;
+  cover_image: string;
+}
+
+export default function ProjectsSlider({ projects }: { projects: Project[] }) {
+  if (!projects || projects.length === 0) return null;
+
   return (
     <div className="my-8 bg-[#003F5D] py-8">
       {/* Header */}
       <div className="flex flex-col items-center mb-6 text-white px-4">
-        <p className="text-lg font-semibold mb-1">پروژه ها</p>
+        <p className="text-lg font-semibold mb-1">پروژه‌ها</p>
       </div>
-      <div className="max-w-7xl m-auto">
+
+      <div className="max-w-7xl mx-auto px-4">
         {/* Swiper */}
         <Swiper
+          modules={[Pagination]}
           pagination={{ clickable: true }}
           spaceBetween={16}
-          slidesPerView={1.1} // default mobile
+          slidesPerView={1.1} // mobile default
           breakpoints={{
             640: {
               slidesPerView: 1.3,
               spaceBetween: 16,
             },
             768: {
-              slidesPerView: 2.8,
+              slidesPerView: 2.2,
               spaceBetween: 20,
             },
             1024: {
@@ -30,33 +44,32 @@ export default function ProjectsSlider() {
               spaceBetween: 24,
             },
             1280: {
-              slidesPerView: 3,
+              slidesPerView: 3.5,
               spaceBetween: 28,
             },
           }}
-          className="w-full px-4"
+          className="w-full"
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-            <SwiperSlide key={i}>
-              <div className="card bg-white border-2 rounded-md border-zinc-200 overflow-hidden">
-                <figure>
-                  <img
-                    src="https://persiadoorco.com/wp-content/uploads/2025/03/%D8%B1%DB%8C%D9%88%D8%A7%D9%84%D9%88%DB%8C%D9%86%DA%AF1-1.jpg"
-                    alt="اخبار"
-                    className="w-full h-36 object-cover"
+          {projects.map((project) => (
+            <SwiperSlide key={project.slug}>
+              <Link
+                href={`/projects/${project.slug}`}
+                className="card block bg-white border rounded-md border-zinc-200 shadow-md overflow-hidden hover:shadow-lg transition"
+              >
+                <figure className="relative w-full h-44">
+                  <Image
+                    src={project.cover_image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
                   />
                 </figure>
                 <div className="p-4">
                   <p className="text-[#005E8B] font-semibold mb-1">
-                    شرکت در نمایشگاه بین‌المللی ساختمان سال
-                  </p>
-                  <p className="text-xs text-gray-600">
-                    گزارش تصویری و خبری از حضور شرکت در نمایشگاه، معرفی محصولات
-                    گزارش تصویری و خبری از حضور شرکت در نمایشگاه، معرفی محصولات
-                    جدید ...
+                    {project.title}
                   </p>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
