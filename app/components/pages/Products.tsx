@@ -100,7 +100,7 @@ function Products({ products }: { products: Product[] }) {
 
                 <div className="card-body p-0">
                   <div className="divider my-0" />
-                  <div className="px-4 pb-4">
+                  <div className="">
                     <ProductAttributes product={product} />
                   </div>
                 </div>
@@ -108,10 +108,10 @@ function Products({ products }: { products: Product[] }) {
 
               {/* Compare Badge */}
               <div
-                className={`badge px-1 absolute right-2 top-2 rounded-md flex items-center gap-1 cursor-pointer ${
+                className={`badge absolute right-2 top-2 rounded-full px-2 flex items-center gap-1 cursor-pointer ${
                   inCompare
-                    ? "bg-[#007EBA] text-white"
-                    : "bg-[#D1F0FF] text-[#007EBA]"
+                    ? "bg-[#003148] text-white"
+                    : "bg-zinc-200 text-zinc-500"
                 }`}
                 onClick={(e) => {
                   e.preventDefault();

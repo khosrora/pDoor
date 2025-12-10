@@ -52,10 +52,7 @@ export default function ProjectsSlider({ projects }: { projects: Project[] }) {
         >
           {projects.map((project) => (
             <SwiperSlide key={project.slug}>
-              <Link
-                href={`/projects/${project.slug}`}
-                className="card block bg-white border rounded-md border-zinc-200 shadow-md overflow-hidden hover:shadow-lg transition"
-              >
+              <div className="card block bg-white border rounded-md border-zinc-200 shadow-md overflow-hidden hover:shadow-lg transition">
                 <figure className="relative w-full h-44">
                   <Image
                     src={project.cover_image}
@@ -69,7 +66,7 @@ export default function ProjectsSlider({ projects }: { projects: Project[] }) {
                     {project.title}
                   </p>
                 </div>
-              </Link>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

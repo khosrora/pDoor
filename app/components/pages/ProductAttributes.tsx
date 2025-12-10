@@ -24,17 +24,17 @@ export default function ProductAttributes({ product }: Props) {
   );
 
   return (
-    <div className="mt-4">
+    <div className="mx-2">
       {/* Product Name */}
       <h1 className="text-base font-bold mb-4">{product.name}</h1>
 
       {/* Render attr1 items */}
       {attr1Items && attr1Items.length > 0 ? (
-        <div className="">
+        <div className="flex flex-wrap">
           {attr1Items.map((spec, index) => (
             <div
               key={index}
-              className="badge badge-xs bg-zinc-100 rounded-full mx-2"
+              className="badge badge-xs bg-zinc-100 rounded-full"
             >
               <span className="font-medium">{spec.field_name}</span>
               <span className="text-gray-600">

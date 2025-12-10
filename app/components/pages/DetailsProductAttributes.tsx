@@ -1,13 +1,20 @@
 "use client";
 
 import { FC } from "react";
-import { IconCircleChevronLeft, IconDownload, IconPhone } from "@tabler/icons-react";
+import {
+  IconCircleChevronLeft,
+  IconCircleChevronLeftFilled,
+  IconDownload,
+  IconPhone,
+} from "@tabler/icons-react";
+import Image from "next/image";
 
 interface Specification {
   field_name?: string | null;
   value: string | null;
   unit?: string | null;
   display_section: string;
+  field_icon?: string;
 }
 
 interface ProductAttributesProps {
@@ -69,11 +76,14 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
       {attr2.length > 0 && (
         <div className="flex flex-col gap-1 mt-2">
           {attr2.map((item, i) => (
-            <div key={i} className="flex items-center gap-2">
-              <IconCircleChevronLeft className="text-[#ADADAD] w-4 h-4" />
-              <span className="text-sm">
-                {item.field_name && `${item.field_name}: `} {item.value}{" "}
-                {item.unit}
+            <div key={i} className="flex items-center gap-2 text-sm my-2">
+              <IconCircleChevronLeftFilled className="text-[#ADADAD] w-4 h-4" />
+              <span className="text-zinc-500">
+                {item.field_name && `${item.field_name}: `}
+              </span>
+              <span>
+                {" "}
+                {item.value} {item.unit}{" "}
               </span>
             </div>
           ))}
@@ -82,18 +92,24 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
 
       {/* TAG2: flex row */}
       {tag2.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex flex-wrap gap-2 my-4">
           {tag2.map((item, i) => (
             <div
               key={i}
-              className="badge badge-xs bg-zinc-100 rounded-full px-2 py-1"
+              className=" bg-zinc-100 px-2 py-1 flex justify-center items-center rounded-md"
             >
-              {item.value}
+              <Image
+                src={item.field_icon || "/"}
+                width={40}
+                height={40}
+                alt={item.field_name || ""}
+              />
+              <span className="text-sm">{item.field_name}</span>
             </div>
           ))}
         </div>
       )}
-      <div className="flex flex-row justify-between gap-2">
+      <div className="flex flex-row justify-start gap-2">
         {/* First Button: تماس با تیم فروش */}
         <button className="btn bg-[#005E8B] text-white flex items-center gap-2">
           <IconPhone size={18} />
