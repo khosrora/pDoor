@@ -19,7 +19,7 @@ export default async function ContactPage() {
   const textDir = locale === "fa" ? "text-right" : "text-left";
 
   return (
-    <div dir={dir} className={`p-4 space-y-4 max-w-5xl m-auto ${textDir}`}>
+    <div dir={dir} className={`p-4 space-y-4 max-w-7xl mt-20 mx-auto ${textDir}`}>
       <Breadcrumbs />
 
       <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
@@ -32,7 +32,7 @@ export default async function ContactPage() {
           </div>
 
           {/* Contact blocks */}
-          <div className="border border-zinc-200 p-4 space-y-4 lg:border-none lg:bg-zinc-100">
+          <div className=" p-4 space-y-4 lg:border-none lg:bg-zinc-100">
             {/* HQ */}
             <div className="flex flex-col">
               <div className="flex gap-x-4">
