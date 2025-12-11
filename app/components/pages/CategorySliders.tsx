@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useTranslations, useLocale } from "next-intl";
+import { useSearchParams } from "next/navigation";
 
 interface Category {
   name: string;
@@ -17,7 +18,10 @@ interface Category {
 
 export default function CategorySliders() {
   const t = useTranslations("Categories");
-  const locale = useLocale(); // "fa" | "en"
+  const locale = useLocale();
+  const searchParams = useSearchParams();
+  const activeCategory = searchParams.get("category"); // ✔ selected category from URL
+
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -69,39 +73,55 @@ export default function CategorySliders() {
             }}
             className="w-full"
           >
-            {categories.map((category) => (
-              <SwiperSlide key={category.slug}>
-                <Link
-                  href={`/products?category=${category.slug}`}
-                  className="block"
-                >
-                  <div
-                    className="
-                      group flex flex-col items-center justify-center 
-                      border border-zinc-300 rounded p-4 space-y-4 bg-white 
-                      transition-all duration-300 
-                      hover:shadow-lg hover:border-[#007EBA] cursor-pointer
-                    "
+            {categories.map((category) => {
+              const isActive = activeCategory === category.slug; // ✔ check if selected
+              return (
+                <SwiperSlide key={category.slug}>
+                  <Link
+                    href={`/products?category=${category.slug}`}
+                    className="block"
                   >
-                    <Image
-                      src={category.logo || "/images/noimage.jpg"}
-                      width={40}
-                      height={40}
-                      alt={category.name}
-                      className="transition-transform duration-300 group-hover:scale-110 object-contain"
-                    />
+                    <div
+                      className={`
+                        group flex flex-col items-center justify-center 
+                        border rounded p-4 space-y-4 bg-white transition-all duration-300 cursor-pointer
+                        ${
+                          isActive
+                            ? "border-[#007EBA] shadow-lg"
+                            : "border-zinc-300"
+                        }
+                      `}
+                    >
+                      <Image
+                        src={category.logo || "/images/noimage.jpg"}
+                        width={40}
+                        height={40}
+                        alt={category.name}
+                        className={`transition-transform duration-300 group-hover:scale-110 object-contain`}
+                      />
 
-                    <p className="text-[10px] lg:text-[14px] font-medium group-hover:text-[#003f5d] transition-colors">
-                      {category.name}
-                    </p>
+                      <p
+                        className={`
+                          text-[10px] lg:text-[14px] font-medium transition-colors
+                          ${isActive ? "text-[#003f5d]" : "text-black"}
+                        `}
+                      >
+                        {category.name}
+                      </p>
 
-                    <p className="text-[8px] lg:text-[12px] text-zinc-400 group-hover:text-[#007EBA] transition-colors">
-                      {t("productsCount", { count: category.product_count })}
-                    </p>
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ))}
+                      <p
+                        className={`
+                          text-[8px] lg:text-[12px] transition-colors
+                          ${isActive ? "text-[#007EBA]" : "text-zinc-400"}
+                        `}
+                      >
+                        {t("productsCount", { count: category.product_count })}
+                      </p>
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         )}
       </div>

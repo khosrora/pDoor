@@ -13,15 +13,24 @@ import { toast } from "sonner";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import ProductAttributes from "./ProductAttributes";
 
-function Products({ products }: { products: Product[] }) {
+export default function Products({
+  products,
+  count,
+}: {
+  products: Product[];
+  count: number;
+}) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-
   const t = useTranslations("ProductsListingPage");
+
   const { items, addItem, removeItem } = useCompare();
 
-  const isInCompare = (slug: string) => items.some((p) => p.slug === slug);
+  const currentSort = searchParams.get("sort") || "";
+
+  const isInCompare = (slug: string) =>
+    items.some((p) => p.slug === slug);
 
   const handleCompareToggle = (product: Product, imageUrl: string) => {
     if (isInCompare(product.slug)) {
@@ -45,7 +54,7 @@ function Products({ products }: { products: Product[] }) {
 
   const updateSort = (value: string) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("sort", value);
+    value ? params.set("sort", value) : params.delete("sort");
     router.push(`${pathname}?${params.toString()}`);
   };
 
@@ -54,18 +63,32 @@ function Products({ products }: { products: Product[] }) {
       {/* Header */}
       <div className="hidden lg:flex justify-between items-center mb-2">
         <p>
-          {products.length} {t("productsFound")}
+          {count} {t("productsFound")}
         </p>
+
         <div className="flex justify-end items-center space-x-4 text-[14px]">
+
+          {/* NEWEST */}
           <p
-            className="cursor-pointer hover:underline"
+            className={`cursor-pointer hover:underline ${
+              currentSort === ""
+                ? "text-zinc-900 font-semibold"
+                : "text-zinc-400"
+            }`}
             onClick={() => updateSort("")}
           >
             {t("sortNewest")}
           </p>
+
           <div className="divider divider-horizontal"></div>
+
+          {/* POPULAR */}
           <p
-            className="cursor-pointer hover:underline"
+            className={`cursor-pointer hover:underline ${
+              currentSort === "popular"
+                ? "text-zinc-900 font-semibold"
+                : "text-zinc-400"
+            }`}
             onClick={() => updateSort("popular")}
           >
             {t("sortBestSelling")}
@@ -100,9 +123,7 @@ function Products({ products }: { products: Product[] }) {
 
                 <div className="card-body p-0">
                   <div className="divider my-0" />
-                  <div className="">
-                    <ProductAttributes product={product} />
-                  </div>
+                  <ProductAttributes product={product} />
                 </div>
               </Link>
 
@@ -115,7 +136,7 @@ function Products({ products }: { products: Product[] }) {
                 }`}
                 onClick={(e) => {
                   e.preventDefault();
-                  e.stopPropagation(); // important: stop Link click
+                  e.stopPropagation();
                   handleCompareToggle(product, imageUrl);
                 }}
               >
@@ -145,5 +166,3 @@ function Products({ products }: { products: Product[] }) {
     </div>
   );
 }
-
-export default Products;

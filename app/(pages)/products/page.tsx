@@ -158,7 +158,7 @@ export default function ProductsListingPage() {
             <ProductSkeleton />
           ) : products.length > 0 ? (
             <>
-              <Products products={products} />
+              <Products products={products} count={count} />
 
               {/* PAGINATION */}
               <div className="flex justify-center my-10">

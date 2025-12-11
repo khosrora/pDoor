@@ -76,7 +76,6 @@ function Header() {
                 className="drawer-overlay"
               ></label>
               <ul className="menu bg-base-200 min-h-full w-80 p-4">
-                
                 <li>
                   <Link href="/">{t("brandName")}</Link>
                 </li>
@@ -128,7 +127,7 @@ function Header() {
             ) : (
               <div
                 ref={searchRef}
-                className="flex items-center bg-white rounded outline outline-1 outline-offset-[-1px] outline-neutral-400 overflow-hidden transition-all duration-500 ease-in-out h-10 focus-within:outline-blue-400"
+                className="flex items-center bg-white rounded outline outline-1 outline-offset-[-1px] outline-neutral-400 overflow-hidden transition-all duration-500 ease-in-out h-10"
                 style={{ width: `${searchWidth}px` }}
               >
                 <div className="flex items-center gap-2 w-full px-2">

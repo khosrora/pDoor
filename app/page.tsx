@@ -33,17 +33,21 @@ type IndustryKey =
   | "hospital"
   | "airport";
 
-const industries: { key: IndustryKey; icon: React.ComponentType }[] = [
-  { key: "bank", icon: Bank_Icon },
-  { key: "creative", icon: Creative_Icon },
-  { key: "factory", icon: Factory_Icon },
-  { key: "hotel", icon: Hotel_Icon },
-  { key: "office", icon: Office_Icon },
-  { key: "private", icon: Privacy_Icon },
-  { key: "shopping", icon: Shoping_Icon },
-  { key: "terminal", icon: Terminal_Icon },
-  { key: "hospital", icon: hospital_Icon },
-  { key: "airport", icon: airport_Icon },
+const industries: {
+  key: IndustryKey;
+  icon: React.ComponentType;
+  link: string;
+}[] = [
+  { key: "bank", icon: Bank_Icon, link: "/" },
+  { key: "creative", icon: Creative_Icon, link: "/" },
+  { key: "factory", icon: Factory_Icon, link: "/" },
+  { key: "hotel", icon: Hotel_Icon, link: "/" },
+  { key: "office", icon: Office_Icon, link: "/" },
+  { key: "private", icon: Privacy_Icon, link: "/" },
+  { key: "shopping", icon: Shoping_Icon, link: "/" },
+  { key: "terminal", icon: Terminal_Icon, link: "/" },
+  { key: "hospital", icon: hospital_Icon, link: "/" },
+  { key: "airport", icon: airport_Icon, link: "/" },
 ];
 
 export const metadata: Metadata = {
@@ -142,11 +146,11 @@ export default async function Home() {
               {t("about.text")}
             </p>
             <div className="flex justify-start items-center gap-x-2 text-white mt-8">
-             <Link href={`/about_us`}>
-              <button className="btn btn-xs btn-outline p-4">
-                {t("about.buttons.learnMore")}
-              </button>
-             </Link>
+              <Link href={`/about_us`}>
+                <button className="btn btn-xs btn-outline p-4">
+                  {t("about.buttons.learnMore")}
+                </button>
+              </Link>
               <button className="btn btn-xs p-4">
                 {t("about.buttons.call")}
               </button>
@@ -203,8 +207,9 @@ export default async function Home() {
       </div>
 
       {/* Services section */}
-      <div className=" px-4 py-8"
-      style={{ backgroundImage: `url('/images/percia oor service.png')` }}
+      <div
+        className=" px-4 py-8"
+        style={{ backgroundImage: `url('/images/percia oor service.png')` }}
       >
         <div className="text-center mb-8">
           <p className="lg:font-bold lg:text-[33px] mt-8">
@@ -232,17 +237,15 @@ export default async function Home() {
         </div>
         <div className="grid grid-cols-3 gap-4 mt-2 lg:grid-cols-5 py-15">
           {industries.map((item) => {
-            const Icon = item.icon;
+            const Icon : any = item.icon;
             return (
               <div
                 key={item.key}
                 className="group relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center w-[124px] h-[132px] justify-center transition-all duration-300"
               >
-                <Link href={`/`}>
-                  {/* آیکن */}
+                <Link href={item.link}>
                   <Icon className="text-gray-600 mx-auto transition-all duration-300 group-hover:text-[#0C5273] group-hover:scale-110" />
 
-                  {/* مثلث کناری */}
                   <img
                     src="/SVGs/Polygon 33.svg"
                     alt=""
