@@ -69,8 +69,10 @@ export default function NewsSwipper() {
   if (loading) return <p className="text-center py-10">Loading...</p>;
 
   return (
-    <div className="relative my-8 bg-zinc-200 py-8">
-      <div className="absolute lg:w-[1220px] lg:h-[332px] bg-[#0C5273] bottom-0 left-0 right-0 mx-auto"></div>
+    <div className="relative my-8  py-8"
+    style={{ backgroundImage: `url('/images/percia oor service.png')` }}
+    >
+      <div className="absolute lg:w-[1220px] lg:h-[300px] bg-[#0C5273] bottom-0 left-0 right-0 mx-auto"></div>
 
       {/* Header */}
       <div className="flex flex-col items-center mb-6 text-black px-4">
@@ -130,7 +132,7 @@ export default function NewsSwipper() {
         </Swiper>
 
         {/* Navigation Buttons */}
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex justify-center gap-8 mt-8">
           <button
             ref={nextRef}
             className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50"

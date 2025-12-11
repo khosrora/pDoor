@@ -105,7 +105,10 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
       {/* ------------------------------
           Categories Header
       ------------------------------ */}
-      <div className="bg-zinc-100 flex justify-center items-center py-8">
+       <p className="text-center mb-4 font-bold text-[33px]">
+          {t("Footer.columns.about.questions")}
+        </p>
+      <div className="flex justify-center items-center py-8">
         {loadingCategories ? (
           <p className="text-xs text-zinc-500">Loading...</p>
         ) : (
@@ -131,9 +134,7 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
           FAQs List
       ------------------------------ */}
       <div className="p-4 mx-auto max-w-3xl space-y-4" dir={dir}>
-        <p className="text-center mb-4 font-bold text-sm">
-          {t("Footer.columns.about.questions")}
-        </p>
+       
 
         {loadingFaq ? (
           <p className="text-xs text-center text-zinc-500">Loading...</p>
@@ -145,7 +146,7 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
           filteredFaqs.map((faq, index) => (
             <div
               key={faq.order + "_" + index}
-              className="collapse collapse-arrow border border-base-200 bg-zinc-100"
+              className="collapse collapse-arrow border border-base-200 bg-zinc-50"
             >
               <input
                 type="radio"
@@ -193,9 +194,9 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
           </form>
         ) : (
           <div className="bg-zinc-100 flex justify-between items-center p-4 mt-4 rounded">
-            <div className="flex justify-start items-center w-1/2 gap-x-2">
-              <IconUserQuestion className="w-12 h-12" />
-              <p className="text-[12px]">{t("moreBox.text")}</p>
+            <div className="flex justify-start items-center gap-x-2 py-6">
+              <img src={"/SVGs/comments.svg"} className="w-12 h-12" />
+              <p className="text-[19px]">{t("moreBox.text")}</p>
             </div>
             <Link
               href="/frequently"

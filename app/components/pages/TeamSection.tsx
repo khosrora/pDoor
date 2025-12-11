@@ -92,18 +92,7 @@ export default function TeamSection() {
       {/* ------------------------------
           CTA BOX (like FAQ)
       ------------------------------ */}
-      <div className="bg-zinc-100 flex justify-between items-center p-4 mt-6 rounded">
-        <div className="flex justify-start items-center w-1/2 gap-x-2">
-          <p className="text-xs">{t("cta.joinText")}</p>
-        </div>
-
-        <Link
-          href="/job_position"
-          className="btn btn-sm bg-[#005E8B] text-white"
-        >
-          {t("cta.jobsButton")}
-        </Link>
-      </div>
+      
     </div>
   );
 }

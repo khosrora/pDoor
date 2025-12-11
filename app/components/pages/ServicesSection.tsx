@@ -7,6 +7,7 @@ import {
   IconTools,
 } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 type ServiceId =
   | "persiaService"
@@ -42,7 +43,8 @@ export default function ServicesSection() {
       dir="rtl"
     >
       {items.map((item, index) => {
-        const isRight = index % 2 !== 0; // even = polygon on RIGHT
+        const isRight = index % 2 !== 0;
+        const firstCard = index === 0; // even = polygon on RIGHT
 
         return (
           <div
@@ -83,9 +85,13 @@ export default function ServicesSection() {
                   {t(`items.${item.id}.description`)}
                 </p>
 
-                <button className="mt-4 text-[#0C5273] text-sm font-medium border-b border-[#0C5273] pb-1">
-                  {t("moreProducts")}
-                </button>
+                {firstCard && (
+                  <Link href={`installation`}>
+                  <button className=" mt-4 text-[#005E8B] text-sm font-medium pb-1">
+                    {t("learn_more")}
+                  </button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

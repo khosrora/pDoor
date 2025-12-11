@@ -19,6 +19,7 @@ import { Navigation } from "swiper/modules";
 ------------------------------------ */
 interface CategoryItem {
   name: string;
+  name_en:string;
   slug: string;
   logo: string;
   image: string;
@@ -111,6 +112,9 @@ export default function CategoriesSwiper() {
                       className="w-[32px] h-10 object-center"
                     />
                   </div>
+                    <div className="text-[13px]">
+                      {cat.name_en}
+                    </div>
                 </div>
 
                 <div className="divider my-2"></div>

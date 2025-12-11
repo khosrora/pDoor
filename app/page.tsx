@@ -19,6 +19,7 @@ import hospital_Icon from "@/public/icons/hospital_Icon.svg";
 import airport_Icon from "@/public/icons/airport_Icon.svg";
 import { Metadata } from "next";
 import CategoriesSwiper from "./components/pages/CategoriesSwiper";
+import Link from "next/link";
 
 type IndustryKey =
   | "bank"
@@ -58,22 +59,22 @@ export default async function Home() {
     {
       title: t("expertise.items.1.title"),
       description: t("expertise.items.1.description"),
-      icon:"/SVGs/headset.svg"
+      icon: "/SVGs/headset.svg",
     },
     {
       title: t("expertise.items.2.title"),
       description: t("expertise.items.2.description"),
-       icon:"/SVGs/certificate1.svg"
+      icon: "/SVGs/certificate1.svg",
     },
     {
       title: t("expertise.items.3.title"),
       description: t("expertise.items.3.description"),
-       icon:"/SVGs/protect.svg"
+      icon: "/SVGs/protect.svg",
     },
     {
       title: t("expertise.items.4.title"),
       description: t("expertise.items.4.description"),
-       icon:"/SVGs/bookmark.svg"
+      icon: "/SVGs/bookmark.svg",
     },
   ];
 
@@ -141,9 +142,11 @@ export default async function Home() {
               {t("about.text")}
             </p>
             <div className="flex justify-start items-center gap-x-2 text-white mt-8">
+             <Link href={`/about_us`}>
               <button className="btn btn-xs btn-outline p-4">
                 {t("about.buttons.learnMore")}
               </button>
+             </Link>
               <button className="btn btn-xs p-4">
                 {t("about.buttons.call")}
               </button>
@@ -200,7 +203,9 @@ export default async function Home() {
       </div>
 
       {/* Services section */}
-      <div className="bg-zinc-200 p-4">
+      <div className=" px-4 py-8"
+      style={{ backgroundImage: `url('/images/percia oor service.png')` }}
+      >
         <div className="text-center mb-8">
           <p className="lg:font-bold lg:text-[33px] mt-8">
             {t("services.titlePrefix")}{" "}
@@ -225,17 +230,31 @@ export default async function Home() {
             {t("industriesIntro.subtitle")}
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-4 mt-2 lg:grid-cols-5">
+        <div className="grid grid-cols-3 gap-4 mt-2 lg:grid-cols-5 py-15">
           {industries.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.key}
-                className="relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center  w-[124px] h-[132px] flex items-center justify-center"
+                className="group relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center w-[124px] h-[132px] justify-center transition-all duration-300"
               >
-                <Icon />
-                <img src="/SVGs/Polygon 33.svg" alt="" sizes="20" className=" absolute rotate-180 w-[20px] left-0" />
-                <p className="mt-2 text-sm">{t(`industries.${item.key}`)}</p>
+                <Link href={`/`}>
+                  {/* آیکن */}
+                  <Icon className="text-gray-600 mx-auto transition-all duration-300 group-hover:text-[#0C5273] group-hover:scale-110" />
+
+                  {/* مثلث کناری */}
+                  <img
+                    src="/SVGs/Polygon 33.svg"
+                    alt=""
+                    sizes="20"
+                    className="absolute rotate-180 w-[20px] left-0 top-12 "
+                  />
+
+                  {/* متن */}
+                  <p className="font-semibold mt-2 text-sm text-gray-700 group-hover:text-[#0C5273] text-center">
+                    {t(`industries.${item.key}`)}
+                  </p>
+                </Link>
               </div>
             );
           })}

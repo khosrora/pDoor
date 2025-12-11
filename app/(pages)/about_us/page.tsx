@@ -9,6 +9,7 @@ import Image from "next/image";
 import { IconDownload, IconPlus } from "@tabler/icons-react";
 import { getTranslations } from "next-intl/server";
 import AboutUsSwiper from "@/app/components/pages/AboutUsSwiper";
+import Link from "next/link";
 
 export default async function TimelineSlider() {
   const t = await getTranslations("TimelineSlider");
@@ -97,9 +98,11 @@ export default async function TimelineSlider() {
           <p className="text-[#FAB21F] text-[25px] font-semibold">
             {t("join_us_title")}
           </p>
-          <button className="border border-1 border-[#005E8B] text-[#005E8B] py-2 px-4 rounded-md">
+          <Link href={`/job_position`}>
+          <button className="border border-1 border-[#005E8B] text-[#005E8B] hover:bg-[#005E8B] hover:text-white py-2 px-4 rounded-md">
             {t("job_positions_button")}
           </button>
+          </Link>
         </div>
       </div>
 

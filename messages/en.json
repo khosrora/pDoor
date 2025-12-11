@@ -3,7 +3,7 @@
     "brandName": "PersiaDoor",
     "navProducts": "Products",
     "navIndustries": "Industries",
-    "navBrands": "Brand GEZE",
+    "navBrands": "Brand",
     "navServices": "Services",
     "navMedia": "Media",
     "logoAlt": "PersiaDoor logo"
@@ -215,7 +215,8 @@
         "description": "Regular service and maintenance to keep your automatic doors safe, reliable, and always ready to use."
       }
     },
-    "moreProducts": "More products ←"
+    "moreProducts": "More products ←",
+    "learn_more": "Learn More"
   },
   "TeamSliders": {
     "sectionTitlePrefix": "Team",
