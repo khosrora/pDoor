@@ -6,7 +6,8 @@
     "navBrands": "Brand",
     "navServices": "Services",
     "navMedia": "Media",
-    "logoAlt": "PersiaDoor logo"
+    "logoAlt": "PersiaDoor logo",
+    "contact_us":"Contact Us"
   },
   "Accordion": {
     "question1": {
@@ -237,7 +238,7 @@
     "columns": {
       "about": {
         "title": "PersiaDoor",
-        "history": "Our history",
+        "history": "About Us",
         "job": "job position",
         "mission": "Our mission",
         "customers": "Our customers",
@@ -307,11 +308,12 @@
     },
     "about": {
       "heading": "About GEZE",
-      "paragraph1": "Since 1863, GEZE has been a successful family-owned business with a solid financial foundation and a strong global presence. GEZE connects everyone involved throughout the entire building lifecycle and, with its industrial know-how and expertise, delivers outstanding results. The brand provides innovative door, window and safety technologies for smart buildings.",
-      "paragraph2": "For more than a century and a half, GEZE has continuously evolved to meet modern architectural and safety requirements, offering reliable and intelligent solutions for doors, windows and access systems."
+        "paragraph1": "The GEZE family business began its operations in 1863. Over the past 160 years, the company has proven the quality of its products and services worldwide by using innovative technologies in automatic doors, windows, and smart building solutions, becoming a well-known global brand.",
+    "paragraph2": "More than 3,000 employees work at GEZE branches around the world. The company has local offices in 37 countries and serves customers globally. All GEZE products are manufactured in accordance with international standards and hold recognized global certifications."
     },
     "products": {
-      "heading": "GEZE global products",
+      "heading1": "GEZE global ",
+      "heading2": "products",
       "sliding": {
         "title": "Sliding doors",
         "count": "110 products"

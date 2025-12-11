@@ -61,36 +61,42 @@ function NavItems() {
     <ul className="hidden lg:flex flex-row menu menu-horizontal px-1 gap-x-7">
       {/* About dropdown */}
       <li>
-        <div className="dropdown dropdown-hover">
+        <div className="dropdown dropdown-hover dropdown-end">
           <div tabIndex={0} role="button" className="">
             {t("brandName")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-[13px]">
             <li>
-              <Link href={"/about_us"}>{t2("columns.about.history")}</Link>
+              <Link href={"/about_us"}>
+              <img src="/SVGs/AboutUs1.svg" alt=""/>
+              {t2("columns.about.history")}</Link>
             </li>
             <li>
-              <Link href={"/job_position"}>{t2("columns.about.job")}</Link>
+              <Link href={"/contact_us"}>
+              <img src="./SVGs/contactUs.svg" alt=""/>
+              {t("contact_us")}</Link>
             </li>
             <li>
+              <Link href={"/job_position"}>
+              <img src="./SVGs/contactUs.svg" alt=""/>
+              {t2("columns.about.job")}</Link>
+            </li>
+            {/* <li>
               <Link href={"/frequently"}>{t2("columns.about.questions")}</Link>
-            </li>
-            <li>
-              <Link href={"/contact_us"}>تماس با ما</Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </li>
 
       {/* Products → Categories dropdown */}
       <li>
-        <div className="dropdown dropdown-hover">
+        <div className="dropdown dropdown-hover dropdown-end ">
           <div tabIndex={0} role="button" className="">
             {t("navProducts")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-[13px]">
             {!catLoading &&
               categories.map((cat) => (
                 <li key={cat.slug} className="my-2">
@@ -120,26 +126,20 @@ function NavItems() {
 
       {/* Brands dropdown (new) */}
       <li>
-        <div className="dropdown dropdown-hover">
+        <div className="dropdown dropdown-hover dropdown-end">
           <div tabIndex={0} role="button" className="">
             {t("navBrands")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-13px]">
             {!brandLoading &&
               brands.map((brand) => (
                 <li key={brand.slug} className="my-2">
                   <Link
-                    href={`/products?lang=${locale}&brand=${brand.slug}`}
+                    href={`/geze`}
                     className="flex items-center gap-2"
                   >
-                    {brand.logo && (
-                      <img
-                        src={brand.logo}
-                        alt={brand.name}
-                        className="w-5 h-5 object-contain"
-                      />
-                    )}
+                    
                     {brand.name}
                   </Link>
                 </li>

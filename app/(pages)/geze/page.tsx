@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import Breadcrumbs from "./Breadcrumbs";
+import CategorySliders from "@/app/components/pages/CategorySliders";
 
 export const metadata: Metadata = {
   title: "پرشیادُر | درباره گزه GEZE",
@@ -20,124 +21,100 @@ export default async function GezePage() {
       </div>
       <div className="bg-[#003F5D] text-white lg:flex lg:items-center lg:justify-center lg:h-[400px]">
         <div className="lg:w-1/2 flex flex-col justify-center items-center">
-
           {/* title */}
-        <p className="flex flex-col font-semibold text-[25px]">
-          <span className="text-[#FAB21F]">{t("hero.titlePrefix")} </span>
-          {t("hero.titleRest")}
-        </p>
-        {/* buttons */}
-        <div className="flex justify-start items-center gap-x-4 mt-10">
-          <button className="btn px-8">{t("hero.consultButton")}</button>
-          <button className="btn bg-[#FAB21F] border-0 px-8">
-            {t("hero.gezeWebsiteButton")}
-          </button>
-        </div>
+          <p className="flex flex-col font-semibold text-[25px]">
+            <span className="text-[#FAB21F]">{t("hero.titlePrefix")} </span>
+            {t("hero.titleRest")}
+          </p>
+          {/* buttons */}
+          <div className="flex justify-start items-center gap-x-4 mt-10">
+            <button className="btn px-8">{t("hero.consultButton")}</button>
+            <button className="btn bg-[#FAB21F] border-0 px-8">
+              {t("hero.gezeWebsiteButton")}
+            </button>
+          </div>
         </div>
         {/* image banner */}
         <div className="lg:w-1/2">
-          <img src="/images/geze-banner 1.png" alt="geze_banner" className="lg:w-full lg:h-[400px]" />
+          <img
+            src="/images/geze-banner 1.png"
+            alt="geze_banner"
+            className="lg:w-full lg:h-[400px]"
+          />
         </div>
       </div>
 
-      <div className="p-4 space-y-8 max-w-5xl m-auto">
+      <div className="mx-auto">
         {/* About GEZE */}
-        <p className="my-6 text-[28px] font-bold">
-          {t("about.heading")} <span className="text-[#FAB21F]">GEZE</span>
-        </p>
-
-        <div className="border border-zinc-100 rounded p-4 relative w-[80%] lg:w-1/2">
-          <p className="w-3/4 text-xs lg:text-base">{t("about.paragraph1")}</p>
-          <div className="my-clip-rho bg-[#005E8B] w-24 h-24 absolute -left-6 top-10 lg:-left-12 lg:top-4" />
-        </div>
-
-        <div className="flex justify-end mt-4">
-          <div className="border border-zinc-100 rounded p-4 relative w-[80%] lg:w-1/2 flex justify-end">
-            <p className="w-3/4 text-xs lg:text-base">
-              {t("about.paragraph2")}
+        <div
+          className="lg:h-[850px] mt-0 bg-contain bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/images/image 784 (1).png')" }}
+        >
+          <div className="lg:max-w-7xl mx-auto pt-30">
+            {/* title */}
+            <p className="my-10 text-[28px] font-bold">
+              {t("about.heading")} <span className="text-[#FAB21F]">GEZE</span>
             </p>
-            <div className="my-clip-rho bg-[#005E8B] w-24 h-24 absolute -right-12 top-8 lg:-right-12 lg:top-4" />
+            {/* about geze */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-60 text-[16px]">
+              {/* ستون چپ (ارزش برند) */}
+              <div className="flex items-center lg:w-[520px] lg:h-[291px]  bg-transparent border border-zinc-300 py-8 rounded-sm ">
+                <div className="flex flex-col justify-center items-center px-4 w-full">
+                  <p className="text-slate-600 leading-relaxed text-center text-[16px] ">
+                    {t("about.paragraph1")}
+                  </p>
+                </div>
+                <div className=" flex justify-center items-start relative -left-18">
+                  <div className="relative w-[144px] h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md">
+                    <div className="transform -rotate-45 flex items-center justify-center">
+                      <img src="/images/image 864 (1).png" alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ستون راست (چشم‌انداز) */}
+              <div className="flex flex-row-reverse items-center gap-4 relative top-25 bg-transparent border border-zinc-300 py-2.5 rounded-sm">
+                <div className="flex flex-col justify-center items-center px-4 w-full">
+                  <p className="text-slate-600 leading-relaxed text-center ">
+                    {t("about.paragraph2")}
+                  </p>
+                </div>
+                <div className=" flex justify-center items-start relative left-18 ">
+                  <div className="relative w-[144px] h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md">
+                    <div className="transform -rotate-45 flex items-center justify-center">
+                      <img src="/images/image 864 (1).png" alt="گواهینامه" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* GEZE products */}
-        <div className="space-y-4">
-          <p>
-            <span className="text-[#FAB21F] text-[28px] font-bold">{t("products.heading")}</span>
+        <div className="space-y-4 max-w-7xl mx-auto">
+          <p className="flex gap-2">
+            <span className="  text-[28px] font-bold text-[#FAB21F]">
+              {t("products.heading1")}
+            </span>
+            <span className="text-[28px] font-bold ">{t("products.heading2")}</span>
           </p>
 
-          <div className="grid grid-cols-3 gap-4 lg:grid-cols-5">
-            {/* Sliding */}
-            <div className="flex flex-col items-center justify-center border border-zinc-100 rounded p-4 space-y-2">
-              <Image
-                src="/images/geze/sliding door.svg"
-                width={40}
-                height={40}
-                alt="Sliding"
-              />
-              <p className="text-[10px]">{t("products.sliding.title")}</p>
-              <p className="text-[8px]">{t("products.sliding.count")}</p>
-            </div>
-
-            {/* Hinged */}
-            <div className="flex flex-col items-center justify-center border border-zinc-100 rounded p-4 space-y-2">
-              <Image
-                src="/images/geze/swing door.svg"
-                width={40}
-                height={40}
-                alt="Swing"
-              />
-              <p className="text-[10px]">{t("products.hinged.title")}</p>
-              <p className="text-[8px]">{t("products.hinged.count")}</p>
-            </div>
-
-            {/* Revolving */}
-            <div className="flex flex-col items-center justify-center border border-zinc-100 rounded p-4 space-y-2">
-              <Image
-                src="/images/geze/Revolving door.svg"
-                width={40}
-                height={40}
-                alt="Revolving"
-              />
-              <p className="text-[10px]">{t("products.revolving.title")}</p>
-              <p className="text-[8px]">{t("products.revolving.count")}</p>
-            </div>
-
-            {/* Window */}
-            <div className="flex flex-col items-center justify-center border border-zinc-100 rounded p-4 space-y-2">
-              <Image
-                src="/images/geze/window.svg"
-                width={40}
-                height={40}
-                alt="Window"
-              />
-              <p className="text-[10px]">{t("products.window.title")}</p>
-              <p className="text-[8px]">{t("products.window.count")}</p>
-            </div>
-
-            {/* Accessories */}
-            <div className="flex flex-col items-center justify-center border border-zinc-100 rounded p-4 space-y-2">
-              <Image
-                src="/images/geze/remote-control-filled.svg"
-                width={40}
-                height={40}
-                alt="Remote"
-              />
-              <p className="text-[10px]">{t("products.accessories.title")}</p>
-              <p className="text-[8px]">{t("products.accessories.count")}</p>
-            </div>
+          <div className="mb-10">
+            <CategorySliders />
           </div>
         </div>
 
         {/* Collaboration section */}
-        <div className="bg-zinc-100 p-4 space-y-4 lg:flex lg:flex-row lg:justify-between lg:items-center lg:gap-x-2">
+        <div className="bg-zinc-100 p-4 space-y-4 lg:flex lg:flex-row lg:justify-between lg:items-center max-w-7xl mx-auto mb-17">
           <Image
             src="/images/geze/image-823.jpg"
             width={500}
             height={500}
             alt="geze"
           />
-          <div className="space-y-4">
+          <div className="space-y-6 p-6">
             <p className="text-[28px] font-semibold">
               {t("collaboration.headingPrefix")}{" "}
               <span className="text-[#FAB21F]">
@@ -150,27 +127,34 @@ export default async function GezePage() {
         </div>
 
         {/* Representative section */}
-        <div className="bg-zinc-100 p-4">
-          <p className="text-[#FAB21F] text-[28px] font-semibold">{t("representative.brandName")}</p>
-          <p className="text-[28px] font-semibold">{t("representative.subtitle")}</p>
+        <div className="bg-zinc-100 p-6 max-w-7xl mx-auto">
+          <p className="text-[#FAB21F] text-[28px] font-semibold">
+            {t("representative.brandName")}
+          </p>
+          <p className="text-[28px] font-semibold">
+            {t("representative.subtitle")}
+          </p>
           <div className="flex justify-around lg:max-w-3xl lg:mx-auto my-10">
             <Image
               src="/images/geze/awards-card-component-1.png"
               width={100}
               height={100}
               alt="geze-award-1"
+              className="lg:w-[184px] lg:h-[253px]"
             />
             <Image
               src="/images/geze/awards-card-component-2.png"
               width={100}
               height={100}
               alt="geze-award-2"
+              className="lg:w-[184px] lg:h-[253px]"
             />
             <Image
               src="/images/geze/awards-card-component.png"
               width={100}
               height={100}
               alt="geze-award-3"
+              className="lg:w-[184px] lg:h-[253px]"
             />
           </div>
         </div>

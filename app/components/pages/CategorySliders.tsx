@@ -18,6 +18,7 @@ interface Category {
 
 export default function CategorySliders() {
   const t = useTranslations("Categories");
+   const t2 = useTranslations("GezePage");
   const locale = useLocale();
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get("category"); // ✔ selected category from URL
@@ -44,11 +45,11 @@ export default function CategorySliders() {
   }, [locale]);
 
   return (
-    <div className="bg-[#f4f4f4] py-2">
+    <div className=" py-2">
       <div className="my-8 max-w-7xl m-auto px-4">
-        <p className="font-bold text-base mb-4 text-[#003f5d] lg:text-2xl">
+        {/* <p className="font-bold text-base mb-4 text-[#003f5d] lg:text-2xl">
           {t("header")}
-        </p>
+        </p> */}
 
         {loading ? (
           <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">

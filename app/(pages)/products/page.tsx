@@ -41,6 +41,7 @@ export interface Product {
 
 export default function ProductsListingPage() {
   const t = useTranslations("ProductsListingPage");
+  const t2 = useTranslations("Categories");
   const locale = useLocale();
 
   const searchParams = useSearchParams();
@@ -115,7 +116,7 @@ export default function ProductsListingPage() {
       ))}
     </div>
   );
-  
+
   return (
     <div className="my-20">
       <CompareAlert />
@@ -123,9 +124,15 @@ export default function ProductsListingPage() {
       <div className="p-4 max-w-7xl m-auto">
         <Breadcrumbs />
       </div>
-
-      <CategorySliders />
-      <FilersProducts />
+      <div>
+        <div className="bg-[#f4f4f4] w-full py-5">
+          <p className="font-bold text-base  text-[#003f5d] lg:text-2xl  max-w-7xl mx-auto">
+            {t2("header")}
+          </p>
+          <CategorySliders />
+          <FilersProducts />
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 max-w-7xl m-auto">
         {/* LEFT FILTER SIDEBAR */}
