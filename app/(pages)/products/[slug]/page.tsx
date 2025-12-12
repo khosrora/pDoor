@@ -57,7 +57,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
       {product.projects?.length > 0 && <ProjectsSlider projects={projects} />}
 
-      <ProductsSwiper />
+      <ProductsSwiper slug={product.slug} />
       <AccordionCustions />
     </div>
   );
