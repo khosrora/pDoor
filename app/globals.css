@@ -85,3 +85,7 @@ body {
 /* جلوگیری از انتخاب تصویر حین درگ */
 img { -webkit-user-drag: none; user-select: none; }
 
+/* globals.css یا style.css */
+.mySwiper .swiper-slide-thumb-active img {
+  @apply border-2 border-[#007EBA] shadow-sm shadow-[#007EBA];
+}

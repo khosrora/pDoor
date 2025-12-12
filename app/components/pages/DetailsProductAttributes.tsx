@@ -1,13 +1,8 @@
 "use client";
-
 import { FC } from "react";
-import {
-  IconCircleChevronLeft,
-  IconCircleChevronLeftFilled,
-  IconDownload,
-  IconPhone,
-} from "@tabler/icons-react";
+import { IconDownload, IconPhone } from "@tabler/icons-react";
 import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
 
 interface Specification {
   field_name?: string | null;
@@ -28,6 +23,9 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
   specifications = [],
   loading = false,
 }) => {
+  const locale = useLocale(); // FA/EN
+  const t = useTranslations();
+
   if (loading) {
     return (
       <div className="space-y-4">
@@ -55,15 +53,15 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
   return (
     <div className="space-y-2">
       {/* Product Name */}
-      <p className="font-bold text-2xl">{name}</p>
+      <p className="font-bold text-[33px]">{name}</p>
 
       {/* ATTR1: flex row */}
       {attr1.length > 0 && (
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2 mb-8">
           {attr1.map((item, i) => (
             <div
               key={i}
-              className="badge badge-xs bg-zinc-100 rounded-full px-2 py-1"
+              className="badge badge-xs bg-zinc-50 rounded-full px-2 py-1"
             >
               {item.field_name && <span>{item.field_name}: </span>}
               {item.value} {item.unit}
@@ -76,8 +74,11 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
       {attr2.length > 0 && (
         <div className="flex flex-col gap-1 mt-2">
           {attr2.map((item, i) => (
-            <div key={i} className="flex items-center gap-2 text-sm my-2">
-              <IconCircleChevronLeftFilled className="text-[#ADADAD] w-4 h-4" />
+            <div
+              key={i}
+              className="flex justify-start items-center gap-2 text-sm my-2"
+            >
+              <img src="\SVGs\Polygon 33.png" alt="arrow" className="" />
               <span className="text-zinc-500">
                 {item.field_name && `${item.field_name}: `}
               </span>
@@ -96,7 +97,7 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
           {tag2.map((item, i) => (
             <div
               key={i}
-              className=" bg-zinc-100 px-2 py-1 flex justify-center items-center rounded-md"
+              className=" bg-zinc-50 px-2 py-1 flex justify-center items-center rounded-md"
             >
               <Image
                 src={item.field_icon || "/"}
@@ -111,15 +112,17 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
       )}
       <div className="flex flex-row justify-start gap-2">
         {/* First Button: تماس با تیم فروش */}
-        <button className="btn bg-[#005E8B] text-white flex items-center gap-2">
+        <button className="btn bg-[#005E8B] text-white flex items-center gap-2 p-5 hover:bg-white hover:text-[#005E8B] hover:border hover:border-[#005E8B]">
           <IconPhone size={18} />
-          تماس با تیم فروش
+          {t("DetailsProductAttributes.callButton") ||
+            (locale === "fa" ? "تماس با تیم" : "Phone consultation")}
         </button>
 
         {/* Second Button: دانلود کاتالوگ محصول */}
-        <button className="btn btn-outline flex items-center gap-2">
+        <button className="btn btn-outline outline-[#005E8B] flex items-center gap-2 p-5 text-[#005E8B] hover:bg-[#005E8B] hover:text-white">
           <IconDownload size={18} />
-          دانلود کاتالوگ محصول
+          {t("DetailsProductAttributes.downloadButton") ||
+            (locale === "fa" ? "دانلود کاتالوگ محصول" : "Download Product catalog")}
         </button>
       </div>
     </div>

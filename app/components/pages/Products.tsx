@@ -35,7 +35,7 @@ export default function Products({
   const handleCompareToggle = (product: Product, imageUrl: string) => {
     if (isInCompare(product.slug)) {
       removeItem(product.slug);
-      toast.error(`${product.name} از مقایسه حذف شد`);
+      // toast.error(`${product.name} از مقایسه حذف شد`);
     } else {
       addItem({
         slug: product.slug,
@@ -48,7 +48,7 @@ export default function Products({
             value: s.value || "-",
           })) || [],
       });
-      toast.success(`${product.name} به مقایسه اضافه شد`);
+      // toast.success(`${product.name} به مقایسه اضافه شد`);
     }
   };
 

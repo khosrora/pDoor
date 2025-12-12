@@ -50,7 +50,7 @@ function GalleryImage({ images }: Props) {
             <img
               alt={item.alt_text}
               src={item.image}
-              className="min-h-80 max-h-80 object-contain border rounded-md border-zinc-400"
+              className="lg:h-[329px] lg:w-[600px]  object-contain border rounded-md border-zinc-300"
             />
           </SwiperSlide>
         ))}
@@ -71,7 +71,7 @@ function GalleryImage({ images }: Props) {
             <img
               alt={item.alt_text}
               src={item.image}
-              className="min-h-20 max-h-20 object-cover rounded-md"
+              className="lg:w-[107px] lg:h-[101px] object-cover rounded-md border border-zinc-300"
             />
           </SwiperSlide>
         ))}

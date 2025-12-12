@@ -168,8 +168,8 @@
   "ProductsSwiper": {
     "sectionTitlePrefix": "محصولات",
     "sectionTitleBrand": "پرشیادُر",
-    "latestProducts1": "محصولات ",
-    "latestProducts2": "پرشیادر",
+    "latestProducts": "لوازم جانبی ",
+   
     "card": {
       "title": "نام محصول",
       "featureLabel": "ویژگی",
@@ -298,6 +298,10 @@
     "social": {
       "title": "ما را در شبکه‌های اجتماعی دنبال کنید"
     }
+  },
+  "DetailsProductAttributes":{
+"callButton":"تماس با تیم",
+"downloadButton":" دانلود کاتالوگ محصول"
   },
   "GezePage": {
     
@@ -518,12 +522,13 @@
   "TabsDetails": {
     "tabs": {
       "product": "اطلاعات محصول",
-      "technical": "اطلاعات فنی"
+      "technical": "اطلاعات فنی",
+      "downloads": "دانلودها"
     },
     "product": {
       "imageAlt": "درب‌های گردان",
       "paragraph": "دارای مجموعه غلتک جفتی و GCprofile Therm تا وزن لنگه 140 کیلوگرم",
-      "button": "مشاهده در وب‌سایت GEZE"
+      "button": "مشاهده در وب‌سایت گزه"
     },
     "technical": {
       "imageAlt": "نمای فنی درب",

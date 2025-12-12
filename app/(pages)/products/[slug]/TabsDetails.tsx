@@ -27,13 +27,13 @@ export default function TabsDetails({ description, specifications }: Props) {
   );
 
   return (
-    <div className="max-w-7xl m-auto">
+    <div className="max-w-7xl mx-auto bg-zinc-50 mt-15 p-4">
       {/* Tabs header */}
-      <div role="tablist" className="tabs tabs-border my-4 max-w-5xl m-auto">
+      <div role="tablist" className="tabs tabs-border my-4 mx-auto ">
         <button
           type="button"
           role="tab"
-          className={`tab ${activeTab === "product" ? "tab-active" : ""}`}
+          className={`tab ${activeTab === "product" ? "tab-active  text-[#007EBA] text-[19px] " : "text-[19px]"}`}
           onClick={() => setActiveTab("product")}
         >
           {t("tabs.product")}
@@ -42,23 +42,32 @@ export default function TabsDetails({ description, specifications }: Props) {
         <button
           type="button"
           role="tab"
-          className={`tab ${activeTab === "technical" ? "tab-active" : ""}`}
+          className={`tab ${activeTab === "technical" ? "tab-active text-[#007EBA] text-[19px]" : "text-[19px]"}`}
           onClick={() => setActiveTab("technical")}
         >
           {t("tabs.technical")}
+        </button>
+
+         <button
+          type="button"
+          role="tab"
+          className={`tab ${activeTab === "download" ? "tab-active text-[#007EBA] text-[19px]" : "text-[19px]"}`}
+          onClick={() => setActiveTab("download")}
+        >
+          {t("tabs.downloads")}
         </button>
       </div>
 
       {/* PRODUCT DETAILS TAB */}
       {activeTab === "product" && (
-        <div className="bg-zinc-50 p-4 rounded space-y-4">
+        <div className="bg-white p-4 rounded space-y-4 leading-12">
           <div
             className="prose prose-zinc max-w-none"
             dangerouslySetInnerHTML={{ __html: description }}
           />
 
           {/* OPTIONAL BUTTON */}
-          {/* <button className="btn btn-outline">{t("product.button")}</button> */}
+          <button className="btn btn-outline text-[#005E8B]">{t("product.button")}</button>
         </div>
       )}
 
@@ -86,6 +95,11 @@ export default function TabsDetails({ description, specifications }: Props) {
           )}
         </div>
       )}
+
+
+      {/* DOWNLOAD DETAILS TAB */}
+
+      
     </div>
   );
 }

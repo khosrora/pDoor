@@ -299,6 +299,10 @@
       "title": "Follow us on social media"
     }
   },
+  "DetailsProductAttributes":{
+"callButton":"Phone consultation",
+"downloadButton":"Download Product catalog"
+  },
   "GezePage": {
     "hero": {
       "titlePrefix": "Your partner",
@@ -518,7 +522,8 @@
   "TabsDetails": {
     "tabs": {
       "product": "Product information",
-      "technical": "Technical information"
+      "technical": "Technical information",
+      "downloads": "Downloads"
     },
     "product": {
       "imageAlt": "Revolving doors",

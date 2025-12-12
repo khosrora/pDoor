@@ -46,7 +46,7 @@ const industries: {
   { key: "private", icon: Privacy_Icon, link: "/" },
   { key: "shopping", icon: Shoping_Icon, link: "/" },
   { key: "terminal", icon: Terminal_Icon, link: "/" },
-  { key: "hospital", icon: hospital_Icon, link: "/" },
+  { key: "hospital", icon: hospital_Icon, link: "/hospital" },
   { key: "airport", icon: airport_Icon, link: "/" },
 ];
 
@@ -183,13 +183,17 @@ export default async function Home() {
       </div>
 
       {/* Customers section */}
-      <div className="flex flex-col items-center mt-40 lg:flex-row lg:justify-center lg:items-center">
-        <div className="flex flex-col items-start lg:text-[33px] ">
+      {/* //////////////////////////////////////////////////// */}
+      <div className="flex flex-col items-center mt-60 mb-20 lg:flex-row lg:justify-around lg:items-center">
+        {/* متن سمت راست */}
+        <div className="flex flex-col items-start lg:text-[33px]">
           <p className="text-[#FAB21F] font-bold">
             {t("customers.titleHighlight")}
           </p>
           <p className="font-bold">{t("customers.titleRest")}</p>
         </div>
+
+        {/* نسخه موبایل (عکس) */}
         <Image
           src="/images/Customers_mobile (2).png"
           width={1000}
@@ -197,14 +201,55 @@ export default async function Home() {
           alt={t("customers.alt")}
           className="mt-8 lg:hidden"
         />
-        <Image
-          src="/images/Customers (2).png"
-          width={1000}
-          height={1000}
-          alt={t("customers.alt")}
-          className="hidden mt-8 lg:flex"
-        />
+
+        {/* نسخه دسکتاپ – جدول 8×3 */}
+        <div className="hidden lg:grid lg:grid-cols-8 lg:grid-rows-3 lg:gap-6 mt-8 lg:mr-16">
+          {[
+            "",
+            "/images/customers/image-866.png",
+            "",
+            "/images/customers/image-861_2.png",
+            "/images/customers/image-863.png",
+            "",
+            "/images/customers/image-859_2.png",
+            "",
+            "/images/customers/image-864.png",
+            "/images/customers/image-862_2.png",
+            "/images/customers/image-865.png",
+            "/images/customers/image-871.png",
+            "/images/customers/image-870.png",
+            "/images/customers/image-860_2.png",
+            "/images/customers/image-858_2.png",
+            "/images/customers/image-857_2.png",
+
+            "",
+            "/images/customers/image-868.png",
+            "",
+            "/images/customers/image-869.png",
+            "",
+            "/images/customers/image-867.png",
+            "",
+            "",
+          ].map((src, index) => (
+            <div
+              key={index}
+              className=" w-[66px] h-[66px] flex items-center justify-center 
+                          overflow-hidden transition-all duration-300  border-none hover:scale-160 filter grayscale transition-all hover:grayscale-0 duration-300"
+            >
+              {/* اگر خانه خالی بود، فقط یک div سفید نمایش بده */}
+              {src ? (
+                <img
+                  src={src}
+                  alt={`logo-${index}`}
+                  className="w-[64px] h-[64px] object-contain    hover:border-[#0C5273] hover:border-2 hover:rounded-lg "
+                />
+              ) : null}
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* //////////////////////////////////////////////////// */}
 
       {/* Services section */}
       <div
@@ -237,7 +282,7 @@ export default async function Home() {
         </div>
         <div className="grid grid-cols-3 gap-4 mt-2 lg:grid-cols-5 py-15">
           {industries.map((item) => {
-            const Icon : any = item.icon;
+            const Icon: any = item.icon;
             return (
               <div
                 key={item.key}

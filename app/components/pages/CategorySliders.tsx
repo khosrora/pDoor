@@ -18,7 +18,7 @@ interface Category {
 
 export default function CategorySliders() {
   const t = useTranslations("Categories");
-   const t2 = useTranslations("GezePage");
+  
   const locale = useLocale();
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get("category"); // ✔ selected category from URL
