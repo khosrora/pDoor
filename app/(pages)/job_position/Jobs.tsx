@@ -146,7 +146,7 @@ export default function Jobs() {
                   >
                     <IconFileDescription size={18} />
                     {t("Jobs.viewDescription") ||
-                      (locale === "fa" ? "مشاهده توضیحات" : "Description")}
+                      (locale === "fa" ? "جزئیات" : "Details")}
                   </button>
 
                   {/* Send CV */}
@@ -249,7 +249,7 @@ export default function Jobs() {
           </h3>
 
           <div
-            className="prose prose-zinc max-w-none"
+            className="prose prose-zinc max-w-none leading-7"
             dangerouslySetInnerHTML={{
               __html: descJob?.description || "",
             }}

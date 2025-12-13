@@ -655,7 +655,7 @@
     "emailRequired": "Email is required",
     "phone": "Phone",
     "message": "Message (optional)",
-    "viewDescription": "View Description"
+    "viewDescription": "Details"
   },
   "common": {
     "close": "Close"
