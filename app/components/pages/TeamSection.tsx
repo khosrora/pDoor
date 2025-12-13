@@ -39,14 +39,7 @@ export default function TeamSection() {
   return (
     <div className="p-4 max-w-7xl mx-auto" dir={dir}>
       {/* ------------------------------
-          Header
-      ------------------------------ */}
-      <div className="bg-zinc-100 flex justify-center items-center py-8 mb-6">
-        <p className="text-lg">
-          <span className="text-[#FAB21F]">{t("sectionTitlePrefix")} </span>
-          {t("sectionTitleBrand")}
-        </p>
-      </div>
+     
 
       {/* ------------------------------
           TEAM LIST

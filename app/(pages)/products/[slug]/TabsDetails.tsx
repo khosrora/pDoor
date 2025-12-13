@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import HotspotImage1 from "@/app/components/pages/HotspotImage1.";
 import Link from "next/link";
 
 type TabKey = "product" | "technical" | "download";
@@ -124,9 +125,7 @@ export default function TabsDetails({
               </tbody>
             </table>
           ) : (
-            <p className="text-center text-zinc-500">
-              {t("technical.empty")}
-            </p>
+            <p className="text-center text-zinc-500">{t("technical.empty")}</p>
           )}
         </div>
       )}
@@ -142,9 +141,7 @@ export default function TabsDetails({
                   className="flex items-center justify-between border rounded-md p-4 hover:shadow transition"
                 >
                   <div>
-                    <p className="font-medium text-zinc-700">
-                      {catalog.title}
-                    </p>
+                    <p className="font-medium text-zinc-700">{catalog.title}</p>
                     <p className="text-sm text-zinc-400">
                       {catalog.file_type.toUpperCase()}
                     </p>
@@ -161,12 +158,14 @@ export default function TabsDetails({
               ))}
             </div>
           ) : (
-            <p className="text-center text-zinc-500">
-              {t("downloads.empty")}
-            </p>
+            <p className="text-center text-zinc-500">{t("downloads.empty")}</p>
           )}
         </div>
       )}
+
+      {/* door details */}
+      
+          <HotspotImage1 />
     </div>
   );
 }

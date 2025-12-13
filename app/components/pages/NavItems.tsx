@@ -15,8 +15,7 @@ import Terminal_Icon from "@/public/SVGs/Terminal_Icon.svg";
 import hospital_Icon from "@/public/SVGs/hospital_Icon.svg";
 import airport_Icon from "@/public/SVGs/airport_Icon.svg";
 
-
- type IndustryKey =
+type IndustryKey =
   | "bank"
   | "creative"
   | "factory"
@@ -28,39 +27,37 @@ import airport_Icon from "@/public/SVGs/airport_Icon.svg";
   | "hospital"
   | "airport";
 
-
-  const industries: {
-    key: IndustryKey;
-    icon: React.ComponentType;
-    link: string;
-  }[] = [
-    { key: "bank", icon: Bank_Icon, link: "/" },
-    { key: "creative", icon: Creative_Icon, link: "/" },
-    { key: "factory", icon: Factory_Icon, link: "/" },
-    { key: "hotel", icon: Hotel_Icon, link: "/" },
-    { key: "office", icon: Office_Icon, link: "/" },
-    { key: "private", icon: Privacy_Icon, link: "/" },
-    { key: "shopping", icon: Shoping_Icon, link: "/" },
-    { key: "terminal", icon: Terminal_Icon, link: "/" },
-    { key: "hospital", icon: hospital_Icon, link: "/hospital" },
-    { key: "airport", icon: airport_Icon, link: "/" },
-  ];
+const industries: {
+  key: IndustryKey;
+  icon: React.ComponentType;
+  link: string;
+}[] = [
+  { key: "bank", icon: Bank_Icon, link: "/" },
+  { key: "creative", icon: Creative_Icon, link: "/" },
+  { key: "factory", icon: Factory_Icon, link: "/" },
+  { key: "hotel", icon: Hotel_Icon, link: "/" },
+  { key: "office", icon: Office_Icon, link: "/" },
+  { key: "private", icon: Privacy_Icon, link: "/" },
+  { key: "shopping", icon: Shoping_Icon, link: "/" },
+  { key: "terminal", icon: Terminal_Icon, link: "/" },
+  { key: "hospital", icon: hospital_Icon, link: "/hospital" },
+  { key: "airport", icon: airport_Icon, link: "/" },
+];
 
 function NavItems() {
   const locale = useLocale();
 
   const t = useTranslations("Header");
   const t2 = useTranslations("Footer");
-  
 
   // Categories
   const [categories, setCategories] = useState<any[]>([]);
   const [catLoading, setCatLoading] = useState(true);
 
-
   // Brands
   const [brands, setBrands] = useState<any[]>([]);
   const [brandLoading, setBrandLoading] = useState(true);
+
 
   // Load categories
   useEffect(() => {
@@ -176,14 +173,13 @@ function NavItems() {
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-4 shadow-sm text-[#005E8B] text-[13px]">
             {/* <li>بیمارستان</li> */}
 
-
             {industries.map((item) => {
-              const Icon:any = item.icon;
-              return(
+              const Icon: any = item.icon;
+              return (
                 <li key={item.key}>
                   <Link href={item.link}>
-                  <Icon className="text-gray-600 mx-auto " />
-{/* 
+                    <Icon className="text-gray-600 mx-auto " />
+                    {/* 
                   <img
                     src="/SVGs/Polygon 33.svg"
                     alt=""
@@ -191,13 +187,13 @@ function NavItems() {
                     className="absolute rotate-180 w-[20px] left-0 top-12 "
                   /> */}
 
-                  {/* متن */}
-                  <p className="mt-2 text-sm text-[#0C5273] ">
-                    {t(`industries.${item.key}`)}
-                  </p>
+                    {/* متن */}
+                    <p className="mt-2 text-sm text-[#0C5273] ">
+                      {t(`industries.${item.key}`)}
+                    </p>
                   </Link>
                 </li>
-              )
+              );
             })}
           </ul>
         </div>
@@ -224,14 +220,49 @@ function NavItems() {
       </li>
 
       {/* Services */}
+
       <li>
-        <Link href={"/installation"}>{t("navServices")}</Link>
+        <div className="dropdown dropdown-hover dropdown-end">
+          <div tabIndex={0} role="button" className="">
+            {t("navServices")}
+          </div>
+
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-13px]">
+            <li>
+              <Link href={"/installation"} className="flex gap-2">
+              <img src="/SVGs/Repair1.svg" alt="" />
+              <p>{t("install")}</p>
+            </Link>
+            </li>
+          </ul>
+        </div>
       </li>
 
       {/* Media */}
+        {/* <Link href={"/media"}>{t("navMedia")}</Link> */}
       <li>
-        <Link href={"/media"}>{t("navMedia")}</Link>
+        <div className="dropdown dropdown-hover dropdown-end">
+          <div tabIndex={0} role="button" className="">
+            {t("navMedia")}
+          </div>
+
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-13px] space-y-4">
+            <li>
+              <Link href={"/media"} className="flex gap-2">
+              <img src="/SVGs/Gallery.svg" alt="" />
+              <p>{t("gallery")}</p>
+            </Link>
+            </li>
+            <li>
+              <Link href={"/media?tab=news"} className="flex gap-2">
+              <img src="/SVGs/news.svg" alt="" />
+              <p>{t("News")}</p>
+            </Link>
+            </li>
+          </ul>
+        </div>
       </li>
+    
     </ul>
   );
 }

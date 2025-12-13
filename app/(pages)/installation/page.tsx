@@ -54,33 +54,33 @@ export default async function page() {
             <div className="grid grid-cols-3 gap-4 mt-4">
               {/* Free consulting */}
               <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md lg:h-[263px]  p-4">
-                <IconHeadphones className="text-white w-16 h-12" />
+                <img src={"/SVGs/headset-one.svg"} className="text-white w-16 h-12" />
                 <p className="text-[#FAB21F] text-[18px]">
                   {t("tiles.freeConsulting.title")}
                 </p>
-                <p className="hidden lg:flex text-white text-xs leading-6 mt-4">
+                <p className="hidden lg:flex text-white text-[16px] leading-6 mt-4">
                   {t("tiles.freeConsulting.text")}
                 </p>
               </div>
 
               {/* Install & service */}
               <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md min-h-32 p-4">
-                <IconCertificate className="text-white w-16 h-12" />
+                <img src={"/SVGs/certificate.svg"} className="text-white w-16 h-12" />
                 <p className="text-[#FAB21F] text-[18px]">
                   {t("tiles.installService.title")}
                 </p>
-                <p className="hidden lg:flex text-white text-xs leading-6 mt-4">
+                <p className="hidden lg:flex text-white text-[16px] leading-6 mt-4">
                   {t("tiles.installService.text")}
                 </p>
               </div>
 
               {/* Warranty & repair */}
               <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md min-h-32 p-4">
-                <IconFlag className="text-white w-16 h-12" />
+                <img src={"/SVGs/tool.svg"} className="text-white w-16 h-12" />
                 <p className="text-[#FAB21F] text-[18px]">
                   {t("tiles.warrantyRepair.title")}
                 </p>
-                <p className="hidden lg:flex text-white text-xs leading-6 mt-4">
+                <p className="hidden lg:flex text-white text-[16px] leading-6 mt-4">
                   {t("tiles.warrantyRepair.text")}
                 </p>
               </div>
@@ -94,7 +94,7 @@ export default async function page() {
               {/* Free consultation */}
               <div className="bg-zinc-100 p-4  lg:flex lg:justify-start lg:items-center lg:gap-x-4 bg:w-full">
                 <Image
-                  src="/images/installation/consulting.jpg"
+                  src="/images/installation/image 809.png"
                   width={1000}
                   height={1000}
                   alt={t("sections.freeConsulting.title")}
@@ -111,7 +111,7 @@ export default async function page() {
               {/* Install & warranty */}
               <div className="bg-zinc-100 p-4  lg:flex lg:justify-start lg:items-center lg:gap-x-4 bg:w-full">
                 <Image
-                  src="/images/installation/warranty.jpg"
+                  src="/images/installation/image 809 (1).png"
                   width={1000}
                   height={1000}
                   alt={t("sections.installWarranty.title")}
@@ -128,7 +128,7 @@ export default async function page() {
               {/* Service & repair */}
               <div className="bg-zinc-100 p-4  lg:flex lg:justify-start lg:items-center lg:gap-x-4 bg:w-full">
                 <Image
-                  src="/images/installation/repair.jpg"
+                  src="/images/installation/image 809 (2).png"
                   width={1000}
                   height={1000}
                   alt={t("sections.serviceRepair.title")}
