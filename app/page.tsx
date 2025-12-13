@@ -61,7 +61,6 @@ export default async function Home() {
 
   const expertiseKeys = ["1", "2", "3", "4"];
 
-
   const expertiseCards = [
     {
       title: t("expertise.items.1.title"),
@@ -164,31 +163,28 @@ export default async function Home() {
 
       {/* Expertise cards on mobile */}
       <div className="grid grid-cols-2 gap-2 gap-y-6 p-4 mt-20 lg:hidden">
-  {expertiseKeys.map((key, index) => {
-    const bgClass = index % 3 === 0 ? "bg-white" : "bg-[#003F5D]";
-    const textClass = index % 3 === 0 ? "text-zinc-900" : "text-white";
+        {expertiseKeys.map((key, index) => {
+          const bgClass = index % 3 === 0 ? "bg-white" : "bg-[#003F5D]";
+          const textClass = index % 3 === 0 ? "text-zinc-900" : "text-white";
 
-    return (
-      <div
-        key={key}
-        className={`relative p-4 rounded-xl ${bgClass} ${textClass}`}
-      >
-        <p className="font-bold">
-          {t(`expertise.items.${key}.title`)}
-        </p>
+          return (
+            <div
+              key={key}
+              className={`relative p-4 rounded-xl ${bgClass} ${textClass}`}
+            >
+              <p className="font-bold">{t(`expertise.items.${key}.title`)}</p>
 
-        <p className="text-xs mt-1">
-          {t(`expertise.items.${key}.description`)}
-        </p>
+              <p className="text-xs mt-1">
+                {t(`expertise.items.${key}.description`)}
+              </p>
 
-        <div className="absolute -top-5 left-5 bg-white rounded-xl p-2">
-          <IconChecklist className="text-zinc-950" />
-        </div>
+              <div className="absolute -top-5 left-5 bg-white rounded-xl p-2">
+                <IconChecklist className="text-zinc-950" />
+              </div>
+            </div>
+          );
+        })}
       </div>
-    );
-  })}
-</div>
-
 
       {/* Customers section */}
       {/* //////////////////////////////////////////////////// */}

@@ -182,16 +182,21 @@
     "sectionTitleBrand": "پرشیادُر",
     "latestProducts": "لوازم جانبی ",
     "latestProducts1": "محصولات",
-    "latestProducts2":"پرشیادر"
-  },
-
+    "latestProducts2": "پرشیادر",
     "card": {
       "title": "نام محصول",
       "featureLabel": "ویژگی",
       "moreLink": "محصولات بیشتر",
-      "imageAlt": "تصویر محصول"
+      "imageAlt": "عکس"
     }
-  ,
+  },
+
+  "card": {
+    "title": "نام محصول",
+    "featureLabel": "ویژگی",
+    "moreLink": "محصولات بیشتر",
+    "imageAlt": "تصویر محصول"
+  },
   "ServicesCompanySection": {
     "items": {
       "services": {
