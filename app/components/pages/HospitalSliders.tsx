@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import {useTranslations} from "next-intl";
 
 
-type HospitalId = "hospital1" | "hospital2" | "hospital3" | "hospital4";
+type HospitalId = "hospital1" | "hospital2" | "hospital3" | "hospital4" ;
 
 const slides: {id: HospitalId; image: string}[] = [
   {
@@ -25,22 +25,7 @@ const slides: {id: HospitalId; image: string}[] = [
     id: "hospital4",
     image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
   },
-  {
-    id: "hospital4",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
-  {
-    id: "hospital4",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
-  {
-    id: "hospital4",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
-  {
-    id: "hospital4",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
+  
 ];
 
 export default function HospitalSliders() {
