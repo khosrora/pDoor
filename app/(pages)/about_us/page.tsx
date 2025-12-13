@@ -10,14 +10,18 @@ import { IconDownload, IconPlus } from "@tabler/icons-react";
 import { getTranslations } from "next-intl/server";
 import AboutUsSwiper from "@/app/components/pages/AboutUsSwiper";
 import Link from "next/link";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default async function TimelineSlider() {
   const t = await getTranslations("TimelineSlider");
+  
 
   // {t("hero.title")}
 
   return (
-    <div dir="rtl" className="w-full  mx-auto px-4 py-12 my-20">
+    <div className="my-20">
+      <Breadcrumbs/>
+      <div dir="rtl" className="w-full  mx-auto px-4 py-12 ">
       <AboutUsSwiper />
 
       {/* بخش ارزش‌ها، چشم‌انداز و ماموریت */}
@@ -112,7 +116,7 @@ export default async function TimelineSlider() {
           {/* ستون چپ (ارزش برند) */}
           <div className="flex items-center gap-4 bg-zinc-100 py-8">
             <div className="flex flex-col justify-center items-center px-4 w-full">
-              <h4 className="text-lg font-semibold text-[#005E8B] mb-4 ">
+              <h4 className="text-lg font-semibold text-[#005E8B] mb-4">
                 {t("ourServises")}
               </h4>
               <p className="text-slate-600 leading-relaxed text-center text-[16px] ">
@@ -233,15 +237,35 @@ export default async function TimelineSlider() {
 
       {/* certificate show */}
 
-      <div className="mt-15 max-w-7xl mx-auto px-4 py-12">
-        <div className="w-full border border-1 border-zinc-200 bg-zinc-100 p-8 flex justify-between items-center ">
-          <div className="flex gap-2">
-            <IconDownload stroke={2} color={"#FAB21F"} />
-            <p>{t("agency_page")}</p>
+       <div className="mt-15 max-w-7xl mx-auto px-4 py-12">
+      <details className="group">
+        {/* HEADER */}
+        <summary
+          className="w-full border border-zinc-200 bg-zinc-100 p-8
+                     flex justify-between items-center cursor-pointer
+                     list-none"
+        >
+          <div className="flex items-center gap-2">
+            <IconDownload stroke={2} color="#FAB21F" />
+            <p className="font-medium">{t("agency_page")}</p>
           </div>
-          <IconPlus stroke={2} />
+
+          {/* Icon rotate on open */}
+          <IconPlus
+            stroke={2}
+            className="transition-transform duration-300 group-open:rotate-45"
+          />
+        </summary>
+
+        {/* DROPDOWN CONTENT */}
+        <div className="mt-4">
+          <div className="w-[200px] h-[300px] bg-zinc-400 rounded-md shadow-sm p-4">
+            <p className="text-white text-sm">Dropdown Card Content</p>
+          </div>
         </div>
-      </div>
+      </details>
+    </div>
+    </div>
     </div>
   );
 }

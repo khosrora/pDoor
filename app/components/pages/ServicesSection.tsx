@@ -18,19 +18,19 @@ type ServiceId =
 const items: { id: ServiceId; icon: any }[] = [
   {
     id: "persiaService",
-    icon: <IconHeadphones size={50} className="text-white" />,
+    icon: <img src={'/SVGs/headset1.svg'} />,
   },
   {
     id: "freeConsultation",
-    icon: <IconUserQuestion size={50} className="text-white" />,
+    icon: <img src={'/SVGs/wechat.svg'}/>,
   },
   {
     id: "installationWarranty",
-    icon: <IconDeviceFloppy size={50} className="text-white" />,
+    icon: <img src={'/SVGs/certificate2.svg'} />,
   },
   {
     id: "serviceMaintenance",
-    icon: <IconTools size={50} className="text-white" />,
+    icon: <img src={'/SVGs/tool.svg'} />,
   },
 ];
 
