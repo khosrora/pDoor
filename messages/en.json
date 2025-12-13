@@ -7,7 +7,7 @@
     "navServices": "Services",
     "navMedia": "Media",
     "logoAlt": "PersiaDoor logo",
-    "contact_us":"Contact Us"
+    "contact_us": "Contact Us"
   },
   "Accordion": {
     "question1": {
@@ -299,9 +299,9 @@
       "title": "Follow us on social media"
     }
   },
-  "DetailsProductAttributes":{
-"callButton":"Phone consultation",
-"downloadButton":"Download Product catalog"
+  "DetailsProductAttributes": {
+    "callButton": "Phone consultation",
+    "downloadButton": "Download Product catalog"
   },
   "GezePage": {
     "hero": {
@@ -312,8 +312,8 @@
     },
     "about": {
       "heading": "About GEZE",
-        "paragraph1": "The GEZE family business began its operations in 1863. Over the past 160 years, the company has proven the quality of its products and services worldwide by using innovative technologies in automatic doors, windows, and smart building solutions, becoming a well-known global brand.",
-    "paragraph2": "More than 3,000 employees work at GEZE branches around the world. The company has local offices in 37 countries and serves customers globally. All GEZE products are manufactured in accordance with international standards and hold recognized global certifications."
+      "paragraph1": "The GEZE family business began its operations in 1863. Over the past 160 years, the company has proven the quality of its products and services worldwide by using innovative technologies in automatic doors, windows, and smart building solutions, becoming a well-known global brand.",
+      "paragraph2": "More than 3,000 employees work at GEZE branches around the world. The company has local offices in 37 countries and serves customers globally. All GEZE products are manufactured in accordance with international standards and hold recognized global certifications."
     },
     "products": {
       "heading1": "GEZE global ",
@@ -546,26 +546,25 @@
       "button": "View more products"
     },
     "expertise": {
-  "items": {
-    "1": {
-      "title": "Support",
-      "description": "We stand by your side from start to finish, ensuring optimal performance of products, equipment, and services with complete peace of mind."
+      "items": {
+        "1": {
+          "title": "Support",
+          "description": "We stand by your side from start to finish, ensuring optimal performance of products, equipment, and services with complete peace of mind."
+        },
+        "2": {
+          "title": "Expertise",
+          "description": "Our experienced specialists strive to deliver a unique customer experience by understanding and meeting their needs."
+        },
+        "3": {
+          "title": "Authenticity",
+          "description": "After years of experience, collaboration with leading global brands, and reliance on genuine technical knowledge, we have proven the quality of our products."
+        },
+        "4": {
+          "title": "Quality",
+          "description": "Through years of experience, partnerships with top international brands, and reliance on authentic technical expertise, we have demonstrated the quality of our products."
+        }
+      }
     },
-    "2": {
-      "title": "Expertise",
-      "description": "Our experienced specialists strive to deliver a unique customer experience by understanding and meeting their needs."
-    },
-    "3": {
-      "title": "Authenticity",
-      "description": "After years of experience, collaboration with leading global brands, and reliance on genuine technical knowledge, we have proven the quality of our products."
-    },
-    "4": {
-      "title": "Quality",
-      "description": "Through years of experience, partnerships with top international brands, and reliance on authentic technical expertise, we have demonstrated the quality of our products."
-    }
-  }
-}
-,
     "about": {
       "brand": "PersiaDoor",
       "text": "Operates in the field of designing and developing industrial automation systems with the goal of improving efficiency, accuracy, and speed in production and industrial processes.",
@@ -640,21 +639,25 @@
     "error": "Please write at least 5 characters."
   },
   "Jobs": {
+    "fetchError": "Failed to load job positions",
     "typeFullTime": "Full Time",
     "typePartTime": "Part Time",
     "locationOnsite": "On-site",
     "sendCvButton": "Send CV",
-    "fullName": "Full Name",
-    "fullNameRequired": "Full Name is required",
-    "email": "Email",
-    "emailRequired": "Email is required",
-    "phone": "Phone",
-    "message": "Message (optional)",
     "resumeRequired": "Please upload your CV",
     "success": "Application sent successfully!",
     "error": "Failed to send application",
     "sending": "Sending...",
-    "fetchError": "Failed to load jobs"
+    "fullName": "Full Name",
+    "fullNameRequired": "Full name is required",
+    "email": "Email",
+    "emailRequired": "Email is required",
+    "phone": "Phone",
+    "message": "Message (optional)",
+    "viewDescription": "View Description"
+  },
+  "common": {
+    "close": "Close"
   },
   "Gallery": {
     "fetchError": "Failed to load projects"

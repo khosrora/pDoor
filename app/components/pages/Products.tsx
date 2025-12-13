@@ -29,8 +29,7 @@ export default function Products({
 
   const currentSort = searchParams.get("sort") || "";
 
-  const isInCompare = (slug: string) =>
-    items.some((p) => p.slug === slug);
+  const isInCompare = (slug: string) => items.some((p) => p.slug === slug);
 
   const handleCompareToggle = (product: Product, imageUrl: string) => {
     if (isInCompare(product.slug)) {
@@ -67,7 +66,6 @@ export default function Products({
         </p>
 
         <div className="flex justify-end items-center space-x-4 text-[14px]">
-
           {/* NEWEST */}
           <p
             className={`cursor-pointer hover:underline ${
@@ -105,7 +103,7 @@ export default function Products({
           return (
             <div
               key={product.slug}
-              className="relative card lg:w-[288px] lg:h-[304px] bg-base-100 border rounded-md border-zinc-300 hover:shadow transition"
+              className="relative card bg-base-100 border rounded-md border-zinc-300 hover:shadow transition"
             >
               <Link
                 href={`/products/${product.slug}`}
@@ -120,6 +118,14 @@ export default function Products({
                     className="w-full h-[207px] object-cover rounded-t-md"
                   />
                 </figure>
+                <div className="mr-2">
+                  <Image
+                    alt="Categories"
+                    width={64}
+                    height={48}
+                    src={"/images/Frame-1261157978.png"}
+                  />
+                </div>
 
                 <div className="card-body p-0">
                   <div className="divider my-0" />

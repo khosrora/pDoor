@@ -1,10 +1,7 @@
 "use client";
 
 import api from "@/app/lib/axios";
-import {
-  IconArrowLeft,
-  IconArrowRight,
-} from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useState, useRef } from "react";
@@ -12,6 +9,7 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import FormOrderProducts from "@/app/components/pages/FormOrderProducts";
+import Image from "next/image";
 
 interface Accessory {
   name: string;
@@ -21,7 +19,13 @@ interface Accessory {
   brand: { name: string; slug: string };
 }
 
-export default function ProductsSwiper({ slug }: { slug: string }) {
+export default function ProductsSwiper({
+  slug,
+  productId,
+}: {
+  slug: string;
+  productId: number;
+}) {
   const t = useTranslations("ProductsSwiper");
   const [accessories, setAccessories] = useState<Accessory[]>([]);
 
@@ -62,7 +66,7 @@ export default function ProductsSwiper({ slug }: { slug: string }) {
   if (!accessories.length) {
     return (
       <div className="my-10 max-w-7xl m-auto">
-        <FormOrderProducts />
+        <FormOrderProducts idProduct={productId} />
       </div>
     );
   }
@@ -91,7 +95,10 @@ export default function ProductsSwiper({ slug }: { slug: string }) {
       >
         {accessories.map((acc) => (
           <SwiperSlide key={acc.slug}>
-            <div className="card w-[305px] bg-white rounded-md shadow-sm border border-zinc-200">
+            <Link
+              href={`/products/${acc.slug}`}
+              className="card w-[305px] bg-white rounded-md shadow-sm border border-zinc-200"
+            >
               <figure>
                 <img
                   src={acc.main_image || "/images/noimage.jpg"}
@@ -99,17 +106,24 @@ export default function ProductsSwiper({ slug }: { slug: string }) {
                   className="w-full h-[210px] object-cover rounded-t-md"
                 />
               </figure>
-
+              <div className="mr-2 absolute bottom-18">
+                <Image
+                  alt="Categories"
+                  width={64}
+                  height={48}
+                  src={"/images/Frame-1261157978.png"}
+                />
+              </div>
               <div className="card-body p-0">
                 <div className="divider m-0"></div>
 
-                <Link href={'/'}>
+                <Link href={"/"}>
                   <p className="font-semibold text-[14px] text-right p-3">
                     {acc.name}
                   </p>
                 </Link>
               </div>
-            </div>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -136,7 +150,6 @@ export default function ProductsSwiper({ slug }: { slug: string }) {
           <IconArrowLeft size={20} />
         </button>
       </div>
-
     </div>
   );
 }
