@@ -181,6 +181,9 @@
     "sectionTitlePrefix": "محصولات",
     "sectionTitleBrand": "پرشیادُر",
     "latestProducts": "لوازم جانبی ",
+    "latestProducts1": "محصولات",
+    "latestProducts2":"پرشیادر"
+  },
 
     "card": {
       "title": "نام محصول",
@@ -188,7 +191,7 @@
       "moreLink": "محصولات بیشتر",
       "imageAlt": "تصویر محصول"
     }
-  },
+  ,
   "ServicesCompanySection": {
     "items": {
       "services": {

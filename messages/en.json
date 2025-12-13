@@ -168,6 +168,7 @@
   "ProductsSwiper": {
     "sectionTitlePrefix": "Products",
     "sectionTitleBrand": "PersiaDoor",
+     "latestProducts": "َAccessories",
     "latestProducts1": "Products ",
     "latestProducts2": "PersiaDoor",
     "card": {

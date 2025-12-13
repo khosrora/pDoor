@@ -173,10 +173,10 @@ function Footer() {
       <div className="footer footer-horizontal footer-center bg-[#003148] p-10 text-white lg:flex  py-4 lg:justify-between">
         <p>{t("bottom.copyright")}</p>
         <div className="flex gap-6">
-          <Link href={"https://www.instagram.com/persiadoor.geze/"}>
+          <Link href={"/"}>
             <img src="/SVGs/Whatsapp.svg" alt="" />
           </Link>
-          <Link href={""}>
+          <Link href={"https://www.instagram.com/persiadoor.geze/"}>
             <img src="/SVGs/Social Icons.svg" alt="" />
           </Link>
         </div>
