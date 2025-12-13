@@ -53,6 +53,7 @@ export default async function ProductDetailPage({ params }: Props) {
       <TabsDetails
         description={product.description}
         specifications={specifications}
+        catalogs={product.catalogs}
       />
 
       {product.projects?.length > 0 && <ProjectsSlider projects={projects} />}

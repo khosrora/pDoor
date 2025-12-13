@@ -116,7 +116,7 @@ export default function ProductsListingPage() {
       ))}
     </div>
   );
-
+  
   return (
     <div className="my-20">
       <CompareAlert />
