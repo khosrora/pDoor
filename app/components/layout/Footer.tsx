@@ -93,16 +93,15 @@ function Footer() {
         </aside>
 
         {/* Contact info */}
-        <div className="text-white">
-          <h6 className="text-[#FCCD6E] text-[20px] flex items-center gap-2">
-            <img src="/SVGs/call icon.svg" alt="" />
+        <div className="text-white" dir="ltr">
+          <h6 className="text-[#FCCD6E] text-[20px] flex justify-end w-full items-center gap-2">
             {t("contact.title")}
+            <img src="/SVGs/call icon.svg" alt="" />
           </h6>
-          <div className="container mx-auto px-4 flex flex-col gap-6">
+          <div className="container mx-auto px-4 flex  flex-col gap-6">
             {/* HQ */}
             <div className="flex flex-col">
               <div className="flex gap-x-12 text-[16px]">
-                <h2 className="mb-4 ">{t("contact.hqTitle")}</h2>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <a
@@ -129,13 +128,13 @@ function Footer() {
                     </a>
                   </li>
                 </ul>
+                <h2 className="mb-4 ">{t("contact.hqTitle")}</h2>
               </div>
             </div>
 
             {/* Sales */}
             <div className="flex flex-col text-[16px]">
               <div className="flex gap-x-12">
-                <h2 className="mb-4">{t("contact.salesTitle")}</h2>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <a
@@ -146,13 +145,13 @@ function Footer() {
                     </a>
                   </li>
                 </ul>
+                <h2 className="mb-4">{t("contact.salesTitle")}</h2>
               </div>
             </div>
 
             {/* Service */}
             <div className="flex flex-col text-[16px]">
               <div className="flex gap-x-12">
-                <h2 className="mb-4">{t("contact.serviceTitle")}</h2>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <a
@@ -163,6 +162,7 @@ function Footer() {
                     </a>
                   </li>
                 </ul>
+                <h2 className="mb-4">{t("contact.serviceTitle")}</h2>
               </div>
             </div>
           </div>
