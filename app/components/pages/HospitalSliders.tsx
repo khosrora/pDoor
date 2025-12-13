@@ -1,87 +1,85 @@
 "use client";
 
-import {Swiper, SwiperSlide} from "swiper/react";
+import { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import {useTranslations} from "next-intl";
+import { useTranslations } from "next-intl";
 
-
-type HospitalId = "hospital1" | "hospital2" | "hospital3" | "hospital4" ;
-
-const slides: {id: HospitalId; image: string}[] = [
-  {
-    id: "hospital1",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
-  {
-    id: "hospital2",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
-  {
-    id: "hospital3",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
-  {
-    id: "hospital4",
-    image: "https://persiadoorco.com/wp-content/uploads/2025/08/9d.jpg",
-  },
-  
-];
+interface HospitalProject {
+  title: string;
+  slug: string;
+  cover_image: string;
+}
 
 export default function HospitalSliders() {
   const t = useTranslations("HospitalSliders");
+  const [projects, setProjects] = useState<HospitalProject[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(
+      "https://api.persiadoorco.com/api/v1/projects/?category=hospital"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setProjects(data.results || []);
+      })
+      .catch((err) => {
+        console.error("Hospital projects fetch error:", err);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="my-8 py-16 text-center text-white bg-[#003F5D]">
+        در حال بارگذاری...
+      </div>
+    );
+  }
+
+  if (projects.length === 0) {
+    return null;
+  }
 
   return (
     <div className="my-8 bg-[#003F5D] py-8">
       {/* Header */}
       <div className="flex flex-col items-center mb-6 text-white px-4">
-        <p className="text-lg font-semibold mb-1">
+        <p className="text-lg font-semibold">
           {t("sectionTitle")}
         </p>
       </div>
 
       {/* Swiper */}
       <Swiper
-        pagination={{clickable: true}}
+        pagination={{ clickable: true }}
         spaceBetween={16}
         slidesPerView={1.1}
         breakpoints={{
-          640: {
-            slidesPerView: 1.3,
-            spaceBetween: 16,
-          },
-          768: {
-            slidesPerView: 2.8,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 24,
-          },
-          1280: {
-            slidesPerView: 3,
-            spaceBetween: 28,
-          },
+          640: { slidesPerView: 1.3 },
+          768: { slidesPerView: 2.8 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 3 },
         }}
         className="max-w-7xl px-4"
       >
-        {slides.map((item) => (
-          <SwiperSlide key={item.id}>
-            <div className="card lg:w-[392px] lg:h-[326px] bg-white  rounded-sm  overflow-hidden">
+        {projects.map((item) => (
+          <SwiperSlide key={item.slug}>
+            <div className="lg:w-[392px] lg:h-[326px] bg-white rounded-sm overflow-hidden">
               <figure>
                 <img
-                  src={item.image}
-                  alt={t(`items.${item.id}.imageAlt`)}
-                  className="w-full h-[392px] object-cover"
+                  src={item.cover_image}
+                  alt={item.title}
+                  className="w-full h-[254px] object-cover"
                 />
               </figure>
+
               <div className="p-4">
-                <p className="text-[#005E8B] font-semibold mb-1">
-                  {t(`items.${item.id}.title`)}
+                <p className="text-[#005E8B] font-semibold">
+                  {item.title}
                 </p>
-                {/* <p className="text-xs text-gray-600">
-                  {t(`items.${item.id}.description`)}
-                </p> */}
               </div>
             </div>
           </SwiperSlide>

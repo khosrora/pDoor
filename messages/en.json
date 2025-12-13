@@ -527,7 +527,14 @@
     "tabs": {
       "product": "Product information",
       "technical": "Technical information",
-      "downloads": "Downloads"
+      "downloads": "Downloads",
+      "catalog": "Product catalog",
+      "certificate": "Product certificate",
+      "datasheet": "Product datasheet",
+      "technicalDrawing": "Technical drawings",
+      "download":{
+        "empty":"Download list is empty"
+      }
     },
     "product": {
       "imageAlt": "Revolving doors",

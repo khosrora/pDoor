@@ -2,8 +2,13 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import HotspotImage1 from "@/app/components/pages/HotspotImage1.";
+import HotspotImage1 from "@/app/components/pages/HotspotImage1";
+import { IconDownload, IconPlus } from "@tabler/icons-react";
 import Link from "next/link";
+import HotspotImage2 from "@/app/components/pages/HotspotImage2";
+import HotspotImage3 from "@/app/components/pages/HotspotImage3";
+import HotspotImage4 from "@/app/components/pages/HotspotImage4";
+
 
 type TabKey = "product" | "technical" | "download";
 
@@ -132,40 +137,172 @@ export default function TabsDetails({
 
       {/* DOWNLOAD TAB */}
       {activeTab === "download" && (
-        <div className="bg-white p-4 rounded space-y-4">
-          {activeCatalogs.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {activeCatalogs.map((catalog) => (
-                <div
-                  key={catalog.id}
-                  className="flex items-center justify-between border rounded-md p-4 hover:shadow transition"
-                >
-                  <div>
-                    <p className="font-medium text-zinc-700">{catalog.title}</p>
-                    <p className="text-sm text-zinc-400">
-                      {catalog.file_type.toUpperCase()}
-                    </p>
-                  </div>
+        <div>
+          <div className=" p-4 rounded space-y-4">
+            {activeCatalogs.length > 0 ? (
+              <div className="border border-zinc-200 bg-white">
+                <details className="group">
+                  {/* HEADER */}
+                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
+                    <div className="flex items-center gap-2">
+                      <IconDownload stroke={2} color="#FAB21F" />
+                      <p className="font-medium">{t("tabs.catalog")}</p>
+                    </div>
 
-                  <Link
-                    href={catalog.file}
-                    target="_blank"
-                    className="btn btn-sm btn-outline text-[#005E8B]"
-                  >
-                    {t("downloads.button")}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-zinc-500">{t("downloads.empty")}</p>
-          )}
+                    <IconPlus
+                      stroke={2}
+                      className="transition-transform duration-300 group-open:rotate-45"
+                    />
+                  </summary>
+
+                  {/* DROPDOWN CONTENT */}
+                  <div className="m-4 space-y-8">
+                    {activeCatalogs.map((catalog) => (
+                      <Link
+                        key={catalog.id}
+                        href={catalog.file}
+                        target="_blank"
+                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
+                      >
+                        <IconDownload stroke={2} />
+                        <p className="font-medium">{catalog.title}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            ) : (
+              <p className="text-center text-zinc-500">
+                {t("download.empty")}
+              </p>
+            )}
+          </div>
+          <div className=" p-4 rounded space-y-4">
+            {activeCatalogs.length > 0 ? (
+              <div className="border border-zinc-200 bg-white">
+                <details className="group">
+                  {/* HEADER */}
+                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
+                    <div className="flex items-center gap-2">
+                      <IconDownload stroke={2} color="#FAB21F" />
+                      <p className="font-medium">{t("tabs.certificate")}</p>
+                    </div>
+
+                    <IconPlus
+                      stroke={2}
+                      className="transition-transform duration-300 group-open:rotate-45"
+                    />
+                  </summary>
+
+                  {/* DROPDOWN CONTENT */}
+                  <div className="m-4 space-y-8">
+                    {activeCatalogs.map((catalog) => (
+                      <Link
+                        key={catalog.id}
+                        href={catalog.file}
+                        target="_blank"
+                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
+                      >
+                        <IconDownload stroke={2} />
+                        <p className="font-medium">{catalog.title}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            ) : (
+              <p className="text-center text-zinc-500">
+                {t("downloads.empty")}
+              </p>
+            )}
+          </div>
+          <div className=" p-4 rounded space-y-4">
+            {activeCatalogs.length > 0 ? (
+              <div className="border border-zinc-200 bg-white">
+                <details className="group">
+                  {/* HEADER */}
+                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
+                    <div className="flex items-center gap-2">
+                      <IconDownload stroke={2} color="#FAB21F" />
+                      <p className="font-medium">{t("tabs.datasheet")}</p>
+                    </div>
+
+                    <IconPlus
+                      stroke={2}
+                      className="transition-transform duration-300 group-open:rotate-45"
+                    />
+                  </summary>
+
+                  {/* DROPDOWN CONTENT */}
+                  <div className="m-4 space-y-8">
+                    {activeCatalogs.map((catalog) => (
+                      <Link
+                        key={catalog.id}
+                        href={catalog.file}
+                        target="_blank"
+                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
+                      >
+                        <IconDownload stroke={2} />
+                        <p className="font-medium">{catalog.title}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            ) : (
+              <p className="text-center text-zinc-500">
+                {t("downloads.empty")}
+              </p>
+            )}
+          </div>
+          <div className=" p-4 rounded space-y-4">
+            {activeCatalogs.length > 0 ? (
+              <div className="border border-zinc-200 bg-white">
+                <details className="group">
+                  {/* HEADER */}
+                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
+                    <div className="flex items-center gap-2">
+                      <IconDownload stroke={2} color="#FAB21F" />
+                      <p className="font-medium">
+                        {t("tabs.technicalDrawing")}
+                      </p>
+                    </div>
+
+                    <IconPlus
+                      stroke={2}
+                      className="transition-transform duration-300 group-open:rotate-45 "
+                    />
+                  </summary>
+
+                  {/* DROPDOWN CONTENT */}
+                  <div className="m-4 space-y-8">
+                    {activeCatalogs.map((catalog) => (
+                      <Link
+                        key={catalog.id}
+                        href={catalog.file}
+                        target="_blank"
+                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
+                      >
+                        <IconDownload stroke={2} />
+                        <p className="font-medium">{catalog.title}</p>
+                      </Link>
+                    ))}
+                  </div>
+                </details>
+              </div>
+            ) : (
+              <p className="text-center text-zinc-500">{t("download.empty")}</p>
+            )}
+          </div>
         </div>
       )}
 
       {/* door details */}
-      
-          <HotspotImage1 />
+
+      <HotspotImage1 />
+      <HotspotImage2 />
+      <HotspotImage3 />
+      <HotspotImage4 />
     </div>
   );
 }

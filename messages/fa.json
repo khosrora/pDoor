@@ -5,9 +5,9 @@
     "navIndustries": "صنایع",
     "navBrands": "برند",
     "navServices": "خدمات",
-    "install":"نصب و نگهداری",
+    "install": "نصب و نگهداری",
     "gallery": "گالری",
-    "News":"اخبار و مقالات",
+    "News": "اخبار و مقالات",
     "navMedia": "رسانه",
     "logoAlt": "لوگو پرشیادُر",
     "contact_us": "ارتباط با ما",
@@ -545,7 +545,14 @@
     "tabs": {
       "product": "اطلاعات محصول",
       "technical": "اطلاعات فنی",
-      "downloads": "دانلودها"
+      "downloads": "دانلودها",
+      "catalog": "کاتالوگ محصول",
+      "certificate": "سرتیفیکیت محصول",
+      "datasheet": "دیتاشیت محصول",
+      "technicalDrawing": "نقشه های فنی",
+      "download": {
+        "empty": "فایلی برای دانلود وجود ندارد"
+      }
     },
     "product": {
       "imageAlt": "درب‌های گردان",

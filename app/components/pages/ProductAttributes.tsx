@@ -24,7 +24,7 @@ export default function ProductAttributes({ product }: Props) {
   );
 
   return (
-    <div className="mx-2">
+    <div className="m-2">
       {/* Product Name */}
       <h1 className="text-base font-bold mb-4">{product.name}</h1>
 
