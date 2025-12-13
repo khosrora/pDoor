@@ -24,7 +24,9 @@ function Footer() {
       <footer className="footer sm:footer-horizontal p-10 text-white max-w-7xl m-auto">
         {/* Column: About */}
         <nav className="leading-7">
-          <h6 className="text-[#FCCD6E] text-[20px]">{t("columns.about.title")}</h6>
+          <h6 className="text-[#FCCD6E] text-[20px]">
+            {t("columns.about.title")}
+          </h6>
           <Link href={"/about_us"} className="link link-hover text-[16px]">
             {t("columns.about.history")}
           </Link>
@@ -44,7 +46,9 @@ function Footer() {
 
         {/* Column: Products */}
         <nav className="leading-7">
-          <h6 className="text-[#FCCD6E] text-[20px]">{t("columns.products.title")}</h6>
+          <h6 className="text-[#FCCD6E] text-[20px]">
+            {t("columns.products.title")}
+          </h6>
           <Link href={"/geze"} className="link link-hover text-[16px]">
             {t("columns.products.brandGeze")}
           </Link>
@@ -75,7 +79,10 @@ function Footer() {
         {/* Address */}
         <aside className="leading-7">
           <div className="flex justify-start items-center gap-x-2">
-            <img src={"/SVGs/Frame 1261157278.svg"} className="text-[#FCCD6E] " />
+            <img
+              src={"/SVGs/Frame 1261157278.svg"}
+              className="text-[#FCCD6E] "
+            />
             <p className="text-[#FCCD6E] text-[20px]">{t("address.title")}</p>
           </div>
           <p className="text-[16px]">
@@ -86,15 +93,15 @@ function Footer() {
         </aside>
 
         {/* Contact info */}
-        <div className="text-white">
-          <h6 className="text-[#FCCD6E] text-[20px] flex items-center gap-2">
+        <div className="text-white" dir="ltr">
+          <h6 className="text-[#FCCD6E] text-[20px] flex justify-end w-full items-center gap-2">
+            {t("contact.title")}
             <img src="/SVGs/call icon.svg" alt="" />
-            {t("contact.title")}</h6>
-          <div className="container mx-auto px-4 flex flex-col gap-6">
+          </h6>
+          <div className="container mx-auto px-4 flex  flex-col gap-6">
             {/* HQ */}
             <div className="flex flex-col">
               <div className="flex gap-x-12 text-[16px]">
-                <h2 className="mb-4 ">{t("contact.hqTitle")}</h2>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <a
@@ -121,13 +128,13 @@ function Footer() {
                     </a>
                   </li>
                 </ul>
+                <h2 className="mb-4 ">{t("contact.hqTitle")}</h2>
               </div>
             </div>
 
             {/* Sales */}
             <div className="flex flex-col text-[16px]">
               <div className="flex gap-x-12">
-                <h2 className="mb-4">{t("contact.salesTitle")}</h2>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <a
@@ -138,13 +145,13 @@ function Footer() {
                     </a>
                   </li>
                 </ul>
+                <h2 className="mb-4">{t("contact.salesTitle")}</h2>
               </div>
             </div>
 
             {/* Service */}
             <div className="flex flex-col text-[16px]">
               <div className="flex gap-x-12">
-                <h2 className="mb-4">{t("contact.serviceTitle")}</h2>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <a
@@ -155,6 +162,7 @@ function Footer() {
                     </a>
                   </li>
                 </ul>
+                <h2 className="mb-4">{t("contact.serviceTitle")}</h2>
               </div>
             </div>
           </div>
