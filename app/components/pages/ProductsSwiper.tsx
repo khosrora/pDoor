@@ -19,7 +19,13 @@ interface Accessory {
   brand: { name: string; slug: string };
 }
 
-export default function ProductsSwiper({ slug }: { slug: string }) {
+export default function ProductsSwiper({
+  slug,
+  productId,
+}: {
+  slug: string;
+  productId: number;
+}) {
   const t = useTranslations("ProductsSwiper");
   const [accessories, setAccessories] = useState<Accessory[]>([]);
 
@@ -60,7 +66,7 @@ export default function ProductsSwiper({ slug }: { slug: string }) {
   if (!accessories.length) {
     return (
       <div className="my-10 max-w-7xl m-auto">
-        <FormOrderProducts />
+        <FormOrderProducts idProduct={productId} />
       </div>
     );
   }

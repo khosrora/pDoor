@@ -36,7 +36,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const images = product.images || [];
   const specifications = product.specifications || [];
   const projects = product.projects || [];
-
+  
   return (
     <div className="space-y-4 mt-40">
       <div className="flex flex-col lg:flex-row justify-center items-start gap-x-4 max-w-7xl m-auto">
@@ -58,7 +58,7 @@ export default async function ProductDetailPage({ params }: Props) {
 
       {product.projects?.length > 0 && <ProjectsSlider projects={projects} />}
 
-      <ProductsSwiper slug={product.slug} />
+      <ProductsSwiper slug={product.slug} productId={product.id} />
       <AccordionCustions />
     </div>
   );
