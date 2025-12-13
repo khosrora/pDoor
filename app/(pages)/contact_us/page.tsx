@@ -19,96 +19,84 @@ export default async function ContactPage() {
   const textDir = locale === "fa" ? "text-right" : "text-left";
 
   return (
-    <div dir={dir} className={`p-4 space-y-4 max-w-7xl mt-20 mx-auto ${textDir}`}>
+    <div
+      dir={dir}
+      className={`p-4 space-y-4 max-w-7xl mt-20 mx-auto ${textDir}`}
+    >
       <Breadcrumbs />
 
-      <div className="lg:grid lg:grid-cols-2 lg:gap-x-4">
-        {/* Left column */}
-        <div className="space-y-4">
+      {/* GRID LAYOUT */}
+      <div className="lg:grid lg:grid-cols-3 lg:gap-x-4">
+        {/* ================= LEFT COLUMN (2/3) ================= */}
+        <div className="space-y-4 lg:col-span-2">
           {/* Hero */}
-          <div className="border border-zinc-200 p-4 space-y-4 lg:border-none lg:bg-zinc-100">
-            <p className="text-[#FAB21F]">{t("hero.title")}</p>
-            <p>{t("hero.text")}</p>
+          <div className="border border-zinc-200 p-4 space-y-4 lg:border-none lg:bg-zinc-100 p-4">
+            <p className="text-[#FAB21F] text-[20px]">{t("hero.title")}</p>
+            <p className="text-[16px]">{t("hero.text")}</p>
           </div>
 
           {/* Contact blocks */}
-          <div className=" p-4 space-y-4 lg:border-none lg:bg-zinc-100">
+          <div className="p-4 space-y-4 lg:border-none lg:bg-zinc-100 grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* HQ */}
-            <div className="flex flex-col">
-              <div className="flex gap-x-4">
-                <div className="flex justify-start items-center gap-x-2">
-                  <div className="border border-blue-800 rounded flex justify-center items-center p-2">
-                    <IconPhoneFilled className="text-blue-800" />
-                  </div>
-                  <h2>{t("blocks.hqTitle")}</h2>
-                </div>
+            <div className="flex items-start gap-x-4">
+              <div className="border border-blue-800 rounded p-2 shrink-0">
+                <img
+                  src={"/SVGs/phone-call-filled.svg"}
+                  className="text-blue-800"
+                />
+              </div>
 
-                <ul className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2">
+                <h2 className="font-medium">{t("blocks.hqTitle")}</h2>
+                <ul className="flex flex-col gap-1 text-sm">
                   <li>
-                    <a href="tel:02188775437" className="hover:text-blue-600">
-                      021-88775437
-                    </a>
+                    <a href="tel:02188775437">021-88775437</a>
                   </li>
                   <li>
-                    <a href="tel:02188773432" className="hover:text-blue-600">
-                      021-88773432
-                    </a>
+                    <a href="tel:02188773432">021-88773432</a>
                   </li>
                   <li>
-                    <a href="tel:02177181018" className="hover:text-blue-600">
-                      021-77181018
-                    </a>
+                    <a href="tel:02177181018">021-77181018</a>
                   </li>
                 </ul>
               </div>
             </div>
 
             {/* Sales */}
-            <div className="flex flex-col">
-              <div className="flex gap-x-4">
-                <div className="flex justify-start items-center gap-x-2">
-                  <div className="border border-blue-800 rounded flex justify-center items-center p-2">
-                    <IconPhoneFilled className="text-blue-800" />
-                  </div>
-                  <h2>{t("blocks.salesTitle")}</h2>
-                </div>
+            <div className="flex items-start gap-x-4">
+              <div className="border border-[#005E8B] rounded p-2 shrink-0">
+                <img src={"/SVGs/phone-call-filled.svg"} />
+              </div>
 
-                <ul className="flex flex-col gap-2">
-                  <li>
-                    <a href="tel:09022886628" className="hover:text-blue-600">
-                      0902 2886 628
-                    </a>
-                  </li>
-                </ul>
+              <div className="flex flex-col gap-2">
+                <h2 className="font-medium">{t("blocks.salesTitle")}</h2>
+                <a href="tel:09022886628" className="text-sm">
+                  0902 2886 628
+                </a>
               </div>
             </div>
 
             {/* Service */}
-            <div className="flex flex-col">
-              <div className="flex gap-x-4">
-                <div className="flex justify-start items-center gap-x-2">
-                  <div className="border border-blue-800 rounded flex justify-center items-center p-2">
-                    <IconPhoneFilled className="text-blue-800" />
-                  </div>
-                  <h2>{t("blocks.serviceTitle")}</h2>
-                </div>
+            <div className="flex items-start gap-x-4">
+              <div className="border border-[#005E8B] rounded p-2 shrink-0">
+                <img src={"/SVGs/phone-call-filled.svg"} />
+              </div>
 
-                <ul className="flex flex-col gap-2">
-                  <li>
-                    <a href="tel:090228863667" className="hover:text-blue-600">
-                      0902 2886 3667
-                    </a>
-                  </li>
-                </ul>
+              <div className="flex flex-col gap-2">
+                <h2 className="font-medium">{t("blocks.serviceTitle")}</h2>
+                <a href="tel:090228863667" className="text-sm">
+                  0902 2886 3667
+                </a>
               </div>
             </div>
 
             {/* Address */}
-            <div className="flex justify-start gap-x-2">
-              <div className="border border-blue-800 rounded flex justify-center items-center p-2">
-                <IconLocationPin className="text-blue-800" />
+            <div className="flex items-start gap-x-4">
+              <div className="border border-[#005E8B]  rounded p-2 shrink-0">
+                <img src={"/SVGs/local-filled.svg"} />
               </div>
-              <p>
+
+              <p className="text-sm leading-relaxed">
                 {t("blocks.addressLine1")}
                 <br />
                 {t("blocks.addressLine2")}
@@ -117,24 +105,24 @@ export default async function ContactPage() {
           </div>
 
           {/* Social (desktop) */}
-          <div className="hidden lg:flex lg:justify-between border border-zinc-200 p-4 lg:border-none lg:bg-zinc-100">
-            <p className="text-center">{t("social.title")}</p>
+          <div className="hidden lg:flex justify-between p-4 lg:bg-zinc-100">
+            <p>{t("social.title")}</p>
             <nav>
-              <div className="flex justify-around gap-x-4">
-                {/* icons... unchanged */}
-              </div>
+              <div className="flex gap-x-4">{/* icons */}</div>
             </nav>
           </div>
         </div>
 
-        {/* Right column: form */}
-        <FormContactUs />
+        {/* ================= RIGHT COLUMN (1/3) ================= */}
+        <div className="lg:col-span-1 ">
+          <FormContactUs />
+        </div>
       </div>
 
       {/* Social (mobile) */}
       <div className="border border-zinc-200 p-4 space-y-4 lg:hidden">
         <p className="text-center">{t("social.title")}</p>
-        {/* icons... unchanged */}
+        {/* icons */}
       </div>
 
       <GoogleMap />

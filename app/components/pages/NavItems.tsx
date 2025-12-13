@@ -74,12 +74,12 @@ function NavItems() {
             </li>
             <li>
               <Link href={"/contact_us"}>
-              <img src="./SVGs/contactUs.svg" alt=""/>
+              <img src="/SVGs/contactUs.svg" alt=""/>
               {t("contact_us")}</Link>
             </li>
             <li>
               <Link href={"/job_position"}>
-              <img src="./SVGs/contactUs.svg" alt=""/>
+              <img src="/SVGs/employee4.svg" alt=""/>
               {t2("columns.about.job")}</Link>
             </li>
             {/* <li>

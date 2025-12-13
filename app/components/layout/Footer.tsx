@@ -23,15 +23,15 @@ function Footer() {
       </div>
       <footer className="footer sm:footer-horizontal p-10 text-white max-w-7xl m-auto">
         {/* Column: About */}
-        <nav>
-          <h6 className="text-[#FCCD6E]">{t("columns.about.title")}</h6>
-          <Link href={"/about_us"} className="link link-hover text-xs">
+        <nav className="leading-7">
+          <h6 className="text-[#FCCD6E] text-[20px]">{t("columns.about.title")}</h6>
+          <Link href={"/about_us"} className="link link-hover text-[16px]">
             {t("columns.about.history")}
           </Link>
-          <Link href={"/job_position"} className="link link-hover text-xs">
+          <Link href={"/job_position"} className="link link-hover text-[16px]">
             {t("columns.about.job")}
           </Link>
-          <Link href={"/frequently"} className="link link-hover text-xs">
+          <Link href={"/frequently"} className="link link-hover text-[16px]">
             {t("columns.about.questions")}
           </Link>
           {/* <a className="link link-hover text-xs">
@@ -43,9 +43,9 @@ function Footer() {
         </nav>
 
         {/* Column: Products */}
-        <nav>
-          <h6 className="text-[#FCCD6E]">{t("columns.products.title")}</h6>
-          <Link href={"/geze"} className="link link-hover text-xs">
+        <nav className="leading-7">
+          <h6 className="text-[#FCCD6E] text-[20px]">{t("columns.products.title")}</h6>
+          <Link href={"/geze"} className="link link-hover text-[16px]">
             {t("columns.products.brandGeze")}
           </Link>
           {/* <a className="link link-hover text-xs">
@@ -57,28 +57,28 @@ function Footer() {
         </nav>
 
         {/* Column: Customer Service */}
-        <nav>
-          <h6 className="text-[#FCCD6E]">
+        <nav className="leading-7">
+          <h6 className="text-[#FCCD6E] text-[20px]">
             {t("columns.customerService.title")}
           </h6>
-          <Link href={"/installation"} className="link link-hover text-xs">
+          <Link href={"/installation"} className="link link-hover text-[16px]">
             {t("columns.customerService.afterSales")}
           </Link>
-          <Link href={"/installation"} className="link link-hover text-xs">
+          <Link href={"/installation"} className="link link-hover text-[16px]">
             {t("columns.customerService.maintenance")}
           </Link>
-          <Link href={"/installation"} className="link link-hover text-xs">
+          <Link href={"/installation"} className="link link-hover text-[16px]">
             {t("columns.customerService.consulting")}
           </Link>
         </nav>
 
         {/* Address */}
-        <aside>
+        <aside className="leading-7">
           <div className="flex justify-start items-center gap-x-2">
-            <IconLocationPin className="text-[#FCCD6E]" />
-            <p className="text-[#FCCD6E]">{t("address.title")}</p>
+            <img src={"/SVGs/Frame 1261157278.svg"} className="text-[#FCCD6E] " />
+            <p className="text-[#FCCD6E] text-[20px]">{t("address.title")}</p>
           </div>
-          <p>
+          <p className="text-[16px]">
             {t("address.line1")}
             <br />
             {t("address.line2")}
@@ -87,12 +87,14 @@ function Footer() {
 
         {/* Contact info */}
         <div className="text-white">
-          <h6 className="text-[#FCCD6E]">{t("contact.title")}</h6>
+          <h6 className="text-[#FCCD6E] text-[20px] flex items-center gap-2">
+            <img src="/SVGs/call icon.svg" alt="" />
+            {t("contact.title")}</h6>
           <div className="container mx-auto px-4 flex flex-col gap-6">
             {/* HQ */}
             <div className="flex flex-col">
-              <div className="flex gap-x-12">
-                <h2 className="mb-4">{t("contact.hqTitle")}</h2>
+              <div className="flex gap-x-12 text-[16px]">
+                <h2 className="mb-4 ">{t("contact.hqTitle")}</h2>
                 <ul className="flex flex-col gap-2">
                   <li>
                     <a
@@ -123,7 +125,7 @@ function Footer() {
             </div>
 
             {/* Sales */}
-            <div className="flex flex-col">
+            <div className="flex flex-col text-[16px]">
               <div className="flex gap-x-12">
                 <h2 className="mb-4">{t("contact.salesTitle")}</h2>
                 <ul className="flex flex-col gap-2">
@@ -140,7 +142,7 @@ function Footer() {
             </div>
 
             {/* Service */}
-            <div className="flex flex-col">
+            <div className="flex flex-col text-[16px]">
               <div className="flex gap-x-12">
                 <h2 className="mb-4">{t("contact.serviceTitle")}</h2>
                 <ul className="flex flex-col gap-2">
