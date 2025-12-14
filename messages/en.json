@@ -10,7 +10,19 @@
     "News":"News & Blogs",
     "navMedia": "Media",
     "logoAlt": "PersiaDoor logo",
-    "contact_us": "Contact Us"
+    "contact_us": "Contact Us",
+    "industries": {
+      "bank": "Bank",
+      "creative": "Creative projects",
+      "factory": "Factory",
+      "hotel": "Hotel",
+      "office": "Governance Office",
+      "private": "Private Sectors",
+      "shopping": "Shopping Centers",
+      "terminal": "Terminal",
+      "hospital": "Hospital",
+      "airport": "Airport"
+    }
   },
   "Accordion": {
     "question1": {

@@ -5,10 +5,13 @@ function Breadcrumbs() {
     <div className="breadcrumbs text-sm">
       <ul>
         <li>
-          <Link href={"/"}>خانه</Link>
+          <Link href={"/"}>صفحه اصلی</Link>
         </li>
         <li>
-          <p>نصب</p>
+          <p>خدمات</p>
+        </li>
+        <li>
+          <p>نصب و نگهداری</p>
         </li>
       </ul>
     </div>

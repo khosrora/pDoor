@@ -23,12 +23,12 @@ export default async function TimelineSlider() {
   return (
     <div className="my-20">
       <Breadcrumbs />
-      <div dir="rtl" className="w-full  mx-auto px-4 py-12 ">
+      <div  className="w-full  mx-auto px-4 py-12 " >
         <AboutUsSwiper />
 
         {/* بخش ارزش‌ها، چشم‌انداز و ماموریت */}
         <section
-          dir="rtl"
+          // dir="rtl"
           className="w-full max-w-6xl mx-auto px-6 py-16 flex flex-col"
         >
           {/* ردیف بالا: ارزش برند و چشم‌انداز */}
@@ -113,7 +113,7 @@ export default async function TimelineSlider() {
         </div>
 
         {/* our service */}
-        <div className="flex flex-col w-full mx-auto mt-15 gap-y-20">
+        <div className="flex flex-col w-full mx-auto mt-15 gap-y-20" dir="rtl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-60 mb-10 ">
             {/* ستون چپ (ارزش برند) */}
             <div className="flex justify-end items-center gap-4 bg-zinc-100 py-8 w-full">

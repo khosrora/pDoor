@@ -139,7 +139,7 @@ function Header() {
                     onKeyDown={handleEnter}
                     placeholder="جستجو"
                     className="flex-1 text-neutral-700 text-sm font-normal font-iranyekan outline-none placeholder:text-neutral-400 bg-transparent"
-                    dir="rtl"
+                    // dir="rtl"
                     autoFocus
                   />
                   <button

@@ -18,7 +18,7 @@ type TeamMember = {
 export default function TeamSection() {
   const t = useTranslations("TeamSliders");
   const locale = useLocale();
-  const dir = locale === "fa" ? "rtl" : "ltr";
+  // const dir = locale === "fa" ? "rtl" : "ltr";
 
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [loadingTeam, setLoadingTeam] = useState(true);
@@ -37,7 +37,7 @@ export default function TeamSection() {
   }, [locale]);
 
   return (
-    <div className="p-4 max-w-7xl mx-auto" dir={dir}>
+    <div className="p-4 max-w-7xl mx-auto" >
       {/* ------------------------------
      
 

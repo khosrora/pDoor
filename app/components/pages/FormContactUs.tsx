@@ -15,7 +15,7 @@ export default function FormContactUs() {
   const t = useTranslations("FormContactUs");
   const locale = useLocale();
 
-  const dir = locale === "fa" ? "rtl" : "ltr";
+  // const dir = locale === "fa" ? "rtl" : "ltr";
   const textDir = locale === "fa" ? "text-right" : "text-left";
 
   const {
@@ -39,7 +39,7 @@ export default function FormContactUs() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      dir={dir}
+      // dir={dir}
       className={`space-y-4 w-full border border-zinc-200 p-4 ${textDir}`}
     >
       {/* Name */}

@@ -83,7 +83,7 @@ export default function CategoriesSwiper() {
         pagination={{ clickable: true }}
         spaceBetween={16}
         slidesPerView={1.2}
-        dir={isRTL ? "rtl" : "ltr"}
+        // dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
           640: { slidesPerView: 1.5 },
           768: { slidesPerView: 2.7 },

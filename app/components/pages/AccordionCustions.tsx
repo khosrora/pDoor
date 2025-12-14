@@ -31,7 +31,7 @@ type FormValues = {
 function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
   const t = useTranslations();
   const locale = useLocale();
-  const dir = locale === "fa" ? "rtl" : "ltr";
+  // const dir = locale === "fa" ? "rtl" : "ltr";
 
   const [categories, setCategories] = useState<Category[]>([]);
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
@@ -133,7 +133,7 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
       {/* ------------------------------
           FAQs List
       ------------------------------ */}
-      <div className="p-4 mx-auto max-w-3xl space-y-4" dir={dir}>
+      <div className="p-4 mx-auto max-w-3xl space-y-4" >
        
 
         {loadingFaq ? (

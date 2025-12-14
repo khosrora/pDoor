@@ -122,7 +122,7 @@ const AboutUsSwiper = () => {
   return (
     <div>
       {/* Layout: سه ستون: تصویر | خط و سال | متن */}
-      <div className="lg:max-w-7xl mx-auto">
+      <div className="lg:max-w-7xl mx-auto" dir="rtl">
         <div className="grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto">
           {/* ستون سمت راست: عنوان و توضیحات */}
           <div className="col-span-12 lg:col-span-5">

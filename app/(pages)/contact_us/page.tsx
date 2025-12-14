@@ -15,12 +15,12 @@ export default async function ContactPage() {
   const t = await getTranslations("ContactPage");
   const locale = await getLocale();
 
-  const dir = locale === "fa" ? "rtl" : "ltr";
+  // const dir = locale === "fa" ? "rtl" : "ltr";
   const textDir = locale === "fa" ? "text-right" : "text-left";
 
   return (
     <div
-      dir={dir}
+      // dir={dir}
       className={`p-4 space-y-4 max-w-7xl mt-20 mx-auto ${textDir}`}
     >
       <Breadcrumbs />

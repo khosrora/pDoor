@@ -39,7 +39,7 @@ export default function ServicesCompanySection() {
   return (
     <section
       className="w-full p-4 grid grid-cols-1 lg:grid-cols-2 gap-4"
-      dir="rtl"
+      // dir="rtl"
     >
       {items.map((item, index) => {
         const isRight = index % 2 === 0; // even = polygon on RIGHT

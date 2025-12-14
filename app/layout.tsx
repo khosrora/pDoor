@@ -7,6 +7,7 @@ import { yekan } from "./fonts";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { CompareProvider } from "./context/CompareContext";
+import DirectionProvider from "./components/DirectionProvider";
 
 
 export default async function RootLayout({
@@ -14,10 +15,10 @@ export default async function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   const locale = await getLocale(); // from i18n/request.ts
   const messages = await getMessages(); // from i18n/request.ts
-  const dir = locale === "fa" ? "rtl" : "ltr";
+
 
   return (
-    <html lang={locale} dir={dir}>
+    <html lang={locale} >
       <body className={yekan.variable}>
         <Toaster
           richColors
@@ -31,6 +32,7 @@ export default async function RootLayout({
         <NextIntlClientProvider locale={locale} messages={messages}>
           <CompareProvider>
             <ClientHeader />
+            <DirectionProvider />
             {children}
             <Footer />
           </CompareProvider>
