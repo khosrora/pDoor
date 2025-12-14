@@ -49,6 +49,7 @@ export default async function GezePage() {
         <div
           className="lg:h-[850px] mt-0 bg-contain bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/images/image 784 (1).png')" }}
+          dir="rtl"
         >
           <div className="lg:max-w-7xl mx-auto pt-30">
             {/* title */}

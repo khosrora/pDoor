@@ -108,7 +108,7 @@ export default async function Home() {
       <CategoriesSwiper />
 
       {/* Expertise + about clip section */}
-      <div className="relative">
+      <div className="relative" dir="rtl">
         {/* Right big clip cards (desktop) */}
         <div className="my-clip bg-zinc-200 h-40 lg:h-[558px] w-full absolute left-0 -top-2 lg:flex lg:justify-end lg:items-center">
           <div className="hidden lg:grid grid-cols-2 gap-45 gap-y-8 p-4 max-w-md lg:ml-80">
@@ -123,7 +123,7 @@ export default async function Home() {
               return (
                 <div
                   key={index}
-                  className={`lg:w-[264px] lg:h-[166px] relative px-4 py-7 rounded-md ${bgClass} ${textClass}`}
+                  className={`lg:w-[264px]  relative px-4 py-7 rounded-md ${bgClass} ${textClass}`}
                 >
                   <p className="font-medium text-[20px]">{item.title}</p>
 
@@ -259,6 +259,7 @@ export default async function Home() {
       <div
         className=" px-4 py-8"
         style={{ backgroundImage: `url('/images/percia oor service.png')` }}
+        dir="rtl"
       >
         <div className="text-center mb-8">
           <p className="lg:font-bold lg:text-[33px] mt-8">
