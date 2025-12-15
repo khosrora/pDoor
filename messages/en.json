@@ -24,6 +24,7 @@
       "airport": "Airport"
     }
   },
+
   "Accordion": {
     "question1": {
       "title": "Which type of door is suitable for my space?",
@@ -373,6 +374,9 @@
     }
   },
   "HospitalPage": {
+    "home": "Home",
+    "industries": "Industries",
+    "hospitals": "Hospitals",
     "hero": {
       "title": "Hospitals",
       "text": "With a deep understanding of hospital environments and their specific needs, PersiaDoor designs and supplies hospital doors that meet the highest hygiene standards and modern technologies. These doors provide easy, unobstructed access while minimizing touch points and enabling quick cleaning to support infection control. They also open wide enough for hospital beds and, when closed, help reduce unwanted air flow between zones.",
@@ -446,12 +450,14 @@
   },
   "Breadcrumbs": {
     "home": "Home",
-    "career_position": "Career Position"
+    "career_position": "Career Position",
+    "FAQ": "Frequently Answers",
+    "gallery_news": "Gallery & Blogs"
   },
   "CareersPage": {
     "home": "Home",
     "brandName": "PersiaDoor",
-    "careers": "Careers",
+    "careers": "Job Position",
     "hero": {
       "career_title": "Careers at Persiadoor",
       "career_description": "Joining Persiadoor can be a great opportunity for individuals seeking career growth and new experiences. With a strong focus on delivering innovative services and manufacturing high-quality products, the company is always looking to recruit creative and talented professionals.",
@@ -664,7 +670,10 @@
     "iran_cities": "Cities of Iran",
     "our_experience": "Our Experience",
     "different_industries": "Various Industries",
-    "agency_page": "Agency Page"
+    "agency_page": "Agency Page",
+    "cities": "Cities in Iran",
+    "experience": "Years of Experience",
+    "industries": "Various Industries"
   },
   "moreBox": {
     "text": "Didn’t find your question?",
@@ -711,7 +720,7 @@
     "clearFilters": "Clear All",
     "productsFound": "products found",
     "sortNewest": "Newest",
-    "sortBestSelling": "Best Selling",
+    "sortBestSelling": "Most",
     "sortMostViewed": "Most Viewed",
     "compareBadge": "Compare",
     "card": {

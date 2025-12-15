@@ -1,14 +1,17 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-function Breadcrumbs() {
+async function Breadcrumbs() {
+    const t = await getTranslations("Breadcrumbs");
+
   return (
-    <div className="breadcrumbs text-sm">
+    <div className="breadcrumbs text-sm mx-10">
       <ul>
         <li>
-          <Link href={"/"}>خانه</Link>
+          <Link href={"/"}>{t("home")}</Link>
         </li>
         <li>
-          <p>سوالات متداول</p>
+          <p>{t("FAQ")}</p>
         </li>
       </ul>
     </div>

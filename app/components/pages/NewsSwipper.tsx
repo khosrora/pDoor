@@ -18,11 +18,6 @@ interface BlogPost {
   title: string;
   cover_image: string;
   short_summary: string;
-  author?: {
-    first_name: string;
-    last_name: string;
-  };
-  view_count: number;
 }
 
 export default function NewsSwipper() {
@@ -32,10 +27,9 @@ export default function NewsSwipper() {
 
   const prevRef = useRef<HTMLButtonElement | null>(null);
   const nextRef = useRef<HTMLButtonElement | null>(null);
-
   const [swiperRef, setSwiperRef] = useState<any>(null);
+  const [activeIndex, setActiveIndex] = useState<number>(0);
 
-  // Fetch posts
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -47,18 +41,11 @@ export default function NewsSwipper() {
         setLoading(false);
       }
     };
-
     fetchPosts();
   }, [locale]);
 
-  // Fix Swiper button bind after mount
   useEffect(() => {
-    if (
-      swiperRef &&
-      swiperRef.params &&
-      prevRef.current &&
-      nextRef.current
-    ) {
+    if (swiperRef && swiperRef.params && prevRef.current && nextRef.current) {
       swiperRef.params.navigation.prevEl = prevRef.current;
       swiperRef.params.navigation.nextEl = nextRef.current;
       swiperRef.navigation.init();
@@ -69,33 +56,29 @@ export default function NewsSwipper() {
   if (loading) return <p className="text-center py-10">Loading...</p>;
 
   return (
-    <div className="relative my-8  py-8"
-    style={{ backgroundImage: `url('/images/percia oor service.png')` }}
-    >
-      <div className="absolute lg:w-[1220px] lg:h-[300px] bg-[#0C5273] bottom-0 left-0 right-0 mx-auto"></div>
-
+    <div className="relative my-8 py-8">
       {/* Header */}
       <div className="flex flex-col items-center mb-6 text-black px-4">
         <p className="text-[33px] font-semibold mb-1">
           {locale === "fa" ? "اخبار و مقالات" : "News & Articles"}
         </p>
-        <p className="text-center text-[20px] ">
+        <p className="text-center text-[20px]">
           {locale === "fa"
             ? "آخرین مقالات مرتبط و اخبار پرشیا در را اینجا می‌توانید مشاهده کنید"
             : "See the latest related articles and Persiadoor news here."}
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto my-10">
+      <div className="max-w-6xl mx-auto my-20 relative">
         <Swiper
-
           modules={[Navigation]}
           onSwiper={setSwiperRef}
-          pagination={{ clickable: true }}
-            
-          spaceBetween={0}
+          spaceBetween={30}
           slidesPerView={3}
-          className="w-full px-4 "
+          centeredSlides={true}
+          loop={true}
+          onSlideChange={(s) => setActiveIndex(s.realIndex)}
+          className="w-full lg:h-[460px] px-4"
           breakpoints={{
             640: { slidesPerView: 1.3 },
             768: { slidesPerView: 2.3 },
@@ -103,33 +86,41 @@ export default function NewsSwipper() {
             1280: { slidesPerView: 2.9 },
           }}
         >
-          {posts.map((post) => (
-            <SwiperSlide key={post.id}>
-              <Link  href={`/media/${post.id}`}>
-              <div className="card lg:w-[360px] lg:h-[421px] bg-white border-2 rounded-md border-zinc-200 overflow-hidden">
-                <figure>
-                  <img
-                    src={post.cover_image}
-                    alt={post.title}
-                    className="w-full h-[293px] object-fill"
-                  />
-                </figure>
-                <div className="p-4">
-                  <p className="text-[#003F5D] text-[18px] font-medium mb-2">
-                    {post.title}
-                  </p>
-
-                  <p className="text-[13px] text-gray-500 mb-1">
-                    {post.short_summary}
-                  </p>
-
-                 
-                </div>
-              </div>
-              </Link>
-            </SwiperSlide>
-          ))}
+          {posts.map((post, index) => {
+            const isActive = index === activeIndex;
+            return (
+              <SwiperSlide key={post.id}>
+                <Link href={`/media/${post.id}`}>
+                  {/* div پس‌زمینه کارت حفظ شد */}
+                  <div className="relative w-full h-[450px]">
+                    <div
+                      className={`card lg:w-[390px] lg:h-[421px] bg-white border-2 rounded-md border-zinc-200 transition-transform duration-500 ${
+                        isActive ? " scale-100 shadow-xl z-10" : "scale-90"
+                      }`}
+                    >
+                      <figure>
+                        <img
+                          src={post.cover_image}
+                          alt={post.title}
+                          className="w-full h-[293px] object-cover"
+                        />
+                      </figure>
+                      <div className="p-4">
+                        <p className="text-[#003F5D] text-[18px] font-medium mb-2">
+                          {post.title}
+                        </p>
+                        <p className="text-[13px] text-gray-500 mb-1">
+                          {post.short_summary}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
+        
 
         {/* Navigation Buttons */}
         <div className="flex justify-center gap-8 mt-8">
@@ -147,6 +138,10 @@ export default function NewsSwipper() {
             <IconArrowLeft color="white" />
           </button>
         </div>
+
+       <div className="absolute h-[400px] w-7xl bg-[#003F5D] -bottom-10 left-1/2 -translate-x-1/2"></div>
+
+
       </div>
     </div>
   );

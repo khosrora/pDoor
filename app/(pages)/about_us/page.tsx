@@ -23,7 +23,7 @@ export default async function TimelineSlider() {
   return (
     <div className="my-20">
       <Breadcrumbs />
-      <div  className="w-full  mx-auto px-4 py-12 " >
+      <div className="w-full  mx-auto px-4 py-12 ">
         <AboutUsSwiper />
 
         {/* بخش ارزش‌ها، چشم‌انداز و ماموریت */}
@@ -266,17 +266,17 @@ export default async function TimelineSlider() {
           <div className="grid grid-cols-3 max-w-6xl gap-20">
             <CounterItem
               end={600}
-              label="شهرهای ایران"
+              label={t("cities")} // ترجمه شهرهای ایران
               icon="/SVGs/Frame 1261157189.svg"
             />
             <CounterItem
               end={10000}
-              label="سابقه فعالیت"
+              label={t("experience")} // ترجمه سابقه فعالیت
               icon="/SVGs/Frame 1261157188.svg"
             />
             <CounterItem
               end={20}
-              label="صنایع مختلف"
+              label={t("industries")} // ترجمه صنایع مختلف
               icon="/SVGs/Frame 1261157187.svg"
             />
           </div>
@@ -307,8 +307,7 @@ export default async function TimelineSlider() {
             {/* DROPDOWN CONTENT */}
             <div className="m-4">
               <div className="w-[200px] h-[300px] flex gap-4">
-                 <ImageLightbox />
-                
+                <ImageLightbox />
               </div>
             </div>
           </details>

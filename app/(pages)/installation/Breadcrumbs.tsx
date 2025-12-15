@@ -5,7 +5,7 @@ async function Breadcrumbs() {
   const t = await getTranslations("ServicesPage");
 
   return (
-    <div className="breadcrumbs text-sm">
+    <div className="breadcrumbs text-sm mx-10">
       <ul>
         <li>
           <Link href="/">{t("home")}</Link>
