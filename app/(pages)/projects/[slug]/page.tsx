@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Lightbox from "react-awesome-lightbox";
+import { IconSearch } from "@tabler/icons-react";
+import api from "@/app/lib/axios";
 
 interface MediaItem {
   media_type: "image" | "video";
@@ -21,59 +23,79 @@ interface ProjectDetail {
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const [project, setProject] = useState<ProjectDetail | null>(null);
+  const [loading, setLoading] = useState(true);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   useEffect(() => {
-    fetch(
-      `https://api.persiadoorco.com/api/v1/projects/p/${slug}/`
-    )
-      .then((res) => res.json())
-      .then(setProject)
-      .catch(console.error);
+    if (!slug) return;
+
+    setLoading(true);
+
+    api
+      .get(`/v1/projects/p/${slug}/`)
+      .then((res) => setProject(res.data))
+      .catch(console.error)
+      .finally(() => setLoading(false));
   }, [slug]);
 
-  if (!project) return null;
-
-  // فقط تصاویر برای Lightbox
-  const images = project.media_items
-    .filter((m) => m.media_type === "image" && m.image)
-    .map((m) => ({
-      url: m.image as string,
-      title: m.caption,
-    }));
+  const images =
+    project?.media_items
+      ?.filter((m) => m.media_type === "image" && m.image)
+      .map((m) => ({
+        url: m.image as string,
+        title: m.caption,
+      })) || [];
 
   return (
-    <div className="max-w-7xl mx-auto p-4">
-      <h1 className="text-xl font-bold mb-6">{project.title}</h1>
+    <div className="max-w-7xl mx-auto p-4 mt-24">
+      {/* Title */}
+      {loading ? (
+        <div className="h-6 w-64 bg-zinc-200 animate-pulse rounded mb-6" />
+      ) : (
+        <h1 className="text-xl font-bold mb-6">{project?.title}</h1>
+      )}
 
+      {/* Media Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {project.media_items.map((item, index) => (
-          <div
-            key={index}
-            className="bg-zinc-100 rounded-sm overflow-hidden cursor-pointer"
-            onClick={() =>
-              item.media_type === "image" && setOpenIndex(index)
-            }
-          >
-            {item.media_type === "image" && item.image && (
-              <img
-                src={item.image}
-                alt={item.caption}
-                className="w-full h-[240px] object-cover"
-              />
-            )}
+        {loading
+          ? Array.from({ length: 6 }).map((_, i) => <SkeletonCard key={i} />)
+          : project?.media_items.map((item, index) => (
+              <div
+                key={index}
+                className="bg-zinc-100 rounded-sm overflow-hidden cursor-pointer"
+                onClick={() =>
+                  item.media_type === "image" && setOpenIndex(index)
+                }
+              >
+                {/* Image */}
+                {item.media_type === "image" && item.image && (
+                  <div className="relative group">
+                    <img
+                      src={item.image}
+                      alt={item.caption}
+                      className="w-full h-[240px] object-cover"
+                    />
 
-            {item.media_type === "video" && item.video_file && (
-              <video
-                src={item.video_file}
-                controls
-                className="w-full h-[240px] object-cover"
-              />
-            )}
-          </div>
-        ))}
+                    {/* Hover Overlay */}
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                      <IconSearch className="w-8 h-8 text-white" />
+                    </div>
+                  </div>
+                )}
+
+                {/* Video */}
+                {item.media_type === "video" && item.video_file && (
+                  <video
+                    src={item.video_file}
+                    controls
+                    className="w-full h-[240px] object-cover"
+                  />
+                )}
+              </div>
+            ))}
       </div>
 
+      {/* Lightbox */}
       {openIndex !== null && (
         <Lightbox
           images={images}
@@ -81,6 +103,17 @@ export default function ProjectDetailPage() {
           onClose={() => setOpenIndex(null)}
         />
       )}
+    </div>
+  );
+}
+
+/* =======================
+   Skeleton Card Component
+======================= */
+function SkeletonCard() {
+  return (
+    <div className="rounded-sm overflow-hidden bg-zinc-200 animate-pulse">
+      <div className="w-full h-[240px] bg-zinc-300" />
     </div>
   );
 }
