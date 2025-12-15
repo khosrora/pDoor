@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { IconFilter } from "@tabler/icons-react";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import api from "@/app/lib/axios";
 
@@ -14,6 +14,8 @@ import Breadcrumbs from "./Breadcrumbs";
 import Products from "@/app/components/pages/Products";
 import CompareAlert from "@/app/components/pages/CompareAlert";
 import DeleteIcon from "@/app/components/pages/DeleteIcon";
+
+const ITEMS_PER_PAGE = 12;
 
 export interface Product {
   name: string;
@@ -44,8 +46,8 @@ export default function ProductsListingPage() {
   const t2 = useTranslations("Categories");
   const locale = useLocale();
 
-  const searchParams = useSearchParams();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
@@ -83,8 +85,8 @@ export default function ProductsListingPage() {
         setCount(res.data.count || 0);
         setNext(res.data.next || null);
         setPrev(res.data.previous || null);
-      } catch (err) {
-        console.error("Error loading products:", err);
+      } catch (error) {
+        console.error("Error loading products:", error);
         setProducts([]);
       } finally {
         setLoading(false);
@@ -94,53 +96,52 @@ export default function ProductsListingPage() {
     fetchProducts();
   }, [page, category, brand, sort, search, doorType, locale]);
 
-  const goToPage = (newPage: number) => {
+  const totalPages = Math.ceil(count / ITEMS_PER_PAGE);
+
+  const goToPage = (pageNumber: number) => {
     const params = new URLSearchParams(searchParams.toString());
-    params.set("page", String(newPage));
+    params.set("page", String(pageNumber));
     router.push(`?${params.toString()}`);
   };
-
-  const lastPage = Math.ceil(count / 20);
 
   const ProductSkeleton = () => (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {Array.from({ length: 12 }).map((_, i) => (
-        <div className="card bg-base-100 shadow-md" key={i}>
-          <div className="w-full h-40 skeleton"></div>
+        <div key={i} className="card bg-base-100 shadow-md">
+          <div className="h-40 w-full skeleton" />
           <div className="card-body space-y-2">
-            <div className="h-4 w-3/4 skeleton"></div>
-            <div className="h-4 w-1/2 skeleton"></div>
-            <div className="h-4 w-full skeleton"></div>
+            <div className="h-4 w-3/4 skeleton" />
+            <div className="h-4 w-1/2 skeleton" />
+            <div className="h-4 w-full skeleton" />
           </div>
         </div>
       ))}
     </div>
   );
-  
+
   return (
     <div className="my-20">
       <CompareAlert />
 
-      <div className="p-4 max-w-7xl m-auto">
+      <div className="p-4 max-w-7xl mx-auto">
         <Breadcrumbs />
       </div>
-      <div>
-        <div className="bg-[#f4f4f4] w-full py-5">
-          <p className="font-bold text-base  text-[#003f5d] lg:text-2xl  max-w-7xl mx-auto">
-            {t2("header")}
-          </p>
-          <CategorySliders />
-          <FilersProducts />
-        </div>
+
+      <div className="bg-[#f4f4f4] py-5">
+        <p className="font-bold text-base text-[#003f5d] lg:text-2xl max-w-7xl mx-auto">
+          {t2("header")}
+        </p>
+        <CategorySliders />
+        <FilersProducts />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 max-w-7xl m-auto">
-        {/* LEFT FILTER SIDEBAR */}
-        <div className="hidden lg:flex lg:flex-col lg:space-y-4">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 max-w-7xl mx-auto">
+        {/* FILTER SIDEBAR */}
+        <aside className="hidden lg:flex flex-col space-y-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-2">
               <IconFilter />
-              <p>{t("filters")}</p>
+              <span>{t("filters")}</span>
             </div>
 
             {(category || brand || sort || search || doorType) && (
@@ -149,18 +150,18 @@ export default function ProductsListingPage() {
           </div>
 
           {loading ? (
-            <div className="space-y-4">
-              <div className="h-4 w-24 skeleton"></div>
-              <div className="h-4 w-32 skeleton"></div>
-              <div className="h-4 w-20 skeleton"></div>
+            <div className="space-y-3">
+              <div className="h-4 w-24 skeleton" />
+              <div className="h-4 w-32 skeleton" />
+              <div className="h-4 w-20 skeleton" />
             </div>
           ) : (
             <Brands />
           )}
-        </div>
+        </aside>
 
         {/* PRODUCTS */}
-        <div className="lg:col-span-3">
+        <main className="lg:col-span-3">
           {loading ? (
             <ProductSkeleton />
           ) : products.length > 0 ? (
@@ -168,32 +169,50 @@ export default function ProductsListingPage() {
               <Products products={products} count={count} />
 
               {/* PAGINATION */}
-              <div className="flex justify-center my-10">
-                <div className="join">
-                  {Array.from({ length: lastPage }).map((_, i) => {
-                    const pageNumber = i + 1;
+              {totalPages > 1 && (
+                <div className="flex justify-center my-10">
+                  <div className="join">
+                    <button
+                      className="join-item btn"
+                      disabled={!prev}
+                      onClick={() => goToPage(page - 1)}
+                    >
+                      «
+                    </button>
 
-                    return (
-                      <button
-                        key={pageNumber}
-                        className={`join-item btn ${
-                          pageNumber === page ? "btn-active" : ""
-                        }`}
-                        onClick={() => goToPage(pageNumber)}
-                      >
-                        {pageNumber}
-                      </button>
-                    );
-                  })}
+                    {Array.from({ length: totalPages }).map((_, i) => {
+                      const pageNumber = i + 1;
+
+                      return (
+                        <button
+                          key={pageNumber}
+                          className={`join-item btn ${
+                            page === pageNumber ? "btn-active" : ""
+                          }`}
+                          onClick={() => goToPage(pageNumber)}
+                        >
+                          {pageNumber}
+                        </button>
+                      );
+                    })}
+
+                    <button
+                      className="join-item btn"
+                      disabled={!next}
+                      onClick={() => goToPage(page + 1)}
+                    >
+                      »
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )}
             </>
           ) : (
             <div className="alert alert-warning">
               <span>{t("noProductsFound")}</span>
             </div>
           )}
-        </div>
+        </main>
       </div>
     </div>
   );
