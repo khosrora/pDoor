@@ -26,8 +26,6 @@ const hotspots = [
 
 export default function HotspotImage1() {
   return (
-
-
     // درب کشویی
     <div>
       <div className=" flex items-center justify-center px-4 my-20">
@@ -76,7 +74,7 @@ export default function HotspotImage1() {
                 </div>
               </div>
             ))}
-          </div>  
+          </div>
         </div>
       </div>
     </div>

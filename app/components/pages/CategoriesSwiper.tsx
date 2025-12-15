@@ -3,16 +3,15 @@
 import api from "@/app/lib/axios";
 import {
   IconArrowLeft,
-  IconArrowRight,
-  IconChevronsLeft,
+  IconArrowRight
 } from "@tabler/icons-react";
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 /* ------------------------------------
       New Category Type
@@ -83,7 +82,7 @@ export default function CategoriesSwiper() {
         pagination={{ clickable: true }}
         spaceBetween={16}
         slidesPerView={1.2}
-        // dir={isRTL ? "rtl" : "ltr"}
+        dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
           640: { slidesPerView: 1.5 },
           768: { slidesPerView: 2.7 },

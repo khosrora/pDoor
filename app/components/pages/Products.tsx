@@ -1,16 +1,15 @@
 "use client";
 
 import { Product } from "@/app/(pages)/products/page";
+import { useCompare } from "@/app/context/CompareContext";
 import {
-  IconSquareRoundedCheckFilled,
   IconSquareRounded,
+  IconSquareRoundedCheckFilled,
 } from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useCompare } from "@/app/context/CompareContext";
-import { toast } from "sonner";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import ProductAttributes from "./ProductAttributes";
 
 export default function Products({
@@ -121,7 +120,7 @@ export default function Products({
                 <div className="mr-2">
                   <Image
                     alt="Categories"
-                    width={64}
+                    width={94}
                     height={48}
                     src={"/images/Frame-1261157978.png"}
                   />

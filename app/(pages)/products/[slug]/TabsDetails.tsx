@@ -2,15 +2,22 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import HotspotImage1 from "@/app/components/pages/HotspotImage1";
 import { IconDownload, IconPlus } from "@tabler/icons-react";
 import Link from "next/link";
+
+import HotspotImage1 from "@/app/components/pages/HotspotImage1";
 import HotspotImage2 from "@/app/components/pages/HotspotImage2";
 import HotspotImage3 from "@/app/components/pages/HotspotImage3";
 import HotspotImage4 from "@/app/components/pages/HotspotImage4";
 
-
 type TabKey = "product" | "technical" | "download";
+
+type CategorySlug =
+  | "swing-door"
+  | "revolving-door"
+  | "sliding-door"
+  | "automatic-window"
+  | "accessories";
 
 interface Specification {
   field_name?: string;
@@ -32,13 +39,22 @@ interface Catalog {
 interface Props {
   description: string;
   specifications: Specification[];
-  catalogs: Catalog[]; // 👈 catalogs list
+  catalogs: Catalog[];
+  category: {
+    name: string;
+    name_en: string;
+    logo: string;
+    image: string;
+    slug: CategorySlug;
+    product_count: number;
+  };
 }
 
 export default function TabsDetails({
   description,
   specifications,
   catalogs,
+  category,
 }: Props) {
   const [activeTab, setActiveTab] = useState<TabKey>("product");
   const t = useTranslations("TabsDetails");
@@ -49,9 +65,32 @@ export default function TabsDetails({
 
   const activeCatalogs = catalogs?.filter((c) => c.is_active) || [];
 
+  /* =======================
+     Hotspot switch case
+  ======================= */
+  const renderHotspot = () => {
+    switch (category.slug) {
+      case "swing-door":
+        return <HotspotImage1 />;
+
+      case "revolving-door":
+        return <HotspotImage2 />;
+
+      case "sliding-door":
+        return <HotspotImage3 />;
+
+      case "automatic-window":
+        return <HotspotImage4 />;
+
+      case "accessories":
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="max-w-7xl mx-auto bg-zinc-50 mt-15 p-4">
-      {/* Tabs header */}
+      {/* ================= Tabs Header ================= */}
       <div role="tablist" className="tabs tabs-border my-4 mx-auto">
         <button
           type="button"
@@ -93,7 +132,7 @@ export default function TabsDetails({
         </button>
       </div>
 
-      {/* PRODUCT TAB */}
+      {/* ================= PRODUCT TAB ================= */}
       {activeTab === "product" && (
         <div className="bg-white p-4 rounded space-y-4 leading-12">
           <div
@@ -107,7 +146,7 @@ export default function TabsDetails({
         </div>
       )}
 
-      {/* TECHNICAL TAB */}
+      {/* ================= TECHNICAL TAB ================= */}
       {activeTab === "technical" && (
         <div className="bg-zinc-50 p-4 rounded space-y-4">
           {technicalSpecs.length > 0 ? (
@@ -135,174 +174,55 @@ export default function TabsDetails({
         </div>
       )}
 
-      {/* DOWNLOAD TAB */}
+      {/* ================= DOWNLOAD TAB ================= */}
       {activeTab === "download" && (
-        <div>
-          <div className=" p-4 rounded space-y-4">
-            {activeCatalogs.length > 0 ? (
-              <div className="border border-zinc-200 bg-white">
-                <details className="group">
-                  {/* HEADER */}
-                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
-                    <div className="flex items-center gap-2">
-                      <IconDownload stroke={2} color="#FAB21F" />
-                      <p className="font-medium">{t("tabs.catalog")}</p>
-                    </div>
+        <div className="space-y-4">
+          {["catalog", "certificate", "datasheet", "technicalDrawing"].map(
+            (type) => (
+              <div key={type} className="p-4 rounded">
+                {activeCatalogs.length > 0 ? (
+                  <div className="border border-zinc-200 bg-white">
+                    <details className="group">
+                      <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
+                        <div className="flex items-center gap-2">
+                          <IconDownload stroke={2} color="#FAB21F" />
+                          <p className="font-medium">{t(`tabs.${type}`)}</p>
+                        </div>
 
-                    <IconPlus
-                      stroke={2}
-                      className="transition-transform duration-300 group-open:rotate-45"
-                    />
-                  </summary>
+                        <IconPlus
+                          stroke={2}
+                          className="transition-transform duration-300 group-open:rotate-45"
+                        />
+                      </summary>
 
-                  {/* DROPDOWN CONTENT */}
-                  <div className="m-4 space-y-8">
-                    {activeCatalogs.map((catalog) => (
-                      <Link
-                        key={catalog.id}
-                        href={catalog.file}
-                        target="_blank"
-                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
-                      >
-                        <IconDownload stroke={2} />
-                        <p className="font-medium">{catalog.title}</p>
-                      </Link>
-                    ))}
+                      <div className="m-4 space-y-4">
+                        {activeCatalogs.map((catalog) => (
+                          <Link
+                            key={catalog.id}
+                            href={catalog.file}
+                            target="_blank"
+                            className="flex items-center gap-2 text-[#005E8B] hover:underline"
+                          >
+                            <IconDownload stroke={2} />
+                            <span className="font-medium">{catalog.title}</span>
+                          </Link>
+                        ))}
+                      </div>
+                    </details>
                   </div>
-                </details>
+                ) : (
+                  <p className="text-center text-zinc-500">
+                    {t("download.empty")}
+                  </p>
+                )}
               </div>
-            ) : (
-              <p className="text-center text-zinc-500">
-                {t("download.empty")}
-              </p>
-            )}
-          </div>
-          <div className=" p-4 rounded space-y-4">
-            {activeCatalogs.length > 0 ? (
-              <div className="border border-zinc-200 bg-white">
-                <details className="group">
-                  {/* HEADER */}
-                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
-                    <div className="flex items-center gap-2">
-                      <IconDownload stroke={2} color="#FAB21F" />
-                      <p className="font-medium">{t("tabs.certificate")}</p>
-                    </div>
-
-                    <IconPlus
-                      stroke={2}
-                      className="transition-transform duration-300 group-open:rotate-45"
-                    />
-                  </summary>
-
-                  {/* DROPDOWN CONTENT */}
-                  <div className="m-4 space-y-8">
-                    {activeCatalogs.map((catalog) => (
-                      <Link
-                        key={catalog.id}
-                        href={catalog.file}
-                        target="_blank"
-                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
-                      >
-                        <IconDownload stroke={2} />
-                        <p className="font-medium">{catalog.title}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </details>
-              </div>
-            ) : (
-              <p className="text-center text-zinc-500">
-                {t("downloads.empty")}
-              </p>
-            )}
-          </div>
-          <div className=" p-4 rounded space-y-4">
-            {activeCatalogs.length > 0 ? (
-              <div className="border border-zinc-200 bg-white">
-                <details className="group">
-                  {/* HEADER */}
-                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
-                    <div className="flex items-center gap-2">
-                      <IconDownload stroke={2} color="#FAB21F" />
-                      <p className="font-medium">{t("tabs.datasheet")}</p>
-                    </div>
-
-                    <IconPlus
-                      stroke={2}
-                      className="transition-transform duration-300 group-open:rotate-45"
-                    />
-                  </summary>
-
-                  {/* DROPDOWN CONTENT */}
-                  <div className="m-4 space-y-8">
-                    {activeCatalogs.map((catalog) => (
-                      <Link
-                        key={catalog.id}
-                        href={catalog.file}
-                        target="_blank"
-                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
-                      >
-                        <IconDownload stroke={2} />
-                        <p className="font-medium">{catalog.title}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </details>
-              </div>
-            ) : (
-              <p className="text-center text-zinc-500">
-                {t("downloads.empty")}
-              </p>
-            )}
-          </div>
-          <div className=" p-4 rounded space-y-4">
-            {activeCatalogs.length > 0 ? (
-              <div className="border border-zinc-200 bg-white">
-                <details className="group">
-                  {/* HEADER */}
-                  <summary className="w-full p-8 flex justify-between items-center cursor-pointer list-none">
-                    <div className="flex items-center gap-2">
-                      <IconDownload stroke={2} color="#FAB21F" />
-                      <p className="font-medium">
-                        {t("tabs.technicalDrawing")}
-                      </p>
-                    </div>
-
-                    <IconPlus
-                      stroke={2}
-                      className="transition-transform duration-300 group-open:rotate-45 "
-                    />
-                  </summary>
-
-                  {/* DROPDOWN CONTENT */}
-                  <div className="m-4 space-y-8">
-                    {activeCatalogs.map((catalog) => (
-                      <Link
-                        key={catalog.id}
-                        href={catalog.file}
-                        target="_blank"
-                        className="flex items-center gap-2 text-[#005E8B] hover:underline"
-                      >
-                        <IconDownload stroke={2} />
-                        <p className="font-medium">{catalog.title}</p>
-                      </Link>
-                    ))}
-                  </div>
-                </details>
-              </div>
-            ) : (
-              <p className="text-center text-zinc-500">{t("download.empty")}</p>
-            )}
-          </div>
+            )
+          )}
         </div>
       )}
 
-      {/* door details */}
-
-      <HotspotImage1 />
-      <HotspotImage2 />
-      <HotspotImage3 />
-      <HotspotImage4 />
+      {/* ================= HOTSPOT SECTION ================= */}
+      <div className="mt-12">{renderHotspot()}</div>
     </div>
   );
 }
