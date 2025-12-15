@@ -93,7 +93,7 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
 
       {/* TAG2: flex row */}
       {tag2.length > 0 && (
-        <div className="flex flex-wrap gap-2 my-4">
+        <div className="flex flex-wrap gap-2 my-8">
           {tag2.map((item, i) => (
             <div
               key={i}
@@ -115,7 +115,7 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
         <button className="btn bg-[#005E8B] text-white flex items-center gap-2 p-5 hover:bg-white hover:text-[#005E8B] hover:border hover:border-[#005E8B]">
           <IconPhone size={18} />
           {t("DetailsProductAttributes.callButton") ||
-            (locale === "fa" ? "تماس با تیم" : "Phone consultation")}
+            (locale === "fa" ? " تماس با تیم فروش" : "Phone consultation")}
         </button>
 
         {/* Second Button: دانلود کاتالوگ محصول */}

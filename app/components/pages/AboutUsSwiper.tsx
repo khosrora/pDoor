@@ -179,7 +179,8 @@ const AboutUsSwiper = () => {
           <div className="col-span-12 lg:col-span-2 flex flex-col items-center">
             {/* سال بالای خط */}
             <div className="relative mb-4">
-              <span className="absolute top-0 -left-3 text-3xl md:text-4xl font-extrabold text-[#f6a623]">
+              <span className={`absolute top-0 -left-3 text-3xl md:text-4xl font-extrabold text-[#f6a623] 
+              ${!lang ? "en-numbers" : ""}`}>
                 {slides[activeIndex]?.year}
               </span>
             </div>
@@ -279,7 +280,7 @@ const AboutUsSwiper = () => {
                     </div>
 
                     {/* سال */}
-                    <div className="mt-3 text-sm text-slate-700">{s.year}</div>
+                    <div className={`mt-3 text-sm text-slate-700 ${!lang ? "en-numbers" : ""}`}>{s.year}</div>
                   </button>
                 </SwiperSlide>
               );

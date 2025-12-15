@@ -123,7 +123,7 @@ export default function NewsSwipper() {
         
 
         {/* Navigation Buttons */}
-        <div className="flex justify-center gap-8 mt-8">
+        <div className="flex justify-center gap-8 mt-8" dir="rtl">
           <button
             ref={nextRef}
             className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50"

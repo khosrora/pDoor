@@ -143,6 +143,8 @@ export default function TabsDetails({
           {/* <button className="btn btn-outline text-[#005E8B]">
             {t("product.button")}
           </button> */}
+          {/* ================= HOTSPOT SECTION ================= */}
+      <div className="mt-12">{renderHotspot()}</div>
         </div>
       )}
 
@@ -171,7 +173,9 @@ export default function TabsDetails({
           ) : (
             <p className="text-center text-zinc-500">{t("technical.empty")}</p>
           )}
+                
         </div>
+
       )}
 
       {/* ================= DOWNLOAD TAB ================= */}
@@ -211,9 +215,7 @@ export default function TabsDetails({
                     </details>
                   </div>
                 ) : (
-                  <p className="text-center text-zinc-500">
-                    {t("download.empty")}
-                  </p>
+                  null
                 )}
               </div>
             )
@@ -221,8 +223,7 @@ export default function TabsDetails({
         </div>
       )}
 
-      {/* ================= HOTSPOT SECTION ================= */}
-      <div className="mt-12">{renderHotspot()}</div>
+
     </div>
   );
 }

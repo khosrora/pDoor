@@ -89,3 +89,15 @@ img { -webkit-user-drag: none; user-select: none; }
 .mySwiper .swiper-slide-thumb-active img {
   @apply border-2 border-[#007EBA] shadow-sm shadow-[#007EBA];
 }
+
+
+.projects-swiper .swiper-pagination {
+  margin-top: 1rem; /* mt-4 */
+  position: relative;
+}
+
+
+.en-numbers {
+  font-family: "Inter", "Roboto", sans-serif;
+  font-variant-numeric: lining-nums;
+}

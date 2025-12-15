@@ -85,12 +85,12 @@ export default function CategoriesSwiper() {
         dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
           640: { slidesPerView: 1.5 },
-          768: { slidesPerView: 2.7 },
+          768: { slidesPerView: 3 },
         }}
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[305px] h-[468px] bg-base-100 rounded-md">
+            <div className="card w-[400px] h-[468px] bg-base-100 rounded-md">
               {/* IMAGE */}
               <figure>
                 <img
@@ -142,7 +142,7 @@ export default function CategoriesSwiper() {
       </Swiper>
 
       {/* NAVIGATION BUTTONS */}
-      <div className="flex justify-center gap-8 mt-8">
+      <div className="flex justify-center gap-8 mt-8" dir="rtl">
         <button
           ref={nextRef}
           className="p-3 rounded-sm border border-[#DEDEDE]
