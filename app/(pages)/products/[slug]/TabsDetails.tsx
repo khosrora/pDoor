@@ -71,13 +71,13 @@ export default function TabsDetails({
   const renderHotspot = () => {
     switch (category.slug) {
       case "swing-door":
-        return <HotspotImage1 />;
-
-      case "revolving-door":
         return <HotspotImage2 />;
 
-      case "sliding-door":
+      case "revolving-door":
         return <HotspotImage3 />;
+
+      case "sliding-door":
+        return <HotspotImage1 />;
 
       case "automatic-window":
         return <HotspotImage4 />;
@@ -140,9 +140,9 @@ export default function TabsDetails({
             dangerouslySetInnerHTML={{ __html: description }}
           />
 
-          <button className="btn btn-outline text-[#005E8B]">
+          {/* <button className="btn btn-outline text-[#005E8B]">
             {t("product.button")}
-          </button>
+          </button> */}
         </div>
       )}
 
