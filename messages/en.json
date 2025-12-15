@@ -5,9 +5,9 @@
     "navIndustries": "Industries",
     "navBrands": "Brand",
     "navServices": "Services",
-    "install":"Install & Maintenance",
+    "install": "Install & Maintenance",
     "gallery": "Gallery",
-    "News":"News & Blogs",
+    "News": "News & Blogs",
     "navMedia": "Media",
     "logoAlt": "PersiaDoor logo",
     "contact_us": "Contact Us",
@@ -183,7 +183,7 @@
   "ProductsSwiper": {
     "sectionTitlePrefix": "Products",
     "sectionTitleBrand": "PersiaDoor",
-     "latestProducts": "َAccessories",
+    "latestProducts": "َAccessories",
     "latestProducts1": "Products ",
     "latestProducts2": "PersiaDoor",
     "card": {
@@ -299,6 +299,9 @@
     "customersSubtitle": "They are our most valuable asset"
   },
   "ContactPage": {
+    "home": "Home",
+    "brandName": "PersiaDoor",
+    "contactUs": "Contact Us",
     "hero": {
       "title": "Get in touch with us",
       "text": "To contact PersiaDoor, you can use the company’s official phone numbers or relevant email addresses. Our website and social media pages are also great resources for information and reaching our support team."
@@ -320,6 +323,9 @@
     "downloadButton": "Download Product catalog"
   },
   "GezePage": {
+    "home": "Home",
+    "brand": "Brand",
+    "geze": "GEZE",
     "hero": {
       "titlePrefix": "Your partner",
       "titleRest": "in door, window and safety technology",
@@ -396,6 +402,9 @@
     }
   },
   "ServicesPage": {
+    "home": "Home",
+    "services": "Services",
+    "installationAndMaintenance": "Installation & Maintenance",
     "hero": {
       "title": "PersiaDoor services",
       "text": "PersiaDoor’s service unit, with highly experienced technicians, is ready to support customers around the clock.",
@@ -440,6 +449,9 @@
     "career_position": "Career Position"
   },
   "CareersPage": {
+    "home": "Home",
+    "brandName": "PersiaDoor",
+    "careers": "Careers",
     "hero": {
       "career_title": "Careers at Persiadoor",
       "career_description": "Joining Persiadoor can be a great opportunity for individuals seeking career growth and new experiences. With a strong focus on delivering innovative services and manufacturing high-quality products, the company is always looking to recruit creative and talented professionals.",
@@ -544,8 +556,8 @@
       "certificate": "Product certificate",
       "datasheet": "Product datasheet",
       "technicalDrawing": "Technical drawings",
-      "download":{
-        "empty":"Download list is empty"
+      "download": {
+        "empty": "Download list is empty"
       }
     },
     "product": {
@@ -559,6 +571,9 @@
     }
   },
   "HomePage": {
+    "home": "Home",
+    "brandName": "PersiaDoor",
+    "aboutUs": "About Us",
     "banner": {
       "primary1": "سیستم ضد حریق ",
       "primary2": "منطبق با استانداردهای اروپا",
@@ -686,6 +701,8 @@
     "fetchError": "Failed to load projects"
   },
   "ProductsListingPage": {
+    "home": "Home",
+    "products": "Products",
     "filters": "Filters",
     "clearFilters": "Clear All",
     "noProductsFound": "No products found.",

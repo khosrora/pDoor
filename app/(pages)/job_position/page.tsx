@@ -31,7 +31,6 @@ export default async function CareersPage() {
     { key: "training", icon: "/images/job/book-open.png", alt: "training" },
   ] as const;
 
-  const jobs = [1, 2, 3, 4];
 
   return (
     <div className="my-20">

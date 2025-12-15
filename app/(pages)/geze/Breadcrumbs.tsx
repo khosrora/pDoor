@@ -1,17 +1,20 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-function Breadcrumbs() {
+async function Breadcrumbs() {
+  const t = await getTranslations("GezePage");
+
   return (
     <div className="breadcrumbs text-sm">
       <ul>
         <li>
-          <Link href={"/"}>صفجه اصلی</Link>
+          <Link href="/">{t("home")}</Link>
         </li>
         <li>
-          <p>برند</p>
+          <p>{t("brand")}</p>
         </li>
         <li>
-          <p> GEZE</p>
+          <p>{t("geze")}</p>
         </li>
       </ul>
     </div>

@@ -1,14 +1,20 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations, useLocale } from "next-intl";
 
 function Breadcrumbs() {
+  const t = useTranslations("ProductsListingPage");
+  const locale = useLocale();
+
   return (
     <div className="breadcrumbs text-sm">
       <ul>
         <li>
-          <Link href={"/"}>صفحه اصلی</Link>
+          <Link href={`/${locale}`}>{t("home")}</Link>
         </li>
         <li>
-          <p>محصولات</p>
+          <p>{t("products")}</p>
         </li>
       </ul>
     </div>
