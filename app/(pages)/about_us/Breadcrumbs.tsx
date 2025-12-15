@@ -1,18 +1,20 @@
+import { getTranslations } from "next-intl/server";
 import Link from "next/link";
-import React from "react";
 
-function Breadcrumbs() {
+async function Breadcrumbs() {
+  const t1 = await getTranslations("HomePage");
+
   return (
     <div className="breadcrumbs text-sm max-w-7xl mx-auto">
       <ul>
         <li>
-          <Link href={"/"}>صفحه اصلی</Link>
+          <Link href="/">{t1("home")}</Link>
         </li>
         <li>
-          <p>پرشیادر</p>
+          <p>{t1("brandName")}</p>
         </li>
         <li>
-          <p>درباره ما</p>
+          <p>{t1("aboutUs")}</p>
         </li>
       </ul>
     </div>
