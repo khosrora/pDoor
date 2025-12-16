@@ -207,7 +207,7 @@ const AboutUsSwiper = () => {
                   <div className="relative w-full h-[320px] md:h-[420px]">
                     <img
                       src={s.image}
-                      alt={s.title}
+                      alt={s.title_fa}
                       className="w-full h-full object-cover transition-transform duration-1000 scale-105"
                       draggable={false}
                     />
