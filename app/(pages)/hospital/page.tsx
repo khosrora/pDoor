@@ -22,14 +22,12 @@ export default async function HospitalPage() {
 
       {/* Hero */}
       <div className="bg-[#003F5D] text-white lg:flex lg:items-center lg:justify-between ">
-
-        
         <div className="lg:flex lg:flex-col lg:justify-center py-10 px-40 w-full ">
           <p className="text-[#FAB21F] text-[25px] font-bold">
             {t("hero.title")}
           </p>
           <p className="text-[18px] mt-4 lg:w-[541px]">{t("hero.text")}</p>
-          <div className= "flex justify-start items-center gap-x-4 mt-16">
+          <div className="flex justify-start items-center gap-x-4 mt-16">
             <button className="btn">{t("hero.consultButton")}</button>
             <button className="btn bg-[#FAB21F] border-0">
               {t("hero.serviceButton")}
@@ -43,12 +41,12 @@ export default async function HospitalPage() {
         </div>
       </div>
 
-
-<div className="flex justify-center my-20">
-  <img src="\GIFS\Record_2025_12_03_18_26_17_489-ezgif.com-video-to-gif-converter.gif" alt="" />
-</div>
-
-      <div className="max-w-5xl m-auto">
+      <div className="flex justify-center my-20">
+        <img
+          src="\GIFS\Record_2025_12_03_18_26_17_489-ezgif.com-video-to-gif-converter.gif"
+          alt=""
+        />
+      </div>      <div className="max-w-5xl m-auto">
         {/* Top illustration (mobile) */}
         <div className="p-4 lg:hidden">
           <Image
@@ -61,7 +59,9 @@ export default async function HospitalPage() {
 
         {/* Benefits section */}
         <div className="p-4">
-          <p className="text-center text-[25px] font-semibold">{t("howSection.title")}</p>
+          <p className="text-center text-[25px] font-semibold">
+            {t("howSection.title")}
+          </p>
 
           {/* Card 1: Hygiene */}
           <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
@@ -93,7 +93,9 @@ export default async function HospitalPage() {
               <p className="text-[#003F5D] font-bold text-[20px]">
                 {t("benefits.easyAccess.title")}
               </p>
-              <p className="mt-4 text-[16px]">{t("benefits.easyAccess.text")}</p>
+              <p className="mt-4 text-[16px]">
+                {t("benefits.easyAccess.text")}
+              </p>
             </div>
           </div>
 
@@ -110,7 +112,9 @@ export default async function HospitalPage() {
               <p className="text-[#003F5D] font-bold text-[20px]">
                 {t("benefits.accessControl.title")}
               </p>
-              <p className="mt-4 text-[16px]">{t("benefits.accessControl.text")}</p>
+              <p className="mt-4 text-[16px]">
+                {t("benefits.accessControl.text")}
+              </p>
             </div>
           </div>
 
@@ -127,7 +131,9 @@ export default async function HospitalPage() {
               <p className="text-[#003F5D] font-bold text-[20px]">
                 {t("benefits.fireSafety.title")}
               </p>
-              <p className="mt-4 text-[16px]">{t("benefits.fireSafety.text")}</p>
+              <p className="mt-4 text-[16px]">
+                {t("benefits.fireSafety.text")}
+              </p>
             </div>
           </div>
         </div>
