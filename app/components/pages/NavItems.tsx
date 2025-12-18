@@ -106,7 +106,7 @@ function NavItems() {
             {t("brandName")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-[13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm text-[#005E8B] text-[13px]">
             <li>
               <Link href={"/about_us"}>
                 <img src="/SVGs/AboutUs1.svg" alt="" />
@@ -134,12 +134,12 @@ function NavItems() {
 
       {/* Products → Categories dropdown */}
       <li>
-        <div className="dropdown dropdown-hover dropdown-end ">
+        <div className="dropdown dropdown-hover dropdown-end">
           <div tabIndex={0} role="button" className="">
             {t("navProducts")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-[13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm text-[#005E8B] text-[13px]">
             {!catLoading &&
               categories.map((cat) => (
                 <li key={cat.slug} className="my-2">
@@ -170,7 +170,7 @@ function NavItems() {
             {t("navIndustries")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-4 shadow-sm text-[#005E8B] text-[13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-4 shadow-sm text-[#005E8B] text-[13px]">
             {/* <li>بیمارستان</li> */}
 
             {industries.map((item) => {
@@ -206,12 +206,13 @@ function NavItems() {
             {t("navBrands")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm text-[#005E8B] text-13px]">
             {!brandLoading &&
               brands.map((brand) => (
                 <li key={brand.slug} className="my-2">
                   <Link href={`/geze`} className="flex items-center gap-2">
                     {brand.name}
+                    
                   </Link>
                 </li>
               ))}
@@ -227,7 +228,7 @@ function NavItems() {
             {t("navServices")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm text-[#005E8B] text-13px]">
             <li>
               <Link href={"/installation"} className="flex gap-2">
               <img src="/SVGs/Repair1.svg" alt="" />
@@ -246,7 +247,7 @@ function NavItems() {
             {t("navMedia")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm text-[#005E8B] text-13px] space-y-4">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm text-[#005E8B] text-13px] space-y-4">
             <li>
               <Link href={"/media"} className="flex gap-2">
               <img src="/SVGs/Gallery.svg" alt="" />

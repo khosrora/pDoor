@@ -89,7 +89,7 @@ export default async function Home() {
       <BannerSliders />
 
       {/* Top banner strip */}
-      <div className="bg-[#003148] flex justify-between items-center p-4 text-white lg:flex-row-reverse lg:h-[134px] lg:justify-around">
+      <div className="bg-[#003148] flex justify-between items-center text-white lg:flex-row-reverse lg:h-[134px] lg:justify-around relative">
         <div className="flex flex-row">
           <div className="flex flex-col text-left">
             <p className="text-[30px]">{t("banner.primary1")}</p>
@@ -103,6 +103,7 @@ export default async function Home() {
           </div>
         </div>
         <button className="btn btn-outline px-8">{t("banner.button")}</button>
+        <img src="/path486.svg" className="absolute left-150 -top-10 z-2"/>
       </div>
 
       <CategoriesSwiper />

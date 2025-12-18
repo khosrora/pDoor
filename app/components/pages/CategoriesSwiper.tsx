@@ -90,7 +90,7 @@ export default function CategoriesSwiper() {
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[400px] h-[468px] bg-base-100 rounded-md">
+            <div className="card w-[305px] h-[468px] bg-base-100 rounded-md">
               {/* IMAGE */}
               <figure>
                 <img
