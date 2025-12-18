@@ -56,13 +56,13 @@ export default function NewsSwipper() {
   if (loading) return <p className="text-center py-10">Loading...</p>;
 
   return (
-    <div className="relative my-8 py-8">
+    <div className="relative my-8 py-8 p-4 lg:p-0 lg:py-4 lg:my-0 bg-[#003F5D]">
       {/* Header */}
       <div className="flex flex-col items-center mb-6 text-black px-4">
-        <p className="text-[33px] font-semibold mb-1">
+        <p className="text-[33px] font-semibold mb-1 text-white">
           {locale === "fa" ? "اخبار و مقالات" : "News & Articles"}
         </p>
-        <p className="text-center text-[20px]">
+        <p className="text-center text-[20px] text-white">
           {locale === "fa"
             ? "آخرین مقالات مرتبط و اخبار پرشیا در را اینجا می‌توانید مشاهده کنید"
             : "See the latest related articles and Persiadoor news here."}
@@ -80,6 +80,7 @@ export default function NewsSwipper() {
           onSlideChange={(s) => setActiveIndex(s.realIndex)}
           className="w-full lg:h-[460px] px-4"
           breakpoints={{
+            0: { slidesPerView: 1 },
             640: { slidesPerView: 1.3 },
             768: { slidesPerView: 2.3 },
             1024: { slidesPerView: 2.8 },
@@ -139,7 +140,8 @@ export default function NewsSwipper() {
           </button>
         </div>
 
-       <div className="absolute h-[400px] w-7xl bg-[#003F5D] -bottom-10 left-1/2 -translate-x-1/2"></div>
+       {/* <div className="absolute h-[400px] w-7xl bg-[#003F5D] -bottom-10 left-1/2 -translate-x-1/2"></div> */}
+       
 
 
       </div>

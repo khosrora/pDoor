@@ -20,6 +20,7 @@ import airport_Icon from "@/public/icons/airport_Icon.svg";
 import { Metadata } from "next";
 import CategoriesSwiper from "./components/pages/CategoriesSwiper";
 import Link from "next/link";
+import CustomerList from "./components/ui/CustomerList";
 
 type IndustryKey =
   | "bank"
@@ -89,21 +90,25 @@ export default async function Home() {
       <BannerSliders />
 
       {/* Top banner strip */}
-      <div className="bg-[#003148] flex justify-between items-center text-white lg:flex-row-reverse lg:h-[134px] lg:justify-around relative">
+      <div className="bg-[#003148] flex justify-between items-center text-white lg:flex-row-reverse lg:h-[134px] lg:justify-around relative py-4 px-2">
         <div className="flex flex-row">
           <div className="flex flex-col text-left">
-            <p className="text-[30px]">{t("banner.primary1")}</p>
-            <p className="text-[30px]">{t("banner.primary2")}</p>
+            <p className="lg:text-[30px]">{t("banner.primary1")}</p>
+            <p className="lg:text-[30px]">{t("banner.primary2")}</p>
           </div>
 
           <div className="hidden lg:flex border border-zinc-200 mx-4" />
           <div className="flex flex-col text-right">
-            <p className="hidden lg:flex text-[30px]">{t("banner.secondary1")}</p>
-            <p className="hidden lg:flex text-[30px]">{t("banner.secondary2")}</p>
+            <p className="hidden lg:flex text-[30px]">
+              {t("banner.secondary1")}
+            </p>
+            <p className="hidden lg:flex text-[30px]">
+              {t("banner.secondary2")}
+            </p>
           </div>
         </div>
         <button className="btn btn-outline px-8">{t("banner.button")}</button>
-        <img src="/path486.svg" className="absolute left-150 -top-10 z-2"/>
+        <img src="/path486.svg" className="absolute left-150 -top-10 z-2" />
       </div>
 
       <CategoriesSwiper />
@@ -111,7 +116,7 @@ export default async function Home() {
       {/* Expertise + about clip section */}
       <div className="relative" dir="rtl">
         {/* Right big clip cards (desktop) */}
-        <div className="my-clip bg-zinc-200 h-40 lg:h-[558px] w-full absolute left-0 -top-2 lg:flex lg:justify-end lg:items-center">
+        <div className="my-clip bg-zinc-200 h-72 lg:h-[558px] w-full absolute left-0 -top-2 lg:flex lg:justify-end lg:items-center">
           <div className="hidden lg:grid grid-cols-2 gap-45 gap-y-8 p-4 max-w-md lg:ml-80">
             {expertiseCards.map((item, index) => {
               const bgClass =
@@ -140,12 +145,12 @@ export default async function Home() {
         </div>
 
         {/* Left blue clip */}
-        <div className="relative top-22  my-clip-rt bg-[#003F5D] h-[320px] lg:h-[370px] w-[90%] lg:w-[50%] space-y-1 lg:flex  lg:justify-start lg:pr-30 lg:items-center lg:mt-10">
-          <div className="flex flex-col space-y-2 lg:w-[376px] ">
+        <div className="relative -top-16 my-clip-rt bg-[#003F5D] h-[320px] lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20">
+          <div className="absolute right-12 top-6 lg:w-[376px]">
             <p className="text-[#FAB21F] text-[33px] font-semibold">
               {t("about.brand")}
             </p>
-            <p className="text-white text-xs w-52 lg:text-base w-full">
+            <p className="text-white text-xs w-42 lg:text-base lg:w-full">
               {t("about.text")}
             </p>
             <div className="flex justify-start items-center gap-x-2 text-white mt-8">
@@ -188,77 +193,11 @@ export default async function Home() {
       </div>
 
       {/* Customers section */}
-      {/* //////////////////////////////////////////////////// */}
-      <div className="flex flex-col items-center mt-60 mb-20 lg:flex-row lg:justify-around lg:items-center">
-        {/* متن سمت راست */}
-        <div className="flex flex-col items-start lg:text-[33px]">
-          <p className="text-[#FAB21F] font-bold">
-            {t("customers.titleHighlight")}
-          </p>
-          <p className="font-bold">{t("customers.titleRest")}</p>
-        </div>
-
-        {/* نسخه موبایل (عکس) */}
-        <Image
-          src="/images/Customers_mobile (2).png"
-          width={1000}
-          height={1000}
-          alt={t("customers.alt")}
-          className="mt-8 lg:hidden"
-        />
-
-        {/* نسخه دسکتاپ – جدول 8×3 */}
-        <div className="hidden lg:grid lg:grid-cols-8 lg:grid-rows-3 lg:gap-6 mt-8 lg:mr-16">
-          {[
-            "",
-            "/images/customers/image-866.png",
-            "",
-            "/images/customers/image-861_2.png",
-            "/images/customers/image-863.png",
-            "",
-            "/images/customers/image-859_2.png",
-            "",
-            "/images/customers/image-864.png",
-            "/images/customers/image-862_2.png",
-            "/images/customers/image-865.png",
-            "/images/customers/image-871.png",
-            "/images/customers/image-870.png",
-            "/images/customers/image-860_2.png",
-            "/images/customers/image-858_2.png",
-            "/images/customers/image-857_2.png",
-
-            "",
-            "/images/customers/image-868.png",
-            "",
-            "/images/customers/image-869.png",
-            "",
-            "/images/customers/image-867.png",
-            "",
-            "",
-          ].map((src, index) => (
-            <div
-              key={index}
-              className=" w-[66px] h-[66px] flex items-center justify-center 
-                          overflow-hidden transition-all duration-300  border-none hover:scale-160 filter grayscale transition-all hover:grayscale-0 duration-300"
-            >
-              {/* اگر خانه خالی بود، فقط یک div سفید نمایش بده */}
-              {src ? (
-                <img
-                  src={src}
-                  alt={`logo-${index}`}
-                  className="w-[64px] h-[64px] object-contain    hover:border-[#0C5273] hover:border-2 hover:rounded-lg "
-                />
-              ) : null}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* //////////////////////////////////////////////////// */}
+      <CustomerList />
 
       {/* Services section */}
       <div
-        className=" px-4 py-8"
+        className="px-4 py-8"
         style={{ backgroundImage: `url('/images/percia oor service.png')` }}
         dir="rtl"
       >
@@ -286,13 +225,13 @@ export default async function Home() {
             {t("industriesIntro.subtitle")}
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-4 mt-2 lg:grid-cols-5 py-15">
+        <div className="grid grid-cols-4 gap-4 mt-2 lg:grid-cols-5">
           {industries.map((item) => {
             const Icon: any = item.icon;
             return (
               <div
                 key={item.key}
-                className="group relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center w-[124px] h-[132px] justify-center transition-all duration-300"
+                className="group relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center h-[132px] justify-center transition-all duration-300 lg:px-4"
               >
                 <Link href={item.link}>
                   <Icon className="text-gray-600 mx-auto transition-all duration-300 group-hover:text-[#0C5273] group-hover:scale-110" />
@@ -301,7 +240,7 @@ export default async function Home() {
                     src="/SVGs/Polygon 33.svg"
                     alt=""
                     sizes="20"
-                    className="absolute rotate-180 w-[20px] left-0 top-12 "
+                    className="absolute rotate-180 w-[18px] left-0 top-12 "
                   />
 
                   {/* متن */}

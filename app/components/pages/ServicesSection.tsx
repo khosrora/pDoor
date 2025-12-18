@@ -1,11 +1,5 @@
 "use client";
 
-import {
-  IconHeadphones,
-  IconUserQuestion,
-  IconDeviceFloppy,
-  IconTools,
-} from "@tabler/icons-react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 
@@ -39,7 +33,7 @@ export default function ServicesSection() {
 
   return (
     <section
-      className="w-full p-4 grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-7xl m-auto"
+      className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4 max-w-7xl m-auto"
       // dir="rtl"
     >
       {items.map((item, index) => {
@@ -53,15 +47,15 @@ export default function ServicesSection() {
           >
             {/* BLUE POLYGON (ALTERNATES LEFT / RIGHT) */}
             <div
-              className={`absolute top-0 h-full w-30 bg-[#0C5273]
+              className={`absolute top-0 h-full w-20 bg-[#0C5273] lg:w-32
               ${isRight ? "right-0 my-clip-card-rt" : "left-0 my-clip-card-lt"}
             `}
             ></div>
 
             {/* Icon Bubble */}
             <div
-              className={`absolute z-1 w-[48px] h-[48px] rounded-full bg-[#0C5273] flex items-center justify-center
-              ${isRight ? "right-4" : "left-4"}
+              className={`absolute z-1 w-[38px] h-[38px] rounded-full bg-[#0C5273] flex items-center justify-center
+              ${isRight ? "right-2 lg:right-4" : "left-2 lg:left-4"}
             `}
             >
               {item.icon}
