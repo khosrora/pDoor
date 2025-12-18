@@ -170,7 +170,7 @@ function Footer() {
       </footer>
 
       {/* Bottom bar */}
-      <div className="footer footer-horizontal footer-center bg-[#003148] p-10 text-white lg:flex  py-4 lg:justify-between">
+      <div className="footer footer-horizontal footer-center bg-[#003148] p-10 text-white lg:flex  py-4 lg:justify-around">
         <p>{t("bottom.copyright")}</p>
         <div className="flex gap-6">
           <Link href={"https://wa.me/989028863667"}>
