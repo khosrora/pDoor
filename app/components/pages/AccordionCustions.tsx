@@ -101,7 +101,7 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
   };
 
   return (
-    <div>
+    <div className="lg:my-10">
       {/* ------------------------------
           Categories Header
       ------------------------------ */}

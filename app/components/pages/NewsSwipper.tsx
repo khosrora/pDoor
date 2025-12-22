@@ -56,7 +56,7 @@ export default function NewsSwipper() {
   if (loading) return <p className="text-center py-10">Loading...</p>;
 
   return (
-    <div className="relative my-8 py-8 p-4 lg:p-0 lg:py-4 lg:my-0 bg-[#003F5D]">
+    <div className="relative my-8 py-8 p-4 lg:p-0 lg:py-4 lg:my-0 bg-[#003F5D] lg:pt-10">
       {/* Header */}
       <div className="flex flex-col items-center mb-6 text-black px-4">
         <p className="text-[33px] font-semibold mb-1 text-white">

@@ -50,22 +50,28 @@ export default async function Page({ params }: { params: any }) {
             href="/media"
             className="border-b-2 p-4 hover:text-[#005E8B] border-b-zinc-200 hover:border-b-[#005E8B] font-semibold"
           >
-            اخبار و مقالات
+            {lang === "fa" ? "اخبار و مقالات" : "News & Articles"}{" "}
           </Link>
           <Link
             href="/media"
             className="border-b-2 p-4 hover:text-[#005E8B] border-b-zinc-200 hover:border-b-[#005E8B] font-semibold"
           >
-            گالری
+            {lang === "fa" ? "گالری" : "Gallery"}{" "}
           </Link>
         </div>
 
         {/* Related posts */}
         <div className="flex flex-col gap-y-4 mt-4">
-          <p className="font-semibold text-sm">مقاله های مرتبط</p>
+          <p className="font-semibold text-sm">
+            {lang === "fa" ? "مقاله‌های مرتبط" : "Related Articles"}
+          </p>
 
           {related.length === 0 && (
-            <p className="text-xs text-gray-500">مقاله مرتبطی یافت نشد.</p>
+            <p className="text-xs text-gray-500">
+              {lang === "fa"
+                ? "مقاله مرتبطی یافت نشد."
+                : "No related articles found."}
+            </p>
           )}
 
           {related.map((post: any) => (

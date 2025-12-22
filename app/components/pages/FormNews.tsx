@@ -27,7 +27,7 @@ export default function FormNews() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 w-full  p-4">
-      <p className="text-[25px] font-bold">دیدگاهتان را بنویسید</p>
+      <p className="text-[25px] font-bold">{t("fields.writeYourComment")}</p>
       {/* Message */}
       <div className="flex flex-col gap-1">
         {/* <label className="font-medium">{t("fields.messageLabel")}</label> */}

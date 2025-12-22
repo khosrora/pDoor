@@ -114,7 +114,8 @@
       "emailLabel": "ایمیل",
       "emailPlaceholder": "ایمیل خود را وارد کنید",
       "messageLabel": "دیدگاه",
-      "messagePlaceholder": "دیدگاه خود را بنویسید..."
+      "messagePlaceholder": "دیدگاه خود را بنویسید...",
+       "writeYourComment": "دیدگاهتان را بنویسید"
     },
     "errors": {
       "nameRequired": "نام الزامی است",

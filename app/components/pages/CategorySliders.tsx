@@ -8,6 +8,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useTranslations, useLocale } from "next-intl";
 import { useSearchParams } from "next/navigation";
+import HingedIcon from "@/app/SVGs/HingedIcon";
+import RevolvingIcon from "@/app/SVGs/RevolvingIcon";
+import SwingIcon from "@/app/SVGs/categoryslider/SwingIcon";
+import RevolveIcon from "@/app/SVGs/categoryslider/RevolveIcon";
+import SlideIcon from "@/app/SVGs/categoryslider/SlideIcon";
+import AutowinIcon from "@/app/SVGs/categoryslider/AutowinIcon";
+import AccessoryIcon from "@/app/SVGs/categoryslider/AccessoryIcon";
 
 interface Category {
   name: string;
@@ -93,18 +100,44 @@ export default function CategorySliders() {
                         }
                       `}
                     >
-                      <Image
+                      {/* <Image
                         src={category.logo || "/images/noimage.jpg"}
                         width={40}
                         height={40}
                         alt={category.name}
-                        className={`transition-transform duration-300 group-hover:scale-110 object-contain`}
-                      />
+                        className={`transition-transform duration-300 group-hover:scale-110 object-contain `}
+                      /> */}
+                      {category.slug === "swing-door" ? (
+                        <SwingIcon className={`
+                          text-[10px] lg:text-[14px] font-medium transition-colors
+                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                        `}/>
+                      ) : category.slug === "revolving-door" ? (
+                        <RevolveIcon className={`
+                          text-[10px] lg:text-[14px] font-medium transition-colors
+                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                        `}/>
+                      ) : category.slug === "sliding-door" ? (
+                        <SlideIcon className={`
+                          text-[10px] lg:text-[14px] font-medium transition-colors
+                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                        `}/>
+                      ) : category.slug === "automatic-window" ? (
+                        <AutowinIcon className={`
+                          text-[10px] lg:text-[14px] font-medium transition-colors
+                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                        `}/>
+                      ) : (
+                        <AccessoryIcon className={`
+                          text-[10px] lg:text-[14px] font-medium transition-colors
+                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                        `}/>
+                      )}
 
                       <p
                         className={`
                           text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#003f5d]" : "text-black"}
+                          ${isActive ? "text-[#007EBA]" : "text-black"}
                         `}
                       >
                         {category.name}
@@ -113,7 +146,7 @@ export default function CategorySliders() {
                       <p
                         className={`
                           text-[8px] lg:text-[12px] transition-colors
-                          ${isActive ? "text-[#007EBA]" : "text-zinc-400"}
+                           text-[#949494]
                         `}
                       >
                         {t("productsCount", { count: category.product_count })}

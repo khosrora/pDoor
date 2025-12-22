@@ -115,7 +115,8 @@
       "emailLabel": "Email",
       "emailPlaceholder": "Enter your email",
       "messageLabel": "Comment",
-      "messagePlaceholder": "Write your comment..."
+      "messagePlaceholder": "Write your comment...",
+       "writeYourComment": "Write your comment"
     },
     "errors": {
       "nameRequired": "Name is required",
