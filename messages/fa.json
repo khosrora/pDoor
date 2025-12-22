@@ -22,6 +22,13 @@
       "terminal": "ترمینال",
       "hospital": "بیمارستان",
       "airport": "فرودگاه"
+    },
+    "products":{
+      "swing" :"درب لولایی",
+      "slide" : "درب کشویی",
+      "revolve" : "درب گردان",
+      "window" : "پنجره اتوماتیک",
+      "accessory" : "لوازم جانبی"
     }
   },
   "Accordion": {

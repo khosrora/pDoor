@@ -133,7 +133,7 @@ function NavItems() {
                 className="flex items-center gap-2 px-3 py-2"
               >
                 <AboutusIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
-                <span className=" group-hover:text-white transition-colors">
+                <span className=" group-hover:text-white transition-colors text-[#005E8B]">
                   {t2("columns.about.history")}
                 </span>
               </Link>
@@ -142,7 +142,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={"/contact_us"}>
                 <ContactusIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
-                <span className=" group-hover:text-white transition-colors">
+                <span className=" group-hover:text-white transition-colors text-[#005E8B]">
                   {t("contact_us")}
                 </span>
               </Link>
@@ -150,7 +150,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={"/job_position"}>
                 <JobIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
-                <span className=" group-hover:text-white transition-colors">
+                <span className=" group-hover:text-white transition-colors text-[#005E8B]">
                   {t2("columns.about.job")}
                 </span>
               </Link>
@@ -169,7 +169,7 @@ function NavItems() {
             {t("navProducts")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40  shadow-sm text-[#005E8B] text-[13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-44  shadow-sm text-[#005E8B] text-[13px]">
             <li className="group hover:bg-[#005E8B]">
               <Link
                 href={`/products?lang=${locale}&category=swing-door`}
@@ -177,7 +177,7 @@ function NavItems() {
               >
                 <HingedIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                  درب لولایی
+                  {t("products.swing")}
                 </p>
               </Link>
             </li>
@@ -189,7 +189,7 @@ function NavItems() {
               >
                 <SlidingIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                  درب کشویی
+                  {t("products.slide")}
                 </p>
               </Link>
             </li>
@@ -201,7 +201,7 @@ function NavItems() {
               >
                 <RevolvingIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                  درب گردان
+                  {t("products.revolve")}
                 </p>
               </Link>
             </li>
@@ -213,7 +213,7 @@ function NavItems() {
               >
                 <WindowIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                  پنجره اتوماتیک
+                  {t("products.window")}
                 </p>
               </Link>
             </li>
@@ -225,7 +225,7 @@ function NavItems() {
               >
                 <PanelIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                  لوازم جانبی
+                  {t("products.accessory")}
                 </p>
               </Link>
             </li>
@@ -246,83 +246,103 @@ function NavItems() {
 
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/hospital`}>
-                <HospitalIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <HospitalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">بیمارستان</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                 {t("industries.hospital")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <ShopIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <ShopIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">مراکز خرید</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                 {t("industries.shopping")}
+                </p>
               </Link>
             </li>
 
-          <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <HotelIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <HotelIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">هتل</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                   {t("industries.hotel")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <BankIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <BankIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">بانک</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                  {t("industries.bank")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <CenterIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <CenterIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">مراکز دولتی</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                {t("industries.office")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <PrivateIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <PrivateIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">مراکز خصوصی</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                 {t("industries.private")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <AirportIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <AirportIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">فرودگاه</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                   {t("industries.airport")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <TerminalIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <TerminalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">ترمینال</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                  {t("industries.terminal")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <FactoryIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <FactoryIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">کارخانه</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                  {t("industries.factory")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={`/`}>
-                <ProjectIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
+                <ProjectIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">پروژه های خلاق</p>
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                 {t("industries.creative")}
+                </p>
               </Link>
             </li>
           </ul>
@@ -337,19 +357,16 @@ function NavItems() {
           </div>
 
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
-            
-              
-                <li  className=" hover:text-white hover:bg-[#005E8B]">
-                  <Link href={`/geze`} className="flex items-center gap-2">
-                    برند Geze
-                  </Link>
-                </li>
-                <li  className=" hover:text-white hover:bg-[#005E8B]">
-                  <Link href={`/geze`} className="flex items-center gap-2">
-                    برند Genrance
-                  </Link>
-                </li>
-            
+            <li className=" hover:text-white hover:bg-[#005E8B]">
+              <Link href={`/geze`} className="flex items-center gap-2">
+                برند Geze
+              </Link>
+            </li>
+            <li className=" hover:text-white hover:bg-[#005E8B]">
+              <Link href={`/geze`} className="flex items-center gap-2">
+                برند Genrance
+              </Link>
+            </li>
           </ul>
         </div>
       </li>
@@ -365,8 +382,10 @@ function NavItems() {
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={"/installation"} className="flex gap-2">
-                <InstallIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">{t("install")}</p>
+                <InstallIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                  {t("install")}
+                </p>
               </Link>
             </li>
           </ul>
@@ -384,14 +403,18 @@ function NavItems() {
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px] space-y-4">
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={"/media"} className="flex gap-2">
-                <GalleryIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">{t("gallery")}</p>
+                <GalleryIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                  {t("gallery")}
+                </p>
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link href={"/media?tab=news"} className="flex gap-2">
-                <NewsIcon className="text-[#005E8B] group-hover:text-white transition-colors"/>
-                <p className="text-[#005E8B] group-hover:text-white transition-colors">{t("News")}</p>
+                <NewsIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
+                <p className="text-[#005E8B] group-hover:text-white transition-colors">
+                  {t("News")}
+                </p>
               </Link>
             </li>
           </ul>

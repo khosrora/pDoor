@@ -53,7 +53,7 @@ export default function CategorySliders() {
 
   return (
     <div className=" py-2">
-      <div className="my-8 max-w-7xl m-auto px-4">
+      <div className="my-8 max-w-7xl m-auto ">
         {/* <p className="font-bold text-base mb-4 text-[#003f5d] lg:text-2xl">
           {t("header")}
         </p> */}
@@ -100,37 +100,31 @@ export default function CategorySliders() {
                         }
                       `}
                     >
-                      {/* <Image
-                        src={category.logo || "/images/noimage.jpg"}
-                        width={40}
-                        height={40}
-                        alt={category.name}
-                        className={`transition-transform duration-300 group-hover:scale-110 object-contain `}
-                      /> */}
+                     
                       {category.slug === "swing-door" ? (
                         <SwingIcon className={`
                           text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
                         `}/>
                       ) : category.slug === "revolving-door" ? (
                         <RevolveIcon className={`
                           text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
                         `}/>
                       ) : category.slug === "sliding-door" ? (
                         <SlideIcon className={`
                           text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
                         `}/>
                       ) : category.slug === "automatic-window" ? (
                         <AutowinIcon className={`
                           text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
                         `}/>
                       ) : (
                         <AccessoryIcon className={`
                           text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA]" : "text-[#949494]"}
+                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
                         `}/>
                       )}
 
