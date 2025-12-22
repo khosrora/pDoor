@@ -66,15 +66,21 @@ export default function News() {
             <p className="text-[13px] text-zinc-500">{item.short_summary}</p>
 
             {/* Row: Read More + Date */}
-            <div className="card-actions flex justify-between items-center mt-2 text-zinc-500 text-[16px]">
-              <Link
+            <div className="card-actions w-full flex items-center justify-between mt-2 text-zinc-500 text-[16px]">
+              <div>
+                <Link
                 href={`/media/${item.id}`}
-                className="flex items-center gap-1"
+                className="group flex items-center gap-1 hover:text-[#005E8B]"
               >
-                {t("readMore")} <IconArrowLeft size={16} />
+                <p className="group-hover:text-[#005E8B]">{t("readMore")}</p>
+                <IconArrowLeft
+                  size={16}
+                  className="group-hover:text-[#005E8B]"
+                />
               </Link>
+              </div>
 
-              <p className="text-[12px]">{t("item.date")}</p>
+              <p className="flex justify-end text-[12px] ">{t("item.date")}</p>
             </div>
           </div>
         </div>

@@ -102,7 +102,7 @@ export default function Products({
           return (
             <div
               key={product.slug}
-              className="relative card bg-base-100 border rounded-md border-zinc-300 hover:shadow transition"
+              className="group relative card bg-base-100 border rounded-md border-zinc-300 hover:shadow transition"
             >
               <Link
                 href={`/products/${product.slug}`}
@@ -134,11 +134,14 @@ export default function Products({
 
               {/* Compare Badge */}
               <div
-                className={`badge absolute right-2 top-2 rounded-full px-2 flex items-center gap-1 cursor-pointer ${
-                  inCompare
-                    ? "bg-[#003148] text-white"
-                    : "bg-zinc-200 text-zinc-500"
-                }`}
+                className={`badge absolute right-2 top-2 rounded-full px-2 flex items-center gap-1 cursor-pointer
+      transition-all duration-200
+      ${
+        inCompare
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0"
+      }
+      ${inCompare ? "bg-[#003148] text-white" : "bg-zinc-200 text-zinc-500"}`}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();

@@ -81,16 +81,17 @@ export default function CategoriesSwiper() {
         onSwiper={setSwiperRef}
         pagination={{ clickable: true }}
         spaceBetween={16}
-        slidesPerView={1.2}
+        slidesPerView={2.9}
         dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
           640: { slidesPerView: 1.5 },
-          768: { slidesPerView: 3 },
+          768: { slidesPerView: 2.65 },
         }}
+       
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[305px] h-[468px] bg-base-100 rounded-md">
+            <div className="card w-[305px] h-[468px] bg-base-100 rounded-md ">
               {/* IMAGE */}
               <figure>
                 <img

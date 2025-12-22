@@ -4,6 +4,7 @@ import Link from "next/link";
 import { getLocale } from "next-intl/server";
 import api from "@/app/lib/axios";
 import Image from "next/image";
+import "@/app/richtext.css";
 
 export default async function Page({ params }: { params: any }) {
   const locale = await getLocale(); // fa | en
@@ -35,11 +36,25 @@ export default async function Page({ params }: { params: any }) {
         </div>
 
         <div
-          className="prose max-w-none leading-10"
-          dangerouslySetInnerHTML={{ __html: data.body }}
-        />
+  className="
+    prose
+    prose-slate
+    max-w-none
+    leading-10
 
-        <AccordionCustions />
+    prose-h2:text-[#005E8B]
+    prose-h2:text-[28px]
+    prose-h2:font-bold
+
+    prose-h3:text-[#003F5D]
+    prose-h3:text-[22px]
+    prose-h3:font-semibold
+  "
+  dangerouslySetInnerHTML={{ __html: data.body }}
+/>
+
+
+        {/* <AccordionCustions /> */}
         <FormNews />
       </div>
 
@@ -62,7 +77,7 @@ export default async function Page({ params }: { params: any }) {
 
         {/* Related posts */}
         <div className="flex flex-col gap-y-4 mt-4">
-          <p className="font-semibold text-sm">
+          <p className="font-medium text-[19px] mt-10">
             {lang === "fa" ? "مقاله‌های مرتبط" : "Related Articles"}
           </p>
 
@@ -78,25 +93,24 @@ export default async function Page({ params }: { params: any }) {
             <Link
               key={post.id}
               href={`/media/${post.id}`}
-              className="card flex flex-row bg-[#fbfbfb] justify-start items-start hover:shadow transition gap-2"
+              className="card lg:w-[384px] lg:h-[144px] flex flex-row bg-[#fbfbfb] justify-start items-start hover:shadow transition gap-2"
             >
               {/* Image container with aspect ratio */}
-              <figure className="w-[100px] flex-shrink-0 relative aspect-video">
+              <figure className="w-[152px] h-full flex-shrink-0 relative aspect-video">
                 <Image
                   src={post.cover_image}
                   alt={post.title}
                   fill
-                  className="object-cover rounded-r-md"
-                  sizes="100px"
+                  className=" object-cover rounded-r-md"
                 />
               </figure>
 
               {/* Text content */}
-              <div className="card-body p-0 text-[10px] w-[232px]">
-                <h2 className="card-title text-[10px] font-bold line-clamp-2">
+              <div className="card-body p-2  w-[232px]">
+                <h2 className="card-title text-[18px] text-[#003F5D] font-demibold line-clamp-2">
                   {post.title}
                 </h2>
-                <p className="text-[8px] line-clamp-3">{post.summary || ""}</p>
+                <p className="text-[13px] line-clamp-3">{post.summary || ""}</p>
               </div>
             </Link>
           ))}

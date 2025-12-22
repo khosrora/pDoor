@@ -1,0 +1,73 @@
+/* Wagtail RichText fixes */
+.prose .rich-text p {
+  line-height: 2.5rem;
+}
+
+.prose figure {
+  margin: 2rem auto;
+}
+
+.prose figure img {
+  border-radius: 12px;
+}
+
+.prose .richtext-image.left {
+  float: left;
+  margin-right: 1.5rem;
+}
+
+.prose .richtext-image.right {
+  float: right;
+  margin-left: 1.5rem;
+}
+
+.prose a {
+  color: #005E8B;
+  font-weight: 500;
+}
+
+
+/* h2 */
+.prose h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #005E8B;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+/* h3 */
+.prose h3 {
+  position: relative;
+  padding-right: 18px; /* فضا برای آیکن */
+  font-size: 18px;
+  font-weight: 600;
+  color: #003F5D;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3::before {
+  content: "";
+  position: absolute;
+  right: 0; /* چون سایت RTL است */
+  top: 0.4em;
+
+  width: 10px;
+  height: 16px;
+
+  background-image: url("/Polygon 36.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.prose ul {
+  list-style: disc;
+  padding-right: 1.5rem; /* RTL */
+}
+
+.prose ul li::marker {
+  color: #000;          /* گلوله مشکی */
+  font-size: 1rem;      /* اندازه گلوله */
+}
