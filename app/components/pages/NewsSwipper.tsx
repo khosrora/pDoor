@@ -84,7 +84,7 @@ export default function NewsSwipper() {
             640: { slidesPerView: 1.3 },
             768: { slidesPerView: 2.3 },
             1024: { slidesPerView: 2.8 },
-            1280: { slidesPerView: 3.5 },
+            1280: { slidesPerView: 3 },
           }}
         >
           {posts.map((post, index) => {
