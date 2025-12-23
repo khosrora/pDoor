@@ -81,7 +81,7 @@ export default function ServicesSection() {
 
                 {firstCard && (
                   <Link href={`installation`}>
-                  <button className=" mt-4 text-[#005E8B] text-sm font-medium pb-1">
+                  <button className=" mt-4 text-[#005E8B] text-sm font-medium pb-1 hover:cursor-pointer">
                     {t("learn_more")}
                   </button>
                   </Link>

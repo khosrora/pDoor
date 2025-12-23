@@ -19,9 +19,9 @@ export default async function Page({ params }: { params: any }) {
   const { data: related } = await api.get(`/v1/blog/${lang}/related/${id}/`);
 
   return (
-    <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 p-4 max-w-7xl mx-auto mt-20">
+    <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 p-4 max-w-7xl mx-auto mt-20">
       {/* MAIN CONTENT */}
-      <div className="space-y-4 col-span-3">
+      <div className="space-y-4 col-span-2">
         <img
           src={data.cover_image}
           width={500}
@@ -93,20 +93,20 @@ export default async function Page({ params }: { params: any }) {
             <Link
               key={post.id}
               href={`/media/${post.id}`}
-              className="card lg:w-[384px] lg:h-[144px] flex flex-row bg-[#fbfbfb] justify-start items-start hover:shadow transition gap-2"
+              className="card lg:w-full lg:h-[130px] flex flex-row bg-[#fbfbfb] justify-start items-start hover:shadow transition gap-2"
             >
               {/* Image container with aspect ratio */}
-              <figure className="w-[152px] h-full flex-shrink-0 relative aspect-video">
+              <figure className="w-[170px] h-full flex-shrink-0 relative aspect-video">
                 <Image
                   src={post.cover_image}
                   alt={post.title}
                   fill
-                  className=" object-cover rounded-r-md"
+                  className="rounded-r-md"
                 />
               </figure>
 
               {/* Text content */}
-              <div className="card-body p-2  w-[232px]">
+              <div className="card-body p-3  w-[232px]">
                 <h2 className="card-title text-[18px] text-[#003F5D] font-demibold line-clamp-2">
                   {post.title}
                 </h2>

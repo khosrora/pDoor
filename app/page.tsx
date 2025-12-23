@@ -93,16 +93,16 @@ export default async function Home() {
       <div className="bg-[#003148] flex justify-between items-center text-white lg:flex-row-reverse lg:h-[134px] lg:justify-around relative py-4 px-2">
         <div className="flex flex-row">
           <div className="flex flex-col text-left">
-            <p className="lg:text-[30px]">{t("banner.primary1")}</p>
-            <p className="lg:text-[30px]">{t("banner.primary2")}</p>
+            <p className="lg:text-[22px]">{t("banner.primary1")}</p>
+            <p className="lg:text-[22px]">{t("banner.primary2")}</p>
           </div>
 
           <div className="hidden lg:flex border border-zinc-200 mx-4" />
           <div className="flex flex-col text-right">
-            <p className="hidden lg:flex text-[30px]">
+            <p className="hidden lg:flex text-[22px]">
               {t("banner.secondary1")}
             </p>
-            <p className="hidden lg:flex text-[30px]">
+            <p className="hidden lg:flex text-[22px]">
               {t("banner.secondary2")}
             </p>
           </div>
@@ -145,8 +145,8 @@ export default async function Home() {
         </div>
 
         {/* Left blue clip */}
-        <div className="relative -top-16 my-clip-rt bg-[#003F5D] h-[320px] lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20">
-          <div className="absolute right-12 top-6 lg:w-[376px]">
+        <div className="relative -top-16 my-clip-rt bg-[#003F5D] h-80 lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20">
+          <div className="absolute right-12 top-6 lg:w-[376px] lg:mr-30 lg:mt-15">
             <p className="text-[#FAB21F] text-[33px] font-semibold">
               {t("about.brand")}
             </p>

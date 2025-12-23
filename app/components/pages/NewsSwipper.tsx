@@ -69,7 +69,7 @@ export default function NewsSwipper() {
         </p>
       </div>
 
-      <div className="max-w-6xl mx-auto my-20 relative">
+      <div className="max-w-7xl mx-auto my-20 relative">
         <Swiper
           modules={[Navigation]}
           onSwiper={setSwiperRef}
@@ -84,7 +84,7 @@ export default function NewsSwipper() {
             640: { slidesPerView: 1.3 },
             768: { slidesPerView: 2.3 },
             1024: { slidesPerView: 2.8 },
-            1280: { slidesPerView: 2.9 },
+            1280: { slidesPerView: 3.5 },
           }}
         >
           {posts.map((post, index) => {
@@ -95,7 +95,7 @@ export default function NewsSwipper() {
                   {/* div پس‌زمینه کارت حفظ شد */}
                   <div className="relative w-full h-[450px]">
                     <div
-                      className={`card lg:w-[390px] lg:h-[421px] bg-white border-2 rounded-md border-zinc-200 transition-transform duration-500 ${
+                      className={`card lg:w-[420px] lg:h-[421px] bg-white border-2 rounded-md border-zinc-200 transition-transform duration-500 ${
                         isActive ? " scale-100 shadow-xl z-10" : "scale-90"
                       }`}
                     >
@@ -103,7 +103,7 @@ export default function NewsSwipper() {
                         <img
                           src={post.cover_image}
                           alt={post.title}
-                          className="w-full h-[293px] object-cover"
+                          className="w-full h-[293px]"
                         />
                       </figure>
                       <div className="p-4">

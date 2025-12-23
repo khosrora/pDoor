@@ -104,10 +104,10 @@ function Header() {
           <Link href="/">
             <Image
               src="/images/logo.png"
-              width={50}
+              width={100}
               height={50}
               alt={t("logoAlt")}
-              className="lg:w-16 lg:h-16"
+              className="lg:w-[90px] lg:h-[70px]"
             />
           </Link>
           <NavItems />

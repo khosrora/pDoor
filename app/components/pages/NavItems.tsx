@@ -121,7 +121,7 @@ function NavItems() {
     <ul className="hidden lg:flex flex-row menu menu-horizontal px-1 gap-x-7">
       {/* About dropdown */}
       <li>
-        <div className="dropdown dropdown-hover dropdown-end">
+        <div className="dropdown dropdown-hover dropdown-start">
           <div tabIndex={0} role="button" className="">
             {t("brandName")}
           </div>
@@ -164,7 +164,7 @@ function NavItems() {
 
       {/* Products → Categories dropdown */}
       <li>
-        <div className="dropdown dropdown-hover dropdown-end">
+        <div className="dropdown dropdown-hover dropdown-start">
           <div tabIndex={0} role="button" className="">
             {t("navProducts")}
           </div>
@@ -236,7 +236,7 @@ function NavItems() {
       {/* Industries */}
       <li>
         {/* <Link href={"/hospital"}>{t("navIndustries")}</Link> */}
-        <div className="dropdown dropdown-hover dropdown-end ">
+        <div className="dropdown dropdown-hover dropdown-start ">
           <div tabIndex={0} role="button" className="">
             {t("navIndustries")}
           </div>
@@ -351,7 +351,7 @@ function NavItems() {
 
       {/* Brands dropdown (new) */}
       <li>
-        <div className="dropdown dropdown-hover dropdown-end">
+        <div className="dropdown dropdown-hover dropdown-start">
           <div tabIndex={0} role="button" className="">
             {t("navBrands")}
           </div>
@@ -374,7 +374,7 @@ function NavItems() {
       {/* Services */}
 
       <li>
-        <div className="dropdown dropdown-hover dropdown-end">
+        <div className="dropdown dropdown-hover dropdown-start">
           <div tabIndex={0} role="button" className="">
             {t("navServices")}
           </div>
@@ -395,7 +395,7 @@ function NavItems() {
       {/* Media */}
       {/* <Link href={"/media"}>{t("navMedia")}</Link> */}
       <li>
-        <div className="dropdown dropdown-hover dropdown-end">
+        <div className="dropdown dropdown-hover dropdown-start">
           <div tabIndex={0} role="button" className="">
             {t("navMedia")}
           </div>
