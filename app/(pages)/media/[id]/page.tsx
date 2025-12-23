@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: any }) {
           width={500}
           height={500}
           alt={data.title}
-          className="rounded-md w-full h-[423px]"
+          className="rounded-md w-[792px] h-[423px] mx-auto"
         />
 
         <div className="flex justify-between items-center">
