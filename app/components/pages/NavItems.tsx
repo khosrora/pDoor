@@ -117,6 +117,11 @@ function NavItems() {
     loadBrands();
   }, []);
 
+  const closeDropdown = () => {
+  (document.activeElement as HTMLElement)?.blur();
+};
+
+
   return (
     <ul className="hidden lg:flex flex-row menu menu-horizontal px-1 gap-x-7">
       {/* About dropdown */}
@@ -130,6 +135,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link
                 href={"/about_us"}
+                onClick={closeDropdown}
                 className="flex items-center gap-2 px-3 py-2"
               >
                 <AboutusIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
@@ -140,7 +146,7 @@ function NavItems() {
             </li>
 
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/contact_us"}>
+              <Link href={"/contact_us"} onClick={closeDropdown}>
                 <ContactusIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <span className=" group-hover:text-white transition-colors text-[#005E8B]">
                   {t("contact_us")}
@@ -148,7 +154,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/job_position"}>
+              <Link href={"/job_position"} onClick={closeDropdown}>
                 <JobIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <span className=" group-hover:text-white transition-colors text-[#005E8B]">
                   {t2("columns.about.job")}
@@ -173,6 +179,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B]">
               <Link
                 href={`/products?lang=${locale}&category=swing-door`}
+                onClick={closeDropdown}
                 className="flex items-center gap-2"
               >
                 <HingedIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
@@ -185,6 +192,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=sliding-door`}
+                onClick={closeDropdown}
                 className="flex items-center gap-2 px-3 py-2"
               >
                 <SlidingIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
@@ -197,6 +205,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=revolving-door`}
+                onClick={closeDropdown}
                 className="flex items-center gap-2 px-3 py-2"
               >
                 <RevolvingIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
@@ -209,6 +218,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=automatic-window`}
+                onClick={closeDropdown}
                 className="flex items-center gap-2 px-3 py-2"
               >
                 <WindowIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
@@ -221,6 +231,7 @@ function NavItems() {
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=accessories`}
+                onClick={closeDropdown}
                 className="flex items-center gap-2 px-3 py-2"
               >
                 <PanelIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
@@ -245,7 +256,7 @@ function NavItems() {
             {/* <li>بیمارستان</li> */}
 
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/hospital`}>
+              <Link href={`/hospital`} onClick={closeDropdown}>
                 <HospitalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -255,7 +266,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <ShopIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -266,7 +277,7 @@ function NavItems() {
             </li>
 
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <HotelIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -276,7 +287,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <BankIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -286,7 +297,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <CenterIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -296,7 +307,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <PrivateIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -306,7 +317,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <AirportIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -316,7 +327,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <TerminalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -326,7 +337,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <FactoryIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -336,7 +347,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`}>
+              <Link href={`/`} onClick={closeDropdown}>
                 <ProjectIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -358,12 +369,12 @@ function NavItems() {
 
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
             <li className=" hover:text-white hover:bg-[#005E8B]">
-              <Link href={`/geze`} className="flex items-center gap-2">
+              <Link href={`/geze`} className="flex items-center gap-2" onClick={closeDropdown}>
                 برند Geze
               </Link>
             </li>
             <li className=" hover:text-white hover:bg-[#005E8B]">
-              <Link href={`/geze`} className="flex items-center gap-2">
+              <Link href={`/geze`} className="flex items-center gap-2" onClick={closeDropdown}>
                 برند Genrance
               </Link>
             </li>
@@ -381,7 +392,7 @@ function NavItems() {
 
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/installation"} className="flex gap-2">
+              <Link href={"/installation"} className="flex gap-2" onClick={closeDropdown}>
                 <InstallIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
                   {t("install")}
@@ -402,7 +413,7 @@ function NavItems() {
 
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px] space-y-4">
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/media"} className="flex gap-2">
+              <Link href={"/media"} className="flex gap-2" onClick={closeDropdown}>
                 <GalleryIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
                   {t("gallery")}
@@ -410,7 +421,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/media?tab=news"} className="flex gap-2">
+              <Link href={"/media?tab=news"} className="flex gap-2" onClick={closeDropdown}>
                 <NewsIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
                   {t("News")}

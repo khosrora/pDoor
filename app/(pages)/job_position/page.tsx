@@ -38,7 +38,7 @@ export default async function CareersPage() {
         <Breadcrumbs />
       </div>
       {/* Hero */}
-      <div className="bg-[#003F5D] text-white lg:flex lg:items-center lg:justify-between ">
+      <div className="bg-[#003F5D] text-white lg:grid lg:grid-cols-2 lg:h-[400px] overflow-hidden">
         <div className="lg:flex lg:flex-col lg:justify-center py-10 px-40 w-full ">
           <p className="text-[#FAB21F] text-[25px] font-bold">
           {t("hero.career_title")}
@@ -50,7 +50,7 @@ export default async function CareersPage() {
 
         {/* banner image */}
         <div className="lg:w-full">
-          <img src="\images\عکس پرسنل.png" alt="" className="w-full h-full" />
+          <img src="\images\عکس پرسنل.png" alt="" className="w-full h-[400px] object-cover " />
         </div>
       </div>
 

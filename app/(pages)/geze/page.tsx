@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import Breadcrumbs from "./Breadcrumbs";
 import CategorySliders from "@/app/components/pages/CategorySliders";
+import AwardsLightbox from "@/app/components/pages/AwardsLightbox";
 
 export const metadata: Metadata = {
   title: "پرشیادُر | درباره گزه GEZE",
@@ -99,7 +100,9 @@ export default async function GezePage() {
             <span className="  text-[28px] font-bold text-[#FAB21F]">
               {t("products.heading1")}
             </span>
-            <span className="text-[28px] font-bold ">{t("products.heading2")}</span>
+            <span className="text-[28px] font-bold ">
+              {t("products.heading2")}
+            </span>
           </p>
 
           <div className="mb-10">
@@ -135,29 +138,8 @@ export default async function GezePage() {
           <p className="text-[28px] font-semibold">
             {t("representative.subtitle")}
           </p>
-          <div className="flex justify-around lg:max-w-3xl lg:mx-auto my-10">
-            <Image
-              src="/images/geze/awards-card-component-1.png"
-              width={100}
-              height={100}
-              alt="geze-award-1"
-              className="lg:w-[184px] lg:h-[253px]"
-            />
-            <Image
-              src="/images/geze/awards-card-component-2.png"
-              width={100}
-              height={100}
-              alt="geze-award-2"
-              className="lg:w-[184px] lg:h-[253px]"
-            />
-            <Image
-              src="/images/geze/awards-card-component.png"
-              width={100}
-              height={100}
-              alt="geze-award-3"
-              className="lg:w-[184px] lg:h-[253px]"
-            />
-          </div>
+
+          <AwardsLightbox />
         </div>
       </div>
     </div>

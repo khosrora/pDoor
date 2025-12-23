@@ -25,7 +25,7 @@ interface Category {
 
 export default function CategorySliders() {
   const t = useTranslations("Categories");
-  
+
   const locale = useLocale();
   const searchParams = useSearchParams();
   const activeCategory = searchParams.get("category"); // ✔ selected category from URL
@@ -96,42 +96,75 @@ export default function CategorySliders() {
                         ${
                           isActive
                             ? "border-[#007EBA] shadow-lg"
-                            : "border-zinc-300"
+                            : "border-zinc-300 group-hover:border-[#007EBA] group-hover:shadow-lg"
                         }
                       `}
                     >
-                     
                       {category.slug === "swing-door" ? (
-                        <SwingIcon className={`
-                          text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
-                        `}/>
+                        <SwingIcon
+                          className={`
+    text-[10px] lg:text-[14px] font-medium transition-all
+    ${
+      isActive
+        ? "text-[#007EBA] scale-115"
+        : "text-[#949494] group-hover:text-[#007EBA] group-hover:scale-115"
+    }
+  `}
+                        />
                       ) : category.slug === "revolving-door" ? (
-                        <RevolveIcon className={`
-                          text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
-                        `}/>
+                        <RevolveIcon
+                          className={`
+    text-[10px] lg:text-[14px] font-medium transition-all
+    ${
+      isActive
+        ? "text-[#007EBA] scale-115"
+        : "text-[#949494] group-hover:text-[#007EBA] group-hover:scale-115"
+    }
+  `}
+                        />
                       ) : category.slug === "sliding-door" ? (
-                        <SlideIcon className={`
-                          text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
-                        `}/>
+                        <SlideIcon
+                          className={`
+    text-[10px] lg:text-[14px] font-medium transition-all
+    ${
+      isActive
+        ? "text-[#007EBA] scale-115"
+        : "text-[#949494] group-hover:text-[#007EBA] group-hover:scale-115"
+    }
+  `}
+                        />
                       ) : category.slug === "automatic-window" ? (
-                        <AutowinIcon className={`
-                          text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
-                        `}/>
+                        <AutowinIcon
+                          className={`
+    text-[10px] lg:text-[14px] font-medium transition-all
+    ${
+      isActive
+        ? "text-[#007EBA] scale-115"
+        : "text-[#949494] group-hover:text-[#007EBA] group-hover:scale-115"
+    }
+  `}
+                        />
                       ) : (
-                        <AccessoryIcon className={`
-                          text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA] scale-115" : "text-[#949494]"}
-                        `}/>
+                        <AccessoryIcon
+                          className={`
+    text-[10px] lg:text-[14px] font-medium transition-all
+    ${
+      isActive
+        ? "text-[#007EBA] scale-115"
+        : "text-[#949494] group-hover:text-[#007EBA] group-hover:scale-115"
+    }
+  `}
+                        />
                       )}
 
                       <p
                         className={`
                           text-[10px] lg:text-[14px] font-medium transition-colors
-                          ${isActive ? "text-[#007EBA]" : "text-black"}
+                          ${
+                            isActive
+                              ? "text-[#007EBA]"
+                              : "text-black group-hover:text-[#007EBA]"
+                          }
                         `}
                       >
                         {category.name}
