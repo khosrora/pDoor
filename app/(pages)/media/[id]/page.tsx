@@ -32,11 +32,15 @@ export default async function Page({ params }: { params: any }) {
 
         <div className="flex justify-between items-center">
           <p className="text-[20px] text-[#003f5d] font-bold">{data.title}</p>
-          <p className="text-sm">{data.reading_time} دقیقه مطالعه</p>
+          <p className="text-sm">
+            {locale === "en"
+              ? `${data.reading_time} min read`
+              : `${data.reading_time} دقیقه مطالعه`}
+          </p>
         </div>
 
         <div
-  className="
+          className="
     prose
     prose-slate
     max-w-none
@@ -50,12 +54,11 @@ export default async function Page({ params }: { params: any }) {
     prose-h3:text-[22px]
     prose-h3:font-semibold
   "
-  dangerouslySetInnerHTML={{ __html: data.body }}
-/>
-
+          dangerouslySetInnerHTML={{ __html: data.body }}
+        />
 
         {/* <AccordionCustions /> */}
-        <FormNews />
+        <FormNews postId={data.id}/>
       </div>
 
       {/* SIDEBAR */}
