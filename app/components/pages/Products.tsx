@@ -134,8 +134,7 @@ export default function Products({
 
               {/* Compare Badge */}
               <div
-                className={`badge absolute right-2 top-2 rounded-full px-2 flex items-center gap-1 cursor-pointer
-    transition-all duration-200
+                className={`badge absolute right-2 top-2 rounded-full px-2 flex items-center gap-1 cursor-pointer transition-all duration-200
 
     /* mobile: always visible */
     opacity-100 translate-y-0
@@ -150,7 +149,7 @@ export default function Products({
         : "lg:opacity-100 lg:translate-y-0"
     }
 
-    ${inCompare ? "bg-[#003148] text-white" : "bg-zinc-200 text-zinc-500"}
+    ${inCompare ? "bg-[#D1F0FF] text-[#007EBA] p-2" : "bg-zinc-100 text-zinc-500"}
   `}
                 onClick={(e) => {
                   e.preventDefault();
