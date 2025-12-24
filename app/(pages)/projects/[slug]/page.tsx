@@ -17,6 +17,7 @@ interface MediaItem {
 
 interface ProjectDetail {
   title: string;
+  description: string;
   media_items: MediaItem[];
 }
 
@@ -49,10 +50,20 @@ export default function ProjectDetailPage() {
   return (
     <div className="max-w-7xl mx-auto p-4 mt-24">
       {/* Title */}
+      {/* Title + Description */}
       {loading ? (
         <div className="h-6 w-64 bg-zinc-200 animate-pulse rounded mb-6" />
       ) : (
-        <h1 className="text-xl font-bold mb-6">{project?.title}</h1>
+        <div>
+          <h1 className="text-xl font-bold mb-4">{project?.title}</h1>
+
+          <div
+            className="prose max-w-none mb-8"
+            dangerouslySetInnerHTML={{
+              __html: project?.description || "",
+            }}
+          />
+        </div>
       )}
 
       {/* Media Grid */}

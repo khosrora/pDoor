@@ -21,7 +21,7 @@ export default async function TimelineSlider() {
   // {t("hero.title")}
 
   return (
-    <div className="my-20">
+    <div className="my-23">
       <Breadcrumbs />
       <div className="w-full  mx-auto px-4 py-12 ">
         <AboutUsSwiper />

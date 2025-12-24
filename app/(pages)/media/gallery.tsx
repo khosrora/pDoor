@@ -17,6 +17,9 @@ interface Project {
 }
 
 interface ProjectsResponse {
+  count: number;
+  next: string | null;
+  previous: string | null;
   results: Project[];
 }
 
@@ -26,20 +29,25 @@ export default function Gallery() {
   const searchParams = useSearchParams();
 
   const activeCategory = searchParams.get("category");
+  const pageParam = Number(searchParams.get("page")) || 1;
 
   const [categories, setCategories] = useState<Category[]>([]);
   const [projects, setProjects] = useState<Project[]>([]);
+  const [count, setCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
 
   /* Load categories */
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/projects/categories/?lang=${locale}`)
+    fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/v1/projects/categories/?lang=${locale}`
+    )
       .then((res) => res.json())
       .then((data) => setCategories(data || []))
       .catch(console.error);
   }, [locale]);
 
-  /* Load projects (API-based filtering) */
+  /* Load projects (pagination synced with API) */
   useEffect(() => {
     setLoading(true);
 
@@ -48,34 +56,69 @@ export default function Gallery() {
       : "";
 
     fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/v1/projects/?lang=${locale}${categoryParam}`
+      `${process.env.NEXT_PUBLIC_API_URL}/v1/projects/?lang=${locale}&page=${pageParam}${categoryParam}`
     )
       .then((res) => res.json())
-      .then((data: ProjectsResponse) => setProjects(data.results || []))
+      .then((data: ProjectsResponse) => {
+        const results = data.results || [];
+
+        setProjects(results);
+        setCount(data.count || 0);
+
+        // ✅ محاسبه تعداد صفحات واقعی بر اساس API
+        if (data.count && results.length) {
+          const pageSizeFromApi = results.length;
+          const realTotalPages = Math.ceil(
+            data.count / pageSizeFromApi
+          );
+          setTotalPages(realTotalPages);
+        } else {
+          setTotalPages(1);
+        }
+      })
       .catch(console.error)
       .finally(() => setLoading(false));
-  }, [locale, activeCategory]);
+  }, [locale, activeCategory, pageParam]);
+
+  /* جلوگیری از صفحه خارج از بازه (مثلاً ?page=5 وقتی فقط 4 صفحه هست) */
+  useEffect(() => {
+    if (!loading && pageParam > totalPages && totalPages > 0) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("page", String(totalPages));
+      router.replace(`/media?${params.toString()}`, { scroll: false });
+    }
+  }, [loading, pageParam, totalPages, router, searchParams]);
+
+  const changePage = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("page", String(page));
+
+    if (activeCategory) {
+      params.set("category", activeCategory);
+    }
+
+    router.push(`/media?${params.toString()}`, { scroll: false });
+  };
 
   const handleTabClick = (slug: string | null) => {
-    if (!slug) {
-      router.push("/media", { scroll: false });
-    } else {
-      router.push(`/media?category=${slug}`, { scroll: false });
-    }
+    const params = new URLSearchParams();
+    if (slug) params.set("category", slug);
+    params.set("page", "1");
+
+    router.push(`/media?${params.toString()}`, { scroll: false });
   };
 
   return (
     <div className="max-w-7xl mx-auto">
       {/* Tabs */}
-      <div className="flex gap-4 mb-8 flex-wrap">
+      <div className="flex gap-4 mb-12 flex-wrap">
         <button
           onClick={() => handleTabClick(null)}
-          className={`px-4 py-2  transition
-            ${
-              !activeCategory
-                ? "border-b-3 border-[#005E8B] text-[#005E8B]e"
-                : " hover:bg-zinc-200"
-            }`}
+          className={`px-4 py-2 transition ${
+            !activeCategory
+              ? "border-b-3 border-[#005E8B] text-[#005E8B]"
+              : "hover:text-[#005E8B]"
+          }`}
         >
           همه
         </button>
@@ -84,12 +127,11 @@ export default function Gallery() {
           <button
             key={cat.slug}
             onClick={() => handleTabClick(cat.slug)}
-            className={`px-4 py-2 transition
-              ${
-                activeCategory === cat.slug
-                  ? "  border-b-3 border-[#005E8B] text-[#005E8B]"
-                  : " hover:bg-zinc-200"
-              }`}
+            className={`px-4 py-2 transition text-[16px] ${
+              activeCategory === cat.slug
+                ? "border-b-3 border-[#005E8B] text-[#005E8B]"
+                : "hover:text-[#005E8B]"
+            }`}
           >
             {cat.name}
           </button>
@@ -107,28 +149,70 @@ export default function Gallery() {
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
-          {projects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/projects/${project.slug}`}
-              className="bg-zinc-100 rounded-sm overflow-hidden w-[392px] h-[326px]
-                hover:bg-[#005E8B] hover:text-white transition"
-            >
-              <div className="overflow-hidden">
-                <img
-                  src={project.cover_image}
-                  alt={project.title}
-                  className="w-full h-[254px] object-cover hover:scale-105 transition duration-300"
-                />
-              </div>
+        <>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+            {projects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="bg-zinc-100 rounded-sm overflow-hidden w-[392px] h-[326px]
+                  hover:bg-[#005E8B] hover:text-white transition"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={project.cover_image}
+                    alt={project.title}
+                    className="w-full h-[254px] object-cover hover:scale-105 transition duration-300"
+                  />
+                </div>
 
-              <div className="p-4">
-                <p className="text-[16px] font-medium">{project.title}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+                <div className="p-4">
+                  <p className="text-[16px] font-medium">
+                    {project.title}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Pagination (100% synced with API) */}
+          {count > 0 && totalPages > 1 && pageParam <= totalPages && (
+            <div className="flex justify-center items-center gap-2 mb-16">
+              <button
+                disabled={pageParam === 1}
+                onClick={() => changePage(pageParam - 1)}
+                className="px-3 py-1 disabled:opacity-40"
+              >
+                قبلی
+              </button>
+
+              {Array.from({ length: totalPages }).map((_, i) => {
+                const page = i + 1;
+                return (
+                  <button
+                    key={page}
+                    onClick={() => changePage(page)}
+                    className={`w-[32px] h-[32px] rounded border ${
+                      page === pageParam
+                        ? "bg-[#005E8B] text-white"
+                        : "text-[#005E8B] hover:bg-zinc-100"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                );
+              })}
+
+              <button
+                disabled={pageParam === totalPages}
+                onClick={() => changePage(pageParam + 1)}
+                className="px-3 py-1 disabled:opacity-40"
+              >
+                بعدی
+              </button>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

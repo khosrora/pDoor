@@ -12,6 +12,7 @@ interface BlogPost {
   title: string;
   short_summary: string;
   cover_image: string;
+  published_at: string;
   author: {
     first_name: string;
     last_name: string;
@@ -45,45 +46,47 @@ export default function News() {
   return (
     <div className="grid grid-cols-2 gap-4 p-4 lg:grid-cols-3 max-w-7xl mx-auto ">
       {posts.map((item) => (
-        <div
+        <Link
           key={item.id}
-          className="card active:text-[#007EBA] w-[392px] h-[413px] bg-base-100 border border-zinc-200"
+          href={`/media/${item.id}`}
+          className="group flex items-center gap-1 hover:text-[#005E8B]"
         >
-          {/* Image */}
-          <figure>
-            <img
-              src={item.cover_image}
-              alt={item.title}
-              className="w-full h-[252px] object-cover"
-            />
-          </figure>
+          <div className="card active:text-[#007EBA] w-[392px] h-[413px] bg-base-100 border border-zinc-200">
+            {/* Image */}
+            <figure>
+              <img
+                src={item.cover_image}
+                alt={item.title}
+                className="w-full h-[252px] object-cover"
+              />
+            </figure>
 
-          <div className="card-body p-4">
-            {/* Title */}
-            <h2 className="card-title text-black text-[18px]">{item.title}</h2>
+            <div className="card-body p-4">
+              {/* Title */}
+              <h2 className="card-title text-black text-[18px]">
+                {item.title}
+              </h2>
 
-            {/* Author */}
-            <p className="text-[13px] text-zinc-500">{item.short_summary}</p>
+              {/* Author */}
+              <p className="text-[13px] text-zinc-500">{item.short_summary}</p>
 
-            {/* Row: Read More + Date */}
-            <div className="card-actions w-full flex items-center justify-between mt-2 text-zinc-500 text-[16px]">
-              <div>
-                <Link
-                href={`/media/${item.id}`}
-                className="group flex items-center gap-1 hover:text-[#005E8B]"
-              >
-                <p className="group-hover:text-[#005E8B]">{t("readMore")}</p>
-                <IconArrowLeft
-                  size={16}
-                  className="group-hover:text-[#005E8B]"
-                />
-              </Link>
+              {/* Row: Read More + Date */}
+              <div className="card-actions w-full flex items-center justify-between mt-2 text-zinc-500 text-[16px]">
+                <div className="flex items-center">
+                  <p className="group-hover:text-[#005E8B]">{t("readMore")}</p>
+                  <IconArrowLeft
+                    size={16}
+                    className="group-hover:text-[#005E8B]"
+                  />
+                </div>
+
+                <p className="flex justify-end text-[12px] ">
+                  {item.published_at}
+                </p>
               </div>
-
-              <p className="flex justify-end text-[12px] ">{t("item.date")}</p>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

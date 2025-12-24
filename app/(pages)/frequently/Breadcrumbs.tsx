@@ -11,7 +11,7 @@ async function Breadcrumbs() {
           <Link href={"/"}>{t("home")}</Link>
         </li>
         <li>
-          <p>{t("FAQ")}</p>
+          <p className="text-[#007EBA]">{t("FAQ")}</p>
         </li>
       </ul>
     </div>

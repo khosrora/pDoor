@@ -34,7 +34,7 @@ export default async function Page({ params }: { params: any }) {
           <p className="text-[20px] text-[#003f5d] font-bold">{data.title}</p>
           <p className="text-sm">
             {locale === "en"
-              ? `${data.reading_time} min read`
+              ? `${data.reading_time} mins read`
               : `${data.reading_time} دقیقه مطالعه`}
           </p>
         </div>

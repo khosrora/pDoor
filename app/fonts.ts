@@ -1,5 +1,6 @@
 import localFont from "next/font/local";
 
+
 export const yekan = localFont({
   src: [
     { path: "./../public/fonts/IRANYekanXFaNum-Thin.ttf", weight: "100" },

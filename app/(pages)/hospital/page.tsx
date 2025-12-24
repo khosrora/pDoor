@@ -37,7 +37,7 @@ export default async function HospitalPage() {
 
         {/* banner image */}
         <div className="lg:w-full">
-          <img src="\images\image 781.png" alt="" />
+          <img src="\images\image 781.png" alt="" /> 
         </div>
       </div>
 

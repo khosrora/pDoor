@@ -17,6 +17,16 @@ html[dir="ltr"] {
   text-align: left;
 }
 
+.font-fa {
+  font-family: var(--font-yekan), sans-serif;
+}
+
+.font-en {
+  font-family: var(--font-inter), sans-serif;
+}
+
+
+
 @import "react-awesome-lightbox/build/style.css";
 
 .my-clip {
@@ -101,3 +111,6 @@ img { -webkit-user-drag: none; user-select: none; }
   font-family: "Inter", "Roboto", sans-serif;
   font-variant-numeric: lining-nums;
 }
+
+
+

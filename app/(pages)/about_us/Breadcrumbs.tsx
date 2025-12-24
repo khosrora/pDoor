@@ -14,7 +14,7 @@ async function Breadcrumbs() {
           <p>{t1("brandName")}</p>
         </li>
         <li>
-          <p>{t1("aboutUs")}</p>
+          <p className="text-[#007EBA]">{t1("aboutUs")}</p>
         </li>
       </ul>
     </div>

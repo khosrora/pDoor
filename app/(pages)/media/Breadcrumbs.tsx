@@ -13,7 +13,7 @@ const Breadcrumbs = () => {
           <Link href="/">{t("home")}</Link>
         </li>
         <li>
-          <p>{t("gallery_news")}</p>
+          <p className="text-[#007EBA]">{t("gallery_news")}</p>
         </li>
       </ul>
     </div>
