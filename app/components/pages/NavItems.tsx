@@ -118,20 +118,21 @@ function NavItems() {
   }, []);
 
   const closeDropdown = () => {
-  (document.activeElement as HTMLElement)?.blur();
-};
-
+    (document.activeElement as HTMLElement)?.blur();
+  };
 
   return (
-    <ul className="hidden lg:flex flex-row menu menu-horizontal px-1 gap-x-7">
+    <ul className="hidden lg:flex flex-row menu menu-horizontal px-1 gap-x-7 text-[16px] ">
       {/* About dropdown */}
-      <li>
-        <div className="dropdown dropdown-hover dropdown-start">
+      <li className=" hover:text-[#005E8B]">
+        <div className="dropdown dropdown-hover hover:bg-transparent dropdown-center ">
           <div tabIndex={0} role="button" className="">
             {t("brandName")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm  text-[13px]">
+          <ul
+            className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm  text-[13px]"
+          >
             <li className="group hover:bg-[#005E8B] transition-colors">
               <Link
                 href={"/about_us"}
@@ -169,8 +170,8 @@ function NavItems() {
       </li>
 
       {/* Products → Categories dropdown */}
-      <li>
-        <div className="dropdown dropdown-hover dropdown-start">
+      <li className="hover:bg-none hover:text-[#005E8B]">
+        <div className="dropdown dropdown-hover hover:bg-transparent dropdown-center">
           <div tabIndex={0} role="button" className="">
             {t("navProducts")}
           </div>
@@ -245,9 +246,9 @@ function NavItems() {
       </li>
 
       {/* Industries */}
-      <li>
+      <li className="hover:bg-none hover:text-[#005E8B]">
         {/* <Link href={"/hospital"}>{t("navIndustries")}</Link> */}
-        <div className="dropdown dropdown-hover dropdown-start ">
+        <div className="dropdown dropdown-hover hover:bg-transparent dropdown-center ">
           <div tabIndex={0} role="button" className="">
             {t("navIndustries")}
           </div>
@@ -261,7 +262,7 @@ function NavItems() {
 
                 {/* متن */}
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                 {t("industries.hospital")}
+                  {t("industries.hospital")}
                 </p>
               </Link>
             </li>
@@ -271,7 +272,7 @@ function NavItems() {
 
                 {/* متن */}
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                 {t("industries.shopping")}
+                  {t("industries.shopping")}
                 </p>
               </Link>
             </li>
@@ -282,7 +283,7 @@ function NavItems() {
 
                 {/* متن */}
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                   {t("industries.hotel")}
+                  {t("industries.hotel")}
                 </p>
               </Link>
             </li>
@@ -302,7 +303,7 @@ function NavItems() {
 
                 {/* متن */}
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                {t("industries.office")}
+                  {t("industries.office")}
                 </p>
               </Link>
             </li>
@@ -312,7 +313,7 @@ function NavItems() {
 
                 {/* متن */}
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                 {t("industries.private")}
+                  {t("industries.private")}
                 </p>
               </Link>
             </li>
@@ -322,7 +323,7 @@ function NavItems() {
 
                 {/* متن */}
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                   {t("industries.airport")}
+                  {t("industries.airport")}
                 </p>
               </Link>
             </li>
@@ -352,7 +353,7 @@ function NavItems() {
 
                 {/* متن */}
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
-                 {t("industries.creative")}
+                  {t("industries.creative")}
                 </p>
               </Link>
             </li>
@@ -361,20 +362,28 @@ function NavItems() {
       </li>
 
       {/* Brands dropdown (new) */}
-      <li>
-        <div className="dropdown dropdown-hover dropdown-start">
+      <li className="hover:bg-none hover:text-[#005E8B]">
+        <div className="dropdown dropdown-hover hover:bg-transparent dropdown-center">
           <div tabIndex={0} role="button" className="">
             {t("navBrands")}
           </div>
 
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
             <li className=" hover:text-white hover:bg-[#005E8B]">
-              <Link href={`/geze`} className="flex items-center gap-2" onClick={closeDropdown}>
+              <Link
+                href={`/geze`}
+                className="flex items-center gap-2"
+                onClick={closeDropdown}
+              >
                 برند Geze
               </Link>
             </li>
             <li className=" hover:text-white hover:bg-[#005E8B]">
-              <Link href={`/geze`} className="flex items-center gap-2" onClick={closeDropdown}>
+              <Link
+                href={`/geze`}
+                className="flex items-center gap-2"
+                onClick={closeDropdown}
+              >
                 برند Genrance
               </Link>
             </li>
@@ -384,15 +393,19 @@ function NavItems() {
 
       {/* Services */}
 
-      <li>
-        <div className="dropdown dropdown-hover dropdown-start">
+      <li className="hover:bg-none hover:text-[#005E8B]">
+        <div className="dropdown dropdown-hover hover:bg-transparent dropdown-center">
           <div tabIndex={0} role="button" className="">
             {t("navServices")}
           </div>
 
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/installation"} className="flex gap-2" onClick={closeDropdown}>
+              <Link
+                href={"/installation"}
+                className="flex gap-2"
+                onClick={closeDropdown}
+              >
                 <InstallIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
                   {t("install")}
@@ -405,15 +418,19 @@ function NavItems() {
 
       {/* Media */}
       {/* <Link href={"/media"}>{t("navMedia")}</Link> */}
-      <li>
-        <div className="dropdown dropdown-hover dropdown-start">
+      <li className="hover:bg-none hover:text-[#005E8B]">
+        <div className="dropdown dropdown-hover hover:bg-transparent dropdown-center">
           <div tabIndex={0} role="button" className="">
             {t("navMedia")}
           </div>
 
           <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px] space-y-4">
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/media"} className="flex gap-2" onClick={closeDropdown}>
+              <Link
+                href={"/media"}
+                className="flex gap-2"
+                onClick={closeDropdown}
+              >
                 <GalleryIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
                   {t("gallery")}
@@ -421,7 +438,11 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={"/media?tab=news"} className="flex gap-2" onClick={closeDropdown}>
+              <Link
+                href={"/media?tab=news"}
+                className="flex gap-2"
+                onClick={closeDropdown}
+              >
                 <NewsIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <p className="text-[#005E8B] group-hover:text-white transition-colors">
                   {t("News")}
