@@ -86,15 +86,15 @@ export default async function Home() {
   ];
 
   return (
-    <main className="mt-20">
+    <main className="mt-12 lg:mt-20">
       <BannerSliders />
 
       {/* Top banner strip */}
-      <div className="bg-[#003148] flex justify-between items-center text-white lg:flex-row-reverse lg:h-[134px] lg:justify-around relative py-4 px-2">
+      <div className="bg-[#003148] flex justify-between items-center text-white lg:flex-row-reverse h-[94px] lg:h-[134px] lg:justify-around relative py-4 px-2">
         <div className="flex flex-row">
-          <div className="flex flex-col text-left">
-            <p className="lg:text-[22px]">{t("banner.primary1")}</p>
-            <p className="lg:text-[22px]">{t("banner.primary2")}</p>
+          <div className="flex flex-col text-right lg:text-left">
+            <p className="text-[18px] lg:text-[22px]">{t("banner.primary1")}</p>
+            <p className="text-[18px] lg:text-[22px]">{t("banner.primary2")}</p>
           </div>
 
           <div className="hidden lg:flex border border-zinc-200 mx-4" />
@@ -107,7 +107,7 @@ export default async function Home() {
             </p>
           </div>
         </div>
-        <button className="btn btn-outline px-8">{t("banner.button")}</button>
+        <button className="btn btn-outline p-1 lg:px-8 text-[13px]">{t("banner.button")}</button>
         <img src="/path486.svg" className="absolute left-150 -top-10 z-2" />
       </div>
 

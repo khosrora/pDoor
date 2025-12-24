@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { IconMenu3, IconSearch } from "@tabler/icons-react";
+import { IconMenu2, IconMenu3, IconSearch } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import NavItems from "../pages/NavItems";
@@ -55,7 +55,7 @@ function Header() {
   };
 
   return (
-    <div className="fixed top-0 z-10 bg-white w-full">
+    <div className="fixed top-0 z-10 bg-white w-full h-14 lg:h-[104px]">
       <div className="flex justify-between items-center mb-2 p-2 px-2 max-w-7xl m-auto">
         {/* Mobile Drawer */}
         <div className="flex justify-start items-center gap-x-2 lg:hidden">
@@ -66,7 +66,7 @@ function Header() {
                 htmlFor="my-drawer-1"
                 className="btn btn-ghost drawer-button"
               >
-                <IconMenu3 />
+                <IconMenu2 />
               </label>
             </div>
             <div className="drawer-side">
@@ -99,18 +99,31 @@ function Header() {
           </div>
         </div>
 
-        {/* Logo + Nav Items */}
-        <div className="flex justify-start items-center gap-4">
+        {/* Logo + Nav Items in desktop*/}
+        <div className="lg:flex lg:justify-start lg:items-center lg:gap-4 hidden">
           <Link href="/">
             <Image
               src="/images/logo.png"
               width={100}
               height={50}
               alt={t("logoAlt")}
-              className="lg:w-[90px] lg:h-[70px]"
+              className="lg:w-[90px] lg:h-[70px] w-[29px] h-[26px]"
             />
           </Link>
           <NavItems />
+        </div>
+
+        {/* Logo in mobile */}
+        <div className="lg:hidden flex justify-start">
+          <Link href={"/"}>
+            <Image
+              src="/images/logo.png"
+              width={100}
+              height={50}
+              alt={t("logoAlt")}
+              className="w-[29px] h-[26px]"
+            />
+          </Link>
         </div>
 
         {/* Desktop Search + Language */}

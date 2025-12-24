@@ -67,12 +67,12 @@ export default function CategoriesSwiper() {
   const isRTL = locale === "fa";
 
   return (
-    <div className="my-20 max-w-7xl m-auto relative">
+    <div className=" my-10 lg:my-20 max-w-7xl m-auto relative">
       <div className="mb-16 flex justify-center gap-2">
-        <p className="text-[33px] font-bold text-center">
+        <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center">
           {t("latestProducts1")}
         </p>
-        <p className="text-[33px] font-bold text-center text-[#FAB21F]">{t("latestProducts2")}</p>
+        <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center text-[#FAB21F]">{t("latestProducts2")}</p>
       </div>
 
       {/* Swiper */}
@@ -81,38 +81,39 @@ export default function CategoriesSwiper() {
         onSwiper={setSwiperRef}
         pagination={{ clickable: true }}
         spaceBetween={16}
-        slidesPerView={2.9}
+        slidesPerView={1}
         dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
-          640: { slidesPerView: 1.5 },
+          411: {slidesPerView:2 },
+          640: { slidesPerView: 2 },
           768: { slidesPerView: 2.65 },
         }}
        
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[305px] h-[468px] bg-base-100 rounded-md ">
+            <div className="card w-[182px] h-[283px] border lg:w-[305px] lg:h-[468px] lg:border-none bg-base-100 rounded-md ">
               {/* IMAGE */}
               <figure>
                 <img
                   src={cat.image}
                   alt={cat.name}
-                  className="w-full h-[268px] object-cover rounded-t-md"
+                  className="w-full h-[150px] lg:h-[268px] object-cover rounded-t-md"
                 />
               </figure>
 
               <div className="card-body p-3">
                 {/* CATEGORY TITLE */}
-                <div className="flex items-center justify-between gap-2 text-xs text-zinc-600">
-                  <div className="flex items-center justify-start gap-2">
+                <div className="flex flex-row-reverse lg:flex-row items-center justify-between gap-2 text-xs text-zinc-600">
+                  <div className="flex flex-row-reverse lg:flex-row items-center justify-start gap-2">
                     <img src="\SVGs\Polygon 33.svg" alt="polygon" />
                     <img
                       src={cat.logo}
                       alt={cat.name}
-                      className="w-[32px] h-10 object-center"
+                      className="w-[18px] h-[22px] lg:w-[32px] lg:h-10 object-center"
                     />
                   </div>
-                    <div className="text-[13px]">
+                    <div className=" hidden lg:flex lg:text-[13px]">
                       {cat.name_en}
                     </div>
                 </div>
