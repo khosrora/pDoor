@@ -138,7 +138,7 @@
     "logMessage": "فرم ارسال شد:"
   },
   "HospitalSliders": {
-    "sectionTitle": "پروژه‌های بیمارستانی",
+    "sectionTitle": "پروژه‌های انجام شده برای بیمارستان‌ها",
     "items": {
       "hospital1": {
         "title": "بیمارستان رضوی مشهد",

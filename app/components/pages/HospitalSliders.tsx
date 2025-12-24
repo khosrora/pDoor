@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { useTranslations } from "next-intl";
@@ -18,9 +19,7 @@ export default function HospitalSliders() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(
-      "https://api.persiadoorco.com/api/v1/projects/?category=hospital"
-    )
+    fetch("https://api.persiadoorco.com/api/v1/projects/?category=hospital")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data.results || []);
@@ -39,22 +38,24 @@ export default function HospitalSliders() {
     );
   }
 
-  if (projects.length === 0) {
-    return null;
-  }
+  if (projects.length === 0) return null;
 
   return (
     <div className="my-8 bg-[#003F5D] py-8">
       {/* Header */}
-      <div className="flex flex-col items-center mb-6 text-white px-4">
-        <p className="text-lg font-semibold">
+      <div className="flex flex-col items-start mb-6 text-white px-4 max-w-7xl mx-auto">
+        <p className="text-[23px] font-regular">
           {t("sectionTitle")}
         </p>
       </div>
 
       {/* Swiper */}
       <Swiper
-        pagination={{ clickable: true }}
+        modules={[Pagination]}
+        pagination={{
+          clickable: true,
+          el: ".hospital-pagination",
+        }}
         spaceBetween={16}
         slidesPerView={1.1}
         breakpoints={{
@@ -67,7 +68,7 @@ export default function HospitalSliders() {
       >
         {projects.map((item) => (
           <SwiperSlide key={item.slug}>
-            <div className="lg:w-[392px] lg:h-[326px] bg-white rounded-sm overflow-hidden">
+            <div className="lg:w-[392px] lg:h-[326px] bg-white rounded-sm overflow-hidden flex flex-col">
               <figure>
                 <img
                   src={item.cover_image}
@@ -85,6 +86,9 @@ export default function HospitalSliders() {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/* Pagination under cards */}
+      <div className="hospital-pagination mt-6 flex justify-center" />
     </div>
   );
 }
