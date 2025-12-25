@@ -67,8 +67,8 @@ export default function CategoriesSwiper() {
   const isRTL = locale === "fa";
 
   return (
-    <div className=" my-10 lg:my-20 max-w-7xl m-auto relative">
-      <div className="mb-16 flex justify-center gap-2">
+    <div className="mt-5 mb-20 lg:my-10 lg:my-20 max-w-7xl m-auto relative">
+      <div className=" mb-8 lg:mb-16 flex justify-center gap-2">
         <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center">
           {t("latestProducts1")}
         </p>
@@ -92,7 +92,7 @@ export default function CategoriesSwiper() {
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[182px] h-[283px] border lg:w-[305px] lg:h-[468px] lg:border-none bg-base-100 rounded-md ">
+            <div className="card w-[182px] h-[283px] border border-[#C5C5C5] lg:w-[305px] lg:h-[468px] lg:border-none bg-base-100 rounded-md ">
               {/* IMAGE */}
               <figure>
                 <img
@@ -102,7 +102,7 @@ export default function CategoriesSwiper() {
                 />
               </figure>
 
-              <div className="card-body p-3">
+              <div className="card-body p-1 lg:p-3">
                 {/* CATEGORY TITLE */}
                 <div className="flex flex-row-reverse lg:flex-row items-center justify-between gap-2 text-xs text-zinc-600">
                   <div className="flex flex-row-reverse lg:flex-row items-center justify-start gap-2">
@@ -116,14 +116,15 @@ export default function CategoriesSwiper() {
                     <div className=" hidden lg:flex lg:text-[13px]">
                       {cat.name_en}
                     </div>
+                    <p className="flex lg:hidden text-[13px]">{cat.name}</p>
                 </div>
 
                 <div className="divider my-2"></div>
                 {/* card title */}
                 <div>
-                  <p className="text-[16px]">{cat.name}</p>
+                  <p className="hidden lg:flex text-[16px]">{cat.name}</p>
                   {/* BUTTON */}
-                  <div className="card-actions justify-between items-center leading-15">
+                  <div className="card-actions justify-between items-center lg:leading-15">
                     <Link
                       href={`/products?lang=${locale}&&category=${cat.slug}`}
                       className="flex items-center gap-1 text-[13px]"

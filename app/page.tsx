@@ -116,7 +116,7 @@ export default async function Home() {
       {/* Expertise + about clip section */}
       <div className="relative" dir="rtl">
         {/* Right big clip cards (desktop) */}
-        <div className="my-clip bg-zinc-200 h-72 lg:h-[558px] w-full absolute left-0 -top-2 lg:flex lg:justify-end lg:items-center">
+        <div className="my-clip bg-zinc-200 h-72 h-[293px] lg:h-[558px] w-full absolute left-0 -top-4 lg:-top-2 lg:flex lg:justify-end lg:items-center">
           <div className="hidden lg:grid grid-cols-2 gap-45 gap-y-8 p-4 max-w-md lg:ml-80">
             {expertiseCards.map((item, index) => {
               const bgClass =
@@ -145,7 +145,7 @@ export default async function Home() {
         </div>
 
         {/* Left blue clip */}
-        <div className="relative -top-16 my-clip-rt bg-[#003F5D] h-80 lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20">
+        <div className="relative top-0 my-clip-rt bg-[#003F5D] h-[254px] lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20">
           <div className="absolute right-12 top-6 lg:w-[376px] lg:mr-30 lg:mt-15">
             <p className="text-[#FAB21F] text-[33px] font-semibold">
               {t("about.brand")}
@@ -176,7 +176,7 @@ export default async function Home() {
           return (
             <div
               key={key}
-              className={`relative p-4 rounded-xl ${bgClass} ${textClass}`}
+              className={`relative p-4 rounded-md border border-[#003F5D] ${bgClass} ${textClass}`}
             >
               <p className="font-bold">{t(`expertise.items.${key}.title`)}</p>
 
