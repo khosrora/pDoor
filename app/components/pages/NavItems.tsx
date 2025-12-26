@@ -257,7 +257,7 @@ function NavItems() {
             {/* <li>بیمارستان</li> */}
 
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/hospital`} onClick={closeDropdown}>
+              <Link href={`/industries/hospital`} onClick={closeDropdown}>
                 <HospitalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -298,7 +298,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`} onClick={closeDropdown}>
+              <Link href={`/industries/governmental_center`} onClick={closeDropdown}>
                 <CenterIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}

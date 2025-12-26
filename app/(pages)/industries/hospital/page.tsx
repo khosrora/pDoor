@@ -1,9 +1,10 @@
 import Image from "next/image";
-import HospitalSliders from "../../components/pages/HospitalSliders";
-import AccordionCustions from "../../components/pages/AccordionCustions";
+import HospitalSliders from "../../../components/pages/HospitalSliders";
+import AccordionCustions from "../../../components/pages/AccordionCustions";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import Breadcrumbs from "./Breadcrumbs";
+import HospitalInstructionSwipper from "@/app/components/pages/HospitalInstructionSwipper";
 
 export const metadata: Metadata = {
   title: "پرشیادُر | بیمارستان‌ها",
@@ -19,14 +20,13 @@ export default async function HospitalPage() {
       <div className="p-4">
         <Breadcrumbs />
       </div>
-
       {/* Hero */}
-      <div className="bg-[#003F5D] text-white lg:grid lg:grid-cols-2 lg:items-center lg:justify-between ">
-        <div className="lg:flex lg:flex-col lg:justify-center py-10 px-40 w-full ">
-          <p className="text-[#FAB21F] text-[25px] font-bold">
+      <div className="bg-[#003F5D] text-white flex flex-col-reverse lg:grid lg:grid-cols-2 lg:items-center lg:justify-between  ">
+        <div className="lg:flex lg:flex-col lg:justify-center p-4 lg:py-10 lg:px-40 w-full ">
+          <p className="text-[#FAB21F] text-[19px] font-regular lg:text-[25px] lg:font-bold">
             {t("hero.title")}
           </p>
-          <p className="text-[18px] mt-4 lg:w-[541px]">{t("hero.text")}</p>
+          <p className="text-[13px] lg:text-[18px] mt-4 lg:w-[541px]">{t("hero.text")}</p>
           <div className="flex justify-start items-center gap-x-4 mt-16">
             <button className="btn">{t("hero.consultButton")}</button>
             <button className="btn bg-[#FAB21F] border-0">
@@ -37,16 +37,23 @@ export default async function HospitalPage() {
 
         {/* banner image */}
         <div className="lg:w-full">
-          <img src="\images\image 781.png" alt="" /> 
+          <img src="\images\image 781.png" alt="" />
         </div>
       </div>
 
-      <div className="flex justify-center my-20">
+
+
+      <div className="hidden lg:flex justify-center my-20">
         <img
           src="\GIFS\Record_2025_12_03_18_26_17_489-ezgif.com-video-to-gif-converter.gif"
           alt=""
         />
-      </div>      <div className="max-w-5xl m-auto">
+
+        {/* <HospitalInstructionSwipper/> */}
+      </div>{" "}
+
+
+      <div className="max-w-5xl m-auto">
         {/* Top illustration (mobile) */}
         <div className="p-4 lg:hidden">
           <Image
@@ -138,7 +145,6 @@ export default async function HospitalPage() {
           </div>
         </div>
       </div>
-
       {/* Project slider + FAQ accordion (already localized components) */}
       <HospitalSliders />
       <AccordionCustions />

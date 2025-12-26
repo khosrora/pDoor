@@ -138,6 +138,10 @@
     },
     "logMessage": "Form submitted:"
   },
+  "OfficeSliders":{
+    "sectionTitle": "Government Centers Projects"
+
+  },
   "HospitalSliders": {
     "sectionTitle": "Hospital Projects",
     "items": {
@@ -381,10 +385,43 @@
       "subtitle": "Official representative of GEZE products in Iran"
     }
   },
+  "OfficePage": {
+    "home": "Home",
+    "industries": "Industries",
+    "office":"Governmental Centers",
+    "hero": {
+      "title": "Governmental Centers",
+      "text": "PersiaDoor understands the unique requirements of governmental centers, where security, accessibility, and efficiency are paramount. Our automatic doors are designed to facilitate smooth entry and exit for employees and visitors while ensuring robust security measures are in place. With features such as access control integration, durable construction, and compliance with safety regulations, our doors enhance the functionality and professionalism of governmental facilities.",
+      "consultButton": "Free consultation",
+      "serviceButton": "Contact service"
+    },
+    "howSection": {
+      "title": "How automatic doors help your governmental center"
+    },
+    "benefits": {
+      "security": {
+        "title": "Enhanced security",
+        "text": "Automatic doors can be integrated with access control systems to monitor and restrict entry to sensitive areas within governmental centers."
+      },
+      "accessibility": {
+        "title": "Improved accessibility",
+        "text": "Automatic doors provide easy access for all individuals, including those with disabilities, ensuring compliance with accessibility standards."
+      },
+      "efficiency": {
+        "title": "Operational efficiency",
+        "text": "By facilitating smooth and quick entry and exit, automatic doors help reduce congestion during peak hours in governmental facilities."
+      },
+      "durability": {
+        "title": "Durability and reliability",
+        "text": "Designed to withstand high traffic volumes, our automatic doors ensure long-lasting performance in busy governmental environments."
+      }
+    }
+  },
   "HospitalPage": {
     "home": "Home",
     "industries": "Industries",
     "hospitals": "Hospitals",
+    "office":"Governmental Centers",
     "hero": {
       "title": "Hospitals",
       "text": "With a deep understanding of hospital environments and their specific needs, PersiaDoor designs and supplies hospital doors that meet the highest hygiene standards and modern technologies. These doors provide easy, unobstructed access while minimizing touch points and enabling quick cleaning to support infection control. They also open wide enough for hospital beds and, when closed, help reduce unwanted air flow between zones.",
@@ -589,7 +626,7 @@
     "brandName": "PersiaDoor",
     "aboutUs": "About Us",
     "banner": {
-      "primary1": "سیستم ضد حریق ",
+      "primary1": "سیستsectionTitle ضد حریق ",
       "primary2": "منطبق با استانداردهای اروپا",
       "secondary1": "Fire protection system ",
       "secondary2": "Compliant with European standards",

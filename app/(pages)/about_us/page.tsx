@@ -13,6 +13,7 @@ import Link from "next/link";
 import Breadcrumbs from "./Breadcrumbs";
 import CounterItem from "@/app/components/pages/CounterItem";
 import ImageLightbox from "@/app/components/pages/ImageLightbox";
+import CustomerList from "@/app/components/ui/CustomerList";
 
 export default async function TimelineSlider() {
   const t = await getTranslations("TimelineSlider");
@@ -198,70 +199,9 @@ export default async function TimelineSlider() {
 
         {/* Customers section */}
         {/* //////////////////////////////////////////////////// */}
-        <div className="flex flex-col items-center mt-60 mb-20 lg:flex-row lg:justify-around lg:items-center">
-          {/* متن سمت راست */}
-          <div className="flex flex-col items-start lg:text-[33px]">
-            <p className="text-[#FAB21F] font-bold">
-              {t1("customers.titleHighlight")}
-            </p>
-            <p className="font-bold">{t1("customers.titleRest")}</p>
-          </div>
+       
+<CustomerList/>
 
-          {/* نسخه موبایل (عکس) */}
-          <Image
-            src="/images/Customers_mobile (2).png"
-            width={1000}
-            height={1000}
-            alt={t("customers.alt")}
-            className="mt-8 lg:hidden"
-          />
-
-          {/* نسخه دسکتاپ – جدول 8×3 */}
-          <div className="hidden lg:grid lg:grid-cols-8 lg:grid-rows-3 lg:gap-6 mt-8 lg:mr-16">
-            {[
-              "",
-              "/images/customers/image-866.png",
-              "",
-              "/images/customers/image-861_2.png",
-              "/images/customers/image-863.png",
-              "",
-              "/images/customers/image-859_2.png",
-              "",
-              "/images/customers/image-864.png",
-              "/images/customers/image-862_2.png",
-              "/images/customers/image-865.png",
-              "/images/customers/image-871.png",
-              "/images/customers/image-870.png",
-              "/images/customers/image-860_2.png",
-              "/images/customers/image-858_2.png",
-              "/images/customers/image-857_2.png",
-
-              "",
-              "/images/customers/image-868.png",
-              "",
-              "/images/customers/image-869.png",
-              "",
-              "/images/customers/image-867.png",
-              "",
-              "",
-            ].map((src, index) => (
-              <div
-                key={index}
-                className=" w-[66px] h-[66px] flex items-center justify-center 
-                                  overflow-hidden transition-all duration-300  border-none hover:scale-160 filter grayscale transition-all hover:grayscale-0 duration-300"
-              >
-                {/* اگر خانه خالی بود، فقط یک div سفید نمایش بده */}
-                {src ? (
-                  <img
-                    src={src}
-                    alt={`logo-${index}`}
-                    className="w-[64px] h-[64px] object-contain    hover:border-[#0C5273] hover:border-2 hover:rounded-lg "
-                  />
-                ) : null}
-              </div>
-            ))}
-          </div>
-        </div>
         <div className="flex justify-center items-center w-full lg:h-[430px] bg-[#003F5D]">
           <div className="grid grid-cols-3 max-w-6xl gap-20">
             <CounterItem

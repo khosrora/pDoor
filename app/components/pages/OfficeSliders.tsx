@@ -13,13 +13,13 @@ interface HospitalProject {
   cover_image: string;
 }
 
-export default function HospitalSliders() {
-  const t = useTranslations("HospitalSliders");
+export default function OfficeSliders() {
+  const t = useTranslations("OfficeSliders");
   const [projects, setProjects] = useState<HospitalProject[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://api.persiadoorco.com/api/v1/projects/?category=hospital")
+    fetch("https://api.persiadoorco.com/api/v1/projects/?category=government-centers")
       .then((res) => res.json())
       .then((data) => {
         setProjects(data.results || []);
@@ -44,7 +44,7 @@ export default function HospitalSliders() {
     <div className="my-8 bg-[#003F5D] py-8">
       {/* Header */}
       <div className="flex flex-col items-start mb-6 text-white px-4 max-w-7xl mx-auto">
-        <p className="text-[23px] font-regular">
+        <p className="text-[16px] lg:text-[23px] font-regular">
           {t("sectionTitle")}
         </p>
       </div>
@@ -77,7 +77,7 @@ export default function HospitalSliders() {
                 />
               </figure>
 
-              <div className="p-4">
+              <div className="lg:p-4">
                 <p className="text-[#005E8B] font-semibold">
                   {item.title}
                 </p>
