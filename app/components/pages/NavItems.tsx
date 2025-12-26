@@ -267,7 +267,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`} onClick={closeDropdown}>
+              <Link href={`/industries/shops`} onClick={closeDropdown}>
                 <ShopIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -288,7 +288,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`} onClick={closeDropdown}>
+              <Link href={`/industries/banks`} onClick={closeDropdown}>
                 <BankIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -308,7 +308,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`} onClick={closeDropdown}>
+              <Link href={`/industries/private_center`} onClick={closeDropdown}>
                 <PrivateIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -318,7 +318,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`} onClick={closeDropdown}>
+              <Link href={`/industries/airports`} onClick={closeDropdown}>
                 <AirportIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -328,7 +328,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`} onClick={closeDropdown}>
+              <Link href={`/industries/terminals`} onClick={closeDropdown}>
                 <TerminalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}
@@ -338,7 +338,7 @@ function NavItems() {
               </Link>
             </li>
             <li className="group hover:bg-[#005E8B] transition-colors">
-              <Link href={`/`} onClick={closeDropdown}>
+              <Link href={`/industries/factory`} onClick={closeDropdown}>
                 <FactoryIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
                 {/* متن */}

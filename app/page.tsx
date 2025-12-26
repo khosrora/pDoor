@@ -39,16 +39,16 @@ const industries: {
   icon: React.ComponentType;
   link: string;
 }[] = [
-  { key: "bank", icon: Bank_Icon, link: "/" },
+  { key: "bank", icon: Bank_Icon, link: "/industries/banks" },
   { key: "creative", icon: Creative_Icon, link: "/" },
-  { key: "factory", icon: Factory_Icon, link: "/" },
+  { key: "factory", icon: Factory_Icon, link: "/industries/factory" },
   { key: "hotel", icon: Hotel_Icon, link: "/" },
-  { key: "office", icon: Office_Icon, link: "/" },
-  { key: "private", icon: Privacy_Icon, link: "/" },
-  { key: "shopping", icon: Shoping_Icon, link: "/" },
-  { key: "terminal", icon: Terminal_Icon, link: "/" },
-  { key: "hospital", icon: hospital_Icon, link: "/hospital" },
-  { key: "airport", icon: airport_Icon, link: "/" },
+  { key: "office", icon: Office_Icon, link: "/industries/governmental_center" },
+  { key: "private", icon: Privacy_Icon, link: "/industries/private_center" },
+  { key: "shopping", icon: Shoping_Icon, link: "/industries/shops" },
+  { key: "terminal", icon: Terminal_Icon, link: "/industries/terminals" },
+  { key: "hospital", icon: hospital_Icon, link: "/industries//hospital" },
+  { key: "airport", icon: airport_Icon, link: "/industries/airports" },
 ];
 
 export const metadata: Metadata = {
