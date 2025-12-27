@@ -8,6 +8,7 @@ import NavItems from "../pages/NavItems";
 import LanguageSwitcher from "../ui/LanguageSwitcher";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
+import HeaderMobile from "./HeaderMobile";
 
 function Header() {
   const t = useTranslations("Header");
@@ -58,46 +59,7 @@ function Header() {
     <div className="fixed top-0 z-10 bg-white w-full h-14 lg:h-[104px]">
       <div className="flex justify-between items-center mb-2 p-2 px-2 max-w-7xl m-auto">
         {/* Mobile Drawer */}
-        <div className="flex justify-start items-center gap-x-2 lg:hidden">
-          <div className="drawer">
-            <input id="my-drawer-1" type="checkbox" className="drawer-toggle" />
-            <div className="drawer-content">
-              <label
-                htmlFor="my-drawer-1"
-                className="btn btn-ghost drawer-button"
-              >
-                <IconMenu2 />
-              </label>
-            </div>
-            <div className="drawer-side">
-              <label
-                htmlFor="my-drawer-1"
-                aria-label="close sidebar"
-                className="drawer-overlay"
-              ></label>
-              <ul className="menu bg-base-200 min-h-full w-80 p-4">
-                <li>
-                  <Link href="/">{t("brandName")}</Link>
-                </li>
-                <li>
-                  <Link href="/products">{t("navProducts")}</Link>
-                </li>
-                <li>
-                  <Link href="/hospital">{t("navIndustries")}</Link>
-                </li>
-                <li>
-                  <Link href="/geze">{t("navBrands")}</Link>
-                </li>
-                <li>
-                  <Link href="/installation">{t("navServices")}</Link>
-                </li>
-                <li>
-                  <Link href="/media">{t("navMedia")}</Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+       <HeaderMobile t={t} />
 
         {/* Logo + Nav Items in desktop*/}
         <div className="lg:flex lg:justify-start lg:items-center lg:gap-4 hidden">

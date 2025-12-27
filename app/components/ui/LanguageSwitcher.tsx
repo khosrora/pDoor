@@ -24,13 +24,13 @@ export default function LanguageSwitcher() {
 };
 
   return (
-    <div className="flex items-center gap-2 rounded-full px-3 py-1 bg-white w-fit">
+    <div className="flex items-center gap-2  lg:px-3 lg:py-1  w-fit">
       <button
         onClick={() => changeLocale("en")}
         className={`px-2 text-sm transition ${
           locale === "en"
             ? "font-bold text-blue-600"
-            : "text-zinc-600 hover:text-zinc-800"
+            : "text-white lg:text-zinc-600 hover:text-zinc-800"
         }`}
       >
         en
@@ -43,7 +43,7 @@ export default function LanguageSwitcher() {
         className={`px-2 text-sm transition ${
           locale === "fa"
             ? "font-bold text-blue-600"
-            : "text-zinc-600 hover:text-zinc-800"
+            : "text-white lg:text-zinc-600 hover:text-zinc-800"
         }`}
       >
         فا

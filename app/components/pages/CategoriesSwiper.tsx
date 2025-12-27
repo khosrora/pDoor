@@ -67,7 +67,7 @@ export default function CategoriesSwiper() {
   const isRTL = locale === "fa";
 
   return (
-    <div className="mt-5 mb-20 lg:my-10 lg:my-20 max-w-7xl m-auto relative">
+    <div className="mt-5 mb-20 lg:my-10 lg:my-20 max-w-7xl m-auto relative p-4">
       <div className=" mb-8 lg:mb-16 flex justify-center gap-2">
         <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center">
           {t("latestProducts1")}
