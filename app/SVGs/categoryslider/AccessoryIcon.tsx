@@ -19,7 +19,7 @@ export default function AccessoryIcon({ className }: IconProps) {
         height="40"
         rx="1.5"
         stroke="currentColor"
-        stroke-width="1.7"
+        strokeWidth="1.7"
       />
       <rect
         x="6.84961"

@@ -12,6 +12,11 @@ import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import ProductAttributes from "./ProductAttributes";
 
+// SVG icons
+import FireSave from "@/app/SVGs/FireSave";
+import Exterior from "@/app/SVGs/Exterior";
+import INTERIOR from "@/app/SVGs/INTERIOR";
+
 export default function Products({
   products,
   count,
@@ -19,13 +24,12 @@ export default function Products({
   products: Product[];
   count: number;
 }) {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const router = useRouter();
   const t = useTranslations("ProductsListingPage");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const { items, addItem, removeItem } = useCompare();
-
   const currentSort = searchParams.get("sort") || "";
 
   const isInCompare = (slug: string) => items.some((p) => p.slug === slug);
@@ -33,20 +37,20 @@ export default function Products({
   const handleCompareToggle = (product: Product, imageUrl: string) => {
     if (isInCompare(product.slug)) {
       removeItem(product.slug);
-      // toast.error(`${product.name} از مقایسه حذف شد`);
+      
     } else {
       addItem({
         slug: product.slug,
         name: product.name,
         image: imageUrl,
-        brand: product.brand?.name || "/images/noimage.jpg",
+        brand: product.brand?.name || "",
         specs:
           product.specifications?.map((s) => ({
             field_name: s.field_name || "",
             value: s.value || "-",
           })) || [],
       });
-      // toast.success(`${product.name} به مقایسه اضافه شد`);
+      console.log(items.field_name)
     }
   };
 
@@ -64,10 +68,9 @@ export default function Products({
           {count} {t("productsFound")}
         </p>
 
-        <div className="flex justify-end items-center space-x-4 text-[14px]">
-          {/* NEWEST */}
-          <p
-            className={`cursor-pointer hover:underline ${
+        <div className="flex items-center gap-4 text-[14px]">
+          <button
+            className={`hover:underline ${
               currentSort === ""
                 ? "text-zinc-900 font-semibold"
                 : "text-zinc-400"
@@ -75,13 +78,12 @@ export default function Products({
             onClick={() => updateSort("")}
           >
             {t("sortNewest")}
-          </p>
+          </button>
 
-          <div className="divider divider-horizontal"></div>
+          <div className="divider divider-horizontal" />
 
-          {/* POPULAR */}
-          <p
-            className={`cursor-pointer hover:underline ${
+          <button
+            className={`hover:underline ${
               currentSort === "popular"
                 ? "text-zinc-900 font-semibold"
                 : "text-zinc-400"
@@ -89,7 +91,7 @@ export default function Products({
             onClick={() => updateSort("popular")}
           >
             {t("sortBestSelling")}
-          </p>
+          </button>
         </div>
       </div>
 
@@ -99,15 +101,19 @@ export default function Products({
           const imageUrl = product.main_image || "/images/noimage.jpg";
           const inCompare = isInCompare(product.slug);
 
+          // Filter only tag1 fields
+          const tag1 =
+            product.specifications?.filter(
+              (f) => f.display_section === "tag1"
+            ) || [];
+
           return (
             <div
               key={product.slug}
-              className="group relative card bg-base-100 border rounded-md border-zinc-300 hover:shadow transition"
+              className="relative group card bg-base-100 border border-zinc-300 rounded-md hover:shadow transition"
             >
-              <Link
-                href={`/products/${product.slug}`}
-                className="block w-full h-full"
-              >
+              <Link href={`/products/${product.slug}`} className="block h-full">
+                {/* Image */}
                 <figure>
                   <Image
                     src={imageUrl}
@@ -117,40 +123,55 @@ export default function Products({
                     className="w-full h-[207px] object-cover rounded-t-md"
                   />
                 </figure>
-                <div className="mr-2">
-                  <Image
-                    alt="Categories"
-                    width={94}
-                    height={48}
-                    src={"/images/Frame-1261157978.png"}
-                  />
+
+                {/* Tag1 Icons Row */}
+                <div className="mr-2 mt-2 flex flex-row gap-4">
+                  {tag1.map((item) => {
+                    console.log("field_name:", item.field_name);
+                    const active = item.value === "1";
+                    const color = active ? "#FFB800" : "#C3C3C3";
+
+                    let IconComponent: any = null;
+                    if (item.field_name === "ضد حریق") IconComponent = FireSave;
+                    if (item.field_name === "درب بیرونی")
+                      IconComponent = Exterior;
+                    if (item.field_name === "درب داخلی")
+                      IconComponent = INTERIOR;
+
+                    return (
+                      <div
+                         key={item.field_name}
+                        className="flex items-center gap-1"
+                      >
+                        {IconComponent && (
+                          <IconComponent color={color} width={22} height={22} />
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
 
+                {/* Attributes */}
                 <div className="card-body p-0">
                   <div className="divider my-0" />
                   <ProductAttributes product={product} />
                 </div>
               </Link>
 
-              {/* Compare Badge */}
+              {/* Compare Button */}
               <div
-                className={`badge absolute right-2 top-2 rounded-full px-2 flex items-center gap-1 cursor-pointer transition-all duration-200
-
-    /* mobile: always visible */
-    opacity-100 translate-y-0
-
-    /* lg+: hover only when NOT inCompare */
-    ${
-      !inCompare
-        ? `
-      lg:opacity-0 lg:translate-y-1
-      lg:group-hover:opacity-100 lg:group-hover:translate-y-0
-    `
-        : "lg:opacity-100 lg:translate-y-0"
-    }
-
-    ${inCompare ? "bg-[#D1F0FF] text-[#007EBA] p-2" : "bg-zinc-100 text-zinc-500"}
-  `}
+                className={`
+                  badge absolute right-2 top-2 z-10 rounded-full px-2
+                  flex items-center gap-1 cursor-pointer
+                  transition-all duration-300
+                  opacity-100 pointer-events-auto
+                  lg:pointer-events-none
+                  ${
+                    inCompare
+                      ? "lg:opacity-100 lg:pointer-events-auto bg-[#003148] text-white"
+                      : "lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto bg-zinc-200 text-zinc-500"
+                  }
+                `}
                 onClick={(e) => {
                   e.preventDefault();
                   e.stopPropagation();
@@ -167,7 +188,7 @@ export default function Products({
 
               {/* Brand Logo */}
               {product.brand?.logo && (
-                <div className="absolute left-3 top-3">
+                <div className="absolute left-3 top-3 z-10">
                   <Image
                     src={product.brand.logo}
                     width={50}
