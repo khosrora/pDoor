@@ -30,27 +30,27 @@ html[dir="ltr"] {
 @import "react-awesome-lightbox/build/style.css";
 
 .my-clip {
-  clipPath: polygon(0 0, 100% 0, 71% 100%, 0% 100%);
+  clip-path: polygon(0 0, 100% 0, 71% 100%, 0% 100%);
 }
 
 .my-clip-rt {
-  clipPath: polygon(48% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(48% 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .my-clip-card-rt {
-  clipPath: polygon(100% 0, 100% 50%, 100% 100%, 0% 50%);
+  clip-path: polygon(100% 0, 100% 50%, 100% 100%, 0% 50%);
 }
 
 .my-clip-card-lt {
-  clipPath: polygon(0 0, 100% 50%, 0 100%, 0% 50%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%, 0% 50%);
 }
 
 .my-clip-rho {
-  clipPath: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 }
 
 /* .my-clip-rho2 {
-  clipPath: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
 } */
 
 /* Apply globally */

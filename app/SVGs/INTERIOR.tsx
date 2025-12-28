@@ -14,19 +14,19 @@ function INTERIOR({ color = "#C5C5C5", strokeColor = "#636363" }) {
         fill={color}
       />
       <path
-        fillRule="evenodd"
+        fill-rule="evenodd"
         clipRule="evenodd"
         d="M1.575 2.5V3.5H19.425V2.5H1.575ZM1.05 1C0.470101 1 0 1.44772 0 2V4C0 4.55228 0.470101 5 1.05 5H19.95C20.5299 5 21 4.55228 21 4V2C21 1.44772 20.5299 1 19.95 1H1.05Z"
         fill={color}
       />
       <path
-        fillRule="evenodd"
+        fill-rule="evenodd"
         clipRule="evenodd"
         d="M16.5 12.5V14.5H24.5V12.5H16.5ZM16 11C15.4477 11 15 11.4477 15 12V15C15 15.5523 15.4477 16 16 16H25C25.5523 16 26 15.5523 26 15V12C26 11.4477 25.5523 11 25 11H16Z"
         fill={color}
       />
       <path
-        fillRule="evenodd"
+        fill-rule="evenodd"
         clipRule="evenodd"
         d="M3.63636 5.60714V17.3929H12.3636V5.60714H3.63636ZM3.09091 4C2.48842 4 2 4.4797 2 5.07143V17.9286C2 18.5203 2.48842 19 3.09091 19H12.9091C13.5116 19 14 18.5203 14 17.9286V5.07143C14 4.47969 13.5116 4 12.9091 4H3.09091Z"
         fill={color}
@@ -44,7 +44,7 @@ function INTERIOR({ color = "#C5C5C5", strokeColor = "#636363" }) {
         fill={color}
       />
       <path
-        fillRule="evenodd"
+        fill-rule="evenodd"
         clipRule="evenodd"
         d="M18.5 8.36364V10.6364H22.5V8.36364H18.5ZM18 7C17.4477 7 17 7.40701 17 7.90909V11.0909C17 11.593 17.4477 12 18 12H23C23.5523 12 24 11.593 24 11.0909V7.90909C24 7.40701 23.5523 7 23 7H18Z"
         fill={color}
