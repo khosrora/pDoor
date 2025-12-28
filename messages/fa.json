@@ -57,6 +57,11 @@
       "button": "سوالات بیشتر"
     }
   },
+  "Categories1": {
+    "header": "محصولات پرشیادر",
+    "productsCount": "{count} محصول",
+    "fetchError": "بارگذاری دسته بندی ها با مشکل مواجه شد"
+  },
   "Categories": {
     "sliding": {
       "title": "درب‌های کشویی",
@@ -112,6 +117,7 @@
       "idle": " ارسال",
       "submitting": "در حال ارسال..."
     }
+    
   },
   "FormNews": {
     "fields": {

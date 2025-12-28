@@ -24,7 +24,7 @@ interface Category {
 }
 
 export default function CategorySliders() {
-  const t = useTranslations("Categories");
+  const t = useTranslations("Categories1");
 
   const locale = useLocale();
   const searchParams = useSearchParams();

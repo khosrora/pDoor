@@ -32,8 +32,6 @@
     }
   },
 
-
-  
   "Accordion": {
     "question1": {
       "title": "Which type of door is suitable for my space?",
@@ -775,7 +773,11 @@
       "productName": "Product Name"
     }
   },
-
+  "Categories": {
+    "header": "Persiadoor Products",
+    "productsCount": "{count} products",
+    "fetchError": "Failed to load categories"
+  },
   "ProductsBrands": {
     "sections": {
       "brands": "Brands",

@@ -43,7 +43,7 @@ export interface Product {
 
 export default function ProductsListingPage() {
   const t = useTranslations("ProductsListingPage");
-  const t2 = useTranslations("Categories");
+  const t2 = useTranslations("Categories1");
   const locale = useLocale();
 
   const router = useRouter();
