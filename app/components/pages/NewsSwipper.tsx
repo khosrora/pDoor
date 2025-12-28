@@ -56,20 +56,27 @@ export default function NewsSwipper() {
   if (loading) return <p className="text-center py-10">Loading...</p>;
 
   return (
-    <div className="relative my-8 py-8 p-4 lg:p-0 lg:py-4 lg:my-0 bg-[#003F5D] lg:pt-10">
+    <div 
+    style={{
+    backgroundImage: "url('/images/news.png')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+  className="relative my-8 py-8 lg:pt-10">
       {/* Header */}
       <div className="flex flex-col items-center mb-6 text-black px-4">
-        <p className="text-[33px] font-semibold mb-1 text-white">
+        <p className="text-[19px] lg:text-[33px] font-semibold mb-1 ">
           {locale === "fa" ? "اخبار و مقالات" : "News & Articles"}
         </p>
-        <p className="text-center text-[20px] text-white">
+        <p className="text-center text-[16px] lg:text-[20px]">
           {locale === "fa"
             ? "آخرین مقالات مرتبط و اخبار پرشیا در را اینجا می‌توانید مشاهده کنید"
             : "See the latest related articles and Persiadoor news here."}
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto my-20 relative">
+      <div className="max-w-7xl mx-auto lg:my-2 relative">
         <Swiper
           modules={[Navigation]}
           onSwiper={setSwiperRef}
@@ -78,11 +85,11 @@ export default function NewsSwipper() {
           centeredSlides={true}
           loop={true}
           onSlideChange={(s) => setActiveIndex(s.realIndex)}
-          className="w-full lg:h-[460px] px-4"
+          className="w-full h-[300px] lg:h-[460px] "
           breakpoints={{
-            0: { slidesPerView: 1 },
-            640: { slidesPerView: 1.3 },
-            768: { slidesPerView: 2.3 },
+            0: { slidesPerView: 2 },
+            640: { slidesPerView: 2.5 },
+            768: { slidesPerView: 2.5 },
             1024: { slidesPerView: 2.8 },
             1280: { slidesPerView: 3 },
           }}
@@ -95,7 +102,7 @@ export default function NewsSwipper() {
                   {/* div پس‌زمینه کارت حفظ شد */}
                   <div className="relative w-full h-[450px]">
                     <div
-                      className={`card lg:w-[420px] lg:h-[421px] bg-white border-2 rounded-md border-zinc-200 transition-transform duration-500 ${
+                      className={`card w-[223px] h-[284px] lg:w-[420px] lg:h-[421px] bg-white  transition-transform duration-500 ${
                         isActive ? " scale-100 shadow-xl z-10" : "scale-90"
                       }`}
                     >
@@ -103,7 +110,7 @@ export default function NewsSwipper() {
                         <img
                           src={post.cover_image}
                           alt={post.title}
-                          className="w-full h-[293px]"
+                          className="w-full h-[168px] lg:h-[293px]"
                         />
                       </figure>
                       <div className="p-4">
@@ -127,20 +134,20 @@ export default function NewsSwipper() {
         <div className="flex justify-center gap-8 mt-8" dir="rtl">
           <button
             ref={nextRef}
-            className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50"
+            className="p-3 border border-[#003F5D] lg:border-white lg:hover:bg-zinc-200 rounded-md z-50"
           >
-            <IconArrowRight color="white" />
+            <IconArrowRight className="text-[#003F5D] lg:text-white" />
           </button>
 
           <button
             ref={prevRef}
-            className="p-3 border border-white hover:bg-zinc-200 rounded-md z-50"
+            className="p-3 border border-[#003F5D] lg:border-white lg:hover:bg-zinc-200 rounded-md z-50"
           >
-            <IconArrowLeft color="white" />
+            <IconArrowLeft  className="text-[#003F5D] lg:text-white" />
           </button>
         </div>
 
-       {/* <div className="absolute h-[400px] w-7xl bg-[#003F5D] -bottom-10 left-1/2 -translate-x-1/2"></div> */}
+       <div className="lg:absolute lg:h-[400px] lg:w-[1300px] bg-[#003F5D] lg:-bottom-10 lg:left-1/2 lg:-translate-x-1/2"></div>
        
 
 

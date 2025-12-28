@@ -7,16 +7,16 @@ import BannerSliders from "@/app/components/pages/BannerSliders";
 import { getTranslations } from "next-intl/server";
 
 // svg's
-import Bank_Icon from "@/public/icons/Bank_Icon.svg";
-import Creative_Icon from "@/public/icons/Creative_Icon.svg";
-import Factory_Icon from "@/public/icons/Factory_Icon.svg";
-import Hotel_Icon from "@/public/icons/Hotel_Icon.svg";
-import Office_Icon from "@/public/icons/Office_Icon.svg";
-import Privacy_Icon from "@/public/icons/Privacy_Icon.svg";
-import Shoping_Icon from "@/public/icons/Shoping_Icon.svg";
-import Terminal_Icon from "@/public/icons/Terminal_Icon.svg";
-import hospital_Icon from "@/public/icons/hospital_Icon.svg";
-import airport_Icon from "@/public/icons/airport_Icon.svg";
+import Bank_Icon from "@/app/SVGs/industriesIconBig/BankIcon";
+import Creative_Icon from "@/app/SVGs/industriesIconBig/CreativeIcon";
+import Factory_Icon from "@/app/SVGs/industriesIconBig/FactoryIcon";
+import Hotel_Icon from "@/app/SVGs/industriesIconBig/HotelIcon";
+import Office_Icon from "@/app/SVGs/industriesIconBig/GovernanceIcon";
+import Privacy_Icon from "@/app/SVGs/industriesIconBig/PrivateIcon";
+import Shoping_Icon from "@/app/SVGs/industriesIconBig/ShopIcon";
+import Terminal_Icon from "@/app/SVGs/industriesIconBig/TerminalIcon";
+import hospital_Icon from "@/app/SVGs/industriesIconBig/HospitalIcon";
+import airport_Icon from "@/app/SVGs/industriesIconBig/AirportIcon";
 import { Metadata } from "next";
 import CategoriesSwiper from "./components/pages/CategoriesSwiper";
 import Link from "next/link";
@@ -147,7 +147,7 @@ export default async function Home() {
         {/* Left blue clip */}
         <div className="relative top-0 my-clip-rt bg-[#003F5D] h-[254px] lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20">
           <div className="absolute right-12 top-6 lg:w-[376px] lg:mr-30 lg:mt-15">
-            <p className="text-[#FAB21F] text-[33px] font-semibold">
+            <p className="text-[#FAB21F] text-[19px] lg:text-[33px] lg:font-semibold">
               {t("about.brand")}
             </p>
             <p className="text-white text-xs lg:text-[18px] w-42 lg:text-base lg:w-full">
@@ -202,7 +202,7 @@ export default async function Home() {
         dir="rtl"
       >
         <div className="text-center mb-8">
-          <p className="lg:font-bold lg:text-[33px]">
+          <p className="text[19px] lg:font-bold lg:text-[33px]">
             {t("services.titlePrefix")}{" "}
             <span className="text-[#FAB21F]">
               {t("services.titleHighlight")}
@@ -215,13 +215,13 @@ export default async function Home() {
       {/* Industries section */}
       <div className="p-4 lg:flex lg:flex-row lg:justify-around lg:items-center lg:my-30">
         <div>
-          <p className="font-extrabold text-[33px] lg:mb-2">
+          <p className="text-[19px] lg:font-extrabold lg:text-[33px] lg:mb-2">
             {t("industriesIntro.title")}{" "}
             <span className="text-[#FAB21F]">
               {t("industriesIntro.titleHighlight")}
             </span>
           </p>
-          <p className="whitespace-pre-line font-light text-[16px]">
+          <p className="whitespace-pre-line  text-[13px] lg:text-[16px]">
             {t("industriesIntro.subtitle")}
           </p>
         </div>
@@ -234,7 +234,7 @@ export default async function Home() {
                 className="group relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center h-[132px] justify-center transition-all duration-300 lg:px-4"
               >
                 <Link href={item.link}>
-                  <Icon className="text-gray-600 mx-auto transition-all duration-300 group-hover:text-[#0C5273] group-hover:scale-110" />
+                  <Icon className="text-black mx-auto transition-all duration-300 group-hover:text-[#005E8B] group-hover:scale-110" />
 
                   <img
                     src="/SVGs/Polygon 33.svg"
@@ -244,7 +244,7 @@ export default async function Home() {
                   />
 
                   {/* متن */}
-                  <p className="font-semibold mt-2 text-sm text-gray-700 group-hover:text-[#0C5273] text-center">
+                  <p className="font-semibold mt-2 text-sm text-black group-hover:text-[#005E8B] text-center">
                     {t(`industries.${item.key}`)}
                   </p>
                 </Link>

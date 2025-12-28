@@ -10,6 +10,11 @@ import "swiper/css/pagination";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
+// SVG icons
+import FireSave from "@/app/SVGs/FireSave";
+import Exterior from "@/app/SVGs/Exterior";
+import INTERIOR from "@/app/SVGs/INTERIOR";
+
 /* ------------------------------------
       New Category Type
 ------------------------------------ */
@@ -20,6 +25,10 @@ interface CategoryItem {
   logo: string;
   image: string;
   product_count: number;
+
+  exterior: boolean;
+  interior: boolean;
+  firesafe: boolean;
 }
 
 export default function CategoriesSwiper() {
@@ -120,7 +129,15 @@ export default function CategoriesSwiper() {
                 <div className="divider my-2"></div>
                 {/* card title */}
                 <div>
-                  <p className="hidden lg:flex text-[16px]">{cat.name}</p>
+                  <div className="flex items-center">
+                    <p className="hidden lg:flex text-[16px] ">{cat.name}</p>
+                    <div className="flex gap-3 px-2 mt-2">
+                      <Exterior color={cat.exterior ? "#FFB800" : "#C5C5C5"} />
+                      <INTERIOR color={cat.interior ? "#FFB800" : "#C5C5C5"} />
+                      <FireSave color={cat.firesafe ? "#FFB800" : "#C5C5C5"} />
+                    </div>
+                  </div>
+
                   {/* BUTTON */}
                   <div className="card-actions justify-between items-center lg:leading-15">
                     <Link
@@ -157,7 +174,6 @@ export default function CategoriesSwiper() {
         <button
           ref={prevRef}
           className="p-3 rounded-sm border 
-             
              border-[#005E8B] text-[#005E8B]
              active:scale-95
              transition-all"
