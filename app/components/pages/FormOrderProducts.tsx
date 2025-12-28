@@ -47,16 +47,16 @@ export default function SimpleForm({ idProduct }: SimpleFormProps) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-12">
+    <div className="w-[400px] lg:max-w-4xl mx-auto my-12">
       <p className="text-[20px] font-semibold text-center mb-6">
         فرم سفارش کالا
       </p>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="mx-auto p-6 bg-white space-y-4"
+        className="mx-auto py-6 bg-white space-y-4"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 px-2">
           {/* نام کالا */}
           <div>
             <label className="block mb-1 text-sm font-medium">نام کالا</label>

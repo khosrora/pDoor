@@ -86,9 +86,9 @@ export default function ProductsSwiper({
         onSwiper={setSwiperRef}
         pagination={{ clickable: true }}
         spaceBetween={16}
-        slidesPerView={1.2}
+        slidesPerView={2}
         breakpoints={{
-          640: { slidesPerView: 2 },
+          640: { slidesPerView: 2, spaceBetween: 4 },
           768: { slidesPerView: 3 },
           1024: { slidesPerView: 4 },
         }}
@@ -97,7 +97,7 @@ export default function ProductsSwiper({
           <SwiperSlide key={acc.slug}>
             <Link
               href={`/products/${acc.slug}`}
-              className="card w-[305px] bg-white rounded-md shadow-sm border border-zinc-200"
+              className="card w-[182px] h-[250px] lg:w-[288px] lg:h-[266px] bg-white rounded-md shadow-sm border border-zinc-200"
             >
               <figure>
                 <img

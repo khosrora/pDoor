@@ -40,9 +40,9 @@ export default function ProjectsSlider({ projects }: { projects: Project[] }) {
           modules={[Pagination]}
           pagination={{ clickable: true }}
           spaceBetween={16}
-          slidesPerView={1.1}
+          slidesPerView={2}
           breakpoints={{
-            640: { slidesPerView: 1.3, spaceBetween: 16 },
+            640: { slidesPerView: 2, spaceBetween: 4 },
             768: { slidesPerView: 2.2, spaceBetween: 20 },
             1024: { slidesPerView: 3, spaceBetween: 24 },
             1280: { slidesPerView: 3, spaceBetween: 28 },
@@ -53,10 +53,10 @@ export default function ProjectsSlider({ projects }: { projects: Project[] }) {
             <SwiperSlide key={project.slug}>
               <div
                 onClick={() => router.push(`/projects/${project.slug}`)}
-                className="group card lg:h-[326px] bg-white border border-zinc-200 rounded-md shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition"
+                className="group card h-[215px] w-[182px] lg:h-[326px] lg:w-[392px] bg-white border border-zinc-200 rounded-md shadow-md overflow-hidden cursor-pointer hover:shadow-lg transition"
               >
                 {/* Image */}
-                <figure className="relative w-full  overflow-hidden lg:h-[254px]">
+                <figure className="relative w-full  overflow-hidden h-[163px] lg:h-[254px]">
                   <Image
                     src={project.cover_image}
                     alt={project.title}

@@ -40,7 +40,7 @@ function GalleryImage({ images }: Props) {
   });
 
   return (
-    <div className="min-w-0 allprojects">
+    <div className=" allprojects min-w-[379px] mx-auto p-2">
       {/* Main slider */}
       <Swiper
         spaceBetween={10}

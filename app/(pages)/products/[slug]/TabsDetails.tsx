@@ -89,9 +89,9 @@ export default function TabsDetails({
   };
 
   return (
-    <div className="max-w-7xl mx-auto bg-zinc-50 mt-15 p-4">
+    <div className="w-full lg:max-w-7xl mx-auto bg-zinc-50 m-0 lg:mt-15 p-4 overflow-x-hidden">
       {/* ================= Tabs Header ================= */}
-      <div role="tablist" className="tabs tabs-border my-4 mx-auto">
+      <div role="tablist" className="tabs tabs-border my-4 ">
         <button
           type="button"
           role="tab"
@@ -136,7 +136,7 @@ export default function TabsDetails({
       {activeTab === "product" && (
         <div className="bg-white p-4 rounded space-y-4 leading-12">
           <div
-            className="prose prose-zinc max-w-none"
+            className="prose prose-zinc w-full"
             dangerouslySetInnerHTML={{ __html: description }}
           />
 
@@ -150,7 +150,7 @@ export default function TabsDetails({
 
       {/* ================= TECHNICAL TAB ================= */}
       {activeTab === "technical" && (
-        <div className="bg-zinc-50 p-4 rounded space-y-4">
+        <div className="bg-white p-4 rounded space-y-4">
           {technicalSpecs.length > 0 ? (
             <table className="table">
               <tbody>

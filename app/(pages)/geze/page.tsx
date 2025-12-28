@@ -15,12 +15,12 @@ export default async function GezePage() {
   const t = await getTranslations("GezePage");
 
   return (
-    <div className="my-20">
+    <div className=" my-10 lg:my-20">
       {/* Hero */}
       <div className="p-4">
         <Breadcrumbs />
       </div>
-      <div className="bg-[#003F5D] text-white lg:flex lg:items-center lg:justify-center lg:h-[400px]">
+      <div className="bg-[#003F5D] text-white flex flex-col-reverse lg:flex-row lg:items-center lg:justify-center lg:h-[400px] pb-4 lg:pb-0">
         <div className="lg:w-1/2 flex flex-col justify-center items-center">
           {/* title */}
           <p className="flex flex-col font-semibold text-[25px]">
@@ -52,42 +52,48 @@ export default async function GezePage() {
           style={{ backgroundImage: "url('/images/image 784 (1).png')" }}
           dir="rtl"
         >
-          <div className="lg:max-w-7xl mx-auto pt-30">
+          <div className="lg:max-w-7xl mx-auto pt-10 lg:pt-30">
             {/* title */}
-            <p className="my-10 text-[28px] font-bold">
+            <p className="my-10 lg:text-[28px] font-bold">
               {t("about.heading")} <span className="text-[#FAB21F]">GEZE</span>
             </p>
             {/* about geze */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-60 text-[16px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 w-[300px] lg:w-full lg:gap-x-30 text-[16px] ">
               {/* ستون چپ (ارزش برند) */}
-              <div className="flex items-center lg:w-[520px] lg:h-[291px]  bg-transparent border border-zinc-300 py-8 rounded-sm ">
-                <div className="flex flex-col justify-center items-center px-4 w-full">
-                  <p className="text-slate-600 leading-relaxed text-center text-[16px] ">
-                    {t("about.paragraph1")}
-                  </p>
-                </div>
-                <div className=" flex justify-center items-start relative -left-18">
-                  <div className="relative w-[144px] h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md">
-                    <div className="transform -rotate-45 flex items-center justify-center">
+              <div className="relative flex flex-col lg:flex-row-reverse items-center mx-10 lg:mx-0 w-full lg:w-[520px] lg:h-[291px] bg-transparent border border-zinc-300 py-6 lg:py-8 rounded-sm">
+                {/* Diamond */}
+                <div className="absolute -left-9 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0 lg:-left-18">
+                  <div className="lg:relative lg:-left-18 w-[72px] h-[72px] lg:w-[144px] lg:h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] rotate-45 shadow-md">
+                    <div className="-rotate-45 flex items-center justify-center">
                       <img src="/images/image 864 (1).png" alt="" />
                     </div>
                   </div>
                 </div>
+
+                {/* Text */}
+                <div className="flex flex-col justify-center items-start px-6 w-full">
+                  <p className="text-slate-600 leading-relaxed text-center text-[16px]">
+                    {t("about.paragraph1")}
+                  </p>
+                </div>
               </div>
 
               {/* ستون راست (چشم‌انداز) */}
-              <div className="flex flex-row-reverse items-center gap-4 relative top-25 bg-transparent border border-zinc-300 py-2.5 rounded-sm">
-                <div className="flex flex-col justify-center items-center px-4 w-full">
-                  <p className="text-slate-600 leading-relaxed text-center ">
-                    {t("about.paragraph2")}
-                  </p>
-                </div>
-                <div className=" flex justify-center items-start relative left-18 ">
-                  <div className="relative w-[144px] h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md">
-                    <div className="transform -rotate-45 flex items-center justify-center">
+              <div className="relative flex flex-col lg:flex-row items-center w-full lg:w-[520px] mx-19 lg:mx-0lg:h-[291px] bg-transparent border border-zinc-300 py-6 lg:py-8 rounded-sm lg:top-25">
+                {/* Diamond */}
+                <div className="absolute -right-9 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0 lg:left-18">
+                  <div className="lg:relative lg:left-18 w-[72px] h-[72px] lg:w-[144px] lg:h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] rotate-45 shadow-md">
+                    <div className="-rotate-45 flex items-center justify-center">
                       <img src="/images/image 864 (1).png" alt="گواهینامه" />
                     </div>
                   </div>
+                </div>
+
+                {/* Text */}
+                <div className="flex flex-col justify-center items-center px-6 w-full">
+                  <p className="text-slate-600 leading-relaxed text-center">
+                    {t("about.paragraph2")}
+                  </p>
                 </div>
               </div>
             </div>
@@ -95,12 +101,12 @@ export default async function GezePage() {
         </div>
 
         {/* GEZE products */}
-        <div className="space-y-4 max-w-7xl mx-auto">
+        <div className="space-y-4 max-w-7xl mx-auto mt-8">
           <p className="flex gap-2">
-            <span className="  text-[28px] font-bold text-[#FAB21F]">
+            <span className="  lg:text-[28px] lg:font-bold text-[#FAB21F]">
               {t("products.heading1")}
             </span>
-            <span className="text-[28px] font-bold ">
+            <span className="lg:text-[28px] lg:font-bold ">
               {t("products.heading2")}
             </span>
           </p>

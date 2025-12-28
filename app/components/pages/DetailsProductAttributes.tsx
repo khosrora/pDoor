@@ -51,7 +51,7 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
   const tag2 = specifications.filter((s) => s.display_section === "tag2");
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 p-2">
       {/* Product Name */}
       <p className="font-bold text-[33px]">{name}</p>
 

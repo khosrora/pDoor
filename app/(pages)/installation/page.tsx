@@ -15,17 +15,17 @@ export default async function page() {
   const t = await getTranslations("ServicesPage");
 
   return (
-    <div className="my-20">
+    <div className="my-10 lg:my-20">
       <div className="p-4">
         <Breadcrumbs />
       </div>
       {/* Hero */}
-      <div className="bg-[#003F5D] lg:h-[429px]  text-white space-y-8 lg:flex lg:justify-around ">
-        <div className="lg:flex lg:flex-col lg:items-start lg:justify-center space-y-4">
-          <p className="text-[#FAB21F] text-[28px] font-bold ">
+      <div className="bg-[#003F5D] lg:h-[429px] grid grid-cols-2 text-white space-y-8 lg:flex lg:justify-around ">
+        <div className=" lg:flex lg:flex-col lg:items-start lg:justify-center space-y-4">
+          <p className="text-[#FAB21F] text-[19px] lg:text-[28px] lg:font-bold ">
             {t("hero.title")}
-          </p>
-          <p className="w-[552px]">{t("hero.text")}</p>
+          </p> 
+          <p className="lg:w-[552px] text-[14px] lg:text-[16px]">{t("hero.text")}</p>
           <div className="flex justify-start items-center gap-x-4 mt-8">
             <button className="btn ">{t("hero.consultButton")}</button>
             <button className="btn bg-[#FAB21F] border-0">
@@ -37,7 +37,7 @@ export default async function page() {
           <img
             src="\images\تعمیرکار 1.png"
             alt=""
-            className="lg:w-[456px] h-[492px]"
+            className="h-[242px] lg:w-[456px] lg:h-[492px]"
           />
         </div>
       </div>

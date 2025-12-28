@@ -38,7 +38,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const projects = product.projects || [];
     
   return (
-    <div className="space-y-4 mt-40">
+    <div className=" space-y-4  mt-20 lg:mt-40">
       <div className="flex flex-col lg:flex-row justify-center items-start gap-x-4 max-w-7xl m-auto">
         <div className="w-full lg:w-1/2">
           <GalleryImage images={images} />
