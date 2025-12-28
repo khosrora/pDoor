@@ -111,8 +111,7 @@
     "submit": {
       "idle": " ارسال",
       "submitting": "در حال ارسال..."
-    },
-    "logMessage": "فرم ارسال شد:"
+    }
   },
   "FormNews": {
     "fields": {
@@ -988,11 +987,7 @@
       "productName": "نام محصول"
     }
   },
-  "Categories": {
-    "header": "محصولات پرشیادُر",
-    "productsCount": "{count} محصول",
-    "fetchError": "خطا در بارگذاری دسته‌بندی‌ها"
-  },
+
   "ProductsBrands": {
     "sections": {
       "brands": "برندها",

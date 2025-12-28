@@ -50,7 +50,7 @@ export default function Products({
             value: s.value || "-",
           })) || [],
       });
-      console.log(items.field_name)
+    
     }
   };
 
@@ -131,7 +131,7 @@ export default function Products({
                     const active = item.value === "1";
                     const color = active ? "#FFB800" : "#C3C3C3";
 
-                    let IconComponent: any = null;
+                    let IconComponent = null;
                     if (item.field_name === "ضد حریق") IconComponent = FireSave;
                     if (item.field_name === "درب بیرونی")
                       IconComponent = Exterior;
@@ -144,7 +144,7 @@ export default function Products({
                         className="flex items-center gap-1"
                       >
                         {IconComponent && (
-                          <IconComponent color={color} width={22} height={22} />
+                          <IconComponent color={color}  />
                         )}
                       </div>
                     );
