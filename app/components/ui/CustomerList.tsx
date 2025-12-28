@@ -98,13 +98,13 @@ function CustomerList() {
             ref={(el) => {
               itemRefs.current[index] = el;
             }}
-            className="w-[66px] h-[66px] flex items-center justify-center overflow-hidden grayscale"
+            className="w-[76px] h-[76px] flex items-center justify-center overflow-hidden grayscale"
           >
             {src && (
               <img
                 src={src}
                 alt={`logo-${index}`}
-                className="w-[64px] h-[64px] object-contain"
+                className="w-[74px] h-[74px] object-contain"
               />
             )}
           </div>

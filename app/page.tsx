@@ -150,7 +150,7 @@ export default async function Home() {
             <p className="text-[#FAB21F] text-[33px] font-semibold">
               {t("about.brand")}
             </p>
-            <p className="text-white text-xs w-42 lg:text-base lg:w-full">
+            <p className="text-white text-xs lg:text-[18px] w-42 lg:text-base lg:w-full">
               {t("about.text")}
             </p>
             <div className="flex justify-start items-center gap-x-2 text-white mt-8">
@@ -197,12 +197,12 @@ export default async function Home() {
 
       {/* Services section */}
       <div
-        className="px-4 py-8"
+        className="px-4 py-12"
         style={{ backgroundImage: `url('/images/percia oor service.png')` }}
         dir="rtl"
       >
         <div className="text-center mb-8">
-          <p className="lg:font-bold lg:text-[33px] mt-8">
+          <p className="lg:font-bold lg:text-[33px]">
             {t("services.titlePrefix")}{" "}
             <span className="text-[#FAB21F]">
               {t("services.titleHighlight")}
@@ -213,7 +213,7 @@ export default async function Home() {
       </div>
 
       {/* Industries section */}
-      <div className="p-4 lg:flex lg:flex-row lg:justify-around lg:items-center lg:my-16">
+      <div className="p-4 lg:flex lg:flex-row lg:justify-around lg:items-center lg:my-30">
         <div>
           <p className="font-extrabold text-[33px] lg:mb-2">
             {t("industriesIntro.title")}{" "}

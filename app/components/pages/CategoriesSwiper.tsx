@@ -1,10 +1,7 @@
 "use client";
 
 import api from "@/app/lib/axios";
-import {
-  IconArrowLeft,
-  IconArrowRight
-} from "@tabler/icons-react";
+import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -18,7 +15,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 ------------------------------------ */
 interface CategoryItem {
   name: string;
-  name_en:string;
+  name_en: string;
   slug: string;
   logo: string;
   image: string;
@@ -72,7 +69,9 @@ export default function CategoriesSwiper() {
         <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center">
           {t("latestProducts1")}
         </p>
-        <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center text-[#FAB21F]">{t("latestProducts2")}</p>
+        <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center text-[#FAB21F]">
+          {t("latestProducts2")}
+        </p>
       </div>
 
       {/* Swiper */}
@@ -84,11 +83,10 @@ export default function CategoriesSwiper() {
         slidesPerView={1}
         dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
-          411: {slidesPerView:2 },
+          411: { slidesPerView: 2 },
           640: { slidesPerView: 2 },
           768: { slidesPerView: 2.65 },
         }}
-       
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
@@ -98,7 +96,7 @@ export default function CategoriesSwiper() {
                 <img
                   src={cat.image}
                   alt={cat.name}
-                  className="w-full h-[150px] lg:h-[268px] object-cover rounded-t-md"
+                  className="w-full h-[150px] lg:h-[268px] object-cover rounded-t-md hover:scale-110 transition"
                 />
               </figure>
 
@@ -110,13 +108,13 @@ export default function CategoriesSwiper() {
                     <img
                       src={cat.logo}
                       alt={cat.name}
-                      className="w-[18px] h-[22px] lg:w-[32px] lg:h-10 object-center"
+                      className="w-[18px] h-[22px] lg:w-[32px] lg:h-10 object-center "
                     />
                   </div>
-                    <div className=" hidden lg:flex lg:text-[13px]">
-                      {cat.name_en}
-                    </div>
-                    <p className="flex lg:hidden text-[13px]">{cat.name}</p>
+                  <div className=" hidden lg:flex lg:text-[13px]">
+                    {cat.name_en}
+                  </div>
+                  <p className="flex lg:hidden text-[13px]">{cat.name}</p>
                 </div>
 
                 <div className="divider my-2"></div>
@@ -127,7 +125,7 @@ export default function CategoriesSwiper() {
                   <div className="card-actions justify-between items-center lg:leading-15">
                     <Link
                       href={`/products?lang=${locale}&&category=${cat.slug}`}
-                      className="flex items-center gap-1 text-[13px]"
+                      className="flex items-center gap-1 text-[13px] hover:text-[#005E8B]"
                     >
                       {t("card.moreLink")}
                       {isRTL ? (
@@ -150,7 +148,7 @@ export default function CategoriesSwiper() {
           ref={nextRef}
           className="p-3 rounded-sm border border-[#DEDEDE]
              text-[#DEDEDE]
-             active:text-[#636363] active:border-[#636363]
+             active:text-[#005E8B] active:border-[#005E8B]
              transition-all"
         >
           <IconArrowRight size={20} />
@@ -158,14 +156,14 @@ export default function CategoriesSwiper() {
 
         <button
           ref={prevRef}
-          className="p-3 rounded-sm border border-[#DEDEDE]
-             text-[#DEDEDE]
-             active:text-[#636363] active:border-[#636363]
+          className="p-3 rounded-sm border 
+             
+             border-[#005E8B] text-[#005E8B]
+             active:scale-95
              transition-all"
         >
           <IconArrowLeft size={20} />
         </button>
-
       </div>
     </div>
   );
