@@ -16,7 +16,7 @@ interface Accessory {
   slug: string;
   main_image: string;
   category: { name: string; slug: string };
-  brand: { name: string; logo:string;  slug: string };
+  brand: { name: string; logo: string; slug: string };
 }
 
 export default function ProductsSwiper({
@@ -106,16 +106,16 @@ export default function ProductsSwiper({
                   className="w-full h-[210px] object-cover rounded-t-md"
                 />
                 {/* Brand Logo */}
-                              {acc.brand?.logo && (
-                                <div className="absolute left-3 top-3">
-                                  <Image
-                                    src={acc.brand.logo}
-                                    width={50}
-                                    height={50}
-                                    alt={acc.brand.name || "brand"}
-                                  />
-                                </div>
-                              )}
+                {acc.brand?.logo && (
+                  <div className="absolute left-3 top-3">
+                    <Image
+                      src={acc.brand.logo}
+                      width={50}
+                      height={50}
+                      alt={acc.brand.name || "brand"}
+                    />
+                  </div>
+                )}
               </figure>
               <div className="mr-2 absolute bottom-18">
                 <Image

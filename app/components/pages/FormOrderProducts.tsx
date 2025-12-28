@@ -47,7 +47,7 @@ export default function SimpleForm({ idProduct }: SimpleFormProps) {
   };
 
   return (
-    <div className="w-[400px] lg:max-w-4xl mx-auto my-12">
+    <div className="w-[400px] lg:w-4xl mx-auto my-12">
       <p className="text-[20px] font-semibold text-center mb-6">
         فرم سفارش کالا
       </p>
