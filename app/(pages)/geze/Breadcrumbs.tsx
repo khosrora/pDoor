@@ -5,7 +5,7 @@ async function Breadcrumbs() {
   const t = await getTranslations("GezePage");
 
   return (
-    <div className="breadcrumbs text-sm mx-10">
+    <div className="breadcrumbs text-sm max-w-7xl mx-auto">
       <ul>
         <li>
           <Link href="/">{t("home")}</Link>

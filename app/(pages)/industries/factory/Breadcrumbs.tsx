@@ -9,7 +9,7 @@ async function Breadcrumbs() {
   const t = await getTranslations("FactoryPage"); // نام namespace ترجمه
 
   return (
-    <div className="breadcrumbs text-sm  mx-1 lg:mx-10">
+    <div className="breadcrumbs text-sm max-w-7xl mx-auto">
       <ul className="flex gap-2">
         <li>
           <Link href="/">{t("home")}</Link>

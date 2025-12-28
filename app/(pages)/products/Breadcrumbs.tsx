@@ -8,7 +8,7 @@ function Breadcrumbs() {
   const locale = useLocale();
 
   return (
-    <div className="breadcrumbs text-sm">
+    <div className="breadcrumbs text-sm max-w-7xl">
       <ul>
         <li>
           <Link href={`/${locale}`}>{t("home")}</Link>
