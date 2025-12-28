@@ -3,85 +3,90 @@
     "brandName": "PersiaDoor",
     "navProducts": "Products",
     "navIndustries": "Industries",
-    "navBrands": "Brand",
+    "navBrands": "Brands",
     "navServices": "Services",
-    "install": "Install & Maintenance",
+    "install": "Installation & Maintenance",
     "gallery": "Gallery",
-    "News": "News & Blogs",
+    "News": "News & Articles",
     "navMedia": "Media",
-    "logoAlt": "PersiaDoor logo",
+    "logoAlt": "PersiaDoor Logo",
     "contact_us": "Contact Us",
     "industries": {
-      "bank": "Bank",
-      "creative": "Creative projects",
-      "factory": "Factory",
-      "hotel": "Hotel",
-      "office": "Governance Office",
-      "private": "Private Sectors",
+      "bank": "Banks",
+      "creative": "Creative Projects",
+      "factory": "Factories",
+      "hotel": "Hotels",
+      "office": "Government Centers",
+      "private": "Private Centers",
       "shopping": "Shopping Centers",
-      "terminal": "Terminal",
-      "hospital": "Hospital",
-      "airport": "Airport"
+      "terminal": "Terminals",
+      "hospital": "Hospitals",
+      "airport": "Airports"
     },
-    "products":{
-      "swing" :"Hinged Door",
-      "slide" : "Sliding Door",
-      "revolve" : "Revolving Door",
-      "window" : "Automatic Window",
-      "accessory" : "Accessories"
+    "products": {
+      "swing": "Swing Doors",
+      "slide": "Sliding Doors",
+      "revolve": "Revolving Doors",
+      "window": "Automatic Windows",
+      "accessory": "Accessories"
     }
   },
 
   "Accordion": {
     "question1": {
-      "title": "Which type of door is suitable for my space?",
-      "body": "This is a sample text describing the answer. You can customize it to match your actual FAQ content."
+      "title": "Which type of door is suitable for my location?",
+      "body": "This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text. This is a sample text."
     },
     "question2": {
-      "title": "How can I be sure about the door quality?",
-      "body": "Check the warranty, certifications, and the manufacturer’s experience. You can also review portfolios and feedback from previous customers."
+      "title": "How can I be sure about the quality of the doors?",
+      "body": "To ensure quality, consider the warranty, certifications, and the manufacturer’s experience. You can also review previous projects and customer feedback."
     },
     "question3": {
       "title": "What is the delivery time for the doors?",
-      "body": "Delivery time depends on the product type and level of customization, but it is usually between 7 and 20 business days."
+      "body": "Delivery time varies depending on the product type and level of customization, but it typically takes between 7 to 20 business days."
     },
     "question4": {
       "title": "Is on-site installation available?",
-      "body": "Yes, depending on your city and location, our installation team can visit and install on site."
+      "body": "Yes, depending on your city and location, our installation team can visit the site and perform the installation."
     },
     "question5": {
       "title": "How should I maintain the doors?",
-      "body": "To extend the lifetime of the doors, periodically check hinges, paint, and hardware and service them if needed."
+      "body": "To extend the lifespan of the doors, it is recommended to periodically inspect hinges, finishes, and fittings, and service them if necessary."
     },
     "moreBox": {
-      "text": "If you have more questions, please visit the FAQ page.",
-      "button": "More questions"
+      "text": "If you have more questions, please visit the Frequently Asked Questions page.",
+      "button": "More Questions"
     }
+  },
+  "Categories1": {
+    "header": "PersiaDoor Products",
+    "productsCount": "{count} Products",
+    "fetchError": "Failed to load categories"
   },
   "Categories": {
     "sliding": {
-      "title": "Sliding doors",
-      "subtitle": "110 products",
+      "title": "Sliding Doors",
+      "subtitle": "110 Products",
       "imageAlt": "Sliding doors icon"
     },
     "hinged": {
-      "title": "Hinged doors",
-      "subtitle": "80 products",
+      "title": "Hinged Doors",
+      "subtitle": "80 Products",
       "imageAlt": "Hinged doors icon"
     },
     "glass": {
-      "title": "Glass doors",
-      "subtitle": "65 products",
+      "title": "Glass Doors",
+      "subtitle": "65 Products",
       "imageAlt": "Glass doors icon"
     },
     "industrial": {
-      "title": "Industrial doors",
-      "subtitle": "45 products",
+      "title": "Industrial Doors",
+      "subtitle": "45 Products",
       "imageAlt": "Industrial doors icon"
     },
     "automatic": {
-      "title": "Automatic doors",
-      "subtitle": "55 products",
+      "title": "Automatic Doors",
+      "subtitle": "55 Products",
       "imageAlt": "Automatic doors icon"
     }
   },
@@ -92,7 +97,7 @@
   },
   "FormContactUs": {
     "successMessage": "Your message has been sent successfully.",
-    "errorMessage": "Something went wrong. Please try again.",
+    "errorMessage": "An error occurred. Please try again.",
     "logMessage": "Sending contact message:",
     "fields": {
       "nameLabel": "Name",
@@ -105,15 +110,14 @@
     "errors": {
       "nameRequired": "Name is required",
       "emailRequired": "Email is required",
-      "emailInvalid": "Please enter a valid email address",
+      "emailInvalid": "Invalid email address",
       "messageRequired": "Message is required",
       "messageTooShort": "Message must be at least 10 characters"
     },
     "submit": {
       "idle": "Send",
       "submitting": "Sending..."
-    },
-    "logMessage": "Form submitted:"
+    }
   },
   "FormNews": {
     "fields": {
@@ -123,72 +127,71 @@
       "emailPlaceholder": "Enter your email",
       "messageLabel": "Comment",
       "messagePlaceholder": "Write your comment...",
-       "writeYourComment": "Write your comment"
+      "writeYourComment": "Write your comment"
     },
     "errors": {
       "nameRequired": "Name is required",
       "emailRequired": "Email is required",
-      "emailInvalid": "Please enter a valid email address",
+      "emailInvalid": "Invalid email address",
       "messageRequired": "Comment is required",
       "messageTooShort": "Comment must be at least 10 characters"
     },
     "submit": {
-      "idle": "Send",
-      "submitting": "Sending..."
+      "idle": "Submit Comment",
+      "submitting": "Submitting..."
     },
     "logMessage": "Form submitted:"
   },
-  "OfficeSliders":{
-    "sectionTitle": "Government Centers Projects"
-
+   "OfficeSliders": {
+    "sectionTitle": "Projects Completed for Government Centers"
   },
   "HospitalSliders": {
-    "sectionTitle": "Hospital Projects",
+    "sectionTitle": "Projects Completed for Hospitals",
     "items": {
       "hospital1": {
         "title": "Razavi Hospital, Mashhad",
-        "description": "Photo and news report from the exhibition, introducing new products...",
-        "imageAlt": "Razavi Hospital project"
+        "description": "Photo and news report on the company’s participation in the exhibition and the introduction of new products...",
+        "imageAlt": "Razavi Hospital project in Mashhad"
       },
       "hospital2": {
         "title": "Milad Hospital, Tehran",
         "description": "Supply and installation of automatic doors for main entrances and the emergency department.",
-        "imageAlt": "Milad Hospital project"
+        "imageAlt": "Milad Hospital project in Tehran"
       },
       "hospital3": {
         "title": "Loghman Hakim Hospital",
-        "description": "Upgrading safe door systems for special units and operating rooms.",
+        "description": "Upgrade of secure door systems for special units and operating rooms.",
         "imageAlt": "Loghman Hakim Hospital project"
       },
       "hospital4": {
         "title": "Imam Reza Hospital",
-        "description": "Installation of specialized hospital doors with hygiene and control standards.",
+        "description": "Installation of specialized hospital doors compliant with safety and hygiene standards.",
         "imageAlt": "Imam Reza Hospital project"
       }
     }
   },
   "NewsSwiper": {
     "sectionTitle": "News & Articles",
-    "sectionSubtitle": "View the latest articles and updates related to PersiaDoor.",
+    "sectionSubtitle": "Here you can find the latest related articles and PersiaDoor news",
     "items": {
       "news1": {
-        "title": "Participation in the International Building Expo",
-        "description": "Photo and news report about our presence and new product introductions...",
-        "imageAlt": "Report from International Building Expo"
+        "title": "Participation in the Annual International Building Exhibition",
+        "description": "Photo and news report on the company’s presence at the exhibition and the introduction of new products...",
+        "imageAlt": "PersiaDoor participation in the International Building Exhibition"
       },
       "news2": {
         "title": "Introducing the New Generation of Automatic Doors",
-        "description": "Overview of features and benefits of the new automatic door technologies.",
+        "description": "A look at the features and benefits of the new generation of automatic doors in modern projects.",
         "imageAlt": "New generation of automatic doors"
       },
       "news3": {
-        "title": "Energy Efficiency Solutions for Modern Buildings",
-        "description": "Exploring the role of doors and access systems in reducing energy usage.",
-        "imageAlt": "Article about energy optimization"
+        "title": "Energy Optimization Solutions in Buildings",
+        "description": "Examining the role of doors and access systems in reducing energy consumption.",
+        "imageAlt": "Article on energy optimization in buildings"
       },
       "news4": {
         "title": "Safety Standards in Hospital Doors",
-        "description": "Key safety regulations and requirements in healthcare environments.",
+        "description": "An overview of the most important safety standards and requirements in healthcare environments.",
         "imageAlt": "Safety standards for hospital doors"
       }
     }
@@ -196,33 +199,39 @@
   "ProductsSwiper": {
     "sectionTitlePrefix": "Products",
     "sectionTitleBrand": "PersiaDoor",
-    "latestProducts": "َAccessories",
-    "latestProducts1": "Products ",
+    "latestProducts": "Accessories",
+    "latestProducts1": "Products",
     "latestProducts2": "PersiaDoor",
     "card": {
       "title": "Product Name",
       "featureLabel": "Feature",
-      "moreLink": "View Details",
-      "imageAlt": "Product image"
+      "moreLink": "More Products",
+      "imageAlt": "Image"
     }
+  },
+  "card": {
+    "title": "Product Name",
+    "featureLabel": "Feature",
+    "moreLink": "More Products",
+    "imageAlt": "Product Image"
   },
   "ServicesCompanySection": {
     "items": {
       "services": {
         "title": "Our Services",
-        "description": "PersiaDoor has launched the Persia Service unit to provide specialized services and handle all service operations in the best possible way."
+        "description": "To deliver specialized services, Persiador has established the Persia Service unit to manage all service operations with the highest level of quality and professionalism."
       },
       "internationalBrands": {
-        "title": "Authorized International Brands",
-        "description": "To deliver specialized services, PersiaDoor provides after-sales service and support for reputable international brands through its dedicated service unit."
+        "title": "International Brand Representation",
+        "description": "Persiador has launched the Persia Service unit to provide professional services and comprehensive after-sales support for international brands."
       },
       "honors": {
         "title": "Our Achievements",
-        "description": "Relying on years of experience, successful projects, and customer satisfaction, PersiaDoor has earned multiple honors in the field of specialized doors."
+        "description": "Leveraging years of experience, successful projects, and customer satisfaction, Persiador has earned numerous achievements in the field of specialized door systems."
       },
       "industrySolutions": {
-        "title": "Solutions for Industries",
-        "description": "PersiaDoor offers tailored door solutions for various industries including industrial, healthcare, office, and commercial environments."
+        "title": "Industry Solutions",
+        "description": "Persiador offers tailored solutions for various industries, including industrial, hospital, office, and commercial door systems."
       }
     }
   },
@@ -230,190 +239,395 @@
     "items": {
       "persiaService": {
         "title": "Persia Service",
-        "description": "The smart automatic door supplier, founded to enhance safety, convenience, and aesthetics in buildings..."
+        "description": "Persia Service is the service and support division of Persiador, providing free consultation, installation, warranty, and maintenance services for automatic doors and windows across Iran."
       },
       "freeConsultation": {
         "title": "Free Consultation",
-        "description": "Get expert advice on choosing the right automatic door solutions tailored to your project and budget."
+        "description": "Persia Service offers free consultation to all customers across various industries. Available 24/7, this unit delivers the best solutions through experienced specialists while minimizing unnecessary costs."
       },
       "installationWarranty": {
         "title": "Installation & Warranty",
-        "description": "Professional installation and comprehensive warranty coverage to ensure long-term performance and peace of mind."
+        "description": "Persiador products are delivered with a free one-year warranty covering service, repair, and part replacement. After the initial year, the warranty can be extended up to five years through a new service contract. All installations are carried out by experienced technicians nationwide with full coordination and in the shortest possible time."
       },
       "serviceMaintenance": {
         "title": "Service & Maintenance",
-        "description": "Regular service and maintenance to keep your automatic doors safe, reliable, and always ready to use."
+        "description": "Periodic and on-demand maintenance services for all types of automatic doors and windows are provided nationwide through service contracts. With guaranteed service quality, customer concerns regarding workmanship and replacement parts are minimized. Persia Service prioritizes repair and maintenance over replacement, with experienced technicians available 24/7 throughout the week."
       }
     },
-    "moreProducts": "More products ←",
+    "moreProducts": "More Products →",
     "learn_more": "Learn More"
   },
   "TeamSliders": {
     "sectionTitlePrefix": "Team",
-    "sectionTitleBrand": "PersiaDoor",
+    "sectionTitleBrand": "Persiador",
     "items": {
       "sales": {
         "title": "Sales",
-        "description": "The sales department identifies new customers and markets across Iran and provides the most up-to-date and optimal solutions to industries.",
-        "imageAlt": "PersiaDoor sales team"
+        "description": "The sales department identifies customers and new markets across Iran, delivering the most up-to-date and effective solutions to various industries.",
+        "imageAlt": "Persiador Sales Team"
       }
     },
     "cta": {
-      "joinText": "Join PersiaDoor",
-      "jobsButton": "Job opportunities"
+      "joinText": "Join Persiador",
+      "jobsButton": "Job Opportunities"
     }
   },
   "Footer": {
     "columns": {
       "about": {
-        "title": "PersiaDoor",
+        "title": "Persiador",
         "history": "About Us",
-        "job": "job position",
-        "mission": "Our mission",
-        "customers": "Our customers",
-        "questions": "Questions"
+        "job": "Careers",
+        "mission": "Our Mission",
+        "customers": "Our Customers",
+        "questions": "FAQ"
       },
       "products": {
         "title": "Products",
-        "brandGeze": "GEZE brand",
-        "brandGenrance": "GENRANCE brand",
+        "brandGeze": "GEZE Brand",
+        "brandGenrance": "GENRANCE Brand",
         "accessories": "Accessories"
       },
       "customerService": {
-        "title": "Customer services",
-        "afterSales": "After-sales service",
-        "maintenance": "Maintenance",
+        "title": "Customer Service",
+        "afterSales": "After-Sales Service",
+        "maintenance": "Maintenance & Repair",
         "consulting": "Consulting"
       }
     },
     "address": {
       "title": "Address",
-      "line1": "Tehran, South Gandhi St., 1st St., Unit 3",
-      "line2": "Postal code 1516984414"
+      "line1": "Unit 3, First Street, South Gandhi St., Tehran, Iran",
+      "line2": "Postal Code: 1516984414"
     },
     "contact": {
-      "title": "Contact information",
-      "hqTitle": "Head office",
-      "salesTitle": "Sales department",
+      "title": "Contact Information",
+      "hqTitle": "Head Office",
+      "salesTitle": "Sales Department",
       "serviceTitle": "Persia Service"
     },
     "bottom": {
-      "copyright": "All material and intellectual rights of this website belong to PersiaDoor Industrial Group."
+      "copyright": "All intellectual and material rights of this website are reserved for Persiador Industrial Group."
     }
   },
   "AboutPage": {
-    "missionTitle": "Our mission",
-    "missionText": "At PersiaDoor Automatic Doors, we highly value how we interact with our customers. From the earliest stages of each project, we stay in close contact and play an active role throughout the entire lifecycle of the building.",
-    "visionTitle": "Our vision",
-    "visionText": "Our vision is to become one of the leading suppliers of intelligent automatic doors nationwide, relying on innovation, quality, and specialized services at every stage of a project.",
-    "brandValueTitle": "Brand value",
-    "brandValueText": "The value of the PersiaDoor brand is built on customer trust, consistent product quality, and a long-term commitment to supporting buildings throughout their lifetime.",
-    "customersTitle": "Our customers",
-    "customersSubtitle": "They are our most valuable asset"
+    "missionTitle": "Our Mission",
+    "missionText": "At Persia Automatic Doors, we place great importance on how we engage with our customers. From the initial stages of each project, we remain closely connected with our clients and play an active role throughout the entire lifecycle of a building.",
+    "visionTitle": "Our Vision",
+    "visionText": "Our vision is to become one of the leading providers of smart automatic door solutions nationwide, driven by innovation, quality, and specialized services at every stage of the project.",
+    "brandValueTitle": "Brand Value",
+    "brandValueText": "The value of the Persia brand is built upon customer trust, consistent product quality, and a strong commitment to supporting clients throughout the full lifespan of their buildings.",
+    "customersTitle": "Our Customers",
+    "customersSubtitle": "They Are Our Most Valuable Asset"
   },
   "ContactPage": {
     "home": "Home",
-    "brandName": "PersiaDoor",
+    "brandName": "PersiaDor",
     "contactUs": "Contact Us",
     "hero": {
-      "title": "Get in touch with us",
-      "text": "To contact PersiaDoor, you can use the company’s official phone numbers or relevant email addresses. Our website and social media pages are also great resources for information and reaching our support team."
+      "title": "Get in Touch With Us",
+      "text": "To contact PersiaDor, you may reach out via the company’s official phone numbers or designated email addresses. In addition, PersiaDor’s website and social media channels provide reliable resources for obtaining information and communicating with our support team."
     },
     "blocks": {
-      "hqTitle": "Head office",
-      "salesTitle": "Sales department",
+      "hqTitle": "Head Office",
+      "salesTitle": "Sales Department",
       "serviceTitle": "Persia Service",
       "addressLabel": "Address",
-      "addressLine1": "Tehran, South Gandhi St., 1st St., Unit 3",
-      "addressLine2": "Postal code 1516984414"
+      "addressLine1": "No. 3, First Street, South Gandhi, Tehran",
+      "addressLine2": "Postal Code: 1516984414"
     },
     "social": {
-      "title": "Follow us on social media"
+      "title": "Follow Us on Social Media"
     }
   },
   "DetailsProductAttributes": {
-    "callButton": "Phone consultation",
-    "downloadButton": "Download Product catalog"
+    "callButton": "Contact the Sales Team",
+    "downloadButton": "Download Product Catalog"
   },
-  "GezePage": {
+   "GezePage": {
     "home": "Home",
     "brand": "Brand",
     "geze": "GEZE",
     "hero": {
-      "titlePrefix": "Your partner",
-      "titleRest": "in door, window and safety technology",
-      "consultButton": "Free consultation",
-      "gezeWebsiteButton": "GEZE website"
+      "titlePrefix": "Your Partner",
+      "titleRest": "in Door, Window, and Safety Technology",
+      "consultButton": "Free Consultation",
+      "gezeWebsiteButton": "Visit GEZE Website"
     },
     "about": {
       "heading": "About GEZE",
-      "paragraph1": "The GEZE family business began its operations in 1863. Over the past 160 years, the company has proven the quality of its products and services worldwide by using innovative technologies in automatic doors, windows, and smart building solutions, becoming a well-known global brand.",
-      "paragraph2": "More than 3,000 employees work at GEZE branches around the world. The company has local offices in 37 countries and serves customers globally. All GEZE products are manufactured in accordance with international standards and hold recognized global certifications."
+      "paragraph1": "The family-owned business GEZE began its operations in 1863. Over 160 years, the company has proven the quality of its products and services worldwide by utilizing innovative technologies in automatic doors, windows, and building automation, becoming a globally recognized name.",
+      "paragraph2": "More than 3,000 employees work in GEZE branches around the world. The company has local offices in 37 countries and provides services to customers globally. All GEZE products are manufactured in compliance with international standards and hold globally recognized certifications."
     },
     "products": {
-      "heading1": "GEZE global ",
-      "heading2": "products",
+      "heading1": "GEZE",
+      "heading2": "Global Products",
       "sliding": {
-        "title": "Sliding doors",
-        "count": "110 products"
+        "title": "Sliding Doors",
+        "count": "110 Products"
       },
       "hinged": {
-        "title": "Hinged doors",
-        "count": "110 products"
+        "title": "Hinged Doors",
+        "count": "110 Products"
       },
       "revolving": {
-        "title": "Revolving doors",
-        "count": "110 products"
+        "title": "Revolving Doors",
+        "count": "110 Products"
       },
       "window": {
-        "title": "Automatic windows",
-        "count": "110 products"
+        "title": "Automatic Windows",
+        "count": "110 Products"
       },
       "accessories": {
         "title": "Accessories",
-        "count": "110 products"
+        "count": "110 Products"
       }
     },
     "collaboration": {
-      "headingPrefix": "Collaboration of",
+      "headingPrefix": "Collaboration",
       "headingBrand": "PersiaDoor",
-      "headingRest": "with GEZE brand",
-      "text": "PersiaDoor Automatic Doors maintains consistent quality in its products and services while remaining curious and active toward new markets and developments. Our goal is to become a leading brand in the automatic door industry and, by continuously innovating, contribute to improving safety and quality of life in our built environment."
+      "headingRest": "with the GEZE Brand",
+      "text": "Persia Automatic Door Company, by maintaining consistency in service and product quality, remains dynamic and forward-looking toward new market developments. Our goal is to become a leading brand in the automatic door industry through continuous innovation, contributing to improved quality of life and safety while enhancing traffic infrastructure."
     },
     "representative": {
       "brandName": "PersiaDoor",
-      "subtitle": "Official representative of GEZE products in Iran"
+      "subtitle": "Official Representative of GEZE Products in Iran"
     }
   },
   "OfficePage": {
     "home": "Home",
     "industries": "Industries",
-    "office":"Governmental Centers",
+    "office": "Government Facilities",
     "hero": {
-      "title": "Governmental Centers",
-      "text": "PersiaDoor understands the unique requirements of governmental centers, where security, accessibility, and efficiency are paramount. Our automatic doors are designed to facilitate smooth entry and exit for employees and visitors while ensuring robust security measures are in place. With features such as access control integration, durable construction, and compliance with safety regulations, our doors enhance the functionality and professionalism of governmental facilities.",
-      "consultButton": "Free consultation",
-      "serviceButton": "Contact service"
+      "title": "Industry Solutions (Government Facilities)",
+      "text": "In government buildings and public facilities, selecting automatic doors is considered part of the security infrastructure. These environments host a high volume of employees, visitors, and clients on a daily basis, and even minor system disruptions can impact building security. By leveraging advanced GEZE technologies, PersiaDoor provides specialized solutions to enhance security, manage traffic flow, and ensure optimal performance in government facilities.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
     },
     "howSection": {
-      "title": "How automatic doors help your governmental center"
+      "title": "How Do Automatic Doors Help Your Organization?"
     },
     "benefits": {
       "security": {
-        "title": "Enhanced security",
-        "text": "Automatic doors can be integrated with access control systems to monitor and restrict entry to sensitive areas within governmental centers."
+        "title": "Access Security",
+        "text": "In ministries, organizations, and government offices, data security and access control are critical. By utilizing GEZE automatic door technologies, PersiaDoor enables seamless integration of doors with access control systems."
       },
       "accessibility": {
-        "title": "Improved accessibility",
-        "text": "Automatic doors provide easy access for all individuals, including those with disabilities, ensuring compliance with accessibility standards."
+        "title": "Traffic Management",
+        "text": "During office hours, the high volume of employee and visitor traffic requires fast and intelligent systems. GEZE doors, equipped with precise sensors, high-speed operation, and configurable settings, effectively manage pedestrian flow and prevent congestion or queues."
       },
       "efficiency": {
-        "title": "Operational efficiency",
-        "text": "By facilitating smooth and quick entry and exit, automatic doors help reduce congestion during peak hours in governmental facilities."
+        "title": "24/7 Service and Support",
+        "text": "Through periodic maintenance, round-the-clock support, and rapid on-site response, PersiaDoor ensures that installed systems operate at peak performance—even during peak hours—without interruption."
+      }
+    }
+  },
+  "PrivatePage": {
+    "sectionTitle": "Completed Projects for Private Facilities",
+    "home": "Home",
+    "industries": "Industries",
+    "hospitals": "Factories",
+    "office": "Government Facilities",
+    "factories": "Factories",
+    "banks": "Banks",
+    "airport": "Airports",
+    "terminals": "Terminals",
+    "shops": "Retail Stores",
+    "private": "Private Facilities",
+    "hero": {
+      "title": "Industry Solutions (Private Facilities)",
+      "text": "GEZE automatic doors can be used in large residential complexes, towers, automobile showrooms, and similar environments. Aesthetics and security are of particular importance in these spaces. Therefore, PersiaDoor offers specially designed doors—such as decorative pivot hinged doors—to harmonize with the overall architectural design. GEZE products prioritize decorative appeal, enhanced security, and reliable emergency exit solutions for private facilities.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
+    },
+    "howSection": {
+      "title": "How Do Automatic Doors Support Your Business?"
+    },
+    "benefits": {
+      "hygiene": {
+        "title": "Traffic Management and Security",
+        "text": "In residential complexes and large retail spaces, security is a top priority. PersiaDoor provides solutions that ensure safe and controlled access. Automatic doors equipped with appropriate sensors enhance overall security and protect the premises."
       },
-      "durability": {
-        "title": "Durability and reliability",
-        "text": "Designed to withstand high traffic volumes, our automatic doors ensure long-lasting performance in busy governmental environments."
+      "easyAccess": {
+        "title": "Decorative Design",
+        "text": "GEZE automatic doors can be manufactured using materials such as stone and wood, allowing them to align seamlessly with the overall architectural design. These doors are custom-designed and produced in various dimensions to meet specific aesthetic requirements."
+      },
+      "accessControl": {
+        "title": "Emergency Exit",
+        "text": "Automatic doors with self-locking capabilities enhance space security and, in emergency situations such as fires or the prevention of smoke and toxic gas intrusion, help ensure the safety and well-being of occupants."
+      }
+    }
+  },
+   "ShoppingPage": {
+    "sectionTitle": "Completed Projects for Shopping Centers",
+    "home": "Home",
+    "industries": "Industries",
+    "hospitals": "Factories",
+    "office": "Government Facilities",
+    "factories": "Factories",
+    "banks": "Banks",
+    "airport": "Airports",
+    "terminals": "Terminals",
+    "shops": "Retail Centers",
+    "hero": {
+      "title": "Industry Solutions (Shopping Centers)",
+      "text": "GEZE automatic doors are an ideal solution for shopping centers, malls, and large hypermarkets across Iran. These doors are not limited to entry and exit functions; they are an integral part of space management infrastructure. Considering the unique architecture and design of shopping centers, and with a focus on aesthetics and performance, PersiaDoor delivers solutions tailored to customer needs. Modern automatic door designs aim to enhance customer convenience, manage pedestrian traffic efficiently, optimize energy consumption, ensure security, and provide reliable emergency exits.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
+    },
+    "howSection": {
+      "title": "How Do Automatic Doors Support Your Business?"
+    },
+    "benefits": {
+      "hygiene": {
+        "title": "Traffic Management and Security",
+        "text": "During peak hours, automatic doors equipped with precise sensors prevent crowd congestion and ensure smooth and orderly pedestrian flow."
+      },
+      "easyAccess": {
+        "title": "Energy Optimization",
+        "text": "Automatic doors in shopping centers contribute to energy optimization by reducing heating, cooling, and ventilation costs."
+      },
+      "accessControl": {
+        "title": "Emergency Exit",
+        "text": "Automatic doors with self-locking capabilities enhance space security and, in emergency situations such as fires or smoke and toxic gas prevention, help ensure the safety and well-being of visitors."
+      }
+    }
+  },
+   "TerminalPage": {
+    "sectionTitle": "Completed Projects for Terminals",
+    "home": "Home",
+    "industries": "Industries",
+    "hospitals": "Factories",
+    "office": "Government Facilities",
+    "factories": "Factories",
+    "banks": "Banks",
+    "airport": "Airports",
+    "terminals": "Terminals",
+    "hero": {
+      "title": "Industry Solutions (Bus Terminals & Railway Stations)",
+      "text": "Bus terminals and railway stations are among the busiest transportation hubs in the country—spaces where thousands of people move every day. Therefore, door systems must ensure safe, fast, and well-organized pedestrian flow. PersiaDoor, leveraging GEZE automatic door technologies, delivers specialized solutions specifically designed for high-traffic environments.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
+    },
+    "howSection": {
+      "title": "How Do Automatic Doors Support Your Business?"
+    },
+    "benefits": {
+      "hygiene": {
+        "title": "Traffic Management",
+        "text": "During peak hours, railway stations and terminals experience extremely high foot traffic. GEZE automatic doors, equipped with precise sensors and adjustable configurations, manage passenger entry and exit smoothly without congestion."
+      },
+      "easyAccess": {
+        "title": "Flexible Design and Custom Dimensions",
+        "text": "Terminals and stations differ in layout and space requirements. Some require wide entrances, while others need narrower access points. GEZE doors, with custom dimensions, durable profiles, and specialized designs, integrate seamlessly with waiting halls, corridors, gates, and main entrances."
+      },
+      "accessControl": {
+        "title": "Service and Support",
+        "text": "Transportation hubs operate continuously, and entrances and exits must function 24/7. Persia Service ensures uninterrupted performance through scheduled maintenance and round-the-clock support, maintaining both security and traffic flow at all times."
+      },
+      "services": {
+        "title": "24/7 Service and Support",
+        "text": "Persia Service provides periodic inspections and 24/7 support to guarantee the reliable operation of door systems at all times. In such environments, door malfunctions can disrupt the entire traffic flow, making durability and system quality critically important."
+      }
+    }
+  },
+   "AirportPage": {
+    "sectionTitle": "Completed Projects for Airports",
+    "home": "Home",
+    "industries": "Industries",
+    "hospitals": "Factories",
+    "office": "Government Facilities",
+    "factories": "Factories",
+    "banks": "Banks",
+    "airport": "Airports",
+    "hero": {
+      "title": "Industry Solutions (Airports)",
+      "text": "Airports are among the most sensitive and high-traffic facilities in any country—where security, speed, and uninterrupted operation are critically important. As the exclusive representative of GEZE Germany, PersiaDoor delivers specialized solutions for intelligent entrance management and access control in airport environments. Automatic door systems are capable of handling extremely high volumes of passenger traffic efficiently and safely.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
+    },
+    "howSection": {
+      "title": "How Do Automatic Doors Support Your Business?"
+    },
+    "benefits": {
+      "hygiene": {
+        "title": "Fast and Smooth Passenger Flow",
+        "text": "In airports, managing passenger movement at entrances, exits, and transit corridors is vital. GEZE doors, equipped with precise sensors, fast response times, and adjustable configurations, guide passenger flow smoothly without congestion or disruption."
+      },
+      "easyAccess": {
+        "title": "Secure Access Control",
+        "text": "Due to high security requirements, airports demand highly reliable entrance and exit systems. Based on installation locations, emergency routes, and specific security needs, PersiaDoor equips and configures doors with certified safety standards, locking mechanisms, protective systems, and specialized access control solutions."
+      },
+      "accessControl": {
+        "title": "Service and Support",
+        "text": "Airports operate around the clock, and entrances and exits must function 24/7. Through scheduled maintenance and continuous support, the Persia Service team ensures uninterrupted performance of automatic doors at all times, maintaining both security and traffic efficiency."
+      }
+    }
+  },
+  "BankPage": {
+    "sectionTitle": "Completed Projects for Banks",
+    "home": "Home",
+    "industries": "Industries",
+    "hospitals": "Factories",
+    "office": "Government Facilities",
+    "factories": "Factories",
+    "banks": "Banks",
+    "hero": {
+      "title": "Industry Solutions (Banks)",
+      "text": "In banking environments, selecting and installing automatic doors is not merely a technical decision; it is a strategic factor in enhancing security, operational efficiency, and customer experience. In such high-sensitivity spaces, doors must deliver reliable design, mechanical performance, safety, and access control—especially during peak hours.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
+    },
+    "howSection": {
+      "title": "How Do Automatic Doors Support Your Business?"
+    },
+    "benefits": {
+      "hygiene": {
+        "title": "Fast and Smooth Traffic Flow",
+        "text": "As banks are among the most high-traffic environments, even minor disruptions in door performance can lead to serious operational issues. Automatic doors equipped with precise and reliable sensors ensure smooth movement and prevent congestion."
+      },
+      "easyAccess": {
+        "title": "Secure Access Control",
+        "text": "The security requirements of banks are not comparable to other environments. By assessing the location and specific needs of each branch, PersiaDoor delivers tailored security solutions—from access control configurations to equipping doors with certified safety and protection systems."
+      },
+      "accessControl": {
+        "title": "Service and Support",
+        "text": "Continuous and reliable operation of GEZE automatic doors during banking hours is essential. For this reason, scheduled maintenance and 24/7 support are considered dedicated services for the banking sector. PersiaDoor is a trusted partner for ensuring security and rapid service delivery in banks."
+      }
+    }
+  },
+  "FactoryPage": {
+    "sectionTitle": "Completed Projects for Factories",
+    "home": "Home",
+    "industries": "Industries",
+    "hospitals": "Factories",
+    "office": "Government Facilities",
+    "factories": "Factories",
+    "hero": {
+      "title": "Industry Solutions (Factories)",
+      "text": "Factories are high-traffic environments with strict safety requirements. In such settings, selecting the right door system has a direct impact on employee safety and operational efficiency. PersiaDoor delivers specialized solutions using GEZE automatic doors—products designed in accordance with international standards and optimized for industrial environments.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
+    },
+    "howSection": {
+      "title": "How Do Automatic Doors Support Your Business?"
+    },
+    "benefits": {
+      "hygiene": {
+        "title": "High-Level Security",
+        "text": "GEZE automatic doors, equipped with intelligent and secure locking systems, restrict unauthorized access and enable rapid evacuation of personnel during emergency situations."
+      },
+      "easyAccess": {
+        "title": "Traffic Management",
+        "text": "Precise sensors and adjustable control systems regulate door opening and closing for smooth and continuous movement of people. This reduces unnecessary توقف‌ها, increases workflow speed, and ensures long-term reliability with minimal wear—making these doors ideal for production environments."
+      },
+      "accessControl": {
+        "title": "Emergency Exit",
+        "text": "GEZE automatic doors feature advanced safety systems and can function as emergency exits. They are engineered to operate safely and reliably during power outages or emergency conditions."
+      },
+      "fireSafety": {
+        "title": "Durability, Performance, and Reliability",
+        "text": "The superior build quality of GEZE automatic doors ensures resistance to dust, vibration, and temperature fluctuations. As a result, these doors maintain stable performance with minimal wear, even under continuous and heavy-duty operation."
       }
     }
   },
@@ -421,32 +635,32 @@
     "home": "Home",
     "industries": "Industries",
     "hospitals": "Hospitals",
-    "office":"Governmental Centers",
+    "office": "Government Facilities",
     "hero": {
-      "title": "Hospitals",
-      "text": "With a deep understanding of hospital environments and their specific needs, PersiaDoor designs and supplies hospital doors that meet the highest hygiene standards and modern technologies. These doors provide easy, unobstructed access while minimizing touch points and enabling quick cleaning to support infection control. They also open wide enough for hospital beds and, when closed, help reduce unwanted air flow between zones.",
-      "consultButton": "Free consultation",
-      "serviceButton": "Contact service"
+      "title": "Industry Solutions (Hospitals)",
+      "text": "With a deep understanding of hospital environments, PersiaDoor delivers specialized hospital door solutions that address operational challenges while ensuring maximum safety and hygiene standards. Hospital doors are designed to provide smooth, barrier-free access and, due to minimal contact operation, help maintain a hygienic environment. These doors also offer sufficient opening width for hospital beds and, when closed, significantly limit air flow to support controlled clinical conditions.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
     },
     "howSection": {
-      "title": "How automatic doors help your healthcare facility"
+      "title": "How Do Automatic Doors Support Your Business?"
     },
     "benefits": {
       "hygiene": {
-        "title": "Hygiene and safety",
-        "text": "Hospital automatic doors reduce touch points and remove the need for handles, helping to lower the risk of spreading infections. Their easy-to-clean surfaces support strict hygiene protocols in critical areas."
+        "title": "Hygienic Standards",
+        "text": "Hygienic and Hermetic hospital automatic doors, compliant with the highest healthcare standards, are an ideal solution for sensitive medical environments. By minimizing contact points and eliminating the need for manual handles, these doors enhance hygiene while advanced sensors ensure user safety."
       },
       "easyAccess": {
-        "title": "Easy circulation and time saving",
-        "text": "Automatic doors allow staff and patients to enter and exit hands-free, without stopping. This is especially important in emergency situations and when moving beds or equipment."
+        "title": "Easy and Fast Access",
+        "text": "Automatic doors facilitate smooth entry and exit for all users—especially patients using wheelchairs or stretchers. In high-traffic hospital areas, these systems reduce congestion and significantly shorten waiting times."
       },
       "accessControl": {
-        "title": "Access control",
-        "text": "These doors can be integrated with access control systems to monitor and restrict entry to sensitive hospital areas such as ICUs, operating theatres and isolation wards."
+        "title": "Emergency Exit",
+        "text": "Hospital emergency exit doors prevent the spread of smoke and toxic gases during fire incidents. When connected to fire alarm systems, they close automatically, and in the event of power failure, they integrate with emergency lighting to ensure safe evacuation routes. Break-out door systems also allow manual outward opening when required."
       },
       "fireSafety": {
-        "title": "Security and fire safety",
-        "text": "Fire-rated doors resist flames, limit the spread of smoke and toxic gases and still allow quick opening in emergencies, helping to protect the health and safety of occupants during fires."
+        "title": "24/7 Service and Support",
+        "text": "Through regular maintenance programs, round-the-clock support, and rapid on-site response, PersiaDoor ensures that installed systems operate reliably and without interruption—even during peak hospital activity."
       }
     }
   },
@@ -455,103 +669,102 @@
     "services": "Services",
     "installationAndMaintenance": "Installation & Maintenance",
     "hero": {
-      "title": "PersiaDoor services",
-      "text": "PersiaDoor’s service unit, with highly experienced technicians, is ready to support customers around the clock.",
-      "consultButton": "Free consultation",
-      "serviceButton": "Contact service"
+      "title": "PersiaDoor Services",
+      "text": "PersiaDoor’s service division, supported by highly skilled technicians, is available 24/7 to deliver reliable and professional services nationwide.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
     },
     "intro": {
-      "title": "Installation and service",
-      "text": "To deliver specialized services, PersiaDoor has established the Persia Service unit so that all service operations are carried out in the best possible way."
+      "title": "Installation & Service",
+      "text": "To deliver specialized and reliable services, PersiaDoor has established the Persia Service unit to ensure all service operations are performed to the highest standards."
     },
     "tiles": {
       "freeConsulting": {
-        "title": "Free consultation",
-        "text": "Installation and commissioning of all types of automatic glass doors and fire doors are carried out in the shortest possible time by our technical team."
+        "title": "Free Consultation",
+        "text": "Installation and commissioning services for all types of automatic glass doors and fire-rated doors are carried out by our technical team in the shortest possible time."
       },
       "installService": {
-        "title": "Installation and service",
-        "text": "Installation and commissioning of all types of automatic glass doors and fire doors are carried out in the shortest possible time by our technical team."
+        "title": "Installation & Service",
+        "text": "Installation and commissioning services for all types of automatic glass doors and fire-rated doors are delivered efficiently by our professional technical team."
       },
       "warrantyRepair": {
-        "title": "Warranty and repair",
-        "text": "Installation and commissioning of all types of automatic glass doors and fire doors are carried out in the shortest possible time by our technical team."
+        "title": "Warranty & Repair",
+        "text": "Comprehensive installation, commissioning, and repair services for automatic and fire-rated doors are provided with full technical support."
       }
     },
     "sections": {
       "freeConsulting": {
-        "title": "Free consultation",
-        "text": "24/7 customer support reflects our commitment to better service and customer satisfaction. You can use our communication channels to benefit from our support at any time."
+        "title": "Free Consultation",
+        "text": "Providing 24/7 customer support reflects our commitment to service excellence and customer satisfaction. Through our communication channels, clients can benefit from continuous expert assistance at any time."
       },
       "installWarranty": {
-        "title": "Installation and warranty",
-        "text": "PersiaDoor products are offered with a one-year free warranty for various industries. This warranty includes service, repair and parts replacement and, with a new contract, can be extended up to 5 years. All installation steps are performed by experienced technicians, coordinated and completed in the shortest possible time across Iran."
+        "title": "Installation & Warranty",
+        "text": "PersiaDoor products are delivered with a one-year complimentary warranty across various industries. This warranty covers servicing, repairs, and parts replacement, and can be extended up to five years through a renewed service agreement. All installation processes are performed by certified technicians with full coordination and minimal lead time across Iran."
       },
       "serviceRepair": {
-        "title": "Service and repair",
-        "text": "Periodic and on-demand service for all types of automatic doors and windows is provided under contract throughout Iran. Our service unit guarantees the quality of services and replacement parts, minimizing customers’ concerns. The goal of Persia Service is to repair and maintain components rather than simply replacing them. Our experienced technicians are available 24/7 all week long."
+        "title": "Service & Maintenance",
+        "text": "Scheduled and on-demand maintenance services for all types of automatic doors and windows are available nationwide through service contracts. Backed by a service warranty, this unit minimizes concerns regarding service quality and replacement parts. Persia Service prioritizes repair and maintenance over unnecessary replacements, with expert technicians available 24/7 throughout the week."
       }
     }
   },
   "Breadcrumbs": {
     "home": "Home",
-    "career_position": "Career Position",
-    "FAQ": "Frequently Answers",
-    "gallery_news": "Gallery & Blogs"
+    "career_position": "Career Opportunities",
+    "FAQ": "Frequently Asked Questions",
+    "gallery_news": "Gallery & News"
   },
   "CareersPage": {
     "home": "Home",
-    "brandName": "PersiaDoor",
-    "careers": "Job Position",
+    "brandName": "Persiador",
+    "careers": "Careers",
     "hero": {
-      "career_title": "Careers at Persiadoor",
-      "career_description": "Joining Persiadoor can be a great opportunity for individuals seeking career growth and new experiences. With a strong focus on delivering innovative services and manufacturing high-quality products, the company is always looking to recruit creative and talented professionals.",
-      "text": "With a deep understanding of hospital environments and their specific needs, PersiaDoor designs and supplies hospital doors that meet the highest hygiene standards and modern technologies. These doors provide easy, unobstructed access while minimizing touch points and enabling quick cleaning to support infection control. They also open wide enough for hospital beds and, when closed, help reduce unwanted air flow between zones.",
-      "consultButton": "Free consultation",
-      "serviceButton": "Contact service"
+      "career_title": "Careers at Persiador",
+      "career_description": "Joining Persiador can be a valuable opportunity for individuals seeking professional growth and new experiences. With a strong focus on innovative services and high-quality products, Persiador is always looking to attract creative and forward-thinking talent.",
+      "consultButton": "Free Consultation",
+      "serviceButton": "Contact Services"
     },
     "culture": {
-      "text": "Enjoying the work and feeling continuous growth are the most important parts of PersiaDoor’s work culture."
+      "text": "Enjoying work and experiencing continuous growth are the core values of Persiador’s work culture."
     },
     "perks": {
       "training": "Training",
       "bonus": "Bonus",
       "insurance": "Insurance",
       "events": "Events",
-      "promotion": "Career growth",
+      "promotion": "Career Advancement",
       "gifts": "Gifts"
     },
     "jobsSection": {
-      "title": "Job opportunities at PersiaDoor",
-      "text": "We are always looking for talented and creative people to grow the PersiaDoor family. If you are interested in joining us, you can review the available job positions here."
+      "title": "Join the Persiador Team",
+      "text": "We are always looking for skilled and creative professionals to grow the Persiador family. If you are interested in joining us, explore the current career opportunities at Persiador."
     },
     "jobCard": {
-      "title": "Mechanical engineer",
+      "title": "Mechanical Engineer",
       "typePartTime": "Part-time",
       "locationOnsite": "On-site",
-      "sendCvButton": "Send résumé"
+      "sendCvButton": "Submit Resume"
     }
   },
   "NewsGalleryTabs": {
     "tabs": {
       "gallery": "Gallery",
-      "news": "News"
+      "news": "News & Articles"
     }
   },
   "NewsGrid": {
     "item": {
-      "title": "Benefits of automatic hospital doors",
-      "summary": "Automatic doors are one of the best options for radiation rooms. Contact us for more information.",
-      "date": "23 September",
+      "title": "Benefits of Automatic Hospital Doors",
+      "summary": "Automatic doors are the best choice for radiation rooms. For more information, you can contact us.",
+      "date": "September 23",
       "slug": "test"
     },
-    "readMore": "Read more",
-    "imageAlt": "Hospital news"
+    "readMore": "Read More",
+    "imageAlt": "Hospital News"
   },
   "BrandsFilter": {
     "sections": {
       "brands": "Brands",
-      "doorType": "Door type"
+      "doorType": "Door Type"
     },
     "options": {
       "geze": "GEZE",
@@ -560,193 +773,191 @@
     }
   },
   "ProductsListingPage": {
-    "clearFilters": "Clear filters",
+    "clearFilters": "Clear",
     "card": {
-      "imageAlt": "Revolving doors",
-      "typeTitle": "Hinged doors",
+      "imageAlt": "Revolving Doors",
+      "typeTitle": "Hinged Doors",
       "productName": "Slimdrive SL NT",
-      "featureText": "120 cm operator height",
+      "featureText": "120 cm Operator Height",
       "compareBadge": "Compare"
     },
-    "slug": "test-door"
+    "slug": "test-product"
   },
-  "SortFilter": {
+   "SortFilter": {
     "newest": "Newest",
     "oldest": "Oldest"
   },
-  "GalleryImage": {
+   "GalleryImage": {
     "items": {
       "projectTehran": {
-        "title": "Tehran hotel project"
+        "title": "Tehran Hoteling Project"
       },
       "projectZahedan": {
-        "title": "Zahedan hotel project"
+        "title": "Zahedan Hoteling Project"
       }
     },
-    "relativeProducts": "Relative Products"
+    "relativeProducts": "Related Products"
   },
   "ProductDetailPage": {
     "name": "ECdrive T2",
-    "featureBadge": "120 cm operator height",
+    "featureBadge": "120 cm Operator Height",
     "benefit": {
-      "label": "Energy saving",
+      "label": "Energy Saving",
       "value": "70%"
     },
     "tag": "Frameless",
     "buttons": {
-      "phoneConsult": "Phone consultation",
-      "downloadCatalog": "Product catalog"
+      "phoneConsult": "Phone Consultation",
+      "downloadCatalog": "Product Catalog"
     }
   },
   "TabsDetails": {
     "tabs": {
-      "product": "Product information",
-      "technical": "Technical information",
+      "product": "Product Information",
+      "technical": "Technical Information",
       "downloads": "Downloads",
-      "catalog": "Product catalog",
-      "certificate": "Product certificate",
-      "datasheet": "Product datasheet",
-      "technicalDrawing": "Technical drawings",
+      "catalog": "Product Catalog",
+      "certificate": "Product Certificate",
+      "datasheet": "Product Datasheet",
+      "technicalDrawing": "Technical Drawings",
       "download": {
-        "empty": "Download list is empty"
+        "empty": "No files available for download"
       }
     },
     "product": {
-      "imageAlt": "Revolving doors",
-      "paragraph": "Equipped with paired roller set and GCprofile Therm for leaf weights up to 140 kg.",
-      "button": "View on GEZE website"
+      "imageAlt": "Revolving Doors",
+      "paragraph": "Equipped with a double roller assembly and GCprofile Therm, supporting door leaf weights up to 140 kg.",
+      "button": "View on GEZE Website"
     },
     "technical": {
-      "imageAlt": "Technical view of the door",
-      "paragraph": "Equipped with paired roller set and GCprofile Therm for leaf weights up to 140 kg."
+      "imageAlt": "Door Technical View",
+      "paragraph": "Equipped with a double roller assembly and GCprofile Therm, supporting door leaf weights up to 140 kg."
     }
   },
   "HomePage": {
     "home": "Home",
-    "brandName": "PersiaDoor",
+    "brandName": "Persiador",
     "aboutUs": "About Us",
     "banner": {
-      "primary1": "سیستsectionTitle ضد حریق ",
-      "primary2": "منطبق با استانداردهای اروپا",
-      "secondary1": "Fire protection system ",
-      "secondary2": "Compliant with European standards",
-      "primary": "Fire protection system compliant with European standards",
-      "secondary": "Fire protection system compliant with European standards",
-      "button": "View more products"
+      "primary1": "Fire Protection System",
+      "primary2": "Compliant with European Standards",
+      "secondary1": "Fire Protection System",
+      "secondary2": "Compliant with European Standards",
+      "primary": "Fire Protection System Compliant with European Standards",
+      "secondary": "Fire Protection System Compliant with European Standards",
+      "button": "View Products"
     },
     "expertise": {
       "items": {
         "1": {
           "title": "Support",
-          "description": "We stand by your side from start to finish, ensuring optimal performance of products, equipment, and services with complete peace of mind."
+          "description": "We stand by you from start to finish to ensure optimal performance of products, equipment, and services."
         },
         "2": {
           "title": "Expertise",
-          "description": "Our experienced specialists strive to deliver a unique customer experience by understanding and meeting their needs."
+          "description": "Our experienced specialists strive to deliver a unique experience and effectively respond to customer needs."
         },
         "3": {
           "title": "Authenticity",
-          "description": "After years of experience, collaboration with leading global brands, and reliance on genuine technical knowledge, we have proven the quality of our products."
+          "description": "Through years of experience, collaboration with leading global brands, and genuine technical know-how, we have proven the quality of our products."
         },
         "4": {
           "title": "Quality",
-          "description": "Through years of experience, partnerships with top international brands, and reliance on authentic technical expertise, we have demonstrated the quality of our products."
+          "description": "With years of experience and collaboration with top international brands, we consistently deliver proven product quality."
         }
       }
     },
     "about": {
-      "brand": "PersiaDoor",
-      "text": "Operates in the field of designing and developing industrial automation systems with the goal of improving efficiency, accuracy, and speed in production and industrial processes.",
+      "brand": "Persiador",
+      "text": "Active in the development and production of industrial automation systems, aiming to enhance efficiency, accuracy, and speed in industrial processes.",
       "buttons": {
-        "learnMore": "Learn more",
-        "call": "Phone consultation"
+        "learnMore": "Learn More",
+        "call": "Phone Consultation"
       }
     },
     "customers": {
-      "titleHighlight": "Our customers",
-      "titleRest": "are our most valuable asset",
+      "titleHighlight": "Our Customers",
+      "titleRest": "Are Our Most Valuable Asset",
       "alt": "Customers"
     },
     "services": {
-      "titlePrefix": "PersiaDoor",
-      "titleHighlight": "services"
+      "titlePrefix": "Services",
+      "titleHighlight": "Persiador"
     },
     "industriesIntro": {
-      "title": "Our solutions for",
-      "titleHighlight": "industries",
-      "subtitle": "Our solutions are tailored to your needs.\nSelect the industry you are working in."
+      "title": "Our Solutions for",
+      "titleHighlight": "Industries",
+      "subtitle": "Our solutions are designed based on your needs.\nSelect the industry you work in."
     },
     "industries": {
-      "bank": "Bank",
-      "creative": "Creative projects",
+      "bank": "Banking",
+      "creative": "Creative Projects",
       "factory": "Factory",
       "hotel": "Hotel",
-      "office": "Public sector",
-      "private": "Private sector",
-      "shopping": "Shopping centers",
+      "office": "Government Offices",
+      "private": "Private Centers",
+      "shopping": "Shopping Centers",
       "terminal": "Terminal",
       "hospital": "Hospital",
       "airport": "Airport"
     }
   },
-
   "TimelineSlider": {
     "vision_title": "Our Vision",
-    "vision_text": "Persia Automatic Door Company, while maintaining consistent quality in its services and products, is always curious and dynamic toward emerging markets and industry changes.",
+    "vision_text": "Persia Automatic Door Company maintains consistency in the quality of its services and products while remaining dynamic and responsive to new market trends.",
     "brand_value": "Brand Value",
-    "vision_paragraph": "Persia Automatic Door Company, while maintaining stability in the quality of its services and products, remains curious and dynamic toward new markets and industry developments.",
+    "vision_paragraph": "Persia Automatic Door Company maintains consistency in the quality of its services and products while remaining dynamic and responsive to new market trends.",
     "mission_title": "Our Mission",
-    "mission_text": "At Persia Automatic Door Company, we place special importance on how we interact with our customers. From the early stages of each project, we stay connected with them and play an active role throughout the entire lifecycle of the building.",
+    "mission_text": "At Persia Automatic Door Company, we place great importance on how we interact with our customers. From the early stages of projects, we stay closely connected with clients and play an active role throughout the entire lifecycle of a building.",
     "team": "Team",
-    "persia": "Persia Door",
-    "join_us_title": "Join PersiaDoor",
+    "persia": "Persiador",
+    "join_us_title": "Join Persiador",
     "job_positions_button": "Job Positions",
-
     "ourServises": "Our Services",
-    "ourServises_text": "Persiador has launched the Persia Service unit to provide specialized services and ensure that service tasks are carried out in the best possible way.",
+    "ourServises_text": "By providing specialized consulting, installation, and maintenance of automatic door and window systems, Persiador delivers smart solutions to its customers.",
     "representation": "International Brand Representation",
-    "representation_text": "Since 2007, Persiador has been the sole official representative of the German company GEZE in Iran, providing the highest quality and services to its customers.",
+    "representation_text": "Since 2007, Persiador has been the sole official representative of GEZE Germany in Iran, delivering the highest quality products and services to its customers.",
     "honors_title": "Our Achievements",
-    "honors_desc": "Winning multiple awards in international competitions, constructing and executing special structures, and localizing and producing automatic door and window components are among our achievements.",
+    "honors_desc": "Winning multiple international awards, designing and executing unique structures, and localizing the production of automatic door and window components are among our key achievements.",
     "solutions_title": "Our Solutions for Industries",
-    "solutions_desc": "Persiador provides the best solutions in the field of automatic door and window sales and services to its customers across various industries.",
+    "solutions_desc": "Persiador provides the best solutions in the sale and service of automatic doors and windows across a wide range of industries.",
     "customers_title": "Our Customers",
-    "customers_subtitle": "Are Our Most Valuable Asset",
+    "customers_subtitle": "Our Most Valuable Asset",
     "iran_cities": "Cities of Iran",
     "our_experience": "Our Experience",
     "different_industries": "Various Industries",
     "agency_page": "Agency Page",
-    "cities": "Cities in Iran",
+    "cities": "Cities",
     "experience": "Years of Experience",
-    "industries": "Various Industries"
-  },
-  "moreBox": {
-    "text": "Didn’t find your question?",
-    "button": "Ask us"
+    "industries": "Industries"
   },
   "askBox": {
-    "label": "Your question",
-    "placeholder": "Write your question here...",
+    "label": "Your Question",
+    "placeholder": "Type your question here...",
     "send": "Send",
-    "error": "Please write at least 5 characters."
+    "error": "Please enter at least 5 characters."
+  },
+  "moreBox": {
+    "text": "If you have more questions, please visit the FAQ page.",
+    "button": "More Questions"
   },
   "Jobs": {
     "fetchError": "Failed to load job positions",
-    "typeFullTime": "Full Time",
-    "typePartTime": "Part Time",
+    "typeFullTime": "Full-time",
+    "typePartTime": "Part-time",
     "locationOnsite": "On-site",
-    "sendCvButton": "Send CV",
-    "resumeRequired": "Please upload your CV",
-    "success": "Application sent successfully!",
-    "error": "Failed to send application",
-    "sending": "Sending...",
+    "sendCvButton": "Submit Resume",
+    "resumeRequired": "Please upload your resume",
+    "success": "Your application has been submitted successfully",
+    "error": "There was an error submitting your application",
+    "sending": "Submitting...",
     "fullName": "Full Name",
     "fullNameRequired": "Full name is required",
     "email": "Email",
     "emailRequired": "Email is required",
-    "phone": "Phone",
+    "phone": "Phone Number",
     "message": "Message (optional)",
-    "viewDescription": "Details"
+    "viewDescription": "View Details"
   },
   "common": {
     "close": "Close"
@@ -761,22 +972,15 @@
     "clearFilters": "Clear All",
     "noProductsFound": "No products found.",
     "slug": "product",
-    "filters": "Filters",
-    "clearFilters": "Clear All",
-    "productsFound": "products found",
+    "productsFound": "Products found",
     "sortNewest": "Newest",
-    "sortBestSelling": "Most",
+    "sortBestSelling": "Best Selling",
     "sortMostViewed": "Most Viewed",
     "compareBadge": "Compare",
     "card": {
       "imageAlt": "Product Image",
       "productName": "Product Name"
     }
-  },
-  "Categories": {
-    "header": "Persiadoor Products",
-    "productsCount": "{count} products",
-    "fetchError": "Failed to load categories"
   },
   "ProductsBrands": {
     "sections": {
@@ -791,4 +995,5 @@
     "noBrands": "No brands found",
     "noDoorTypes": "No door types found"
   }
+ 
 }
