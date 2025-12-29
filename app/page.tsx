@@ -76,7 +76,7 @@ export default async function Home() {
     {
       title: t("expertise.items.3.title"),
       description: t("expertise.items.3.description"),
-      icon: "/SVGs/protect.svg",
+      icon: "/SVGs/protect3.svg",
     },
     {
       title: t("expertise.items.4.title"),

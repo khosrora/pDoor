@@ -711,7 +711,8 @@
     "home": "Home",
     "career_position": "Career Opportunities",
     "FAQ": "Frequently Asked Questions",
-    "gallery_news": "Gallery & News"
+    "gallery": "Gallery ",
+    "news": " News"
   },
   "CareersPage": {
     "home": "Home",

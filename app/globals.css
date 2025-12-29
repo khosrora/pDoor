@@ -114,3 +114,10 @@ img { -webkit-user-drag: none; user-select: none; }
 
 
 
+.cursor-swiper-left {
+  cursor: url("/SVGs/left.svg"), w-resize;
+}
+
+.cursor-swiper-right {
+  cursor: url("/SVGs/right.svg"), e-resize;
+}
