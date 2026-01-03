@@ -565,31 +565,28 @@
     "sectionTitle": "Completed Projects for Banks",
     "home": "Home",
     "industries": "Industries",
-    "hospitals": "Factories",
-    "office": "Government Facilities",
-    "factories": "Factories",
     "banks": "Banks",
     "hero": {
-      "title": "Industry Solutions (Banks)",
-      "text": "In banking environments, selecting and installing automatic doors is not merely a technical decision; it is a strategic factor in enhancing security, operational efficiency, and customer experience. In such high-sensitivity spaces, doors must deliver reliable design, mechanical performance, safety, and access control—especially during peak hours.",
+      "title": "Industrial Solutions (Banks)",
+      "text": "In banks, selecting and installing automatic doors is not merely a technical decision; it is a strategic choice that directly impacts security, efficiency, and user experience. In such environments, doors must operate reliably during peak hours and meet the highest standards in design, mechanical performance, safety, and access control.",
       "consultButton": "Free Consultation",
       "serviceButton": "Contact Services"
     },
     "howSection": {
-      "title": "How Do Automatic Doors Support Your Business?"
+      "title": "How Automatic Doors Support Your Business"
     },
     "benefits": {
       "hygiene": {
-        "title": "Fast and Smooth Traffic Flow",
-        "text": "As banks are among the most high-traffic environments, even minor disruptions in door performance can lead to serious operational issues. Automatic doors equipped with precise and reliable sensors ensure smooth movement and prevent congestion."
+        "title": "Smooth and Fast Traffic Flow",
+        "text": "As banks are among the most high-traffic environments, even minor disruptions in door performance can lead to serious issues. Automatic doors equipped with precise and reliable sensors ensure smooth movement and prevent congestion."
       },
       "easyAccess": {
         "title": "Secure Access Control",
-        "text": "The security requirements of banks are not comparable to other environments. By assessing the location and specific needs of each branch, PersiaDoor delivers tailored security solutions—from access control configurations to equipping doors with certified safety and protection systems."
+        "text": "The security requirements of banks are far more demanding than those of other spaces. By assessing the location and specific needs of each branch, Persiadoor delivers customized security solutions—from access control configurations to equipping doors with certified security systems."
       },
       "accessControl": {
         "title": "Service and Support",
-        "text": "Continuous and reliable operation of GEZE automatic doors during banking hours is essential. For this reason, scheduled maintenance and 24/7 support are considered dedicated services for the banking sector. PersiaDoor is a trusted partner for ensuring security and rapid service delivery in banks."
+        "text": "Uninterrupted performance during business hours is essential for banks. For this reason, scheduled maintenance and 24/7 support are among our dedicated services for this sector. Persiadoor is a trusted partner in ensuring security and fast, reliable service for banking environments."
       }
     }
   },

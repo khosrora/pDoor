@@ -1,22 +1,24 @@
 import { Metadata } from "next";
-import AccordionCustions from "../../components/pages/AccordionCustions";
+// import AccordionCustions from "../../components/pages/AccordionCustions";
 import Breadcrumbs from "./Breadcrumbs";
+import Frequently from "@/app/components/pages/Frequently";
+
 
 export const metadata: Metadata = {
   title: "پرشیادُر | سوالات متداول",
   description:
     "در زمینه تولید و توسعه سیستم‌های اتوماسیون صنعتی فعالیت می‌کند، با هدف ارتقای کارایی، دقت و سرعت در فرآیندهای تولید و صنعتی",
 };
-
-function page() {
+function page({ isquestion }: { isquestion?: boolean }) {
   return (
     <div className="mt-32">
+      {" "}
       <div className="max-w-7xl m-auto">
-        <Breadcrumbs />
-      </div>
-      <AccordionCustions isquestion />
+        {" "}
+        <Breadcrumbs />{" "}
+      </div>{" "}
+      <Frequently isquestion />{" "}
     </div>
   );
 }
-
 export default page;

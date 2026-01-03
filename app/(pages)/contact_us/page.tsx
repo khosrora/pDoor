@@ -37,19 +37,44 @@ export default async function ContactPage() {
             </div>
 
             {/* Contact blocks */}
-            <div className="p-4 space-y-4 lg:border-none lg:bg-zinc-100 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* HQ */}
-              <div className="flex items-start gap-x-4">
-                <div className="border border-blue-800 rounded p-2 shrink-0">
-                  <img
-                    src={"/SVGs/phone-call-filled.svg"}
-                    className="text-blue-800"
-                  />
+            <div className="p-4 space-y-4 lg:border-none lg:bg-zinc-100 grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+              {/* Service */}
+              <div className="flex items-center gap-x-4">
+                <div className="border border-[#005E8B] rounded p-2 shrink-0">
+                  <img src={"/SVGs/phone-call-filled.svg"} />
                 </div>
 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col lg:flex-row lg:justify-between w-full gap-1">
+                  <h2 className="font-medium">{t("blocks.serviceTitle")}</h2>
+                  <a href="tel:090228863667" className="text-sm">
+                    0902 2886 3667
+                  </a>
+                </div>
+              </div>
+
+              {/* Sales */}
+              <div className="flex items-center gap-x-4 w-full">
+                <div className="border border-[#005E8B] rounded p-2 shrink-0">
+                  <img src={"/SVGs/phone-call-filled.svg"} />
+                </div>
+
+                <div className="flex justify-between items-center w-full">
+                  <h2 className="font-medium">{t("blocks.salesTitle")}</h2>
+                  <a href="tel:09022886628" className="text-sm">
+                    0902 2886 628
+                  </a>
+                </div>
+              </div>
+
+              {/* HQ */}
+              <div className="flex items-center gap-x-4 w-full">
+                <div className="border border-blue-800 rounded p-2 shrink-0">
+                  <img src={"/SVGs/phone-call-filled.svg"} />
+                </div>
+
+                <div className="flex justify-between items-center w-full">
                   <h2 className="font-medium">{t("blocks.hqTitle")}</h2>
-                  <ul className="flex flex-col gap-1 text-sm">
+                  <ul className="flex flex-col gap-1 text-sm ">
                     <li>
                       <a href="tel:02188775437">021-88775437</a>
                     </li>
@@ -63,36 +88,8 @@ export default async function ContactPage() {
                 </div>
               </div>
 
-              {/* Sales */}
-              <div className="flex items-start gap-x-4">
-                <div className="border border-[#005E8B] rounded p-2 shrink-0">
-                  <img src={"/SVGs/phone-call-filled.svg"} />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <h2 className="font-medium">{t("blocks.salesTitle")}</h2>
-                  <a href="tel:09022886628" className="text-sm">
-                    0902 2886 628
-                  </a>
-                </div>
-              </div>
-
-              {/* Service */}
-              <div className="flex items-start gap-x-4">
-                <div className="border border-[#005E8B] rounded p-2 shrink-0">
-                  <img src={"/SVGs/phone-call-filled.svg"} />
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <h2 className="font-medium">{t("blocks.serviceTitle")}</h2>
-                  <a href="tel:090228863667" className="text-sm">
-                    0902 2886 3667
-                  </a>
-                </div>
-              </div>
-
               {/* Address */}
-              <div className="flex items-start gap-x-4">
+              <div className="flex items-center gap-x-4">
                 <div className="border border-[#005E8B]  rounded p-2 shrink-0">
                   <img src={"/SVGs/local-filled.svg"} />
                 </div>
