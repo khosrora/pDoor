@@ -72,7 +72,7 @@ export default function NewsSwipper() {
         <p className="text-center text-[16px] lg:text-[20px]">
           {locale === "fa"
             ? "آخرین مقالات مرتبط و اخبار پرشیا در را اینجا می‌توانید مشاهده کنید"
-            : "See the latest related articles and Persiadoor news here."}
+            : "Explore the latest related articles and Persiadoor news here."}
         </p>
       </div>
 
@@ -133,14 +133,14 @@ export default function NewsSwipper() {
         {/* Navigation Buttons */}
         <div className="flex justify-center gap-8 mt-8" dir="rtl">
           <button
-            ref={nextRef}
+            ref={prevRef}
             className="p-3 border border-[#003F5D] lg:border-white lg:hover:bg-zinc-200 rounded-md z-50"
           >
             <IconArrowRight className="text-[#003F5D] lg:text-white" />
           </button>
 
           <button
-            ref={prevRef}
+            ref={nextRef}
             className="p-3 border border-[#003F5D] lg:border-white lg:hover:bg-zinc-200 rounded-md z-50"
           >
             <IconArrowLeft  className="text-[#003F5D] lg:text-white" />

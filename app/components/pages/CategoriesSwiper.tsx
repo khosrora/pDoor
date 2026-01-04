@@ -87,19 +87,29 @@ export default function CategoriesSwiper() {
       <Swiper
         modules={[Navigation]}
         onSwiper={setSwiperRef}
-        pagination={{ clickable: true }}
         spaceBetween={16}
-        slidesPerView={1}
+        slidesPerView={3}
+        slidesPerGroup={3} // ✅ اسکرول ۳ کارت با هر کلیک
+        speed={900}
         dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
-          411: { slidesPerView: 2 },
-          640: { slidesPerView: 2 },
-          768: { slidesPerView: 2.65 },
+          411: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          640: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+          },
+          768: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+          },
         }}
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[182px] h-[283px] border border-[#C5C5C5] lg:w-[305px] lg:h-[468px] lg:border-none bg-base-100 rounded-md ">
+            <div className="card w-[182px] h-[283px] border border-[#C5C5C5] lg:w-[405px] lg:h-[468px] lg:border-none bg-base-100 rounded-md ">
               {/* IMAGE */}
               <figure>
                 <img
@@ -146,9 +156,9 @@ export default function CategoriesSwiper() {
                     >
                       {t("card.moreLink")}
                       {isRTL ? (
-                        <IconArrowLeft size={16} />
-                      ) : (
                         <IconArrowRight size={16} />
+                      ) : (
+                        <IconArrowLeft size={16} />
                       )}
                     </Link>
                   </div>
@@ -162,21 +172,32 @@ export default function CategoriesSwiper() {
       {/* NAVIGATION BUTTONS */}
       <div className="flex justify-center gap-8 mt-8" dir="rtl">
         <button
-          ref={nextRef}
-          className="p-3 rounded-sm border border-[#DEDEDE]
-             text-[#DEDEDE]
-             active:text-[#005E8B] active:border-[#005E8B]
-             transition-all"
+          ref={prevRef}
+          className="
+    p-3 rounded-sm border
+    border-[#636363] text-[#636363]
+    transition-all
+    disabled:opacity-40
+    disabled:cursor-not-allowed
+    disabled:border-zinc-300
+    disabled:text-zinc-300
+  "
         >
           <IconArrowRight size={20} />
         </button>
 
         <button
-          ref={prevRef}
-          className="p-3 rounded-sm border 
-             border-[#005E8B] text-[#005E8B]
-             active:scale-95
-             transition-all"
+          ref={nextRef}
+          className="
+    p-3 rounded-sm border
+    border-[#636363] text-[#636363]
+    transition-all
+    active:scale-95
+    disabled:opacity-40
+    disabled:cursor-not-allowed
+    disabled:border-zinc-300
+    disabled:text-zinc-300
+  "
         >
           <IconArrowLeft size={20} />
         </button>

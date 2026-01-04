@@ -131,9 +131,9 @@ function NavItems() {
           </div>
 
           <ul
-            className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm  text-[13px]"
+            className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm px-0 text-[13px]"
           >
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={"/about_us"}
                 onClick={closeDropdown}
@@ -146,7 +146,7 @@ function NavItems() {
               </Link>
             </li>
 
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={"/contact_us"} onClick={closeDropdown}>
                 <ContactusIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <span className=" group-hover:text-white transition-colors text-[#005E8B]">
@@ -154,7 +154,7 @@ function NavItems() {
                 </span>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={"/job_position"} onClick={closeDropdown}>
                 <JobIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
                 <span className=" group-hover:text-white transition-colors text-[#005E8B]">
@@ -176,8 +176,8 @@ function NavItems() {
             {t("navProducts")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-44  shadow-sm text-[#005E8B] text-[13px]">
-            <li className="group hover:bg-[#005E8B]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-44 px-0 shadow-sm text-[#005E8B] text-[13px]">
+            <li className="group hover:bg-[#007EBA]">
               <Link
                 href={`/products?lang=${locale}&category=swing-door`}
                 onClick={closeDropdown}
@@ -190,7 +190,7 @@ function NavItems() {
               </Link>
             </li>
 
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=sliding-door`}
                 onClick={closeDropdown}
@@ -203,7 +203,7 @@ function NavItems() {
               </Link>
             </li>
 
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=revolving-door`}
                 onClick={closeDropdown}
@@ -216,7 +216,7 @@ function NavItems() {
               </Link>
             </li>
 
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=automatic-window`}
                 onClick={closeDropdown}
@@ -229,7 +229,7 @@ function NavItems() {
               </Link>
             </li>
 
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={`/products?lang=${locale}&category=accessories`}
                 onClick={closeDropdown}
@@ -248,15 +248,15 @@ function NavItems() {
       {/* Industries */}
       <li className="hover:bg-none hover:text-[#005E8B]">
         {/* <Link href={"/hospital"}>{t("navIndustries")}</Link> */}
-        <div className="dropdown dropdown-hover hover:bg-transparent dropdown-center ">
+        <div className="dropdown dropdown-hover hover:bg-transparent  dropdown-center ">
           <div tabIndex={0} role="button" className="">
             {t("navIndustries")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40  shadow-sm text-[#005E8B] text-[13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 px-0 w-40  shadow-sm text-[#005E8B] text-[13px]">
             {/* <li>بیمارستان</li> */}
 
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/hospital`} onClick={closeDropdown}>
                 <HospitalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -266,7 +266,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/shops`} onClick={closeDropdown}>
                 <ShopIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -277,7 +277,7 @@ function NavItems() {
               </Link>
             </li>
 
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/`} onClick={closeDropdown}>
                 <HotelIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -287,7 +287,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/banks`} onClick={closeDropdown}>
                 <BankIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -297,7 +297,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/governmental_center`} onClick={closeDropdown}>
                 <CenterIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -307,7 +307,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/private_center`} onClick={closeDropdown}>
                 <PrivateIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -317,7 +317,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/airports`} onClick={closeDropdown}>
                 <AirportIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -327,7 +327,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/terminals`} onClick={closeDropdown}>
                 <TerminalIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -337,7 +337,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/industries/factory`} onClick={closeDropdown}>
                 <FactoryIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -347,7 +347,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link href={`/`} onClick={closeDropdown}>
                 <ProjectIcon className="text-[#005E8B] group-hover:text-white transition-colors" />
 
@@ -368,8 +368,8 @@ function NavItems() {
             {t("navBrands")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
-            <li className=" hover:text-white hover:bg-[#005E8B]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box px-0 z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
+            <li className=" hover:text-white hover:bg-[#007EBA]">
               <Link
                 href={`/geze`}
                 className="flex items-center gap-2"
@@ -378,7 +378,7 @@ function NavItems() {
                 برند Geze
               </Link>
             </li>
-            <li className=" hover:text-white hover:bg-[#005E8B]">
+            <li className=" hover:text-white hover:bg-[#007EBA]">
               <Link
                 href={`/geze`}
                 className="flex items-center gap-2"
@@ -399,8 +399,8 @@ function NavItems() {
             {t("navServices")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
-            <li className="group hover:bg-[#005E8B] transition-colors">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 px-0 shadow-sm text-[#005E8B] text-13px]">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={"/installation"}
                 className="flex gap-2"
@@ -424,8 +424,8 @@ function NavItems() {
             {t("navMedia")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm text-[#005E8B] text-13px] space-y-4">
-            <li className="group hover:bg-[#005E8B] transition-colors">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 px-0 shadow-sm text-[#005E8B] text-13px] space-y-4">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={"/media"}
                 className="flex gap-2"
@@ -437,7 +437,7 @@ function NavItems() {
                 </p>
               </Link>
             </li>
-            <li className="group hover:bg-[#005E8B] transition-colors">
+            <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={"/media?tab=news"}
                 className="flex gap-2"

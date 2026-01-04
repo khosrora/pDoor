@@ -80,9 +80,11 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
           <p className="text-center text-xs text-zinc-500">Loading...</p>
         ) : (
           categories.map((category) => {
-            const categoryFaqs = faqs.filter(
-              (f) => f.category?.id === category.id
-            );
+            // ✅ فقط 3 سوال در هر دسته
+            const categoryFaqs = faqs
+              .filter((f) => f.category?.id === category.id)
+              .sort((a, b) => a.order - b.order)
+              .slice(0, 3);
 
             if (categoryFaqs.length === 0) return null;
 
