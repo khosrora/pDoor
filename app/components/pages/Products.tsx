@@ -32,12 +32,12 @@ export default function Products({
   const { items, addItem, removeItem } = useCompare();
   const currentSort = searchParams.get("sort") || "";
 
-  const isInCompare = (slug: string) => items.some((p) => p.slug === slug);
+  const isInCompare = (slug: string) =>
+    items.some((p) => p.slug === slug);
 
   const handleCompareToggle = (product: Product, imageUrl: string) => {
     if (isInCompare(product.slug)) {
       removeItem(product.slug);
-      
     } else {
       addItem({
         slug: product.slug,
@@ -50,7 +50,6 @@ export default function Products({
             value: s.value || "-",
           })) || [],
       });
-    
     }
   };
 
@@ -101,7 +100,6 @@ export default function Products({
           const imageUrl = product.main_image || "/images/noimage.jpg";
           const inCompare = isInCompare(product.slug);
 
-          // Filter only tag1 fields
           const tag1 =
             product.specifications?.filter(
               (f) => f.display_section === "tag1"
@@ -124,28 +122,20 @@ export default function Products({
                   />
                 </figure>
 
-                {/* Tag1 Icons Row */}
-                <div className="mr-2 mt-2 flex flex-row gap-4">
+                {/* Tag1 Icons */}
+                <div className="mr-2 mt-2 flex gap-4">
                   {tag1.map((item) => {
-                    console.log("field_name:", item.field_name);
                     const active = item.value === "1";
                     const color = active ? "#FFB800" : "#C3C3C3";
 
                     let IconComponent = null;
                     if (item.field_name === "ضد حریق") IconComponent = FireSave;
-                    if (item.field_name === "درب بیرونی")
-                      IconComponent = Exterior;
-                    if (item.field_name === "درب داخلی")
-                      IconComponent = INTERIOR;
+                    if (item.field_name === "درب بیرونی") IconComponent = Exterior;
+                    if (item.field_name === "درب داخلی") IconComponent = INTERIOR;
 
                     return (
-                      <div
-                         key={item.field_name}
-                        className="flex items-center gap-1"
-                      >
-                        {IconComponent && (
-                          <IconComponent color={color}  />
-                        )}
+                      <div key={item.field_name}>
+                        {IconComponent && <IconComponent color={color} />}
                       </div>
                     );
                   })}
@@ -164,12 +154,25 @@ export default function Products({
                   badge absolute right-2 top-2 z-10 rounded-full px-2
                   flex items-center gap-1 cursor-pointer
                   transition-all duration-300
+
+                  /* Mobile */
                   opacity-100 pointer-events-auto
-                  lg:pointer-events-none
+
+                  /* Desktop base */
+                  lg:opacity-0 lg:pointer-events-none
+
+                  /* Desktop hover (when not active) */
+                  ${
+                    !inCompare
+                      ? "lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto"
+                      : ""
+                  }
+
+                  /* Active */
                   ${
                     inCompare
-                      ? "lg:opacity-100 lg:pointer-events-auto bg-[#86d7fc6d] text-[#1a76a0]"
-                      : "lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto bg-zinc-50 text-zinc-500"
+                      ? "bg-[#86d7fc6d] text-[#1a76a0] lg:opacity-100 lg:pointer-events-auto"
+                      : "bg-zinc-50 text-zinc-500"
                   }
                 `}
                 onClick={(e) => {

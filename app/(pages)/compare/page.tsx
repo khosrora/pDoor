@@ -3,6 +3,7 @@
 import { useCompare } from "@/app/context/CompareContext";
 import Image from "next/image";
 import { toast } from "sonner";
+import { IconX } from "@tabler/icons-react";
 
 export default function ComparePage() {
   const { items, removeItem, clearAll } = useCompare();
@@ -18,66 +19,91 @@ export default function ComparePage() {
     );
   }
 
-  // Get all unique spec fields from all products
   const allSpecs = Array.from(
     new Set(items.flatMap((p) => p.specs.map((s) => s.field_name)))
   );
 
   return (
-    <div className="p-4 mt-24 max-w-7xl m-auto">
+    <div className="p-4 mt-24 max-w-7xl mx-auto">
       {/* Header */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-4">
-        {/* <h1 className="text-3xl font-bold">Compare Products</h1> */}
-        <button
-          className="btn btn-error btn-sm"
-          onClick={() => {
-            clearAll();
-            toast("All products removed from comparison");
-          }}
-        >
-          Clear All
-        </button>
-      </div>
+      
 
-      {/* Products Table */}
+      {/* Table */}
       <div className="overflow-x-auto rounded-lg">
-        <table className="table w-full ">
-          <thead className="bg-white">
-            <tr className="bg-base-200 sticky top-0">
-              <th className="w-40 bg-white"></th>
+        <table className="table w-full border-separate border-spacing-0">
+          <thead>
+            {/* ROW 1 – IMAGES */}
+            <tr className="bg-white">
+              <th className="w-48 bg-white border border-white"></th>
+
               {items.map((p) => (
-                <th key={p.slug} className="text-center">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="w-20 h-20 rounded-lg overflow-hidden shadow-md">
-                      <Image
-                        src={p.image}
-                        alt={p.name}
-                        width={80}
-                        height={80}
-                        className="object-cover w-full h-full"
-                      />
-                    </div>
-                    <span className="font-medium">{p.name}</span>
+                <th
+                  key={p.slug}
+                  className="relative text-center bg-white border border-white"
+                >
+                  <div className="relative inline-block">
+                    {/* IMAGE */}
+                    <Image
+                      src={p.image}
+                      alt={p.name}
+                      width={150}
+                      height={150}
+                      className="mx-auto object-contain bg-transparent"
+                    />
+
+                    {/* REMOVE BUTTON – TOP RIGHT */}
                     <button
-                      className="btn btn-sm btn-outline btn-error mt-1"
                       onClick={() => removeItem(p.slug)}
+                      className="
+                        absolute -top-2 -right-2
+                        bg-[#003f5d] text-white
+                        rounded-full p-1
+                        shadow 
+                      "
+                      title="Remove"
                     >
-                      Remove
+                      <IconX size={12} />
                     </button>
                   </div>
                 </th>
               ))}
             </tr>
+
+            {/* ROW 2 – PRODUCT NAMES (YELLOW) */}
+            <tr className="bg-[#fdd756]">
+              <th className="w-48 bg-[#fdd756] border border-white"></th>
+
+              {items.map((p) => (
+                <th
+                  key={p.slug}
+                  className="text-center bg-[#fdd756] border border-white"
+                >
+                  <span className="font-semibold text-[#003148]">
+                    {p.name}
+                  </span>
+                </th>
+              ))}
+            </tr>
           </thead>
+
           <tbody>
             {allSpecs.map((spec) => (
               <tr key={spec}>
-                <td className="font-medium">{spec}</td>
+                {/* FIRST COLUMN – LIGHT BLUE */}
+                <td className="font-medium bg-blue-100 border border-white text-[#003148]">
+                  {spec}
+                </td>
+
+                {/* OTHER CELLS – ZINC-100 */}
                 {items.map((p) => {
                   const value =
                     p.specs.find((s) => s.field_name === spec)?.value || "-";
+
                   return (
-                    <td key={p.slug + spec} className="text-center">
+                    <td
+                      key={p.slug + spec}
+                      className="text-center bg-zinc-100 border border-white"
+                    >
                       {value}
                     </td>
                   );
@@ -88,7 +114,7 @@ export default function ComparePage() {
         </table>
       </div>
 
-      {/* Footer Note */}
+      {/* Footer */}
       <div className="mt-6 text-sm text-gray-500">
         Products with missing specifications show a "-" placeholder.
       </div>
