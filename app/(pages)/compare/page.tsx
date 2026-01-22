@@ -27,7 +27,7 @@ export default function ComparePage() {
     <div className="p-4 mt-24 max-w-7xl m-auto">
       {/* Header */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 gap-4">
-        <h1 className="text-3xl font-bold">Compare Products</h1>
+        {/* <h1 className="text-3xl font-bold">Compare Products</h1> */}
         <button
           className="btn btn-error btn-sm"
           onClick={() => {
@@ -40,11 +40,11 @@ export default function ComparePage() {
       </div>
 
       {/* Products Table */}
-      <div className="overflow-x-auto rounded-lg shadow-lg">
-        <table className="table w-full table-zebra">
-          <thead>
+      <div className="overflow-x-auto rounded-lg">
+        <table className="table w-full ">
+          <thead className="bg-white">
             <tr className="bg-base-200 sticky top-0">
-              <th className="w-40">Product</th>
+              <th className="w-40 bg-white"></th>
               {items.map((p) => (
                 <th key={p.slug} className="text-center">
                   <div className="flex flex-col items-center gap-2">

@@ -11,18 +11,24 @@ export default function CompareAlert() {
 
   return (
     <div className="fixed bottom-4 right-1/5 w-1/2 z-50 bg-[#003148] border border-blue-200 rounded-md shadow-lg p-4 flex flex-row justify-between gap-2">
-      <div className="flex items-center gap-2">
-        <IconAlertCircle size={20} className="text-white" />
-        <p className="font-medium text-white text-sm">
-          شما {items.length} محصول را برای مقایسه انتخاب کرده‌اید
-        </p>
-      </div>
-      <div className="flex justify-end items-center gap-x-2">
-        <Link href="/compare" className="text-center btn btn-xs bg-yellow-400">
-          مشاهده مقایسه
+      <div className="flex flex-col justify-end items-center gap-y-2">
+        <Link href="/compare" className="text-center btn w-50 text-[#003148] bg-yellow-400">
+          مقایسه {items.length}/3
         </Link>
-          <button className="btn btn-xs btn-error" onClick={clearAll}> حذف همه </button>
+          <button className="btn w-50 text-[#003148]" onClick={clearAll}> حذف همه </button>
       </div>
+      <div className="flex w-full items-center justify-around gap-2">
+        <div>
+          name
+        </div>
+         <div>
+          name
+        </div>
+         <div>
+          name
+        </div>
+      </div>
+      
     </div>
   );
 }

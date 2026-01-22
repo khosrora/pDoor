@@ -168,8 +168,8 @@ export default function Products({
                   lg:pointer-events-none
                   ${
                     inCompare
-                      ? "lg:opacity-100 lg:pointer-events-auto bg-[#003148] text-white"
-                      : "lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto bg-zinc-200 text-zinc-500"
+                      ? "lg:opacity-100 lg:pointer-events-auto bg-[#86d7fc6d] text-[#1a76a0]"
+                      : "lg:opacity-0 lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto bg-zinc-50 text-zinc-500"
                   }
                 `}
                 onClick={(e) => {
