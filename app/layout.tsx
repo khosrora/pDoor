@@ -3,18 +3,18 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import ClientHeader from "./components/layout/ClientHeader";
 import Footer from "./components/layout/Footer";
-import { yekan } from "./fonts";
-import { Inter } from "next/font/google";
+import { yekan, Inter } from "./fonts";
+// import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { CompareProvider } from "./context/CompareContext";
 import DirectionProvider from "./components/DirectionProvider";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-inter",
+//   display: "swap",
+// });
 
 export default async function RootLayout({
   children,
@@ -28,7 +28,7 @@ export default async function RootLayout({
     <html
       lang={locale}
       dir={isFa ? "rtl" : "ltr"}
-      className={`${yekan.variable} ${inter.variable}`}
+      className={`${yekan.variable} ${Inter.variable}`}
     >
       <body className={isFa ? "font-fa" : "font-en"}>
         <Toaster
@@ -38,7 +38,7 @@ export default async function RootLayout({
             style: {
               fontFamily: isFa
                 ? "var(--font-yekan)"
-                : "var(--font-inter)",
+                : "var(--font-Inter)",
             },
           }}
         />
