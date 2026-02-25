@@ -80,12 +80,12 @@ export default function HotspotImage1() {
 
   return (
     <div>
-      <div className="flex items-center justify-center px-4 my-20">
+      <div className="flex items-center justify-center px-4 lg:my-20">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Text content */}
           <div className={`space-y-4 ${lang === "fa" ? "text-right" : "text-left"}`}>
-            <h1 className="text-2xl font-bold">{content.heading}</h1>
-            <p className="text-gray-600 leading-9 text-[16px]">{content.paragraph}</p>
+            <h1 className="text-[16px] lg:text-2xl lg:font-bold">{content.heading}</h1>
+            <p className="text-gray-600 leading-9 text-[14px] lg:text-[16px]">{content.paragraph}</p>
           </div>
 
           {/* Image with hotspots */}

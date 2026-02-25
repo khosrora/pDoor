@@ -32,8 +32,7 @@ export default function Products({
   const { items, addItem, removeItem } = useCompare();
   const currentSort = searchParams.get("sort") || "";
 
-  const isInCompare = (slug: string) =>
-    items.some((p) => p.slug === slug);
+  const isInCompare = (slug: string) => items.some((p) => p.slug === slug);
 
   const handleCompareToggle = (product: Product, imageUrl: string) => {
     if (isInCompare(product.slug)) {
@@ -47,6 +46,7 @@ export default function Products({
         specs:
           product.specifications?.map((s) => ({
             field_name: s.field_name || "",
+            field_name_en: s.field_name_en || s.field_name || "",
             value: s.value || "-",
           })) || [],
       });
@@ -91,6 +91,17 @@ export default function Products({
           >
             {t("sortBestSelling")}
           </button>
+          <div className="divider divider-horizontal" />
+          <button
+            className={`hover:underline ${
+              currentSort === "popular"
+                ? "text-zinc-900 font-semibold"
+                : "text-zinc-400"
+            }`}
+            onClick={() => updateSort("popular")}
+          >
+            {t("sortMostViewed")}
+          </button>
         </div>
       </div>
 
@@ -102,7 +113,7 @@ export default function Products({
 
           const tag1 =
             product.specifications?.filter(
-              (f) => f.display_section === "tag1"
+              (f) => f.display_section === "tag1",
             ) || [];
 
           return (
@@ -129,9 +140,9 @@ export default function Products({
                     const color = active ? "#FFB800" : "#C3C3C3";
 
                     let IconComponent = null;
-                    if (item.field_name === "ضد حریق") IconComponent = FireSave;
-                    if (item.field_name === "درب بیرونی") IconComponent = Exterior;
-                    if (item.field_name === "درب داخلی") IconComponent = INTERIOR;
+                    if (item.field_name === "FIRESAFE") IconComponent = FireSave;
+                    if (item.field_name === "EXTERIOR") IconComponent = Exterior;
+                    if (item.field_name === "INTERIOR") IconComponent = INTERIOR;
 
                     return (
                       <div key={item.field_name}>
@@ -151,7 +162,7 @@ export default function Products({
               {/* Compare Button */}
               <div
                 className={`
-                  badge absolute right-2 top-2 z-10 rounded-full px-2
+                  badge absolute right-2 top-2 z-5 rounded-full px-2
                   flex items-center gap-1 cursor-pointer
                   transition-all duration-300
 
@@ -191,7 +202,7 @@ export default function Products({
 
               {/* Brand Logo */}
               {product.brand?.logo && (
-                <div className="absolute left-3 top-3 z-10">
+                <div className="absolute left-3 top-3 z-2">
                   <Image
                     src={product.brand.logo}
                     width={50}

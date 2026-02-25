@@ -7,30 +7,26 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import api from "@/app/lib/axios";
 import type { Swiper as SwiperType } from "swiper";
+import { useTranslations } from "next-intl";
 
 interface SlideItem {
   id: number;
   title: string;
   image: string;
-  link: string | null; // blog link
+  link: string | null;
   order: number;
 }
 
 export default function BannerSliders() {
   const [slides, setSlides] = useState<SlideItem[]>([]);
   const swiperRef = useRef<SwiperType | null>(null);
+  const t = useTranslations("banner");
 
   useEffect(() => {
-    const fetchSlides = async () => {
-      try {
-        const res = await api.get<SlideItem[]>("/v1/site_settings/slides/");
-        setSlides(res.data);
-      } catch (error) {
-        console.error("Failed to fetch slides:", error);
-      }
-    };
-
-    fetchSlides();
+    api
+      .get<SlideItem[]>("/v1/site_settings/slides/")
+      .then((res) => setSlides(res.data))
+      .catch(console.error);
   }, []);
 
   return (
@@ -39,36 +35,36 @@ export default function BannerSliders() {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         spaceBetween={10}
         slidesPerView={1}
-        className="w-full"
+        className="w-full relative lg:h-[712px]"
       >
         {slides.map((item, i) => (
           <SwiperSlide key={item.id}>
-            <div className="relative w-full">
-              {/* Image */}
+            <div className="relative w-full h-full">
               <Image
                 src={item.image}
                 width={1200}
                 height={600}
                 alt={item.title}
-                className="w-full h-auto object-cover"
+                className="w-full h-full object-cover"
                 priority={i === 0}
               />
 
-              {/* Blog Button */}
               {item.link && (
                 <Link
                   href={item.link}
                   className="
-                    absolute top-100 right-4
-                    bg-[#003148] text-white
-                    px-4 py-2 rounded-md
-                    text-sm font-medium
+                    absolute bottom-5 right-5 lg:bottom-20 lg:right-20
+                    bg-[#FAB21F] text-black
+                    p-2 lg:px-6 lg:py-4 rounded-md
+                    text-[12px] lg:text-sm font-medium
                     hover:bg-[#004b6d]
+                    hover:text-white
                     transition
-                    z-50
+                    z-[1000]
+                    cursor-pointer
                   "
                 >
-                  مشاهده مقاله
+                  {t("viewDetails")}
                 </Link>
               )}
             </div>
@@ -78,13 +74,13 @@ export default function BannerSliders() {
 
       {/* LEFT click area */}
       <div
-        className="absolute top-0 left-0 h-full w-1/2 cursor-swiper-left z-20"
+        className="lg:absolute top-0 left-0 lg:h-[600px] w-1/2 z-1 cursor-swiper-left"
         onClick={() => swiperRef.current?.slideNext()}
       />
 
       {/* RIGHT click area */}
       <div
-        className="absolute top-0 right-0 h-full w-1/2 cursor-swiper-right z-20"
+        className="lg:absolute top-0 right-0 lg:h-[600px] w-1/2 z-1 cursor-swiper-right"
         onClick={() => swiperRef.current?.slidePrev()}
       />
     </div>

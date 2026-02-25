@@ -40,7 +40,7 @@ export default function FormContactUs() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       // dir={dir}
-      className={`space-y-4 w-full border border-zinc-200 p-4 ${textDir}`}
+      className={`space-y-4 w-full lg:border border-zinc-200 p-4 ${textDir}`}
     >
       {/* Name */}
       <div className="flex flex-col gap-1">

@@ -13,7 +13,7 @@ export type CompareProduct = {
   name: string;
   image: string;
   brand: string;
-  specs: { field_name: string; value: string }[];
+  specs: { field_name: string; field_name_en?: string; value: string }[];
 };
 
 type CompareContextType = {

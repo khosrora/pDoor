@@ -22,9 +22,9 @@ export default async function TimelineSlider() {
   // {t("hero.title")}
 
   return (
-    <div className="my-23">
+    <div className="my-12 lg:my-23">
       <Breadcrumbs />
-      <div className="w-full  mx-auto px-4 py-12 ">
+      <div className="w-full lg:px-4 py-12 ">
         <AboutUsSwiper />
 
         {/* بخش ارزش‌ها، چشم‌انداز و ماموریت */}
@@ -35,9 +35,9 @@ export default async function TimelineSlider() {
           {/* ردیف بالا: ارزش برند و چشم‌انداز */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-30 mb-10">
             {/* ستون چپ (ارزش برند) */}
-            <div className="flex items-center gap-4 ">
+            <div className="flex flex-col-reverse lg:flex-row items-center gap-4 mb-20 lg:mb-0 ">
               <div className="flex flex-col justify-center items-center px-4 w-full">
-                <h4 className="text-lg font-semibold text-[#005E8B] mb-4 ">
+                <h4 className="text-lg font-semibold text-[#005E8B] my-4">
                   {t("vision_title")}
                 </h4>
                 <p className="text-slate-600 leading-relaxed text-center ">
@@ -54,19 +54,20 @@ export default async function TimelineSlider() {
             </div>
 
             {/* ستون راست (چشم‌انداز) */}
-            <div className="flex flex-row-reverse items-center gap-4 ">
+            <div className="flex flex-col-reverse lg:flex-row-reverse items-center gap-4 mb-10 lg:mb-0 ">
               <div className="flex flex-col justify-center items-center px-4 w-full">
-                <h4 className="text-lg font-semibold text-[#005E8B] mb-4">
+                <h4 className="text-lg font-semibold text-[#005E8B] my-4">
                   {t("brand_value")}
                 </h4>
                 <p className="text-slate-600 leading-relaxed text-center ">
                   {t("vision_paragraph")}
                 </p>
               </div>
+              {/* ستون چپ */}
               <div className=" flex justify-center items-start">
                 <div className="relative w-24 h-24 flex items-center justify-center bg-[#005E8B] text-white rounded-md transform rotate-45 shadow-md">
-                  <div className="transform -rotate-45 flex items-center justify-center">
-                    <img src="\SVGs\mountain_16899770 1.svg" alt="" />
+                  <div className="transform -rotate-45 flex items-center justify-center relative">
+                    <img src="\SVGs\mountain_16899770 1.svg" alt="" className="relative -top-2" />
                   </div>
                 </div>
               </div>
@@ -83,7 +84,7 @@ export default async function TimelineSlider() {
               </div>
             </div>
             <div>
-              <h5 className="text-base font-semibold text-[#005E8B] my-6">
+              <h5 className="text-base font-semibold text-[#005E8B] my-8">
                 {t("mission_title")}
               </h5>
               <p className="text-slate-600 leading-relaxed">
@@ -94,15 +95,15 @@ export default async function TimelineSlider() {
         </section>
 
         {/* our team */}
-        <div className=" w-full bg-zinc-100 p-8 ">
-          <p className="flex justify-center gap-2 font-bold text-[28px] my-4">
+        <div className=" w-full bg-zinc-100 py-8 lg:p-8 ">
+          <p className="flex justify-center gap-2 lg:font-bold text-[28px] my-4">
             <span className="text-[#FAB21F]">{t("team")}</span>
             {t("persia")}
           </p>
           <TeamSection />
 
-          <div className="flex justify-around items-center bg-zinc-50 lg:w-[732px] lg:h-[113px] my-10 mx-auto border border-1 border-zinc-200 rounded-md">
-            <p className="text-[#FAB21F] text-[25px] font-semibold">
+          <div className="flex justify-around items-center bg-zinc-50 w-full lg:w-[732px] lg:h-[113px] my-10 mx-auto border border-1 border-zinc-200 rounded-md">
+            <p className="text-[#FAB21F] text-[16px] lg:text-[25px] lg:font-semibold">
               {t("join_us_title")}
             </p>
             <Link href={`/job_position`}>
@@ -116,91 +117,101 @@ export default async function TimelineSlider() {
         {/* our service */}
         <div className="flex flex-col w-full mx-auto mt-15 gap-y-20" dir="rtl">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-60 mb-10 ">
-            {/* ستون چپ (ارزش برند) */}
-            <div className="flex justify-end items-center gap-4 bg-zinc-100 py-8 w-full">
-              <div className="flex flex-col justify-center px-4 w-1/2">
-                <h4 className="text-lg font-semibold text-[#005E8B] mb-4">
+            {/* our services */}
+            <div className="relative flex justify-between items-center gap-4 bg-zinc-100 h-[188px] lg:h-[224px] py-8 w-[298px] lg:w-full">
+              <div className="flex flex-col justify-center  px-4 w-4/5  lg:w-1/2">
+                <h4 className="text-[16px] lg:text-lg font-semibold text-[#005E8B] mb-4">
                   {t("ourServises")}
                 </h4>
-                <p className="text-slate-600 leading-relaxed text-[16px] ">
+                <p className="text-slate-600 leading-relaxed text-[13px] lg:text-[16px] ">
                   {t("ourServises_text")}
                 </p>
               </div>
               {/* div and icon */}
               <div className=" flex justify-center items-start">
-                <div className="relative w-40 h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md -left-20">
+                <div className="absolute lg:relative w-25 h-25 lg:w-40 lg:h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md top-11 lg:top-0 lg:-left-20">
                   <div className="transform -rotate-45 flex items-center justify-center">
-                    <img src="\SVGs\settings_8941361 1.svg" alt="" />
+                    <img src="\SVGs\settings_8941361 1.svg" alt="" className="w-12 h-12 lg:w-20 lg:h-20" />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* ستون راست (چشم‌انداز) */}
-            <div className="flex flex-row-reverse items-center justify-end gap-4 relative top-40 bg-zinc-100 py-2.5">
-              <div className="flex flex-col justify-center px-4 w-1/2">
-                <h4 className="text-lg font-semibold text-[#005E8B] mb-4">
+
+            {/* international brands */}
+            <div className="flex flex-row-reverse items-center justify-between lg:justify-end gap-4 relative -left-15 lg:left-0 top-10 lg:top-40 bg-zinc-100 h-[188px] lg:h-[224px] py-8 w-[298px] lg:w-full">
+              <div className="flex flex-col justify-center px-4 w-4/5 lg:w-1/2">
+                <h4 className="text-[16px] lg:text-lg font-semibold text-[#005E8B] mb-4">
                   {t("representation")}
                 </h4>
-                <p className="text-slate-600 leading-relaxed  ">
+                <p className="text-slate-600 text-[13px] lg:text-[16px] leading-relaxed  ">
                   {t("representation_text")}
                 </p>
               </div>
               <div className=" flex justify-center items-start">
-                <div className="relative w-40 h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md left-20">
+                <div className="absolute lg:relative w-25 h-25 lg:w-40 lg:h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md top-11 lg:top-0 lg:left-20">
                   <div className="transform -rotate-45 flex items-center justify-center">
-                    <img src="\SVGs\certificate.svg" alt="گواهینامه" />
+                    <img src="\SVGs\certificate.svg" alt="گواهینامه" className="w-12 h-12 lg:w-20 lg:h-20" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
+
+
+          {/* افتحارات ما */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-60 mb-10 ">
-            {/* ستون چپ (ارزش برند) */}
-            <div className="flex justify-end items-center gap-4 bg-zinc-100 py-8 w-full">
-              <div className="flex flex-col justify-center px-4 w-1/2">
-                <h4 className="text-lg font-semibold text-[#005E8B] mb-4">
+            <div className="relative flex justify-between items-center gap-4 bg-zinc-100 h-[188px] lg:h-[224px] py-8 w-[298px] lg:w-full">
+              <div className="flex flex-col justify-center px-4 w-4/5 lg:w-1/2">
+                <h4 className="text-[16px] lg:text-lg font-semibold text-[#005E8B] mb-4">
                   {t("honors_title")}
                 </h4>
-                <p className="text-slate-600 leading-relaxed text-[16px] ">
+                <p className="text-slate-600 leading-relaxed text-[13px] lg:text-[16px] ">
                   {t("ourServises_text")}
                 </p>
               </div>
               {/* div and icon */}
               <div className=" flex justify-center items-start">
-                <div className="relative w-40 h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md -left-20">
+                <div className="absolute lg:relative w-25 h-25 lg:w-40 lg:h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md top-11 lg:top-0 lg:-left-20">
                   <div className="transform -rotate-45 flex items-center justify-center">
-                    <img src="\SVGs\five-star-badge.svg" alt="" />
+                    <img src="\SVGs\five-star-badge.svg" alt="" className="w-12 h-12 lg:w-20 lg:h-20" />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* ستون راست (چشم‌انداز) */}
-            <div className="flex flex-row-reverse items-center justify-end gap-4 relative top-40 bg-zinc-100 py-2.5">
-              <div className="flex flex-col justify-center px-4 w-1/2">
-                <h4 className="text-lg font-semibold text-[#005E8B] mb-4">
+
+            {/* راهکار های ما برای صنایع */}
+            
+
+
+
+            <div className="flex flex-row-reverse items-center justify-between lg:justify-end gap-4 relative -left-15 lg:left-0 top-10 lg:top-40 bg-zinc-100 h-[188px] lg:h-[224px] py-8 w-[298px] lg:w-full">
+              <div className="flex flex-col justify-center px-4 w-4/5 lg:w-1/2">
+                <h4 className="text-[16px] lg:text-lg font-semibold text-[#005E8B] mb-4">
                   {t("solutions_title")}
                 </h4>
-                <p className="text-slate-600 leading-relaxed  ">
+                <p className="text-slate-600 text-[13px] lg:text-[16px] leading-relaxed  ">
                   {t("solutions_desc")}
                 </p>
               </div>
               <div className=" flex justify-center items-start">
-                <div className="relative w-40 h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md left-20">
+                <div className="absolute lg:relative w-25 h-25 lg:w-40 lg:h-40 flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] transform rotate-45 shadow-md top-11 lg:top-0 lg:left-20">
                   <div className="transform -rotate-45 flex items-center justify-center">
-                    <img src="\SVGs\target.svg" alt="" />
+                    <img src="\SVGs\target.svg" alt="گواهینامه" className="w-12 h-12 lg:w-20 lg:h-20" />
                   </div>
                 </div>
               </div>
             </div>
+
+
           </div>
         </div>
 
         {/* Customers section */}
         {/* //////////////////////////////////////////////////// */}
-       
-<CustomerList/>
+
+        <CustomerList />
 
         <div className="flex justify-center items-center w-full lg:h-[430px] bg-[#003F5D]">
           <div className="grid grid-cols-3 max-w-6xl gap-20">

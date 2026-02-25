@@ -23,12 +23,12 @@ export default async function GezePage() {
       <div className="bg-[#003F5D] text-white flex flex-col-reverse lg:flex-row lg:items-center lg:justify-center lg:h-[400px] pb-4 lg:pb-0">
         <div className="lg:w-1/2 flex flex-col justify-center items-center">
           {/* title */}
-          <p className="flex flex-col font-semibold text-[25px]">
+          <p className="flex lg:flex-col lg:font-semibold text-[19px] my-4 lg:text-[25px]">
             <span className="text-[#FAB21F]">{t("hero.titlePrefix")} </span>
             {t("hero.titleRest")}
           </p>
           {/* buttons */}
-          <div className="flex justify-start items-center gap-x-4 mt-10">
+          <div className="flex justify-start items-center gap-x-4  lg:mt-10">
             <button className="btn px-8">{t("hero.consultButton")}</button>
             <button className="btn bg-[#FAB21F] border-0 px-8">
               {t("hero.gezeWebsiteButton")}
@@ -54,13 +54,13 @@ export default async function GezePage() {
         >
           <div className="lg:max-w-7xl mx-auto pt-10 lg:pt-30">
             {/* title */}
-            <p className="my-10 lg:text-[28px] font-bold">
+            <p className="my-10 lg:text-[28px] lg:font-bold mx-4">
               {t("about.heading")} <span className="text-[#FAB21F]">GEZE</span>
             </p>
             {/* about geze */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 w-[300px] lg:w-full lg:gap-x-30 text-[16px] ">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 w-[300px] lg:w-full lg:gap-x-30 text-[14px] lg:text-[16px] ">
               {/* ستون چپ (ارزش برند) */}
-              <div className="relative flex flex-col lg:flex-row-reverse items-center mx-10 lg:mx-0 w-full lg:w-[520px] lg:h-[291px] bg-transparent border border-zinc-300 py-6 lg:py-8 rounded-sm">
+              <div className="relative flex flex-col lg:flex-row-reverse items-center mx-10 lg:mx-0 w-full lg:w-[520px] lg:h-[291px] bg-transparent border border-zinc-300 py-6 lg:py-8 rounded-sm mb-10">
                 {/* Diamond */}
                 <div className="absolute -left-9 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0 lg:-left-18">
                   <div className="lg:relative lg:-left-18 w-[72px] h-[72px] lg:w-[144px] lg:h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] rotate-45 shadow-md">
@@ -72,14 +72,14 @@ export default async function GezePage() {
 
                 {/* Text */}
                 <div className="flex flex-col justify-center items-start px-6 w-full">
-                  <p className="text-slate-600 leading-relaxed text-center text-[16px]">
+                  <p className="text-slate-600 leading-relaxed text-center text-[14px] lg:text-[16px]">
                     {t("about.paragraph1")}
                   </p>
                 </div>
               </div>
 
               {/* ستون راست (چشم‌انداز) */}
-              <div className="relative flex flex-col lg:flex-row items-center w-full lg:w-[520px] mx-19 lg:mx-0lg:h-[291px] bg-transparent border border-zinc-300 py-6 lg:py-8 rounded-sm lg:top-25">
+              <div className="relative flex flex-col lg:flex-row items-center w-full lg:w-[520px] mx-19 lg:mx-0 lg:h-[291px] bg-transparent border border-zinc-300 py-6 lg:py-8 rounded-sm lg:top-25">
                 {/* Diamond */}
                 <div className="absolute -right-9 top-1/2 -translate-y-1/2 lg:static lg:translate-y-0 lg:left-18">
                   <div className="lg:relative lg:left-18 w-[72px] h-[72px] lg:w-[144px] lg:h-[144px] flex items-center justify-center bg-[#005E8B] text-white rounded-md border border-5 border-[#D1F0FF] rotate-45 shadow-md">
@@ -101,9 +101,9 @@ export default async function GezePage() {
         </div>
 
         {/* GEZE products */}
-        <div className="space-y-4 max-w-7xl mx-auto mt-8">
+        <div className="space-y-4 max-w-7xl lg:mx-auto mt-8 mx-4">
           <p className="flex gap-2">
-            <span className="  lg:text-[28px] lg:font-bold text-[#FAB21F]">
+            <span className="lg:text-[28px] lg:font-bold text-[#FAB21F]">
               {t("products.heading1")}
             </span>
             <span className="lg:text-[28px] lg:font-bold ">
@@ -125,23 +125,23 @@ export default async function GezePage() {
             alt="geze"
           />
           <div className="space-y-6 p-6">
-            <p className="text-[28px] font-semibold">
+            <p className="text-[19px] lg:text-[28px] lg:font-semibold">
               {t("collaboration.headingPrefix")}{" "}
               <span className="text-[#FAB21F]">
                 {t("collaboration.headingBrand")}
               </span>{" "}
               {t("collaboration.headingRest")}
             </p>
-            <p className="leading-8">{t("collaboration.text")}</p>
+            <p className="text-[14px] lg:text-[16px] leading-8">{t("collaboration.text")}</p>
           </div>
         </div>
 
         {/* Representative section */}
         <div className="bg-zinc-100 p-6 max-w-7xl mx-auto">
-          <p className="text-[#FAB21F] text-[28px] font-semibold">
+          <p className="text-[#FAB21F] text-[19px] lg:text-[28px] lg:font-semibold">
             {t("representative.brandName")}
           </p>
-          <p className="text-[28px] font-semibold">
+          <p className="text-[19px] lg:text-[28px] lg:font-semibold">
             {t("representative.subtitle")}
           </p>
 

@@ -3,7 +3,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import ClientHeader from "./components/layout/ClientHeader";
 import Footer from "./components/layout/Footer";
-import { yekan, Inter } from "./fonts";
+import { yekan , Inter } from "./fonts";
 // import { Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";

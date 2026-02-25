@@ -37,7 +37,7 @@ export default function CategorySliders() {
     const loadCategories = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_URL}/v1/categories/?lang=${locale}`
+          `${process.env.NEXT_PUBLIC_API_URL}/v1/categories/?lang=${locale}`,
         );
         const data = await res.json();
         setCategories(data || []);
@@ -173,7 +173,12 @@ export default function CategorySliders() {
                       <p
                         className={`
                           text-[8px] lg:text-[12px] transition-colors
-                           text-[#949494]
+                           
+                           ${
+                            isActive
+                            ? "text-[#007EBA]"
+                            : "text-[#949494] group-hover:text-[#007EBA]"
+                           }
                         `}
                       >
                         {t("productsCount", { count: category.product_count })}

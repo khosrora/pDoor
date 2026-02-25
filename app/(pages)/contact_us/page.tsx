@@ -21,7 +21,7 @@ export default async function ContactPage() {
   return (
     <div
       // dir={dir}
-      className={`p-4 space-y-4  mt-20  ${textDir}`}
+      className={`p-4 space-y-4 mt-10 lg:mt-20  ${textDir}`}
     >
       <Breadcrumbs />
 
@@ -32,8 +32,8 @@ export default async function ContactPage() {
           <div className="space-y-4 lg:col-span-2">
             {/* Hero */}
             <div className="border border-zinc-200 p-4 space-y-4 lg:border-none lg:bg-zinc-100 p-4">
-              <p className="text-[#FAB21F] text-[20px]">{t("hero.title")}</p>
-              <p className="text-[16px]">{t("hero.text")}</p>
+              <p className="text-[#FAB21F] text-[19px] lg:text-[20px]">{t("hero.title")}</p>
+              <p className="text-[14px] lg:text-[16px]">{t("hero.text")}</p>
             </div>
 
             {/* Contact blocks */}
@@ -44,8 +44,8 @@ export default async function ContactPage() {
                   <img src={"/SVGs/phone-call-filled.svg"} />
                 </div>
 
-                <div className="flex flex-col lg:flex-row lg:justify-between w-full gap-1">
-                  <h2 className="font-medium">{t("blocks.serviceTitle")}</h2>
+                <div className="flex flex-row justify-between w-full gap-1">
+                  <h2 className="lg:font-medium">{t("blocks.serviceTitle")}</h2>
                   <a href="tel:090228863667" className="text-sm">
                     0902 2886 3667
                   </a>
@@ -59,7 +59,7 @@ export default async function ContactPage() {
                 </div>
 
                 <div className="flex justify-between items-center w-full">
-                  <h2 className="font-medium">{t("blocks.salesTitle")}</h2>
+                  <h2 className="lg:font-medium">{t("blocks.salesTitle")}</h2>
                   <a href="tel:09022886628" className="text-sm">
                     0902 2886 628
                   </a>
@@ -73,7 +73,7 @@ export default async function ContactPage() {
                 </div>
 
                 <div className="flex justify-between items-center w-full">
-                  <h2 className="font-medium">{t("blocks.hqTitle")}</h2>
+                  <h2 className="lg:font-medium">{t("blocks.hqTitle")}</h2>
                   <ul className="flex flex-col gap-1 text-sm ">
                     <li>
                       <a href="tel:02188775437">021-88775437</a>

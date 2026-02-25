@@ -43,7 +43,7 @@ export default function ServicesSection() {
         return (
           <div
             key={item.id}
-            className="relative lg:h-[250px] p-4 bg-white rounded-md overflow-hidden flex items-center gap-4"
+            className="relative lg:h-[250px] px-4 py-8 lg:p-4 bg-white rounded-md overflow-hidden flex items-center gap-4"
           >
             {/* BLUE POLYGON (ALTERNATES LEFT / RIGHT) */}
             <div
@@ -71,11 +71,11 @@ export default function ServicesSection() {
             >
               <div className=""></div>
               <div className="w-4/5">
-                <h2 className="text-[#0C5273] font-bold text-xl mb-2">
+                <h2 className="text-[#0C5273] font-regular lg:font-bold text-[16px] lg:text-xl mb-2">
                   {t(`items.${item.id}.title`)}
                 </h2>
 
-                <p className="text-gray-700 text-sm leading-6">
+                <p className="text-gray-700 text-[13px] lg:text-sm leading-6">
                   {t(`items.${item.id}.description`)}
                 </p>
 

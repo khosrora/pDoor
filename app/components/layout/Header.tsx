@@ -56,7 +56,7 @@ function Header() {
   };
 
   return (
-    <div className="fixed top-0 z-10 bg-white w-full h-14 lg:h-[104px]">
+    <div className="fixed top-0 z-50 bg-white w-full h-14 lg:h-[104px]">
       <div className="flex justify-between items-center mb-2 p-2 px-2 max-w-7xl m-auto">
         {/* Mobile Drawer */}
        <HeaderMobile t={t} />

@@ -71,7 +71,7 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
   return (
     <div className="lg:my-10">
       {/* Page Title */}
-      <p className="text-center mb-10 font-bold text-[33px]">
+      <p className="text-center my-10 font-regular text-[19px] lg:font-bold lg:text-[33px]">
         {t("Footer.columns.about.questions")}
       </p>
 
@@ -91,7 +91,7 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
             return (
               <div key={category.id} className="space-y-4">
                 {/* Category Title */}
-                <h2 className="text-[20px] font-bold text-[#005E8B]">
+                <h2 className="lg:text-[20px] lg:font-semibold text-[#005E8B]">
                   {category.name}
                 </h2>
 
@@ -99,11 +99,11 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
                 {categoryFaqs.map((faq, index) => (
                   <div
                     key={`${category.id}-${index}`}
-                    className="collapse collapse-arrow border border-base-200 bg-zinc-50"
+                    className="collapse collapse-arrow bg-zinc-50"
                   >
                     <input type="radio" name={`faq-${category.id}`} />
 
-                    <div className="collapse-title font-semibold text-xs text-[#005E8B]">
+                    <div className="collapse-title font-regular text-[14px] text-[#005E8B]">
                       {faq.question}
                     </div>
 
@@ -125,7 +125,7 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
             onSubmit={handleSubmit(onSubmit)}
             className="bg-zinc-100 p-4 mt-6 rounded space-y-3"
           >
-            <label className="text-xs font-semibold text-[#005E8B]">
+            <label className="text-xs lg:font-semibold text-[#005E8B]">
               {t("askBox.label")}
             </label>
 
@@ -149,8 +149,8 @@ function AccordionCustions({ isquestion }: { isquestion?: boolean }) {
         ) : (
           <div className="bg-zinc-100 flex justify-between items-center p-4 mt-6 rounded">
             <div className="flex items-center gap-x-2">
-              <img src="/SVGs/comments.svg" className="w-12 h-12" />
-              <p className="text-[19px]">{t("moreBox.text")}</p>
+              <img src="/SVGs/comments.svg" className="w-8 h-8 lg:w-12 lg:h-12" />
+              <p className="text-[13px] lg:text-[19px]">{t("moreBox.text")}</p>
             </div>
 
             <Link

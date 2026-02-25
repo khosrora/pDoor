@@ -53,15 +53,15 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
   return (
     <div className="space-y-2 p-2">
       {/* Product Name */}
-      <p className="font-bold text-[33px]">{name}</p>
+      <p className="text-[16px] lg:font-bold lg:text-[33px]">{name}</p>
 
       {/* ATTR1: flex row */}
       {attr1.length > 0 && (
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-2 my-4 lg:mb-8">
           {attr1.map((item, i) => (
             <div
               key={i}
-              className="badge badge-xs bg-zinc-50 rounded-full px-2 py-1"
+              className="badge lg:badge-md bg-zinc-50 rounded-full px-2 py-1 text-[12px] lg:text-[13px]"
             >
               {item.field_name && <span>{item.field_name}: </span>}
               {item.value} {item.unit}
@@ -76,10 +76,10 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
           {attr2.map((item, i) => (
             <div
               key={i}
-              className="flex justify-start items-center gap-2 text-sm my-2"
+              className="flex justify-start items-center gap-2 text-[12px] lg:text-[16px] my-2"
             >
               <img src="\SVGs\Polygon 33.png" alt="arrow" className="" />
-              <span className="text-zinc-500">
+              <span className="text-zinc-500 ">
                 {item.field_name && `${item.field_name}: `}
               </span>
               <span>
@@ -97,22 +97,23 @@ const DetailsProductAttributes: FC<ProductAttributesProps> = ({
           {tag2.map((item, i) => (
             <div
               key={i}
-              className=" bg-zinc-50 px-2 py-1 flex justify-center items-center rounded-md"
+              className="bg-zinc-50 px-2 py-1 flex justify-center items-center rounded-md text-[12px] lg:text-[16px]"
             >
               <Image
                 src={item.field_icon || "/"}
                 width={40}
                 height={40}
                 alt={item.field_name || ""}
+                className="w-[21px] h-[21px] lg:w-10 lg:h-10"
               />
-              <span className="text-sm">{item.field_name}</span>
+              <span className="text-[12px]lg:text-sm">{item.field_name}</span>
             </div>
           ))}
         </div>
       )}
-      <div className="flex flex-row justify-start gap-2">
+      <div className="flex flex-row justify-start gap-2 mb-8 lg:mb-4">
         {/* First Button: تماس با تیم فروش */}
-        <button className="btn bg-[#005E8B] text-white flex items-center gap-2 p-5 hover:bg-white hover:text-[#005E8B] hover:border hover:border-[#005E8B]">
+        <button className="btn bg-[#005E8B] text-white flex items-center gap-2 p-5 hover:bg-white hover:text-[#005E8B] hover:border hover:border-[#005E8B] text-[13px] lg:text-[16px]">
           <IconPhone size={18} />
           {t("DetailsProductAttributes.callButton") ||
             (locale === "fa" ? " تماس با تیم فروش" : "Phone consultation")}

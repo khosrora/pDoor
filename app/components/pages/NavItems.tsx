@@ -131,7 +131,7 @@ function NavItems() {
           </div>
 
           <ul
-            className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 shadow-sm px-0 text-[13px]"
+            className="dropdown-content menu bg-base-100 rounded-box z-20 w-40 shadow-sm px-0 py-0 text-[13px]"
           >
             <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
@@ -176,7 +176,7 @@ function NavItems() {
             {t("navProducts")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-44 px-0 shadow-sm text-[#005E8B] text-[13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-20 w-44 px-0 py-0 shadow-sm text-[#005E8B] text-[13px]">
             <li className="group hover:bg-[#007EBA]">
               <Link
                 href={`/products?lang=${locale}&category=swing-door`}
@@ -253,7 +253,7 @@ function NavItems() {
             {t("navIndustries")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 px-0 w-40  shadow-sm text-[#005E8B] text-[13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-20 px-0 py-0 w-40  shadow-sm text-[#005E8B] text-[13px]">
             {/* <li>بیمارستان</li> */}
 
             <li className="group hover:bg-[#007EBA] transition-colors">
@@ -368,7 +368,7 @@ function NavItems() {
             {t("navBrands")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box px-0 z-1 w-40 shadow-sm text-[#005E8B] text-13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box px-0 py-0 z-20 w-40 shadow-sm text-[#005E8B] text-13px]">
             <li className=" hover:text-white hover:bg-[#007EBA]">
               <Link
                 href={`/geze`}
@@ -399,7 +399,7 @@ function NavItems() {
             {t("navServices")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 px-0 shadow-sm text-[#005E8B] text-13px]">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-20 w-40 px-0 py-0 shadow-sm text-[#005E8B] text-13px]">
             <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={"/installation"}
@@ -424,7 +424,7 @@ function NavItems() {
             {t("navMedia")}
           </div>
 
-          <ul className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 px-0 shadow-sm text-[#005E8B] text-13px] space-y-4">
+          <ul className="dropdown-content menu bg-base-100 rounded-box z-20 w-40 px-0 py-0 shadow-sm text-[#005E8B] text-[13px] ">
             <li className="group hover:bg-[#007EBA] transition-colors">
               <Link
                 href={"/media"}

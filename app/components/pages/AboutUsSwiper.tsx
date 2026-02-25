@@ -65,7 +65,7 @@ const slides: Slide[] = [
     title_en: "Registration of Persiadoor Company",
     desc_fa: "با دریافت نمایندگی برند گزه آلمان، وارد صنعت درب و پنجره اتوماتیک شدیم.",
     desc_en: "By obtaining exclusive representation of GEZE Germany, we officially entered the industry of automatic doors and windows.",
-    image: "/aboutUs_slider/پرشیادر-تاسیس-1.jpg",
+    image: "/aboutUs_slider/پرشیادُر-تاسیس-1.jpg",
   },
   {
     year: "1389",
@@ -164,10 +164,39 @@ const AboutUsSwiper = () => {
       {/* Layout: سه ستون: تصویر | خط و سال | متن */}
       <div className="lg:max-w-7xl mx-auto" dir="rtl">
         <div className="grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto">
+{/* عکس بزرگ موبایل */}
+<div className="col-span-12 lg:hidden">
+            <Swiper
+              modules={[Navigation, Thumbs, EffectFade]}
+              onSwiper={(s) => (mainSwiperRef.current = s)}
+              effect="fade"
+              // navigation
+              thumbs={{ swiper: thumbsSwiper }}
+              speed={800}
+              onSlideChange={(s) => setActiveIndex(s.realIndex)}
+              className="rounded-xl overflow-hidden"
+            >
+              {slides.map((s, i) => (
+                <SwiperSlide key={i}>
+                  <div className="relative w-full h-[320px] md:h-[420px]">
+                    <img
+                      src={s.image}
+                      alt={s.title_fa}
+                      className="w-full h-full object-cover transition-transform duration-1000 scale-105"
+                      draggable={false}
+                    />
+                    {/* overlay gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-black/5 via-black/20 to-black/60 pointer-events-none"></div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
           {/* ستون سمت راست: عنوان و توضیحات */}
           <div className="col-span-12 lg:col-span-5">
             <div className="px-2 md:px-6">
-              <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-3">
+              <h3 className="text-2xl text-[#FAB21F] lg:font-bold  lg:text-slate-800 mb-3">
                 {lang ? slides[activeIndex]?.title_fa : slides[activeIndex]?.title_en}
               </h3>
               <p className="text-slate-600 leading-relaxed">
@@ -178,20 +207,24 @@ const AboutUsSwiper = () => {
           {/* ستون مرکزی - خط عمودی و سال */}
           <div className="col-span-12 lg:col-span-2 flex flex-col items-center">
             {/* سال بالای خط */}
-            <div className="relative mb-4">
+            <div className="hidden lg:flex">
+              <div className="relative mb-4">
               <span className={`absolute top-0 -left-3 text-3xl md:text-4xl font-extrabold text-[#f6a623] 
               ${!lang ? "en-numbers" : ""}`}>
                 {slides[activeIndex]?.year}
               </span>
             </div>
+            </div>
 
             {/* خط عمودی */}
-            <div className="relative -bottom-15 left-7 w-0">
+            <div className="hidden lg:flex">
+              <div className="relative -bottom-15 left-7 w-0">
               <div className=" w-1 bg-[#0C5273] h-[340px] md:h-[400px]"></div>
             </div>
+            </div>
           </div>
-          {/* عکس بزرگ (سمت چپ در تصویر: در RTL این ستون اول قرار می‌گیرد) */}
-          <div className="col-span-12 lg:col-span-5">
+          {/* عکس بزرگ دسکتاپ */}
+          <div className="hidden lg:flex lg:col-span-5">
             <Swiper
               modules={[Navigation, Thumbs, EffectFade]}
               onSwiper={(s) => (mainSwiperRef.current = s)}
@@ -280,7 +313,7 @@ const AboutUsSwiper = () => {
                     </div>
 
                     {/* سال */}
-                    <div className={`mt-3 text-sm text-slate-700 ${!lang ? "en-numbers" : ""}`}>{s.year}</div>
+                    <div className={`mt-3 text-sm lg:text-slate-700 ${!lang ? "en-numbers" : ""}`}>{s.year}</div>
                   </button>
                 </SwiperSlide>
               );

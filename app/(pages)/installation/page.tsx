@@ -20,15 +20,15 @@ export default async function page() {
         <Breadcrumbs />
       </div>
       {/* Hero */}
-      <div className="bg-[#003F5D] lg:h-[429px] grid grid-cols-2 text-white space-y-8 lg:flex lg:justify-around ">
+      <div className="bg-[#003F5D] lg:h-[429px] grid grid-cols-2 text-white space-y-8 lg:flex lg:justify-around py-4 px-2">
         <div className=" lg:flex lg:flex-col lg:items-start lg:justify-center space-y-4">
           <p className="text-[#FAB21F] text-[19px] lg:text-[28px] lg:font-bold ">
             {t("hero.title")}
           </p> 
-          <p className="lg:w-[552px] text-[14px] lg:text-[16px]">{t("hero.text")}</p>
+          <p className="w-[200px] lg:w-[552px] text-[14px] lg:text-[16px]">{t("hero.text")}</p>
           <div className="flex justify-start items-center gap-x-4 mt-8">
-            <button className="btn ">{t("hero.consultButton")}</button>
-            <button className="btn bg-[#FAB21F] border-0">
+            <button className="btn text-[13px]">{t("hero.consultButton")}</button>
+            <button className="btn text-[13px] bg-[#FAB21F] border-0">
               {t("hero.serviceButton")}
             </button>
           </div>
@@ -37,7 +37,7 @@ export default async function page() {
           <img
             src="\images\تعمیرکار 1.png"
             alt=""
-            className="h-[242px] lg:w-[456px] lg:h-[492px]"
+            className="h-[232px] lg:w-[456px] lg:h-[492px]"
           />
         </div>
       </div>
@@ -47,15 +47,15 @@ export default async function page() {
         <div className=" max-w-5xl m-auto">
           <div className="p-4 space-y-4">
             {/* Intro */}
-            <p className="text-[#003F5D] text-[23px] ">{t("intro.title")}</p>
-            <p className="my-6">{t("intro.text")}</p>
+            <p className="text-[#003F5D] text-[19px] lg:text-[23px] ">{t("intro.title")}</p>
+            <p className="my-6 text-[14px] lg:text-[16px]">{t("intro.text")}</p>
 
             {/* Top tiles */}
             <div className="grid grid-cols-3 gap-4 mt-4">
               {/* Free consulting */}
-              <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md lg:h-[263px]  p-4">
+              <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md h-[104px] lg:h-[263px]  p-4">
                 <img src={"/SVGs/headset-one.svg"} className="text-white w-16 h-12" />
-                <p className="text-[#FAB21F] text-[18px]">
+                <p className="text-[#FAB21F] text-[14px] lg:text-[18px]">
                   {t("tiles.freeConsulting.title")}
                 </p>
                 <p className="hidden lg:flex text-white text-[16px] leading-6 mt-4">
@@ -64,9 +64,9 @@ export default async function page() {
               </div>
 
               {/* Install & service */}
-              <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md min-h-32 p-4">
+              <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md h-[104px] lg:min-h-32 ">
                 <img src={"/SVGs/certificate.svg"} className="text-white w-16 h-12" />
-                <p className="text-[#FAB21F] text-[18px]">
+                <p className="text-[#FAB21F] text-[14px] lg:text-[18px]">
                   {t("tiles.installService.title")}
                 </p>
                 <p className="hidden lg:flex text-white text-[16px] leading-6 mt-4">
@@ -75,9 +75,9 @@ export default async function page() {
               </div>
 
               {/* Warranty & repair */}
-              <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md min-h-32 p-4">
+              <div className="flex flex-col items-center justify-around bg-[#003F5D] rounded-md h-[104px] lg:min-h-32 ">
                 <img src={"/SVGs/tool.svg"} className="text-white w-16 h-12" />
-                <p className="text-[#FAB21F] text-[18px]">
+                <p className="text-[#FAB21F] text-[14px] lg:text-[18px]">
                   {t("tiles.warrantyRepair.title")}
                 </p>
                 <p className="hidden lg:flex text-white text-[16px] leading-6 mt-4">
@@ -101,7 +101,7 @@ export default async function page() {
                   className="rounded-md lg:w-[445px] lg:h-[296px]"
                 />
                 <div className="p-8">
-                  <p className="text-[#FAB21F] font-semibold">
+                  <p className="text-[#FAB21F] text-[19px] lg:font-semibold">
                     {t("sections.freeConsulting.title")}
                   </p>
                   <p className="mt-4">{t("sections.freeConsulting.text")}</p>
@@ -118,7 +118,7 @@ export default async function page() {
                   className="rounded-md lg:w-[445px] lg:h-[296px]"
                 />
                 <div className="p-8">
-                  <p className="text-[#FAB21F] font-semibold">
+                  <p className="text-[#FAB21F] text-[19px] lg:font-semibold">
                     {t("sections.installWarranty.title")}
                   </p>
                   <p className="mt-4">{t("sections.installWarranty.text")}</p>
@@ -135,7 +135,7 @@ export default async function page() {
                   className="rounded-md lg:w-[445px] lg:h-[296px] object-contain"
                 />
                 <div className="p-8">
-                  <p className="text-[#FAB21F] font-semibold">
+                  <p className="text-[#FAB21F] text-[19px] lg:font-semibold">
                     {t("sections.serviceRepair.title")}
                   </p>
                   <p className="mt-4">{t("sections.serviceRepair.text")}</p>

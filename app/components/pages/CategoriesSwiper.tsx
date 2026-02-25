@@ -73,7 +73,7 @@ export default function CategoriesSwiper() {
   const isRTL = locale === "fa";
 
   return (
-    <div className="mt-5 mb-20 lg:my-10 lg:my-20 max-w-7xl m-auto relative p-4">
+    <div className="mt-5 mb-20 max-w-7xl m-auto relative p-4">
       <div className=" mb-8 lg:mb-16 flex justify-center gap-2">
         <p className="text-[19px] font-medium lg:text-[33px] lg:font-bold text-center">
           {t("latestProducts1")}
@@ -93,7 +93,11 @@ export default function CategoriesSwiper() {
         speed={900}
         dir={isRTL ? "rtl" : "ltr"}
         breakpoints={{
-          411: {
+          182: {
+slidesPerView: 1,
+            slidesPerGroup: 1,
+          },
+          281: {
             slidesPerView: 2,
             slidesPerGroup: 2,
           },
@@ -109,7 +113,7 @@ export default function CategoriesSwiper() {
       >
         {categories.map((cat) => (
           <SwiperSlide key={cat.slug}>
-            <div className="card w-[182px] h-[283px] border border-[#C5C5C5] lg:w-[405px] lg:h-[468px] lg:border-none bg-base-100 rounded-md ">
+            <div className="card   border border-[#C5C5C5] lg:w-[405px] lg:h-[468px] lg:border-none bg-base-100 rounded-md ">
               {/* IMAGE */}
               <figure>
                 <img
@@ -139,9 +143,9 @@ export default function CategoriesSwiper() {
                 <div className="divider my-2"></div>
                 {/* card title */}
                 <div>
-                  <div className="flex items-center">
+                  <div className="flex justify-end lg:items-center">
                     <p className="hidden lg:flex text-[16px] ">{cat.name}</p>
-                    <div className="flex gap-3 px-2 mt-2">
+                    <div className="flex gap-3 px-2 lg:mt-2">
                       <Exterior color={cat.exterior ? "#FFB800" : "#C5C5C5"} />
                       <INTERIOR color={cat.interior ? "#FFB800" : "#C5C5C5"} />
                       <FireSave color={cat.firesafe ? "#FFB800" : "#C5C5C5"} />
@@ -152,13 +156,13 @@ export default function CategoriesSwiper() {
                   <div className="card-actions justify-between items-center lg:leading-15">
                     <Link
                       href={`/products?lang=${locale}&&category=${cat.slug}`}
-                      className="flex items-center gap-1 text-[13px] hover:text-[#005E8B]"
+                      className="flex items-center gap-1 text-[13px] hover:text-[#005E8B] my-4 lg:my-0"
                     >
                       {t("card.moreLink")}
                       {isRTL ? (
-                        <IconArrowRight size={16} />
-                      ) : (
                         <IconArrowLeft size={16} />
+                      ) : (
+                        <IconArrowRight size={16} />
                       )}
                     </Link>
                   </div>

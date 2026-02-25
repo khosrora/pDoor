@@ -4,7 +4,7 @@ import ServicesSection from "@/app/components/pages/ServicesSection";
 import NewsSwipper from "@/app/components/pages/NewsSwipper";
 import AccordionCustions from "@/app/components/pages/AccordionCustions";
 import BannerSliders from "@/app/components/pages/BannerSliders";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 
 // svg's
 import Bank_Icon from "@/app/SVGs/industriesIconBig/BankIcon";
@@ -59,6 +59,8 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   const t = await getTranslations("HomePage");
+  const locale = await getLocale();
+  const isRtl = ["fa", "ar", "he", "ur"].includes(locale);
 
   const expertiseKeys = ["1", "2", "3", "4"];
 
@@ -89,35 +91,25 @@ export default async function Home() {
     <main className="mt-12 lg:mt-20">
       <BannerSliders />
 
-      {/* Top banner strip */}
-      <div className="bg-[#003148] flex justify-between items-center text-white lg:flex-row-reverse h-[94px] lg:h-[134px] lg:justify-around relative py-4 px-2">
-        <div className="flex flex-row">
-          <div className="flex flex-col text-right lg:text-left">
-            <p className="text-[18px] lg:text-[22px]">{t("banner.primary1")}</p>
-            <p className="text-[18px] lg:text-[22px]">{t("banner.primary2")}</p>
-          </div>
-
-          <div className="hidden lg:flex border border-zinc-200 mx-4" />
-          <div className="flex flex-col text-right">
-            <p className="hidden lg:flex text-[22px]">
-              {t("banner.secondary1")}
-            </p>
-            <p className="hidden lg:flex text-[22px]">
-              {t("banner.secondary2")}
-            </p>
-          </div>
-        </div>
-        <button className="btn btn-outline p-1 lg:px-8 text-[13px]">{t("banner.button")}</button>
-        <img src="/path486.svg" className="absolute left-150 -top-10 z-2" />
-      </div>
+      
 
       <CategoriesSwiper />
 
       {/* Expertise + about clip section */}
       <div className="relative" dir="rtl">
         {/* Right big clip cards (desktop) */}
-        <div className="my-clip bg-zinc-200 h-72 h-[293px] lg:h-[558px] w-full absolute left-0 -top-4 lg:-top-2 lg:flex lg:justify-end lg:items-center">
-          <div className="hidden lg:grid grid-cols-2 gap-45 gap-y-8 p-4 max-w-md lg:ml-80">
+        <div
+          className={`bg-zinc-200 h-[293px] lg:h-[558px] w-full absolute -top-4 lg:-top-2 lg:flex lg:items-center ${
+            isRtl
+              ? "my-clip left-0 lg:justify-end"
+              : "my-clip-v right-0 lg:justify-start"
+          }`}
+        >
+          <div
+            className={`hidden lg:grid grid-cols-2 gap-45 gap-y-8 p-4 max-w-md ${
+              isRtl ? "lg:ml-80" : "lg:mr-30"
+            }`}
+          >
             {expertiseCards.map((item, index) => {
               const bgClass =
                 index % 3 === 0
@@ -145,8 +137,16 @@ export default async function Home() {
         </div>
 
         {/* Left blue clip */}
-        <div className="relative top-0 my-clip-rt bg-[#003F5D] h-[254px] lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20">
-          <div className="absolute right-12 top-6 lg:w-[376px] lg:mr-30 lg:mt-15">
+        <div
+          className={`absolute top-0 bg-[#003F5D] h-[254px] lg:h-[370px] w-[90%] lg:w-[50%] lg:top-20 ${
+            isRtl ? "my-clip-rt right-0" : "my-clip-lt left-0"
+          }`}
+        >
+          <div
+            className={`absolute top-6 lg:w-[376px] lg:mt-15 ${
+              isRtl ? "right-12 lg:mr-30" : "left-12 lg:justify-end"
+            }`}
+          >
             <p className="text-[#FAB21F] text-[19px] lg:text-[33px] lg:font-semibold">
               {t("about.brand")}
             </p>
@@ -166,7 +166,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
-
+<div className="h-[220px] lg:hidden" />
       {/* Expertise cards on mobile */}
       <div className="grid grid-cols-2 gap-2 gap-y-6 p-4 mt-20 lg:hidden">
         {expertiseKeys.map((key, index) => {
@@ -192,6 +192,8 @@ export default async function Home() {
         })}
       </div>
 
+<div className="lg:h-[380px]" />
+
       {/* Customers section */}
       <CustomerList />
 
@@ -215,13 +217,13 @@ export default async function Home() {
       {/* Industries section */}
       <div className="p-4 lg:flex lg:flex-row lg:justify-around lg:items-center lg:my-30">
         <div>
-          <p className="text-[19px] lg:font-extrabold lg:text-[33px] lg:mb-2">
+          <p className="text-[19px] lg:font-extrabold lg:text-[33px] my-6 lg:mb-2">
             {t("industriesIntro.title")}{" "}
             <span className="text-[#FAB21F]">
               {t("industriesIntro.titleHighlight")}
             </span>
           </p>
-          <p className="whitespace-pre-line  text-[13px] lg:text-[16px]">
+          <p className="whitespace-pre-line my-8 text-[13px] lg:text-[16px]">
             {t("industriesIntro.subtitle")}
           </p>
         </div>
@@ -231,20 +233,20 @@ export default async function Home() {
             return (
               <div
                 key={item.key}
-                className="group relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center h-[132px] justify-center transition-all duration-300 lg:px-4"
+                className="group relative bg-white shadow-zinc-200 shadow-xl rounded-md flex flex-col items-center h-[84px] lg:h-[132px] justify-center transition-all duration-300 lg:px-4"
               >
                 <Link href={item.link}>
-                  <Icon className="text-black mx-auto transition-all duration-300 group-hover:text-[#005E8B] group-hover:scale-110" />
+                  <Icon className="w-[48px] lg:w-[64px] text-black mx-auto transition-all duration-300 group-hover:text-[#005E8B] group-hover:scale-110" />
 
                   <img
                     src="/SVGs/Polygon 33.svg"
                     alt=""
                     sizes="20"
-                    className="absolute rotate-180 w-[18px] left-0 top-12 "
+                    className="absolute rotate-180 w-[9px] lg:w-[18px] left-0 top-12 "
                   />
 
                   {/* متن */}
-                  <p className="font-semibold mt-2 text-sm text-black group-hover:text-[#005E8B] text-center">
+                  <p className="font-regular lg:font-semibold  lg:mt-2 text-[10px] lg:text-sm text-black group-hover:text-[#005E8B] text-center">
                     {t(`industries.${item.key}`)}
                   </p>
                 </Link>

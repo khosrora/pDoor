@@ -60,7 +60,7 @@ export default function TabsDetails({
   const t = useTranslations("TabsDetails");
 
   const technicalSpecs = specifications.filter(
-    (s) => s.display_section === "detail"
+    (s) => s.display_section === "detail",
   );
 
   const activeCatalogs = catalogs?.filter((c) => c.is_active) || [];
@@ -97,8 +97,8 @@ export default function TabsDetails({
           role="tab"
           className={`tab ${
             activeTab === "product"
-              ? "tab-active text-[#007EBA] text-[19px]"
-              : "text-[19px]"
+              ? "tab-active text-[#007EBA] text-[16px] lg:text-[19px]"
+              : "text-[16px] lg:text-[19px]"
           }`}
           onClick={() => setActiveTab("product")}
         >
@@ -110,8 +110,8 @@ export default function TabsDetails({
           role="tab"
           className={`tab ${
             activeTab === "technical"
-              ? "tab-active text-[#007EBA] text-[19px]"
-              : "text-[19px]"
+              ? "tab-active text-[#007EBA] text-[16px] lg:text-[19px]"
+              : "text-[16px] lg:text-[19px]"
           }`}
           onClick={() => setActiveTab("technical")}
         >
@@ -123,8 +123,8 @@ export default function TabsDetails({
           role="tab"
           className={`tab ${
             activeTab === "download"
-              ? "tab-active text-[#007EBA] text-[19px]"
-              : "text-[19px]"
+              ? "tab-active text-[#007EBA] text-[16px] lg:text-[19px]"
+              : "text-[16px] lg:text-[19px]"
           }`}
           onClick={() => setActiveTab("download")}
         >
@@ -134,17 +134,17 @@ export default function TabsDetails({
 
       {/* ================= PRODUCT TAB ================= */}
       {activeTab === "product" && (
-        <div className="bg-white p-4 rounded space-y-4 leading-12">
+        <div className=" p-4 rounded space-y-4 leading-12">
           <div
-            className="prose prose-zinc w-full"
+            className="bg-white prose prose-zinc w-full p-4 text-[14px] lg:text-[16px]"
             dangerouslySetInnerHTML={{ __html: description }}
           />
 
-          {/* <button className="btn btn-outline text-[#005E8B]">
+          <button className="btn btn-outline text-[#005E8B]">
             {t("product.button")}
-          </button> */}
+          </button>
           {/* ================= HOTSPOT SECTION ================= */}
-      <div className="mt-12">{renderHotspot()}</div>
+          <div className="mt-12 p-4 bg-white">{renderHotspot()}</div>
         </div>
       )}
 
@@ -173,9 +173,7 @@ export default function TabsDetails({
           ) : (
             <p className="text-center text-zinc-500">{t("technical.empty")}</p>
           )}
-                
         </div>
-
       )}
 
       {/* ================= DOWNLOAD TAB ================= */}
@@ -214,16 +212,12 @@ export default function TabsDetails({
                       </div>
                     </details>
                   </div>
-                ) : (
-                  null
-                )}
+                ) : null}
               </div>
-            )
+            ),
           )}
         </div>
       )}
-
-
     </div>
   );
 }

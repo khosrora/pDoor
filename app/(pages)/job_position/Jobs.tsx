@@ -107,7 +107,7 @@ export default function Jobs() {
               {/* Header */}
               <div className="flex justify-between items-center">
                 <div>
-                  <p className="font-semibold text-lg">{job.title}</p>
+                  <p className="text-[16px] lg:font-semibold lg:text-lg">{job.title}</p>
 
                   <div className="flex gap-4 mt-2 flex-wrap">
                     <div className="flex items-center gap-2">

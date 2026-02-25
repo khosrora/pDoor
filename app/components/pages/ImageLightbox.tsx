@@ -14,7 +14,7 @@ export default function ImageLightbox() {
     <>
       {/* Thumbnails */}
       <div className="mt-4">
-        <div className="w-[200px] h-[300px] flex gap-4">
+        <div className="w-[150px] h-[250px] lg:w-[200px] lg:h-[300px] flex gap-4">
           {images.map((src, index) => (
             <img
               key={index}

@@ -63,13 +63,14 @@ export default function NewsSwipper() {
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
   }}
-  className="relative my-8 py-8 lg:pt-10">
-      {/* Header */}
+  className="relative ">
+      <div className="bg-[#003F5D] lg:bg-transparent my-8 py-8 lg:pt-10">
+        {/* Header */}
       <div className="flex flex-col items-center mb-6 text-black px-4">
-        <p className="text-[19px] lg:text-[33px] font-semibold mb-1 ">
+        <p className="text-[19px] lg:text-[33px] lg:font-semibold text-white lg:text-black mb-1 ">
           {locale === "fa" ? "اخبار و مقالات" : "News & Articles"}
         </p>
-        <p className="text-center text-[16px] lg:text-[20px]">
+        <p className="text-center text-[13px] my-4 lg:text-[20px] text-white lg:text-black ">
           {locale === "fa"
             ? "آخرین مقالات مرتبط و اخبار پرشیا در را اینجا می‌توانید مشاهده کنید"
             : "Explore the latest related articles and Persiadoor news here."}
@@ -87,11 +88,11 @@ export default function NewsSwipper() {
           onSlideChange={(s) => setActiveIndex(s.realIndex)}
           className="w-full h-[300px] lg:h-[460px] "
           breakpoints={{
-            0: { slidesPerView: 2 },
-            640: { slidesPerView: 2.5 },
-            768: { slidesPerView: 2.5 },
-            1024: { slidesPerView: 2.8 },
-            1280: { slidesPerView: 3 },
+            0: { slidesPerView: 1.5 },
+            182: { slidesPerView: 1.75 },
+            412: { slidesPerView: 2.75 },
+            640: { slidesPerView: 2.8 },
+            768: { slidesPerView: 3 },
           }}
         >
           {posts.map((post, index) => {
@@ -134,16 +135,16 @@ export default function NewsSwipper() {
         <div className="flex justify-center gap-8 mt-8" dir="rtl">
           <button
             ref={prevRef}
-            className="p-3 border border-[#003F5D] lg:border-white lg:hover:bg-zinc-200 rounded-md z-50"
+            className="p-3 border border-white lg:hover:bg-zinc-200 rounded-md z-50"
           >
-            <IconArrowRight className="text-[#003F5D] lg:text-white" />
+            <IconArrowRight className="text-white" />
           </button>
 
           <button
             ref={nextRef}
-            className="p-3 border border-[#003F5D] lg:border-white lg:hover:bg-zinc-200 rounded-md z-50"
+            className="p-3 border border-white lg:hover:bg-zinc-200 rounded-md z-50"
           >
-            <IconArrowLeft  className="text-[#003F5D] lg:text-white" />
+            <IconArrowLeft  className="text-white" />
           </button>
         </div>
 
@@ -151,6 +152,7 @@ export default function NewsSwipper() {
        
 
 
+      </div>
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import AccordionCustions from "../../../components/pages/AccordionCustions";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import Breadcrumbs from "./Breadcrumbs";
-import HospitalInstructionSwipper from "@/app/components/pages/HospitalInstructionSwipper";
 import OfficeSliders from "@/app/components/pages/OfficeSliders";
 import FactorySlider from "@/app/components/pages/FactorySlider";
 import BankSlider from "@/app/components/pages/BankSlider";
@@ -21,7 +20,7 @@ export default async function ShoppingPage() {
   const t = await getTranslations("ShoppingPage");
 
   return (
-    <div className="my-20">
+    <div className="my-10 lg:my-20">
       <div className="p-4">
         <Breadcrumbs />
       </div>
@@ -73,73 +72,73 @@ export default async function ShoppingPage() {
           </p>
 
           {/* Card 1: Hygiene */}
-          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8 border-r-6 border-[#83E26E]">
             <div className="lg:w-[260px] flex justify-center items-center">
-              <div className="flex justify-center items-center rotate-45 bg-[#83E26E]  lg:w-[124px] lg:h-[124px] rounded-2xl ">
+              <div className="flex justify-center items-center rotate-45 bg-[#83E26E]  w-[80px] h-[80px] lg:w-[124px] lg:h-[124px] rounded-2xl mx-4">
                 <div className="-rotate-45">
                   <Image
                     src="/SVGs/time.png"
                     width={80}
                     height={80}
-                    className=""
+                    className="w-[32px] h-[32px] lg:w-[80px] lg:h-[80px]"
                     alt="hospital-hygiene"
                   />
                 </div>
               </div>
             </div>
             <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
-              <p className="text-[#003F5D] font-bold text-[20px]">
+              <p className="text-[#003F5D] text-[16px] lg:font-bold lg:text-[20px]">
                 {t("benefits.hygiene.title")}
               </p>
-              <p className="mt-4 text-[16px]">{t("benefits.hygiene.text")}</p>
+              <p className="mt-4 text-[13px] lg:text-[16px]">{t("benefits.hygiene.text")}</p>
             </div>
           </div>
 
           {/* Card 2: Easy access */}
-          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8 border-r-6 border-[#FCCD6E]">
             <div className="lg:w-[260px] flex justify-center items-center">
-              <div className="flex justify-center items-center rotate-45 bg-[#FCCD6E]  lg:w-[124px] lg:h-[124px] rounded-2xl ">
+              <div className="flex justify-center items-center rotate-45 bg-[#FCCD6E] w-[80px] h-[80px]  lg:w-[124px] lg:h-[124px] rounded-2xl mx-4">
                 <div className="-rotate-45">
                   <Image
                     src="/SVGs/reverse-rotation.svg"
                     width={80}
                     height={80}
-                    className=""
+                    className="w-8 h-8 lg:w-[80px] lg:h-[80px]"
                     alt="hospital-hygiene"
                   />
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
-              <p className="text-[#003F5D] font-bold text-[20px]">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] lg:p-8">
+              <p className="text-[#003F5D] text-[16px] lg:font-bold lg:text-[20px]">
                 {t("benefits.easyAccess.title")}
               </p>
-              <p className="mt-4 text-[16px]">
+              <p className="mt-4 text-[13px] lg:text-[16px]">
                 {t("benefits.easyAccess.text")}
               </p>
             </div>
           </div>
 
           {/* Card 3: Access control */}
-          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8 border-r-6 border-[#F54B46]">
             <div className="lg:w-[260px] flex justify-center items-center">
-              <div className="flex justify-center items-center rotate-45 bg-[#F54B46]  lg:w-[124px] lg:h-[124px] rounded-2xl ">
+              <div className="flex justify-center items-center rotate-45 bg-[#F54B46]  w-[80px] h-[80px] lg:w-[124px] lg:h-[124px] rounded-2xl mx-4">
                 <div className="-rotate-45">
                   <Image
                     src="/SVGs/fire.svg"
                     width={80}
                     height={80}
-                    className=""
+                    className="w-[32px] h-[32px] lg:w-[80px] lg:h-[80px]"
                     alt="hospital-hygiene"
                   />
                 </div>
               </div>
             </div>
             <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
-              <p className="text-[#003F5D] font-bold text-[20px]">
+              <p className="text-[#003F5D] text-[16px] lg:font-bold lg:text-[20px]">
                 {t("benefits.accessControl.title")}
               </p>
-              <p className="mt-4 text-[16px]">
+              <p className="mt-4 text-[13px] lg:text-[16px]">
                 {t("benefits.accessControl.text")}
               </p>
             </div>

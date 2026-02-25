@@ -35,6 +35,7 @@ export interface Product {
   } | null;
   specifications: {
     field_name?: string | null;
+    field_name_en?: string | null;
     value: string | null;
     unit?: string | null;
     display_section: string;
@@ -120,18 +121,20 @@ export default function ProductsListingPage() {
   );
 
   return (
-    <div className="my-20">
+    <div className="my-10 lg:my-20">
       <CompareAlert />
 
       <div className="p-4 max-w-7xl mx-auto">
         <Breadcrumbs />
       </div>
 
-      <div className="bg-[#f4f4f4] py-5">
-        <p className="font-bold text-base text-[#003f5d] lg:text-2xl max-w-7xl mx-auto">
+      <div>
+        <div className="bg-[#f4f4f4] lg:py-5">
+          <p className="hidden lg:flex lg:font-bold text-base text-[#003f5d] lg:text-2xl max-w-7xl mx-auto">
           {t2("header")}
         </p>
         <CategorySliders />
+        </div>
         <FilersProducts />
       </div>
 
@@ -156,7 +159,10 @@ export default function ProductsListingPage() {
               <div className="h-4 w-20 skeleton" />
             </div>
           ) : (
-            <Brands />
+            
+            <div>
+              <Brands />
+            </div>
           )}
         </aside>
 
@@ -169,41 +175,44 @@ export default function ProductsListingPage() {
               <Products products={products} count={count} />
 
               {/* PAGINATION */}
-              {totalPages > 1 && (
-                <div className="flex justify-center my-10">
-                  <div className="join">
-                    <button
-                      className="join-item btn"
-                      disabled={!prev}
-                      onClick={() => goToPage(page - 1)}
-                    >
-                      «
-                    </button>
+              {totalPages > 1 && page <= totalPages && (
+                <div className="flex justify-center items-center gap-2 my-10">
+                  {/* PREVIOUS */}
+                  <button
+                    disabled={page === 1}
+                    onClick={() => goToPage(page - 1)}
+                    className="px-3 py-1 disabled:opacity-40"
+                  >
+                    قبلی
+                  </button>
 
-                    {Array.from({ length: totalPages }).map((_, i) => {
-                      const pageNumber = i + 1;
+                  {/* PAGE NUMBERS */}
+                  {Array.from({ length: totalPages }).map((_, i) => {
+                    const pageNumber = i + 1;
 
-                      return (
-                        <button
-                          key={pageNumber}
-                          className={`join-item btn ${
-                            page === pageNumber ? "btn-active" : ""
-                          }`}
-                          onClick={() => goToPage(pageNumber)}
-                        >
-                          {pageNumber}
-                        </button>
-                      );
-                    })}
+                    return (
+                      <button
+                        key={pageNumber}
+                        onClick={() => goToPage(pageNumber)}
+                        className={`w-[32px] h-[32px] rounded border ${
+                          page === pageNumber
+                            ? "bg-[#005E8B] text-white"
+                            : "text-[#005E8B] hover:bg-zinc-100"
+                        }`}
+                      >
+                        {pageNumber}
+                      </button>
+                    );
+                  })}
 
-                    <button
-                      className="join-item btn"
-                      disabled={!next}
-                      onClick={() => goToPage(page + 1)}
-                    >
-                      »
-                    </button>
-                  </div>
+                  {/* NEXT */}
+                  <button
+                    disabled={page === totalPages}
+                    onClick={() => goToPage(page + 1)}
+                    className="px-3 py-1 disabled:opacity-40"
+                  >
+                    بعدی
+                  </button>
                 </div>
               )}
             </>

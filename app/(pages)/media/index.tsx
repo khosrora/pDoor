@@ -34,7 +34,7 @@ function Index() {
   };
 
   return (
-    <div className="mt-20">
+    <div className="mt-10 lg:mt-20">
       <div className="p-4">
         <Breadcrumbs />
       </div>
@@ -47,7 +47,7 @@ function Index() {
           <button
             role="tab"
             type="button"
-            className={`tab px-8 text-[19px] ${
+            className={`tab px-8 text-[16px] lg:text-[19px] ${
               type === Type.G ? "tab-active text-[#007EBA] " : ""
             }`}
             onClick={() => handleTabChange(Type.G)}
@@ -58,7 +58,7 @@ function Index() {
           <button
             role="tab"
             type="button"
-            className={`tab px-8 text-[19px] ${
+            className={`tab px-8 text-[16px] lg:text-[19px] ${
               type === Type.N ? "tab-active text-[#007EBA]" : ""
             }`}
             onClick={() => handleTabChange(Type.N)}

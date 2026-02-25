@@ -44,7 +44,7 @@ export default function AirportSlider() {
     <div className="my-8 bg-[#003F5D] py-8">
       {/* Header */}
       <div className="flex flex-col items-start mb-6 text-white px-4 max-w-7xl mx-auto">
-        <p className="text-[16px] lg:text-[23px] font-regular">
+        <p className="text-[19px] lg:text-[23px] lg:font-regular">
           {t("sectionTitle")}
         </p>
       </div>
@@ -68,7 +68,7 @@ export default function AirportSlider() {
       >
         {projects.map((item) => (
           <SwiperSlide key={item.slug}>
-            <div className="w-[182px] h-[215px] m-2 lg:w-[392px] lg:h-[326px] bg-white rounded-sm overflow-hidden flex flex-col">
+            <div className="w-[182px] h-[215px] m-2 lg:w-[392px] lg:h-[326px] bg-white group-hover:bg-[#005E8B]  rounded-sm overflow-hidden flex flex-col">
               <figure>
                 <img
                   src={item.cover_image}
@@ -78,7 +78,7 @@ export default function AirportSlider() {
               </figure>
 
               <div className="lg:p-4">
-                <p className="text-[#005E8B] font-semibold">
+                <p className="text-[#005E8B] text-[12px] lg:text-[16px] group-hover:text-white lg:font-semibold">
                   {item.title}
                 </p>
               </div>

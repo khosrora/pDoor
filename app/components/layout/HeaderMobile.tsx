@@ -22,7 +22,8 @@ import FactoryIcon from "@/app/SVGs/industriesIcon/FactoryIcon";
 import ProjectIcon from "@/app/SVGs/industriesIcon/ProjectIcon";
 
 type MenuKey =
-  | null
+    null
+  | "brandName"
   | "products"
   | "industries"
   | "brands"
@@ -62,10 +63,10 @@ export default function HeaderMobile({ t }: { t: any }) {
         </div>
 
         {/* Drawer */}
-        <div className="drawer-side ">
+        <div className="drawer-side">
           <label htmlFor="my-drawer-1" className="drawer-overlay"></label>
 
-          <ul className="menu bg-[#005E8B] text-white text-[16px] min-h-full w-80 p-8 leading-6">
+          <ul className="menu bg-[#005E8B] z-100 text-white text-[16px] min-h-full w-80 p-8 leading-6">
             {/* ===== HEADER (Back Button) ===== */}
             {activeMenu && (
               <li className="mb-4">
@@ -83,7 +84,9 @@ export default function HeaderMobile({ t }: { t: any }) {
             {!activeMenu && (
               <>
                 <li>
-                  <Link href="/">{t("brandName")}</Link>
+                  <button onClick={() => setActiveMenu("brandName")}>
+                    {t("brandName")}
+                  </button>
                 </li>
 
                 <li>
@@ -119,6 +122,46 @@ export default function HeaderMobile({ t }: { t: any }) {
             )}
 
             {/* ===== PRODUCTS SUBMENU ===== */}
+            {activeMenu === "brandName" && (
+              <div>
+                <ul className="text-white text-[16px]">
+                  <li>
+                    <Link
+                      href={`/about_us`}
+                      onClick={closeDropdown}
+                      className="flex items-center gap-2"
+                    >
+                     
+                      <p>{t("about_us")}</p>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      href={`/contact_us`}
+                      onClick={closeDropdown}
+                      className="flex items-center gap-2 px-3 py-2"
+                    >
+                      
+                      <p>{t("contact_us")}</p>
+                    </Link>
+                  </li>
+
+                  <li>
+                    <Link
+                      href={`/job_position`}
+                      onClick={closeDropdown}
+                      className="flex items-center gap-2 px-3 py-2"
+                    >
+                      
+                      <p>{t("job_position")}</p>
+                    </Link>
+                  </li>
+
+                 
+                </ul>
+              </div>
+            )}
             {activeMenu === "products" && (
               <div>
                 <ul className="text-white text-[16px]">

@@ -51,36 +51,36 @@ export default function News() {
           href={`/media/${item.id}`}
           className="group flex items-center gap-1 hover:text-[#005E8B]"
         >
-          <div className="card active:text-[#007EBA] w-[392px] h-[413px] bg-base-100 border border-zinc-200">
+          <div className="card active:text-[#007EBA] w-[392px] h-[264px] lg:h-[413px] bg-base-100 border border-zinc-200">
             {/* Image */}
             <figure>
               <img
                 src={item.cover_image}
                 alt={item.title}
-                className="w-full h-[252px] object-cover"
+                className="w-full h-[142px] lg:h-[252px] object-cover"
               />
             </figure>
 
             <div className="card-body p-4">
               {/* Title */}
-              <h2 className="card-title text-black text-[18px]">
+              <h2 className="card-title lg:text-black text-[12px] text-[#005E8B] lg:text-[18px]">
                 {item.title}
               </h2>
 
               {/* Author */}
-              <p className="text-[13px] text-zinc-500">{item.short_summary}</p>
+              <p className="text-[11px] lg:text-[13px] text-zinc-500">{item.short_summary}</p>
 
               {/* Row: Read More + Date */}
-              <div className="card-actions w-full flex items-center justify-between mt-2 text-zinc-500 text-[16px]">
+              <div className="card-actions w-full flex items-center justify-between mt-2 lg:text-zinc-500 text-[12px] lg:text-[16px]">
                 <div className="flex items-center">
-                  <p className="group-hover:text-[#005E8B]">{t("readMore")}</p>
+                  <p className="text-[#005E8B] lg:group-hover:text-[#005E8B]">{t("readMore")}</p>
                   <IconArrowLeft
                     size={16}
                     className="group-hover:text-[#005E8B]"
                   />
                 </div>
 
-                <p className="flex justify-end text-[12px] ">
+                <p className="flex justify-end text-[6px] lg:text-[12px] ">
                   {item.published_at}
                 </p>
               </div>

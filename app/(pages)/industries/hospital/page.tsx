@@ -4,7 +4,6 @@ import AccordionCustions from "../../../components/pages/AccordionCustions";
 import { getTranslations } from "next-intl/server";
 import { Metadata } from "next";
 import Breadcrumbs from "./Breadcrumbs";
-import HospitalInstructionSwipper from "@/app/components/pages/HospitalInstructionSwipper";
 
 export const metadata: Metadata = {
   title: "پرشیادُر | بیمارستان‌ها",
@@ -16,7 +15,7 @@ export default async function HospitalPage() {
   const t = await getTranslations("HospitalPage");
 
   return (
-    <div className="my-20">
+    <div className="my-10 lg:my-20">
       <div className="p-4">
         <Breadcrumbs />
       </div>
@@ -29,7 +28,7 @@ export default async function HospitalPage() {
           <p className="text-[13px] lg:text-[18px] mt-4 lg:w-[541px]">
             {t("hero.text")}
           </p>
-          <div className="flex justify-start items-center gap-x-4 mt-16">
+          <div className="flex justify-start items-center gap-x-4 mt-6 lg:mt-16">
             <button className="btn">{t("hero.consultButton")}</button>
             <button className="btn bg-[#FAB21F] border-0">
               {t("hero.serviceButton")}
@@ -47,8 +46,6 @@ export default async function HospitalPage() {
           src="\GIFS\Record_2025_12_03_18_26_17_489-ezgif.com-video-to-gif-converter.gif"
           alt=""
         />
-
-        {/* <HospitalInstructionSwipper/> */}
       </div>{" "}
       <div className="max-w-5xl m-auto">
         {/* Top illustration (mobile) */}
@@ -63,105 +60,106 @@ export default async function HospitalPage() {
 
         {/* Benefits section */}
         <div className="p-4">
-          <p className="text-center text-[25px] font-semibold">
+          <p className="text-center text-[16px] lg:text-[25px] lg:font-semibold">
             {t("howSection.title")}
           </p>
 
           {/* Card 1: Hygiene */}
-          <div className="bg-zinc-100 lg:h-[250px]  rounded-md flex justify-between items-center gap-x-2 p-4 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px]  rounded-md flex justify-between items-center gap-x-2 p-4 mt-8  border-r-6 border-[#83E26E]">
             <div className="lg:w-[260px] flex justify-center items-center">
-              <div className="flex justify-center items-center rotate-45 bg-[#83E26E]  lg:w-[124px] lg:h-[124px] rounded-2xl ">
+              <div className="flex justify-center items-center rotate-45 bg-[#83E26E] w-[80px] h-[80px] lg:w-[124px] lg:h-[124px] rounded-2xl mx-4">
                 <div className="-rotate-45">
                   <Image
                     src="/SVGs/heartbeat.svg"
                     width={80}
                     height={80}
-                    className=""
+                    className="w-[32px] h-[32px] lg:w-[80px] lg:h-[80px]"
                     alt="hospital-hygiene"
                   />
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
-              <p className="text-[#003F5D] font-bold lg:text-[20px]">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] lg:p-8">
+              <p className="text-[#003F5D] text-[16px] lg:font-bold lg:text-[20px]">
                 {t("benefits.hygiene.title")}
               </p>
-              <p className="mt-4 lg:text-[16px]">
+              <p className="mt-4 text-[13px] lg:text-[16px]">
                 {t("benefits.hygiene.text")}
               </p>
             </div>
           </div>
 
           {/* Card 2: Easy access */}
-          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8 border-r-6 border-[#FCCD6E]">
             <div className="lg:w-[260px] flex justify-center items-center">
-              <div className="flex justify-center items-center rotate-45 bg-[#FCCD6E]  lg:w-[124px] lg:h-[124px] rounded-2xl ">
+              <div className="flex justify-center items-center rotate-45 bg-[#FCCD6E] w-[80px] h-[80px] lg:w-[124px] lg:h-[124px] rounded-2xl mx-4">
                 <div className="-rotate-45">
                   <Image
                     src="/SVGs/wheelchair.svg"
                     width={80}
                     height={80}
-                    className=""
+                    className="w-[32px] h-[32px] lg:w-[80px] lg:h-[80px]"
                     alt="hospital-hygiene"
                   />
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
-              <p className="text-[#003F5D] font-bold text-[20px]">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] lg:p-8">
+              <p className="text-[#003F5D] text-[16px] lg:font-bold lg:text-[20px]">
                 {t("benefits.easyAccess.title")}
               </p>
-              <p className="mt-4 text-[16px]">
+              <p className="mt-4 text-[13px] lg:text-[16px]">
                 {t("benefits.easyAccess.text")}
               </p>
             </div>
           </div>
 
           {/* Card 3: Access control */}
-          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8 border-r-6 border-[#A2E1FF]">
             <div className="lg:w-[260px] flex justify-center items-center">
-              <div className="flex justify-center items-center rotate-45 bg-[#A2E1FF]  lg:w-[124px] lg:h-[124px] rounded-2xl ">
+              <div className="flex justify-center items-center rotate-45 bg-[#A2E1FF] w-[80px] h-[80px] lg:w-[124px] lg:h-[124px] rounded-2xl mx-4">
                 <div className="-rotate-45">
                   <Image
                     src="/SVGs/surveillance-cameras-two.svg"
                     width={80}
                     height={80}
-                    className=""
+                    className="w-[32px] h-[32px] lg:w-[80px] lg:h-[80px]"
                     alt="hospital-hygiene"
                   />
                 </div>
               </div>
             </div>
-            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
-              <p className="text-[#003F5D] font-bold text-[20px]">
+            <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] lg:p-8">
+              <p className="text-[#003F5D] text-[16px] lg:font-bold lg:text-[20px]">
                 {t("benefits.accessControl.title")}
               </p>
-              <p className="mt-4 text-[16px]">
+              <p className="mt-4 text-[13px] lg:text-[16px]">
                 {t("benefits.accessControl.text")}
               </p>
             </div>
           </div>
 
           {/* Card 4: Fire safety */}
-          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8">
+
+          <div className="bg-zinc-100 lg:h-[250px] p-4 rounded-md flex justify-between items-center gap-x-2 mt-8 border-r-6 border-[#F54B46]">
             <div className="lg:w-[260px] flex justify-center items-center">
-              <div className="flex justify-center items-center rotate-45 bg-[#F54B46]  lg:w-[124px] lg:h-[124px] rounded-2xl ">
+              <div className="flex justify-center items-center rotate-45 bg-[#F54B46] w-[80px] h-[80px] lg:w-[124px] lg:h-[124px] rounded-2xl mx-4">
                 <div className="-rotate-45">
                   <Image
                     src="/SVGs/fire.svg"
                     width={80}
                     height={80}
-                    className=""
+                    className="w-[32px] h-[32px] lg:w-[80px] lg:h-[80px]"
                     alt="hospital-hygiene"
                   />
                 </div>
               </div>
             </div>
             <div className="bg-white rounded-md p-4 text-xs lg:w-full lg:h-[196px] p-8">
-              <p className="text-[#003F5D] font-bold text-[20px]">
+              <p className="text-[#003F5D] text-[16px] lg:font-bold lg:text-[20px]">
                 {t("benefits.fireSafety.title")}
               </p>
-              <p className="mt-4 text-[16px]">
+              <p className="mt-4 text-[13px] lg:text-[16px]">
                 {t("benefits.fireSafety.text")}
               </p>
             </div>

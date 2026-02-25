@@ -33,8 +33,20 @@ html[dir="ltr"] {
   clip-path: polygon(0 0, 100% 0, 71% 100%, 0% 100%);
 }
 
+.my-clip-v{
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 29% 100%);
+}
+
+.my-clip-h{
+  clip-path: polygon(0 0, 0 100%, 100% 71%, 100% 0);
+}
+
 .my-clip-rt {
   clip-path: polygon(48% 0, 100% 0, 100% 100%, 0% 100%);
+}
+ 
+.my-clip-lt {
+  clip-path: polygon(0 0, 52% 0, 100% 100%, 0% 100%);
 }
 
 .my-clip-card-rt {
@@ -120,4 +132,14 @@ img { -webkit-user-drag: none; user-select: none; }
 
 .cursor-swiper-right {
   cursor: url("/SVGs/right.svg"), e-resize;
+}
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

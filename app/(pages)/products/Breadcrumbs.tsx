@@ -11,7 +11,7 @@ function Breadcrumbs() {
     <div className="breadcrumbs text-sm max-w-7xl">
       <ul>
         <li>
-          <Link href={`/${locale}`}>{t("home")}</Link>
+          <Link href={`/`}>{t("home")}</Link>
         </li>
         <li>
           <p className="text-[#007EBA]">{t("products")}</p>

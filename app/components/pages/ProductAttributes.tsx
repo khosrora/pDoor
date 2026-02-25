@@ -44,7 +44,7 @@ export default function ProductAttributes({ product }: Props) {
           ))}
         </div>
       ) : (
-        <p className="text-gray-400 text-sm">No attributes available.</p>
+        <p className="text-gray-400 text-sm"></p>
       )}
     </div>
   );
