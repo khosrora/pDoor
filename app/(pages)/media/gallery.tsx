@@ -47,7 +47,7 @@ export default function Gallery() {
       .catch(console.error);
   }, [locale]);
 
-  /* Load projects */
+  /* Load projects (pagination synced with API) */
   useEffect(() => {
     setLoading(true);
 
@@ -65,9 +65,13 @@ export default function Gallery() {
         setProjects(results);
         setCount(data.count || 0);
 
+        // ✅ محاسبه تعداد صفحات واقعی بر اساس API
         if (data.count && results.length) {
-          const pageSize = results.length;
-          setTotalPages(Math.ceil(data.count / pageSize));
+          const pageSizeFromApi = results.length;
+          const realTotalPages = Math.ceil(
+            data.count / pageSizeFromApi
+          );
+          setTotalPages(realTotalPages);
         } else {
           setTotalPages(1);
         }
@@ -76,7 +80,7 @@ export default function Gallery() {
       .finally(() => setLoading(false));
   }, [locale, activeCategory, pageParam]);
 
-  /* Prevent invalid page */
+  /* جلوگیری از صفحه خارج از بازه (مثلاً ?page=5 وقتی فقط 4 صفحه هست) */
   useEffect(() => {
     if (!loading && pageParam > totalPages && totalPages > 0) {
       const params = new URLSearchParams(searchParams.toString());
@@ -105,35 +109,33 @@ export default function Gallery() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4">
-      {/* Tabs - Horizontal scroll on mobile */}
-      <div className="mb-12">
-        <div className="flex gap-4 overflow-x-auto whitespace-nowrap no-scrollbar">
+    <div className="max-w-7xl mx-auto">
+      {/* Tabs */}
+      <div className="flex gap-4 mb-12 flex-wrap">
+        <button
+          onClick={() => handleTabClick(null)}
+          className={`px-4 py-2 transition ${
+            !activeCategory
+              ? "border-b-3 border-[#005E8B] text-[#005E8B]"
+              : "hover:text-[#005E8B]"
+          }`}
+        >
+          همه
+        </button>
+
+        {categories.map((cat) => (
           <button
-            onClick={() => handleTabClick(null)}
-            className={`px-4 py-2 shrink-0 transition ${
-              !activeCategory
-                ? "border-b-2 border-[#005E8B] text-[#005E8B]"
+            key={cat.slug}
+            onClick={() => handleTabClick(cat.slug)}
+            className={`px-4 py-2 transition text-[16px] ${
+              activeCategory === cat.slug
+                ? "border-b-3 border-[#005E8B] text-[#005E8B]"
                 : "hover:text-[#005E8B]"
             }`}
           >
-            همه
+            {cat.name}
           </button>
-
-          {categories.map((cat) => (
-            <button
-              key={cat.slug}
-              onClick={() => handleTabClick(cat.slug)}
-              className={`px-4 py-2 shrink-0 transition ${
-                activeCategory === cat.slug
-                  ? "border-b-2 border-[#005E8B] text-[#005E8B]"
-                  : "hover:text-[#005E8B]"
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </div>
+        ))}
       </div>
 
       {/* Projects */}
@@ -142,7 +144,7 @@ export default function Gallery() {
           {[...Array(6)].map((_, i) => (
             <div
               key={i}
-              className="w-full h-[326px] bg-zinc-200 animate-pulse"
+              className="w-[392px] h-[326px] bg-zinc-200 animate-pulse"
             />
           ))}
         </div>
@@ -153,7 +155,7 @@ export default function Gallery() {
               <Link
                 key={project.slug}
                 href={`/projects/${project.slug}`}
-                className="bg-zinc-100 rounded-sm overflow-hidden w-full h-[326px]
+                className="bg-zinc-100 rounded-sm overflow-hidden w-[392px] h-[326px]
                   hover:bg-[#005E8B] hover:text-white transition"
               >
                 <div className="overflow-hidden">
@@ -173,7 +175,7 @@ export default function Gallery() {
             ))}
           </div>
 
-          {/* Pagination */}
+          {/* Pagination (100% synced with API) */}
           {count > 0 && totalPages > 1 && pageParam <= totalPages && (
             <div className="flex justify-center items-center gap-2 mb-16">
               <button
@@ -190,7 +192,7 @@ export default function Gallery() {
                   <button
                     key={page}
                     onClick={() => changePage(page)}
-                    className={`w-8 h-8 rounded border ${
+                    className={`w-[32px] h-[32px] rounded border ${
                       page === pageParam
                         ? "bg-[#005E8B] text-white"
                         : "text-[#005E8B] hover:bg-zinc-100"

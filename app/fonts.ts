@@ -14,11 +14,10 @@ export const yekan = localFont({
   variable: "--font-yekan",
   display: "swap",
 });
-
-export const Inter = localFont({
-  src: [
-    {path : "./../public/fonts/Inter-Regular.ttf" , weight: "400"}
+ export const Inter = localFont({
+  src:[
+    {path: "./../public/fonts/Inter-Regular.ttf", weight: "400"}
   ],
-  variable: "--font-Inter",
+   variable: "--font-Inter",
   display: "swap",
-});
+ })

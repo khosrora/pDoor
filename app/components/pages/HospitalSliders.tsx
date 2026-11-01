@@ -44,7 +44,7 @@ export default function HospitalSliders() {
     <div className="my-8 bg-[#003F5D] py-8">
       {/* Header */}
       <div className="flex flex-col items-start mb-6 text-white px-4 max-w-7xl mx-auto">
-        <p className="text-[19px] lg:text-[23px] lg:font-regular">
+        <p className="text-[23px] font-regular">
           {t("sectionTitle")}
         </p>
       </div>
@@ -64,12 +64,11 @@ export default function HospitalSliders() {
           1024: { slidesPerView: 3 },
           1280: { slidesPerView: 3 },
         }}
-        className="max-w-7xl px-4 "
+        className="max-w-7xl px-4"
       >
         {projects.map((item) => (
           <SwiperSlide key={item.slug}>
-            <div className="group">
-              <div className=" w-[182px] h-[215px] m-2 lg:w-[392px] lg:h-[326px] bg-white group-hover:bg-[#005E8B]  rounded-sm overflow-hidden flex flex-col">
+            <div className="w-[182px] h-[215px] m-2 lg:w-[392px] lg:h-[326px] bg-white rounded-sm overflow-hidden flex flex-col">
               <figure>
                 <img
                   src={item.cover_image}
@@ -79,11 +78,10 @@ export default function HospitalSliders() {
               </figure>
 
               <div className="p-4">
-                <p className="text-[#005E8B] text-[12px] lg:text-[16px] group-hover:text-white lg:font-semibold">
+                <p className="text-[#005E8B] font-semibold">
                   {item.title}
                 </p>
               </div>
-            </div>
             </div>
           </SwiperSlide>
         ))}
